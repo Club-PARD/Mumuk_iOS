@@ -16,6 +16,7 @@
 		22BB26012C22E31E00F7585E /* mumukTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB26002C22E31E00F7585E /* mumukTests.swift */; };
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
+		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		64F11BC91D1D83A4DB6E74DC /* Pods_mumuk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF935B5073A409ECC3986C0 /* Pods_mumuk.framework */; };
 		81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E252C29A3DF00EEC5FB /* LoginController.swift */; };
 		81042E2B2C29A6CA00EEC5FB /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2A2C29A6CA00EEC5FB /* NameModel.swift */; };
@@ -61,6 +62,7 @@
 		22BB260A2C22E31E00F7585E /* mumukUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mumukUITests.swift; sourceTree = "<group>"; };
 		22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mumukUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2F75CE00BA15DAFB40D08F53 /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.release.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
+		485008072C2C44A800C9A196 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 		5E5F26A57575343077AB162A /* Pods-mumuk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.debug.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.debug.xcconfig"; sourceTree = "<group>"; };
 		640E081A3AC51898FCC23B17 /* Pods-mumukTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.debug.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.debug.xcconfig"; sourceTree = "<group>"; };
 		72A3AA56CE3C50E0F787E7FF /* Pods-mumuk-mumukUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.release.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				81042E272C29A69C00EEC5FB /* Model */,
 				22BB25E92C22E31B00F7585E /* AppDelegate.swift */,
 				22BB25EB2C22E31B00F7585E /* SceneDelegate.swift */,
+				485008072C2C44A800C9A196 /* MapModalViewController.swift */,
 				22BB25ED2C22E31B00F7585E /* ViewController.swift */,
 				22BB25EF2C22E31B00F7585E /* Main.storyboard */,
 				22BB25F22C22E31E00F7585E /* Assets.xcassets */,
@@ -447,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
+				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
 				22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */,
 				81042E2B2C29A6CA00EEC5FB /* NameModel.swift in Sources */,
@@ -639,7 +643,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XKXAYAYCU7;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -671,7 +675,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = XKXAYAYCU7;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
