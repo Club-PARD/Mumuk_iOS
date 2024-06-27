@@ -32,7 +32,7 @@ class ModalImageSelect: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 60 // 적절한 반지름 값 설정
-        imageView.layer.borderWidth = 1
+//        imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor.black.cgColor
         return imageView
     }()
@@ -139,8 +139,13 @@ class ModalImageSelect: UIViewController {
     }
     
     @objc func deleteButtonTapped() {
-            delegate?.didSelectImage(withNumber: 0)
-            dismiss(animated: true, completion: nil)
+//            delegate?.didSelectImage(withNumber: 0)
+//            dismiss(animated: true, completion: nil)
+        
+        // 기본 이미지로 업데이트
+        let defaultImage = UIImage(named: "default") // 여기에 기본 이미지 이름을 넣으세요
+        updateSelectedImage(with: defaultImage, at: 0)
+        
         }
 
     //프로필 누룰 때 마다 실행
@@ -152,7 +157,7 @@ class ModalImageSelect: UIViewController {
 
 extension ModalImageSelect: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Model.ModelData.count
+        return Model.ModelData.count - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -162,17 +167,17 @@ extension ModalImageSelect: UICollectionViewDelegate, UICollectionViewDataSource
         }
         
         cell.backgroundColor = .clear
-        let target = Model.ModelData[indexPath.item]
+        let target = Model.ModelData[indexPath.item + 1]
         let image = UIImage(named: "\(target.image).jpeg")
         cell.imageView.image = image
-        cell.imageView.tag = indexPath.item // 태그를 사용하여 셀의 인덱스 저장
+        cell.imageView.tag = indexPath.item+1 // 태그를 사용하여 셀의 인덱스 저장
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let target = Model.ModelData[indexPath.item]
+        let target = Model.ModelData[indexPath.item + 1]
         let image = UIImage(named: "\(target.image).jpeg")
-        updateSelectedImage(with: image, at: indexPath.item)    //선택한 이미지 큰 곳에 전송
+        updateSelectedImage(with: image, at: indexPath.item+1)    //선택한 이미지 큰 곳에 전송
     }
 }
 

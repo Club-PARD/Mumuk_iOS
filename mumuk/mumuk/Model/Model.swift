@@ -19,6 +19,7 @@ struct Model{
 extension Model{
     
     static var ModelData = [
+        Model(number: 0, image: "default"),
         Model(number: 1, image: "red"),
         Model(number: 2, image: "blue"),
         Model(number: 3, image: "예시"),
