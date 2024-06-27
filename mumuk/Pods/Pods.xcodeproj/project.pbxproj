@@ -182,7 +182,11 @@
 		098108CF22C6D96A00BFBB008EBD1DDA /* TextNode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextNode.swift; path = Sources/TextNode.swift; sourceTree = "<group>"; };
 		0E34AE840D65850D12C35565185E64BD /* Pods-mumuk-mumukUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-mumuk-mumukUITests"; path = Pods_mumuk_mumukUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E6AB803733903E1015408EF1362AC28 /* Comment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Sources/Comment.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		1031FCD63B560E7DA6B6F29D710BFAC7 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
+=======
+		1031FCD63B560E7DA6B6F29D710BFAC7 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
+>>>>>>> main
 		170A8E30DEF7BC6E0D5D3E0E0B007283 /* UnfairLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnfairLock.swift; path = Sources/UnfairLock.swift; sourceTree = "<group>"; };
 		174545305FE3585BFC039EB291A4DB7F /* SwiftSoup-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftSoup-Info.plist"; sourceTree = "<group>"; };
 		17B15A7C37B65AAD3D88885E02A5E04F /* OrderedSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OrderedSet.swift; path = Sources/OrderedSet.swift; sourceTree = "<group>"; };
@@ -222,14 +226,22 @@
 		69D75F4F90BCA94BDA40F645A7E22927 /* Elements.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Elements.swift; path = Sources/Elements.swift; sourceTree = "<group>"; };
 		69EDA1129EC35F6E02291900D9909945 /* HttpStatusException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HttpStatusException.swift; path = Sources/HttpStatusException.swift; sourceTree = "<group>"; };
 		6AF2D49055BD6813D7DBA766EF286B5E /* DataUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataUtil.swift; path = Sources/DataUtil.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		6C94BDA8D838C24D90A1B915961EE9D2 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
+=======
+		6C94BDA8D838C24D90A1B915961EE9D2 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
+>>>>>>> main
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		75C70674432AAE7115C52DC17416F534 /* Tokeniser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tokeniser.swift; path = Sources/Tokeniser.swift; sourceTree = "<group>"; };
 		76A525A174A75BB0DF852252740B62D1 /* XmlDeclaration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XmlDeclaration.swift; path = Sources/XmlDeclaration.swift; sourceTree = "<group>"; };
 		7900845861E2D0B219058A06FFFED8F8 /* NMapsMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsMap.release.xcconfig; sourceTree = "<group>"; };
 		7977795532771BCD15FDC7F92DBBBCB6 /* SwiftSoup-SwiftSoup */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SwiftSoup-SwiftSoup"; path = SwiftSoup.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B36C78F81C733E0FD6AD2C24D0BB434 /* BinarySearch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BinarySearch.swift; path = Sources/BinarySearch.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods_mumuk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods-mumuk */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-mumuk"; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> main
 		7C1688750D71FD007EBD136F8280A3E4 /* Pods-mumukTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumukTests-Info.plist"; sourceTree = "<group>"; };
 		84440BFE58A08F93F87B08D7D334C632 /* NMapsMap-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "NMapsMap-xcframeworks.sh"; sourceTree = "<group>"; };
 		857F72DA1497C815EE5B39EC07271E7B /* SwiftSoup-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSoup-prefix.pch"; sourceTree = "<group>"; };
@@ -243,7 +255,11 @@
 		975A3130222C6F8EBD8C64398FF83866 /* SwiftSoup-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftSoup-dummy.m"; sourceTree = "<group>"; };
 		9BA2BB0A4B8331ACBEA251395DF973EC /* StringUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringUtil.swift; path = Sources/StringUtil.swift; sourceTree = "<group>"; };
 		9C4978BCFEB40224C1541B2A7D933FDA /* Pods-mumuk-mumukUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumuk-mumukUITests-Info.plist"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+=======
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+>>>>>>> main
 		A08D9009FD9F14707312AB89BE573D19 /* Mutex.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mutex.swift; path = Sources/Mutex.swift; sourceTree = "<group>"; };
 		A276B18F8B097674F2C2939C4CF8B2CC /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Parser.swift; sourceTree = "<group>"; };
 		A287990DFF27912EC3DDE5A81582DC29 /* StreamReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StreamReader.swift; path = Sources/StreamReader.swift; sourceTree = "<group>"; };
@@ -271,7 +287,11 @@
 		DCE6C85A04E50B80D4D8B6DD85CFBB84 /* Tag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = Sources/Tag.swift; sourceTree = "<group>"; };
 		DDE8510A7D4C5B68D95873B881682B15 /* NodeTraversor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NodeTraversor.swift; path = Sources/NodeTraversor.swift; sourceTree = "<group>"; };
 		DE1D3C1BBEC5B757B266A7B66F2FFD44 /* Attribute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Attribute.swift; path = Sources/Attribute.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		E1FE3E9FD6491CBA40006BB5B6BA5826 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+		E1FE3E9FD6491CBA40006BB5B6BA5826 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+>>>>>>> main
 		E63A3FF4CD24311F1009B5F45721B26F /* CssSelector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CssSelector.swift; path = Sources/CssSelector.swift; sourceTree = "<group>"; };
 		EB64DD5961DBAAA9AE55EF8A264D94D1 /* Pods-mumuk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-mumuk.debug.xcconfig"; sourceTree = "<group>"; };
 		F14721B6BA4F27EE39DB02A09B10D933 /* Pods-mumuk-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-mumuk-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -411,6 +431,10 @@
 				F2FB90A54BF788FAF5B435A2686FBDE2 /* Frameworks */,
 				61980FD2DE7945EDE9A70AB1744A9079 /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
+			name = NMapsGeometry;
+>>>>>>> main
 			path = NMapsGeometry;
 			sourceTree = "<group>";
 		};
@@ -430,6 +454,10 @@
 				D62017D1CC1B27E6079C44EE8B839CB3 /* Frameworks */,
 				F2C5B5E4111B30E7AF08DC19037896E3 /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
+			name = NMapsMap;
+>>>>>>> main
 			path = NMapsMap;
 			sourceTree = "<group>";
 		};
@@ -497,6 +525,10 @@
 				E68708D4658402357E4627C80FAF4F46 /* Resources */,
 				3DB74B92AB2B25CF4FF83F964BF1BB5C /* Support Files */,
 			);
+<<<<<<< HEAD
+=======
+			name = SwiftSoup;
+>>>>>>> main
 			path = SwiftSoup;
 			sourceTree = "<group>";
 		};
@@ -530,7 +562,11 @@
 		E4BB2A71DAED6D796F9AD8A38253BF29 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods_mumuk.framework */,
+=======
+				7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods-mumuk */,
+>>>>>>> main
 				0E34AE840D65850D12C35565185E64BD /* Pods-mumuk-mumukUITests */,
 				AED8701F8C4D2B3C8ADF2660231CCFEE /* Pods-mumukTests */,
 				5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */,
@@ -697,6 +733,25 @@
 			name = "Pods-mumuk";
 			productName = Pods_mumuk;
 			productReference = 7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods_mumuk.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D89F48405DFAFEF441B4E758A15117A5 /* SwiftSoup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 824843DDDF47B80EA2E130A7226815CA /* Build configuration list for PBXNativeTarget "SwiftSoup" */;
+			buildPhases = (
+				E018861E5DC9A7335B215A492E747D7D /* Headers */,
+				C960FA4EB4832F5F2586731959DB90F0 /* Sources */,
+				9BEA9753D2A095E4A045210B0860F6F4 /* Frameworks */,
+				B64891B47CF605E26C0A3BC29A87D7DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				09EA1771186C2A61C63AE7978A880883 /* PBXTargetDependency */,
+			);
+			name = SwiftSoup;
+			productName = SwiftSoup;
+			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */;
 			productType = "com.apple.product-type.framework";
 		};
 		D89F48405DFAFEF441B4E758A15117A5 /* SwiftSoup */ = {
