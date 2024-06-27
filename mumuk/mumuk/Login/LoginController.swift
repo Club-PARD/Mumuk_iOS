@@ -9,7 +9,7 @@ import UIKit
 
 class LoginController: UIViewController, ModalImageSelectDelegate {
     var memos: [NameModel] = []    // memos 배열
-    var selectedIndex: Int?
+    var selectedIndex: Int? = 0
 
     var roundedImageButton: CustomImageField!
 
@@ -175,10 +175,10 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         
     }
     
-    
-    
-    
     @objc func tapModalButton() {
+        //키보드 내리기
+        view.endEditing(true)
+        
         let ModalImageSelect = ModalImageSelect()
         ModalImageSelect.modalPresentationStyle = .formSheet
         
@@ -197,7 +197,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
             // roundedImageButton에서 이미지를 가져와서 modalImageSelect의 selectedImage에 설정
             ModalImageSelect.selectedImage = roundedImageButton.image
             ModalImageSelect.delegate = self // delegate 설정
-
             
             // 모달을 present
             present(ModalImageSelect, animated: true)
@@ -255,6 +254,12 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }
+    
+    
+    //빈화면 터치 시 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            view.endEditing(true)
+        }
     
 }
 
