@@ -23,6 +23,7 @@
 		81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */; };
 		81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */; };
 		81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E312C29E23600EEC5FB /* ModalImageSelect.swift */; };
+		81084A042C2E6F8900A3E481 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81084A032C2E6F8900A3E481 /* NotificationController.swift */; };
 		81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375F92C2AF3D7006D986F /* CustomCell.swift */; };
 		81F375FC2C2AF93A006D986F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FB2C2AF93A006D986F /* Model.swift */; };
 		81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */; };
@@ -72,6 +73,7 @@
 		81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageField.swift; sourceTree = "<group>"; };
 		81042E312C29E23600EEC5FB /* ModalImageSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelect.swift; sourceTree = "<group>"; };
+		81084A032C2E6F8900A3E481 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
 		81F375F92C2AF3D7006D986F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		81F375FB2C2AF93A006D986F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelectDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				22BB25F22C22E31E00F7585E /* Assets.xcassets */,
 				22BB25F42C22E31E00F7585E /* LaunchScreen.storyboard */,
 				22BB25F72C22E31E00F7585E /* Info.plist */,
+				81084A052C2E6F9000A3E481 /* Notification */,
 			);
 			path = mumuk;
 			sourceTree = "<group>";
@@ -208,6 +211,14 @@
 				81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		81084A052C2E6F9000A3E481 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				81084A032C2E6F8900A3E481 /* NotificationController.swift */,
+			);
+			path = Notification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -458,6 +469,7 @@
 				81F375FC2C2AF93A006D986F /* Model.swift in Sources */,
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
+				81084A042C2E6F8900A3E481 /* NotificationController.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
@@ -643,7 +655,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XKXAYAYCU7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -675,7 +687,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XKXAYAYCU7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
