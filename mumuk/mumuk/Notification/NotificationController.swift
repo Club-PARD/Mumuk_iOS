@@ -39,7 +39,7 @@ class NotificationController: UIViewController {
             let content = UNMutableNotificationContent()
             content.title = "아침 알림"
             content.body = "좋은 아침입니다! 오늘 하루도 화이팅하세요!"
-            content.sound = UNNotificationSound.default     // 그냥 default안하고 이렇게 하면 화면 꺼져있어도 알림이 뜨려나
+            content.sound = UNNotificationSound.default
             content.badge = 1
             
             // 매일 아침 10시에 알림을 트리거하는 트리거 생성
@@ -66,7 +66,7 @@ class NotificationController: UIViewController {
             let content = UNMutableNotificationContent()
             content.title = "알림 제목입니다"
             content.body = "알림 바디입니다. 여기 내용이 들어갑니다."
-            content.sound = UNNotificationSound.default     // 꺼져있어도 알람
+            content.sound = UNNotificationSound.default
             content.badge = 1
             
             // 5초 뒤에 알림을 실행하는 트리거 생성
