@@ -176,11 +176,19 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKAuth/KakaoSDKAuth.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/NMapsGeometry/NMapsGeometry.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/NMapsMap/NMapsMap.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKAuth/KakaoSDKAuth.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/NMapsGeometry/NMapsGeometry.framework"
   install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/NMapsMap/NMapsMap.framework"
