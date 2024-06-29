@@ -700,10 +700,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55JW9PZ4J9;
-<<<<<<< HEAD
-=======
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
->>>>>>> main
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -736,10 +733,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55JW9PZ4J9;
-<<<<<<< HEAD
-=======
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
->>>>>>> main
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
