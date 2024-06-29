@@ -25,6 +25,10 @@
 		81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */; };
 		81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E312C29E23600EEC5FB /* ModalImageSelect.swift */; };
 		811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811168B82C2E9A7500A09CD3 /* NotificationController.swift */; };
+		815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7C62C304E120090BDBE /* TabbarViewController.swift */; };
+		815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7C92C304F3F0090BDBE /* FriendViewController.swift */; };
+		815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7CF2C304FA70090BDBE /* MainViewController.swift */; };
+		815FE7D22C304FC20090BDBE /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7D12C304FC20090BDBE /* MyViewController.swift */; };
 		81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375F92C2AF3D7006D986F /* CustomCell.swift */; };
 		81F375FC2C2AF93A006D986F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FB2C2AF93A006D986F /* Model.swift */; };
 		81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */; };
@@ -76,6 +80,10 @@
 		81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageField.swift; sourceTree = "<group>"; };
 		81042E312C29E23600EEC5FB /* ModalImageSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelect.swift; sourceTree = "<group>"; };
 		811168B82C2E9A7500A09CD3 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		815FE7C62C304E120090BDBE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		815FE7C92C304F3F0090BDBE /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		815FE7CF2C304FA70090BDBE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		815FE7D12C304FC20090BDBE /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		81F375F92C2AF3D7006D986F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		81F375FB2C2AF93A006D986F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelectDelegate.swift; sourceTree = "<group>"; };
@@ -138,6 +146,7 @@
 		22BB25E82C22E31B00F7585E /* mumuk */ = {
 			isa = PBXGroup;
 			children = (
+				815FE7C52C304D1A0090BDBE /* Component */,
 				811168B92C2E9A7500A09CD3 /* Notification */,
 				81042E2C2C29B65000EEC5FB /* Login */,
 				81042E272C29A69C00EEC5FB /* Model */,
@@ -230,6 +239,25 @@
 				811168B82C2E9A7500A09CD3 /* NotificationController.swift */,
 			);
 			path = Notification;
+			sourceTree = "<group>";
+		};
+		815FE7C52C304D1A0090BDBE /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				815FE7C82C304EB20090BDBE /* Tabbar */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		815FE7C82C304EB20090BDBE /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				815FE7C62C304E120090BDBE /* TabbarViewController.swift */,
+				815FE7C92C304F3F0090BDBE /* FriendViewController.swift */,
+				815FE7CF2C304FA70090BDBE /* MainViewController.swift */,
+				815FE7D12C304FC20090BDBE /* MyViewController.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,13 +503,17 @@
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
 				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
+				815FE7D22C304FC20090BDBE /* MyViewController.swift in Sources */,
 				22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */,
 				81042E2B2C29A6CA00EEC5FB /* NameModel.swift in Sources */,
 				81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */,
+				815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */,
 				81F375FC2C2AF93A006D986F /* Model.swift in Sources */,
+				815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */,
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
+				815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
@@ -667,7 +699,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 55JW9PZ4J9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -683,7 +716,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vamos.you;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vamos.mumuk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -699,7 +732,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 55JW9PZ4J9;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -715,7 +749,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.vamos.you;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vamos.mumuk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
