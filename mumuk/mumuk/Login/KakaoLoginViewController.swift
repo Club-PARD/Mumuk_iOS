@@ -6,6 +6,7 @@ import KakaoSDKCommon
 class KakaoLoginViewController: UIViewController {
     private let nickNameLabel = UILabel()
     private let emailLabel = UILabel()
+    
     private let kakaoLoginButton = UIButton(type: .system)
     private let logoutButton = UIButton(type: .system)
 
@@ -77,6 +78,21 @@ class KakaoLoginViewController: UIViewController {
                     self.setUserInfo()
                 }
             }
+        } else {
+            // 카카오톡이 설치되어 있지 않은 경우 웹 로그인을 시도할 수 있습니다.
+            self.loginWithKakaoAccount()
+        }
+    }
+
+    private func loginWithKakaoAccount() {
+        UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+            if let error = error {
+                print(error)
+            } else {
+                print("loginWithKakaoAccount() success.")
+                _ = oauthToken
+                self.setUserInfo()
+            }
         }
     }
 
@@ -86,6 +102,10 @@ class KakaoLoginViewController: UIViewController {
                 print(error)
             } else {
                 print("kakao logout success")
+                DispatchQueue.main.async {
+                    self.nickNameLabel.text = "Nickname: "
+                    self.emailLabel.text = "Email: "
+                }
             }
         }
     }
