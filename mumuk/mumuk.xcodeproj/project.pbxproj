@@ -17,7 +17,6 @@
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
-		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
 		64F11BC91D1D83A4DB6E74DC /* Pods_mumuk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF935B5073A409ECC3986C0 /* Pods_mumuk.framework */; };
 		81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E252C29A3DF00EEC5FB /* LoginController.swift */; };
 		81042E2B2C29A6CA00EEC5FB /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2A2C29A6CA00EEC5FB /* NameModel.swift */; };
@@ -65,7 +64,10 @@
 		22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mumukUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2F75CE00BA15DAFB40D08F53 /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.release.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
 		485008072C2C44A800C9A196 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
-		485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KakaoLoginViewController.swift; path = Login/KakaoLoginViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
+>>>>>>> mj_branch
 		5E5F26A57575343077AB162A /* Pods-mumuk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.debug.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.debug.xcconfig"; sourceTree = "<group>"; };
 		640E081A3AC51898FCC23B17 /* Pods-mumukTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.debug.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.debug.xcconfig"; sourceTree = "<group>"; };
 		72A3AA56CE3C50E0F787E7FF /* Pods-mumuk-mumukUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.release.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -183,13 +185,11 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		4850082D2C2E891300C9A196 /* kakao */ = {
+		48A2E8B72C2FE3A8007E4CE5 /* Kakao */ = {
 			isa = PBXGroup;
 			children = (
-				485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */,
 			);
-			name = kakao;
-			path = ..;
+			path = Kakao;
 			sourceTree = "<group>";
 		};
 		650F0B59193A5B3A6379C872 /* Frameworks */ = {
@@ -214,7 +214,7 @@
 		81042E2C2C29B65000EEC5FB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				4850082D2C2E891300C9A196 /* kakao */,
+				48A2E8B72C2FE3A8007E4CE5 /* Kakao */,
 				81042E252C29A3DF00EEC5FB /* LoginController.swift */,
 				81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */,
 				81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */,
@@ -472,7 +472,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */,
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
 				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
@@ -668,7 +667,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XKXAYAYCU7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -700,7 +699,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = XKXAYAYCU7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
