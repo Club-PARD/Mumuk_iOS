@@ -24,7 +24,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: windowScene)
+<<<<<<< HEAD
         window?.rootViewController = KakaoLoginViewController()
+=======
+        window?.rootViewController = NotificationController()
+>>>>>>> main
         window?.makeKeyAndVisible()
     }
 
