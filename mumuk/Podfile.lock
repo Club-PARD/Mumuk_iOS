@@ -20,6 +20,7 @@ DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKUser
+  - NMapsGeometry
   - NMapsMap
   - SwiftSoup
 
@@ -42,6 +43,6 @@ SPEC CHECKSUMS:
   NMapsMap: e879088eeee2d1e3b97f0a609076e1824dce2cad
   SwiftSoup: 4164c6bd8af69acd119c23fb36906975a60d71bb
 
-PODFILE CHECKSUM: f092a7e4b906fefff441caf557bae6c2c7e7a5b3
+PODFILE CHECKSUM: 54379a39a9c56d2e0542f0dc48ca7facf48c53a2
 
 COCOAPODS: 1.15.2
