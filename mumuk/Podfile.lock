@@ -1,24 +1,47 @@
 PODS:
+  - Alamofire (5.9.1)
+  - KakaoSDKAuth (2.22.3):
+    - KakaoSDKCommon (= 2.22.3)
+  - KakaoSDKCommon (2.22.3):
+    - KakaoSDKCommon/Common (= 2.22.3)
+    - KakaoSDKCommon/Network (= 2.22.3)
+  - KakaoSDKCommon/Common (2.22.3)
+  - KakaoSDKCommon/Network (2.22.3):
+    - Alamofire (~> 5.9.0)
+    - KakaoSDKCommon/Common (= 2.22.3)
+  - KakaoSDKUser (2.22.3):
+    - KakaoSDKAuth (= 2.22.3)
   - NMapsGeometry (1.0.2)
   - NMapsMap (3.18.1):
     - NMapsGeometry
   - SwiftSoup (2.7.2)
 
 DEPENDENCIES:
+  - KakaoSDKAuth
+  - KakaoSDKCommon
+  - KakaoSDKUser
   - NMapsMap
   - SwiftSoup
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
     - NMapsGeometry
     - NMapsMap
     - SwiftSoup
 
 SPEC CHECKSUMS:
+  Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
+  KakaoSDKAuth: 6ac329e616e9506b5d6dd5640d79363d066ad835
+  KakaoSDKCommon: 053dbf0438933101244fccd92ebc389ab6bdbaec
+  KakaoSDKUser: ad33a38ec7f1da566c882ed498022923198599a7
   NMapsGeometry: 4e02554fa9880ef02ed96b075dc84355d6352479
   NMapsMap: e879088eeee2d1e3b97f0a609076e1824dce2cad
   SwiftSoup: 4164c6bd8af69acd119c23fb36906975a60d71bb
 
-PODFILE CHECKSUM: b885b2a12e96272878da2ef5c65df7ad80cb2d3c
+PODFILE CHECKSUM: f092a7e4b906fefff441caf557bae6c2c7e7a5b3
 
 COCOAPODS: 1.15.2

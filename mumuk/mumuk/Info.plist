@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>kakao1e6b5167b05b0aaf5f1873503dcf2af3</string>
+			</array>
+		</dict>
+	</array>
 	<key>NMFClientId</key>
 	<string>67g758ya5u</string>
 	<key>UIApplicationSceneManifest</key>
