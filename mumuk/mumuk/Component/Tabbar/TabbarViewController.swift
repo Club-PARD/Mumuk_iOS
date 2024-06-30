@@ -55,7 +55,7 @@ class TabbarViewController: UITabBarController {
         
         NSLayoutConstraint.activate([
             logoImage.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor),
-            logoImage.centerYAnchor.constraint(equalTo: tabBar.topAnchor, constant: 13),
+            logoImage.centerYAnchor.constraint(equalTo: tabBar.topAnchor, constant: 12),
             logoImage.widthAnchor.constraint(equalToConstant: 100),
             logoImage.heightAnchor.constraint(equalToConstant: 100)
         ])
@@ -87,8 +87,8 @@ class TabbarViewController: UITabBarController {
         tabBarItems[2].title = "MY"
         
         tabBarItems.forEach { item in
-            item.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 12)], for: .normal)
-            item.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 12)], for: .selected)
+            item.setTitleTextAttributes([.font: UIFont.pretendard(.bold, size: 13)], for: .normal)
+            item.setTitleTextAttributes([.font: UIFont.pretendard(.bold, size: 13)], for: .selected)
             item.imageInsets = UIEdgeInsets(top: -4, left: 0, bottom: 4, right: 0)
             item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -4)
         }
