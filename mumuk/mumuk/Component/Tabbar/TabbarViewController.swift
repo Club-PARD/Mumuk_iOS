@@ -29,6 +29,15 @@ class TabbarViewController: UITabBarController {
         
         tabBar.itemPositioning = .centered
         tabBar.itemSpacing = 100
+        
+        tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: -3)
+        tabBar.layer.shadowOpacity = 0.1
+        tabBar.layer.shadowRadius = 5
+        tabBar.layer.masksToBounds = false
+        
+        // vc2를 기본 선택 탭으로 설정
+        selectedIndex = 1
     }
     
     override func viewDidLayoutSubviews() {
