@@ -81,8 +81,7 @@ class MainViewController: UIViewController {
         button.setTitle("선호도 입력하러 가기 >", for: .normal)
         button.setTitleColor(UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1), for: .normal)
         button.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: 13)
-        button.backgroundColor = .white
-        button.layer.cornerRadius = 17 // 34/2
+        button.layer.cornerRadius = 17
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
         return button
@@ -157,6 +156,7 @@ class MainViewController: UIViewController {
             super.viewDidLoad()
             view.backgroundColor = .white
             setupUI()
+            setupButtonActions()
         }
 
     private func setupUI() {
@@ -248,13 +248,13 @@ class MainViewController: UIViewController {
             preferenceButton.widthAnchor.constraint(equalToConstant: 140),
             preferenceButton.heightAnchor.constraint(equalToConstant: 34),
 
-            textBalloonImageView.bottomAnchor.constraint(equalTo: preferenceButton.topAnchor, constant: -3),
+            textBalloonImageView.bottomAnchor.constraint(equalTo: preferenceButton.topAnchor, constant: -2),
             textBalloonImageView.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -14.65),
-            textBalloonImageView.widthAnchor.constraint(equalToConstant: 124.61),
-            textBalloonImageView.heightAnchor.constraint(equalToConstant: 27),
+            textBalloonImageView.widthAnchor.constraint(equalToConstant: 124),
+            textBalloonImageView.heightAnchor.constraint(equalToConstant: 32),
 
             foodScrumCompleteLabel.centerXAnchor.constraint(equalTo: textBalloonImageView.centerXAnchor),
-            foodScrumCompleteLabel.centerYAnchor.constraint(equalTo: textBalloonImageView.centerYAnchor, constant: -2.5),
+            foodScrumCompleteLabel.centerYAnchor.constraint(equalTo: textBalloonImageView.centerYAnchor, constant: -3),
             foodScrumCompleteLabel.widthAnchor.constraint(equalTo: textBalloonImageView.widthAnchor, constant: -10),
             foodScrumCompleteLabel.heightAnchor.constraint(equalToConstant: 20),
             
@@ -289,6 +289,19 @@ class MainViewController: UIViewController {
             createButton.trailingAnchor.constraint(equalTo: secondShadowView.trailingAnchor, constant: -20),
             createButton.topAnchor.constraint(equalTo: secondShadowView.topAnchor, constant: 73)
         ])
+    }
+    
+    private func setupButtonActions() {
+        preferenceButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+        preferenceButton.addTarget(self, action: #selector(buttonTouchUpInside), for: [.touchUpInside, .touchUpOutside])
+    }
+
+    @objc private func buttonTouchDown() {
+        preferenceButton.backgroundColor = .lightGray
+    }
+
+    @objc private func buttonTouchUpInside() {
+        preferenceButton.backgroundColor = .clear
     }
 
     private func setupShadow() {
