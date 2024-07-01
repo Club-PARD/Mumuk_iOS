@@ -143,7 +143,9 @@ class MainViewController: UIViewController {
     let groupBeforeButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "groupBefore"), for: .normal)
+        button.setImage(UIImage(named: "groupBefore"), for: .disabled)  // 추가
         button.contentMode = .scaleAspectFit
+        button.adjustsImageWhenDisabled = false  // 추가
         return button
     }()
     
@@ -399,6 +401,8 @@ class MainViewController: UIViewController {
     private func updateGroupButton(isGrouped: Bool) {
         let imageName = isGrouped ? "groupAfter" : "groupBefore"
         groupBeforeButton.setImage(UIImage(named: imageName), for: .normal)
+        groupBeforeButton.setImage(UIImage(named: imageName), for: .disabled)  // 추가
+        groupBeforeButton.isEnabled = isGrouped
     }
 }
 
