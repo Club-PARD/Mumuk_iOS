@@ -1,8 +1,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let uid = "1111" // 테스트용 임의의 UID
+    let uid = "1111123" // 테스트용 임의의 UID
     var timer: Timer?
+    var name: String?
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -143,9 +144,10 @@ class MainViewController: UIViewController {
     let groupBeforeButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "groupBefore"), for: .normal)
-        button.setImage(UIImage(named: "groupBefore"), for: .disabled)  // 추가
+        button.setImage(UIImage(named: "groupBefore"), for: .disabled)
+        button.adjustsImageWhenHighlighted = false
+        button.adjustsImageWhenDisabled = false
         button.contentMode = .scaleAspectFit
-        button.adjustsImageWhenDisabled = false  // 추가
         return button
     }()
     
@@ -315,6 +317,15 @@ class MainViewController: UIViewController {
         preferenceButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         preferenceButton.addTarget(self, action: #selector(buttonTouchUpInside), for: [.touchUpInside, .touchUpOutside])
         groupBeforeButton.addTarget(self, action: #selector(groupButtonTapped), for: .touchUpInside)
+        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)  // 추가
+    }
+
+    @objc private func createButtonTapped() {
+        let friendGroupingVC = FriendGroupingViewController()
+        friendGroupingVC.uid = self.uid  // uid 전달
+        friendGroupingVC.name = self.name  // name 전달
+        friendGroupingVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+        present(friendGroupingVC, animated: true, completion: nil)
     }
 
     @objc private func buttonTouchDown() {
@@ -326,7 +337,9 @@ class MainViewController: UIViewController {
     }
 
     @objc private func groupButtonTapped() {
-        fetchUserData()
+        if groupBeforeButton.isEnabled {
+            fetchUserData()
+        }
     }
 
     private func setupShadow() {
@@ -389,6 +402,7 @@ class MainViewController: UIViewController {
                 let users = try JSONDecoder().decode([User].self, from: data)
                 if let user = users.first {
                     DispatchQueue.main.async {
+                        self?.name = user.name
                         self?.updateGroupButton(isGrouped: user.grouped)
                     }
                 }
@@ -401,8 +415,9 @@ class MainViewController: UIViewController {
     private func updateGroupButton(isGrouped: Bool) {
         let imageName = isGrouped ? "groupAfter" : "groupBefore"
         groupBeforeButton.setImage(UIImage(named: imageName), for: .normal)
-        groupBeforeButton.setImage(UIImage(named: imageName), for: .disabled)  // 추가
+        groupBeforeButton.setImage(UIImage(named: imageName), for: .disabled)
         groupBeforeButton.isEnabled = isGrouped
+        groupBeforeButton.adjustsImageWhenHighlighted = isGrouped
     }
 }
 
