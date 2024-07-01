@@ -1,6 +1,9 @@
 import UIKit
 
 class MainViewController: UIViewController {
+    let uid = "1111" // 테스트용 임의의 UID
+    var timer: Timer?
+
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "mumuk")
@@ -104,38 +107,38 @@ class MainViewController: UIViewController {
     }()
 
     let secondShadowView: UIView = {
-            let view = UIView()
-            view.frame = CGRect(x: 0, y: 0, width: 329, height: 298)
-            view.clipsToBounds = false
-            return view
-        }()
+        let view = UIView()
+        view.frame = CGRect(x: 0, y: 0, width: 329, height: 298)
+        view.clipsToBounds = false
+        return view
+    }()
 
-        let secondShapeView: UIView = {
-            let view = UIView()
-            view.backgroundColor = .white
-            view.layer.cornerRadius = 30
-            return view
-        }()
+    let secondShapeView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 30
+        return view
+    }()
 
-        let tastyMeetingLabel: UILabel = {
-            let label = UILabel()
-            label.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-            label.font = UIFont(name: "Pretendard-Bold", size: 13)
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineHeightMultiple = 1.29
-            label.attributedText = NSMutableAttributedString(string: "맛있는 모임을 만들어 볼까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
-            return label
-        }()
+    let tastyMeetingLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+        label.font = UIFont(name: "Pretendard-Bold", size: 13)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.29
+        label.attributedText = NSMutableAttributedString(string: "맛있는 모임을 만들어 볼까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        return label
+    }()
 
-        let eatTogetherLabel: UILabel = {
-            let label = UILabel()
-            label.textColor = .black
-            label.font = UIFont(name: "Pretendard-Bold", size: 22)
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineHeightMultiple = 1.14
-            label.attributedText = NSMutableAttributedString(string: "함께 먹기", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
-            return label
-        }()
+    let eatTogetherLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont(name: "Pretendard-Bold", size: 22)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.14
+        label.attributedText = NSMutableAttributedString(string: "함께 먹기", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        return label
+    }()
     
     let groupBeforeButton: UIButton = {
         let button = UIButton(type: .custom)
@@ -151,13 +154,28 @@ class MainViewController: UIViewController {
         return button
     }()
 
-
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            view.backgroundColor = .white
-            setupUI()
-            setupButtonActions()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        setupUI()
+        setupButtonActions()
+        fetchUserData() // 초기 데이터 로드
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.fetchUserData()
         }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchUserData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer?.invalidate()
+        timer = nil
+    }
 
     private func setupUI() {
         view.addSubview(imageView)
@@ -294,6 +312,7 @@ class MainViewController: UIViewController {
     private func setupButtonActions() {
         preferenceButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         preferenceButton.addTarget(self, action: #selector(buttonTouchUpInside), for: [.touchUpInside, .touchUpOutside])
+        groupBeforeButton.addTarget(self, action: #selector(groupButtonTapped), for: .touchUpInside)
     }
 
     @objc private func buttonTouchDown() {
@@ -304,17 +323,19 @@ class MainViewController: UIViewController {
         preferenceButton.backgroundColor = .clear
     }
 
+    @objc private func groupButtonTapped() {
+        fetchUserData()
+    }
+
     private func setupShadow() {
         secondShadowView.layoutIfNeeded()
         
         let customPath = createCustomPath()
         
-        // Apply the custom path to the secondShapeView
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = customPath.cgPath
         secondShapeView.layer.mask = shapeLayer
         
-        // Apply the custom path to the shadow
         secondShadowView.layer.shadowPath = customPath.cgPath
         secondShadowView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
         secondShadowView.layer.shadowOpacity = 0.5
@@ -349,4 +370,42 @@ class MainViewController: UIViewController {
         path.close()
         return path
     }
+    
+    private func fetchUserData() {
+        guard let url = URL(string: "http://172.30.1.93:8080/user/users?uid=\(uid)") else {
+            print("Invalid URL")
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let data = data, error == nil else {
+                print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+
+            do {
+                let users = try JSONDecoder().decode([User].self, from: data)
+                if let user = users.first {
+                    DispatchQueue.main.async {
+                        self?.updateGroupButton(isGrouped: user.grouped)
+                    }
+                }
+            } catch {
+                print("Decoding error: \(error.localizedDescription)")
+            }
+        }.resume()
+    }
+
+    private func updateGroupButton(isGrouped: Bool) {
+        let imageName = isGrouped ? "groupAfter" : "groupBefore"
+        groupBeforeButton.setImage(UIImage(named: imageName), for: .normal)
+    }
+}
+
+struct User: Codable {
+    let uid: String
+    let name: String
+    let imageId: Int
+    let grouped: Bool
+    let daily: Bool
 }
