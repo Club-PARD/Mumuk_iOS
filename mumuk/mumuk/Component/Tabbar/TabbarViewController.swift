@@ -9,8 +9,8 @@ class TabbarViewController: UITabBarController {
         image.tintColor = .white
         image.contentMode = .scaleAspectFit
         image.layer.borderColor = UIColor.white.cgColor
-        image.layer.borderWidth = 11
-        image.layer.cornerRadius = 50
+        image.layer.borderWidth = 8.5
+        image.layer.cornerRadius = 40
         image.clipsToBounds = true
         image.layer.masksToBounds = true
         image.isUserInteractionEnabled = true
@@ -36,7 +36,6 @@ class TabbarViewController: UITabBarController {
         tabBar.layer.shadowRadius = 5
         tabBar.layer.masksToBounds = false
         
-        // vc2를 기본 선택 탭으로 설정
         selectedIndex = 1
     }
     
@@ -49,14 +48,16 @@ class TabbarViewController: UITabBarController {
         
         if let items = tabBar.items {
             for (index, item) in items.enumerated() {
-                if index != 1 {
-                    item.imageInsets = UIEdgeInsets(top: -19, left: 0, bottom: 19, right: 0)
-                    item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 5)
+                if index == 0 {
+                    item.titlePositionAdjustment = UIOffset(horizontal: 15, vertical: 2)
+                }
+                if index == 2 {
+                    item.titlePositionAdjustment = UIOffset(horizontal: -15, vertical: 2)
                 }
             }
         }
         
-        logoImage.center = CGPoint(x: tabBar.center.x, y: tabBar.frame.minY - 34)
+        logoImage.center = CGPoint(x: tabBar.center.x, y: tabBar.frame.minY - 30)
     }
     
     private func addLogoToTabBar() {
@@ -64,9 +65,9 @@ class TabbarViewController: UITabBarController {
         
         NSLayoutConstraint.activate([
             logoImage.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor),
-            logoImage.centerYAnchor.constraint(equalTo: tabBar.topAnchor, constant: 12),
-            logoImage.widthAnchor.constraint(equalToConstant: 100),
-            logoImage.heightAnchor.constraint(equalToConstant: 100)
+            logoImage.centerYAnchor.constraint(equalTo: tabBar.topAnchor, constant: 17),
+            logoImage.widthAnchor.constraint(equalToConstant: 80),
+            logoImage.heightAnchor.constraint(equalToConstant: 80)
         ])
     }
     
@@ -85,7 +86,6 @@ class TabbarViewController: UITabBarController {
         
         guard let tabBarItems = self.tabBar.items else { return }
         
-        // 이미지 크기 조정
         let personConfig = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .default)
         tabBarItems[0].image = UIImage(systemName: "person", withConfiguration: personConfig)?.withRenderingMode(.alwaysTemplate)
         tabBarItems[1].image = UIImage(systemName: "circle.fill")?.withRenderingMode(.alwaysTemplate)
@@ -98,13 +98,12 @@ class TabbarViewController: UITabBarController {
         tabBarItems.forEach { item in
             item.setTitleTextAttributes([.font: UIFont.pretendard(.bold, size: 13)], for: .normal)
             item.setTitleTextAttributes([.font: UIFont.pretendard(.bold, size: 13)], for: .selected)
-            item.imageInsets = UIEdgeInsets(top: -4, left: 0, bottom: 4, right: 0)
-            item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -4)
         }
-        
+
+        // 메뉴 추천(중앙 탭) 설정
         tabBarItems[1].isEnabled = true
-        tabBarItems[1].imageInsets = UIEdgeInsets(top: -4, left: 0, bottom: -36, right: 0)
-        tabBarItems[1].titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 5)
+        tabBarItems[1].imageInsets = UIEdgeInsets(top: -1, left: 0, bottom: -40, right: 0)
+        tabBarItems[1].titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 3)
     }
     
     @objc func logoTapped() {
