@@ -39,7 +39,7 @@ class MainViewController: UIViewController {
         let view = UIView()
         view.layer.cornerRadius = 30
         view.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
-        view.layer.shadowOpacity = 1
+        view.layer.shadowOpacity = 0.5
         view.layer.shadowRadius = 3
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         return view
@@ -279,8 +279,8 @@ class MainViewController: UIViewController {
             eatTogetherLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
             eatTogetherLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 432),
             
-            groupBeforeButton.widthAnchor.constraint(equalToConstant: 146),
-            groupBeforeButton.heightAnchor.constraint(equalToConstant: 125),
+            groupBeforeButton.widthAnchor.constraint(equalToConstant: 135.51),
+            groupBeforeButton.heightAnchor.constraint(equalToConstant: 118),
             groupBeforeButton.trailingAnchor.constraint(equalTo: secondShadowView.trailingAnchor),
             groupBeforeButton.bottomAnchor.constraint(equalTo: secondShadowView.bottomAnchor),
             
@@ -317,7 +317,7 @@ class MainViewController: UIViewController {
         // Apply the custom path to the shadow
         secondShadowView.layer.shadowPath = customPath.cgPath
         secondShadowView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
-        secondShadowView.layer.shadowOpacity = 1
+        secondShadowView.layer.shadowOpacity = 0.5
         secondShadowView.layer.shadowRadius = 3
         secondShadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
         

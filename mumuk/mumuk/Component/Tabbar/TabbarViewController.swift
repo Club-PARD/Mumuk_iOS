@@ -9,7 +9,7 @@ class TabbarViewController: UITabBarController {
         image.tintColor = .white
         image.contentMode = .scaleAspectFit
         image.layer.borderColor = UIColor.white.cgColor
-        image.layer.borderWidth = 12.5
+        image.layer.borderWidth = 11
         image.layer.cornerRadius = 50
         image.clipsToBounds = true
         image.layer.masksToBounds = true
