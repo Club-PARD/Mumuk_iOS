@@ -16,39 +16,53 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     private var filteredFriends: [(emoji: String, name: String)] = []
     private var checkedFriends: [String: Bool] = [:]
     
+    private var checkedFriendsScrollView: UIScrollView!
+    private var checkedFriendsStack: UIStackView!
+    private var checkedFriendsViewHeight: CGFloat = 70 // 체크된 친구들 뷰의 높이
+    private var checkedFriendsViewTopConstraint: NSLayoutConstraint!
+    private var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         setupTitleLabel()
         setupBackButton()
+        setupCheckedFriendsView()
         setupSearchBar()
+        // 초기 레이아웃 설정
+        let desiredSpacing: CGFloat = 20 // 원하는 간격으로 조정
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: desiredSpacing)
+        ])
+        
         setupFriendLabel()
         setupFriends()
         setupFriendsScrollView()
         setupBottomView()
+    
         
-        // 탭 제스처 인식기 추가
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
     }
     
     func setupTitleLabel() {
-        let titleLabel = UILabel()
-        titleLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        titleLabel.font = UIFont(name: "Pretendard-SemiBold", size: 20)
-        titleLabel.textAlignment = .center
-        titleLabel.text = "함께 먹을 친구 찾기"
-        
-        view.addSubview(titleLabel)
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            titleLabel.widthAnchor.constraint(equalToConstant: 153),
-            titleLabel.heightAnchor.constraint(equalToConstant: 24),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 67)
-        ])
-    }
+         titleLabel = UILabel()
+         titleLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+         titleLabel.font = UIFont(name: "Pretendard-SemiBold", size: 20)
+         titleLabel.textAlignment = .center
+         titleLabel.text = "함께 먹을 친구 찾기"
+         
+         view.addSubview(titleLabel)
+         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+         NSLayoutConstraint.activate([
+             titleLabel.widthAnchor.constraint(equalToConstant: 153),
+             titleLabel.heightAnchor.constraint(equalToConstant: 24),
+             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+             titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 67)
+         ])
+     }
     
     func setupBackButton() {
         let backButton = UIButton(type: .custom)
@@ -65,6 +79,37 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         ])
     }
     
+    func setupCheckedFriendsView() {
+        checkedFriendsScrollView = UIScrollView()
+        checkedFriendsScrollView.showsHorizontalScrollIndicator = false
+        view.addSubview(checkedFriendsScrollView)
+        
+        checkedFriendsScrollView.translatesAutoresizingMaskIntoConstraints = false
+        checkedFriendsViewTopConstraint = checkedFriendsScrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20)
+        NSLayoutConstraint.activate([
+            checkedFriendsViewTopConstraint,
+            checkedFriendsScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            checkedFriendsScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            checkedFriendsScrollView.heightAnchor.constraint(equalToConstant: checkedFriendsViewHeight)
+        ])
+
+        checkedFriendsStack = UIStackView()
+        checkedFriendsStack.axis = .horizontal
+        checkedFriendsStack.spacing = 20 // 원형 뷰 간의 간격 설정
+        checkedFriendsStack.alignment = .center // 세로 중앙 정렬
+        checkedFriendsScrollView.addSubview(checkedFriendsStack)
+
+        checkedFriendsStack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            checkedFriendsStack.topAnchor.constraint(equalTo: checkedFriendsScrollView.topAnchor),
+            checkedFriendsStack.leadingAnchor.constraint(equalTo: checkedFriendsScrollView.leadingAnchor, constant: 20),
+            checkedFriendsStack.trailingAnchor.constraint(equalTo: checkedFriendsScrollView.trailingAnchor, constant: -20),
+            checkedFriendsStack.bottomAnchor.constraint(equalTo: checkedFriendsScrollView.bottomAnchor)
+        ])
+        
+        checkedFriendsScrollView.isHidden = true
+    }
+    
     func setupSearchBar() {
         searchBar.placeholder = "닉네임 검색"
         searchBar.backgroundColor = .clear
@@ -73,21 +118,17 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         searchBar.layer.cornerRadius = 20
         searchBar.clipsToBounds = true
         
-        // Remove default search bar styling
         searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         searchBar.searchTextField.backgroundColor = .clear
         
-        // Set text color
         let textColor = UIColor(red: 0.571, green: 0.571, blue: 0.571, alpha: 1)
         searchBar.searchTextField.textColor = textColor
         searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "닉네임 검색", attributes: [NSAttributedString.Key.foregroundColor: textColor])
         
-        // Set search icon color
         if let searchIconView = searchBar.searchTextField.leftView as? UIImageView {
             searchIconView.tintColor = textColor
         }
         
-        // 키보드에 "완료" 버튼 추가
         searchBar.returnKeyType = .done
         searchBar.delegate = self
         
@@ -98,7 +139,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
             searchBar.heightAnchor.constraint(equalToConstant: 36),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 121.01)
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 121.01)
         ])
     }
     
@@ -155,7 +196,6 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     }
     
     func updateFriendsView() {
-        // 기존 친구 뷰 제거
         contentView.subviews.forEach { $0.removeFromSuperview() }
         
         for (index, friend) in filteredFriends.enumerated() {
@@ -238,59 +278,59 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         checkBox.layer.cornerRadius = 10.5
         checkBox.backgroundColor = .white
         checkBox.addTarget(self, action: #selector(checkBoxTapped), for: .touchUpInside)
-        
-        let checkmarkLabel = UILabel()
-        checkmarkLabel.text = "✓"
-        checkmarkLabel.textColor = .white
-        checkmarkLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        checkmarkLabel.textAlignment = .center
-        checkmarkLabel.isHidden = true
-        
-        checkBox.addSubview(checkmarkLabel)
-        checkmarkLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            checkmarkLabel.centerXAnchor.constraint(equalTo: checkBox.centerXAnchor),
-            checkmarkLabel.centerYAnchor.constraint(equalTo: checkBox.centerYAnchor)
-        ])
-        
-        return checkBox
-    }
-    
-    func setupBottomView() {
-        let bottomView = UIView()
-        bottomView.frame = CGRect(x: 0, y: 0, width: 393, height: bottomViewHeight)
-        
-        let shadows = UIView()
-        shadows.frame = bottomView.frame
-        shadows.clipsToBounds = false
-        bottomView.addSubview(shadows)
-        
-        let shadowPath0 = UIBezierPath(roundedRect: shadows.bounds, cornerRadius: 0)
-        let layer0 = CALayer()
-        layer0.shadowPath = shadowPath0.cgPath
-        layer0.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        layer0.shadowOpacity = 1
-        layer0.shadowRadius = 4
-        layer0.shadowOffset = CGSize(width: 0, height: 4)
-        layer0.bounds = shadows.bounds
-        layer0.position = shadows.center
-        shadows.layer.addSublayer(layer0)
-        
-        let shapes = UIView()
-        shapes.frame = bottomView.frame
-        shapes.clipsToBounds = true
-        bottomView.addSubview(shapes)
-        
-        let layer1 = CALayer()
-        layer1.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        layer1.bounds = shapes.bounds
-        layer1.position = shapes.center
-        shapes.layer.addSublayer(layer1)
-        
-        view.addSubview(bottomView)
-        bottomView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
+                
+                let checkmarkLabel = UILabel()
+                checkmarkLabel.text = "✓"
+                checkmarkLabel.textColor = .white
+                checkmarkLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
+                checkmarkLabel.textAlignment = .center
+                checkmarkLabel.isHidden = true
+                
+                checkBox.addSubview(checkmarkLabel)
+                checkmarkLabel.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    checkmarkLabel.centerXAnchor.constraint(equalTo: checkBox.centerXAnchor),
+                    checkmarkLabel.centerYAnchor.constraint(equalTo: checkBox.centerYAnchor)
+                ])
+                
+                return checkBox
+            }
+            
+            func setupBottomView() {
+                let bottomView = UIView()
+                bottomView.frame = CGRect(x: 0, y: 0, width: 393, height: bottomViewHeight)
+                
+                let shadows = UIView()
+                shadows.frame = bottomView.frame
+                shadows.clipsToBounds = false
+                bottomView.addSubview(shadows)
+                
+                let shadowPath0 = UIBezierPath(roundedRect: shadows.bounds, cornerRadius: 0)
+                let layer0 = CALayer()
+                layer0.shadowPath = shadowPath0.cgPath
+                layer0.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+                layer0.shadowOpacity = 1
+                layer0.shadowRadius = 4
+                layer0.shadowOffset = CGSize(width: 0, height: 4)
+                layer0.bounds = shadows.bounds
+                layer0.position = shadows.center
+                shadows.layer.addSublayer(layer0)
+                
+                let shapes = UIView()
+                shapes.frame = bottomView.frame
+                shapes.clipsToBounds = true
+                bottomView.addSubview(shapes)
+                
+                let layer1 = CALayer()
+                layer1.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+                layer1.bounds = shapes.bounds
+                layer1.position = shapes.center
+                shapes.layer.addSublayer(layer1)
+                
+                view.addSubview(bottomView)
+                bottomView.translatesAutoresizingMaskIntoConstraints = false
+                
+                NSLayoutConstraint.activate([
                     bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                     bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                     bottomView.heightAnchor.constraint(equalToConstant: bottomViewHeight),
@@ -346,19 +386,163 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     @objc func checkBoxTapped(_ sender: UIButton) {
         guard let containerView = sender.superview,
               let nameLabel = containerView.subviews.first(where: { $0 is UILabel && $0 != sender }) as? UILabel,
-              let name = nameLabel.text else {
+              let name = nameLabel.text,
+              let emojiView = containerView.subviews.first(where: { $0 is UIView && $0 != sender && $0 != nameLabel }),
+              let emojiLabel = emojiView.subviews.first as? UILabel,
+              let emoji = emojiLabel.text else {
             return
         }
         
-        checkedFriends[name] = !(checkedFriends[name] ?? false)
-        updateCheckBoxAppearance(sender, isChecked: checkedFriends[name] ?? false)
+        let isChecked = !(checkedFriends[name] ?? false)
+        checkedFriends[name] = isChecked
+        updateCheckBoxAppearance(sender, isChecked: isChecked)
+        
+        if isChecked {
+            addCheckedFriend(emoji: emoji, name: name)
+        } else {
+            removeCheckedFriend(name: name)
+        }
+        
+        updateFriendsView()
     }
 
-    func updateCheckBoxAppearance(_ checkBox: UIButton, isChecked: Bool) {
-        let selectedColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-        checkBox.backgroundColor = isChecked ? selectedColor : .white
-        checkBox.layer.borderColor = isChecked ? selectedColor.cgColor : UIColor(red: 0.875, green: 0.878, blue: 0.878, alpha: 1).cgColor
-        checkBox.subviews.first(where: { $0 is UILabel })?.isHidden = !isChecked
+        func updateCheckBoxAppearance(_ checkBox: UIButton, isChecked: Bool) {
+                let selectedColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+                checkBox.backgroundColor = isChecked ? selectedColor : .white
+                checkBox.layer.borderColor = isChecked ? selectedColor.cgColor : UIColor(red: 0.875, green: 0.878, blue: 0.878, alpha: 1).cgColor
+                checkBox.subviews.first(where: { $0 is UILabel })?.isHidden = !isChecked
+            }
+            
+    func addCheckedFriend(emoji: String, name: String) {
+        let friendView = createCheckedFriendView(emoji: emoji, name: name)
+        checkedFriendsStack.addArrangedSubview(friendView)
+        
+        if checkedFriendsStack.arrangedSubviews.count == 1 || checkedFriendsScrollView.isHidden {
+            showCheckedFriendsView()
+        }
+    }
+            
+    func removeCheckedFriend(name: String) {
+        if let viewToRemove = checkedFriendsStack.arrangedSubviews.first(where: { ($0.subviews.last as? UILabel)?.text == name }) {
+            UIView.animate(withDuration: 0.3, animations: {
+                viewToRemove.alpha = 0
+            }) { _ in
+                self.checkedFriendsStack.removeArrangedSubview(viewToRemove)
+                viewToRemove.removeFromSuperview()
+                
+                if self.checkedFriendsStack.arrangedSubviews.isEmpty {
+                    self.hideCheckedFriendsView()
+                }
+            }
+        }
+    }
+            
+    func showCheckedFriendsView() {
+        UIView.animate(withDuration: 0.3) {
+            self.checkedFriendsScrollView.isHidden = false
+            
+            // 타이틀 라벨로부터 2단위 아래로 위치하도록 설정
+            let desiredSpacing: CGFloat = 2
+            self.checkedFriendsViewTopConstraint.constant = desiredSpacing
+            
+            // 다른 뷰들의 위치 조정
+            let totalOffset = self.checkedFriendsViewHeight + desiredSpacing
+            self.searchBar.transform = CGAffineTransform(translationX: 0, y: totalOffset)
+            self.friendLabel.transform = CGAffineTransform(translationX: 0, y: totalOffset)
+            self.scrollView.transform = CGAffineTransform(translationX: 0, y: totalOffset)
+            
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func hideCheckedFriendsView() {
+        UIView.animate(withDuration: 0.3) {
+            self.checkedFriendsScrollView.isHidden = true
+            
+            // 모든 변환을 초기화
+            self.searchBar.transform = .identity
+            self.friendLabel.transform = .identity
+            self.scrollView.transform = .identity
+            
+            // 원래의 간격으로 돌아가기
+            let desiredSpacing: CGFloat = 20 // setupSearchBar()에서 설정한 원래 간격
+            self.checkedFriendsViewTopConstraint.constant = desiredSpacing
+            
+            self.view.layoutIfNeeded()
+        }
+    }
+            
+    func createCheckedFriendView(emoji: String, name: String) -> UIView {
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let circleView = UIView()
+        circleView.translatesAutoresizingMaskIntoConstraints = false
+        circleView.layer.cornerRadius = 25 // 원형 뷰의 반지름
+        circleView.layer.backgroundColor = UIColor(red: 0.918, green: 0.914, blue: 0.914, alpha: 1).cgColor
+        
+        let emojiLabel = UILabel()
+        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
+        emojiLabel.text = emoji
+        emojiLabel.font = UIFont.systemFont(ofSize: 25)
+        emojiLabel.textAlignment = .center
+        
+        let closeButton = UIButton(type: .system)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.setTitle("X", for: .normal)
+        closeButton.setTitleColor(.white, for: .normal)
+        closeButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 10)
+        closeButton.backgroundColor = UIColor(red: 0.518, green: 0.514, blue: 0.518, alpha: 1)
+        closeButton.layer.cornerRadius = 8
+        closeButton.addTarget(self, action: #selector(closeButtonTapped(_:)), for: .touchUpInside)
+        
+        let nameLabel = UILabel()
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.text = name
+        nameLabel.font = UIFont(name: "Pretendard-Bold", size: 10)
+        nameLabel.textColor = UIColor(red: 0.518, green: 0.514, blue: 0.518, alpha: 1)
+        nameLabel.textAlignment = .center
+        
+        containerView.addSubview(circleView)
+        containerView.addSubview(closeButton)
+        containerView.addSubview(nameLabel)
+        circleView.addSubview(emojiLabel)
+        
+        NSLayoutConstraint.activate([
+            containerView.widthAnchor.constraint(equalToConstant: 50), // 컨테이너 뷰의 너비
+            containerView.heightAnchor.constraint(equalToConstant: checkedFriendsViewHeight),
+            
+            circleView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -10), // 세로 중앙에서 약간 위로
+            circleView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            circleView.widthAnchor.constraint(equalToConstant: 50),
+            circleView.heightAnchor.constraint(equalToConstant: 50),
+            
+            emojiLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            emojiLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            
+            closeButton.topAnchor.constraint(equalTo: circleView.topAnchor),
+            closeButton.trailingAnchor.constraint(equalTo: circleView.trailingAnchor),
+            closeButton.widthAnchor.constraint(equalToConstant: 16),
+            closeButton.heightAnchor.constraint(equalToConstant: 16),
+            
+            nameLabel.topAnchor.constraint(equalTo: circleView.bottomAnchor, constant: 4),
+            nameLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+        ])
+        
+        return containerView
+    }
+            
+    @objc func closeButtonTapped(_ sender: UIButton) {
+        guard let containerView = sender.superview,
+              let nameLabel = containerView.subviews.last as? UILabel,
+              let name = nameLabel.text else {
+            return
+        }
+
+        checkedFriends[name] = false
+        removeCheckedFriend(name: name)
+        updateFriendsView()
     }
             
             // MARK: - Keyboard Dismissal
@@ -369,16 +553,16 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
             
             // MARK: - UISearchBarDelegate
             
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            filteredFriends = allFriends
-        } else {
-            filteredFriends = allFriends.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-        }
-        updateFriendsView()
-    }
+            func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+                if searchText.isEmpty {
+                    filteredFriends = allFriends
+                } else {
+                    filteredFriends = allFriends.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+                }
+                updateFriendsView()
+            }
             
-            @objc func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+            func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
                 searchBar.resignFirstResponder()
             }
         }
