@@ -21,6 +21,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     private var checkedFriendsViewHeight: CGFloat = 70 // 체크된 친구들 뷰의 높이
     private var checkedFriendsViewTopConstraint: NSLayoutConstraint!
     private var titleLabel: UILabel!
+    private var scrollViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -165,11 +166,53 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     }
     
     func setupFriends() {
+        // API에서 친구 목록을 가져오는 함수 호출
+        fetchFriends { [weak self] friends in
+            DispatchQueue.main.async {
+                self?.allFriends = friends.map { (emoji: self?.getRandomEmoji() ?? "👤", name: $0.name) }
+                self?.filteredFriends = self?.allFriends ?? []
+                self?.updateFriendsView()
+            }
+        }
+    }
+
+    func getRandomEmoji() -> String {
         let emojis = ["👶🏻", "👩🏻", "👨🏻", "👵🏻", "👴🏻", "🧑🏻", "🧒🏻", "👦🏻", "👧🏻", "🧓🏻", "👱🏻", "👱🏻‍♀️", "👨🏻‍🦰", "👩🏻‍🦰", "👨🏻‍🦱"]
-        let names = ["맛있으면우는사람", "행복한미식가", "음식탐험가", "요리의달인", "맛집사냥꾼", "식도락여행자", "건강한먹보", "달콤한입맛", "매운맛마니아", "미식의여왕", "음식평론가", "요리연구가", "맛집블로거", "식재료전문가", "음식사진작가"]
-        
-        allFriends = Array(zip(emojis, names))
-        filteredFriends = allFriends
+        return emojis.randomElement() ?? "👤"
+    }
+
+    func fetchFriends(completion: @escaping ([Friend]) -> Void) {
+        guard let url = URL(string: "http://172.30.1.21:8080/friend/\(name ?? "")") else {
+            print("Invalid URL")
+            return
+        }
+
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error: \(error.localizedDescription)")
+                return
+            }
+
+            guard let data = data else {
+                print("No data received")
+                return
+            }
+
+            do {
+                let friends = try JSONDecoder().decode([Friend].self, from: data)
+                completion(friends)
+            } catch {
+                print("Decoding error: \(error.localizedDescription)")
+            }
+        }.resume()
+    }
+    
+    struct Friend: Codable {
+        let uid: String
+        let name: String
+        let imageId: Int
+        let grouped: Bool
+        let daily: Bool
     }
     
     func setupFriendsScrollView() {
@@ -179,11 +222,13 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         
+        scrollViewBottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottomViewHeight)
+        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: friendLabel.bottomAnchor, constant: 25),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -bottomViewHeight),
+            scrollViewBottomConstraint,
             
             contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -441,15 +486,18 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         UIView.animate(withDuration: 0.3) {
             self.checkedFriendsScrollView.isHidden = false
             
-            // 타이틀 라벨로부터 2단위 아래로 위치하도록 설정
             let desiredSpacing: CGFloat = 2
             self.checkedFriendsViewTopConstraint.constant = desiredSpacing
             
-            // 다른 뷰들의 위치 조정
             let totalOffset = self.checkedFriendsViewHeight + desiredSpacing
+            
+            // 스크롤뷰와 다른 요소들을 함께 이동시킵니다
             self.searchBar.transform = CGAffineTransform(translationX: 0, y: totalOffset)
             self.friendLabel.transform = CGAffineTransform(translationX: 0, y: totalOffset)
             self.scrollView.transform = CGAffineTransform(translationX: 0, y: totalOffset)
+            
+            // 스크롤뷰의 bottom 제약 조건을 조정합니다
+            self.scrollViewBottomConstraint.constant = -(self.bottomViewHeight + totalOffset)
             
             self.view.layoutIfNeeded()
         }
@@ -459,13 +507,15 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         UIView.animate(withDuration: 0.3) {
             self.checkedFriendsScrollView.isHidden = true
             
-            // 모든 변환을 초기화
+            // 모든 변환을 초기화합니다
             self.searchBar.transform = .identity
             self.friendLabel.transform = .identity
             self.scrollView.transform = .identity
             
-            // 원래의 간격으로 돌아가기
-            let desiredSpacing: CGFloat = 20 // setupSearchBar()에서 설정한 원래 간격
+            // 스크롤뷰의 bottom 제약 조건을 원래대로 되돌립니다
+            self.scrollViewBottomConstraint.constant = -self.bottomViewHeight
+            
+            let desiredSpacing: CGFloat = 20
             self.checkedFriendsViewTopConstraint.constant = desiredSpacing
             
             self.view.layoutIfNeeded()

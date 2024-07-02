@@ -1,7 +1,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let uid = "1111123" // 테스트용 임의의 UID
+    let uid = "1111" // 테스트용 임의의 UID
     var timer: Timer?
     var name: String?
 
@@ -245,11 +245,12 @@ class MainViewController: UIViewController {
             emojiImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
             emojiImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 91),
 
-            shadowView.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 30),
+            // shadowView(whiteView를 포함하는)의 제약 조건 (위치만 secondShadowView의 원래 위치로)
+            shadowView.widthAnchor.constraint(equalToConstant: 329),
+            shadowView.heightAnchor.constraint(equalToConstant: 169), // 원래 높이 유지
             shadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             shadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            shadowView.widthAnchor.constraint(equalToConstant: 329),
-            shadowView.heightAnchor.constraint(equalToConstant: 169),
+            shadowView.topAnchor.constraint(equalTo: secondShadowView.bottomAnchor, constant: 21),
 
             whiteView.topAnchor.constraint(equalTo: shadowView.topAnchor),
             whiteView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor),
@@ -280,11 +281,12 @@ class MainViewController: UIViewController {
             foodScrumCompleteLabel.widthAnchor.constraint(equalTo: textBalloonImageView.widthAnchor, constant: -10),
             foodScrumCompleteLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            secondShadowView.widthAnchor.constraint(equalToConstant: 329),
-            secondShadowView.heightAnchor.constraint(equalToConstant: 270),
+            // secondShadowView의 제약 조건 (위치만 whiteView의 원래 위치로)
+            secondShadowView.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 30),
             secondShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             secondShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            secondShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 391),
+            secondShadowView.widthAnchor.constraint(equalToConstant: 329),
+            secondShadowView.heightAnchor.constraint(equalToConstant: 270), // 원래 높이 유지
 
             secondShapeView.topAnchor.constraint(equalTo: secondShadowView.topAnchor),
             secondShapeView.leadingAnchor.constraint(equalTo: secondShadowView.leadingAnchor),
@@ -294,12 +296,12 @@ class MainViewController: UIViewController {
             tastyMeetingLabel.widthAnchor.constraint(equalToConstant: 155),
             tastyMeetingLabel.heightAnchor.constraint(equalToConstant: 20),
             tastyMeetingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
-            tastyMeetingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 411),
+            tastyMeetingLabel.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 50),
 
             eatTogetherLabel.widthAnchor.constraint(equalToConstant: 83.38),
             eatTogetherLabel.heightAnchor.constraint(equalToConstant: 30),
             eatTogetherLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
-            eatTogetherLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 432),
+            eatTogetherLabel.topAnchor.constraint(equalTo: tastyMeetingLabel.bottomAnchor, constant: 1),
             
             groupBeforeButton.widthAnchor.constraint(equalToConstant: 135.51),
             groupBeforeButton.heightAnchor.constraint(equalToConstant: 118),
