@@ -305,6 +305,7 @@
 		22B75325417A648BC83094755D52D183 /* EventMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventMonitor.swift; path = Source/Features/EventMonitor.swift; sourceTree = "<group>"; };
 		23477FB0FCADA17B4CD46484DB672AF7 /* Pods-mumukTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-mumukTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		2528CF3202F65469C2416C96B9BAC815 /* Pods-mumuk-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumuk-acknowledgements.plist"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		25BDA6E824AD6CBD857358A023C694AD /* KakaoSDKCommon */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KakaoSDKCommon; path = KakaoSDKCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C79A83F0952F4E102A1C1B77F275AC /* URLEncodedFormEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLEncodedFormEncoder.swift; path = Source/Features/URLEncodedFormEncoder.swift; sourceTree = "<group>"; };
 		285BA2CFD52EBBFCE7A2B8136565A1A1 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/Core/ParameterEncoding.swift; sourceTree = "<group>"; };
@@ -313,6 +314,21 @@
 		2D968E04E765E5F28862FB2CD2EFA055 /* CachedResponseHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CachedResponseHandler.swift; path = Source/Features/CachedResponseHandler.swift; sourceTree = "<group>"; };
 		2F1E33B55801FBAC1B45016805CD8835 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Core/Notifications.swift; sourceTree = "<group>"; };
 		319D7CDEAD052D25309E772D2BA1D2CD /* AuthController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthController.swift; path = Sources/KakaoSDKAuth/auth/AuthController.swift; sourceTree = "<group>"; };
+=======
+		25BDA6E824AD6CBD857358A023C694AD /* KakaoSDKCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2668E07E7FCC0DAFC3DE815D2012EDF7 /* KakaoSDKAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKAuth.debug.xcconfig; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		280D1AC2300BB287F71F52EA9B1D01C6 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
+		280D1AC2300BB287F71F52EA9B1D01C6 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
+=======
+		280D1AC2300BB287F71F52EA9B1D01C6 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+		289BCA12400957A96A43442147B12125 /* Api.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Sources/KakaoSDKCommon/network/Api.swift; sourceTree = "<group>"; };
+		318B518D6E8F7778F1C39839DB239E07 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/Core/SessionDelegate.swift; sourceTree = "<group>"; };
+>>>>>>> main
 		31C0BD0B00FA526B1260B21543D195D4 /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
 		33A4F1127AA192D6FAECA423E4B5F76D /* DownloadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DownloadRequest.swift; path = Source/Core/DownloadRequest.swift; sourceTree = "<group>"; };
 		34898AA2C126E5563C34C99DDA13E448 /* AuthRequestRetrier.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthRequestRetrier.swift; path = Sources/KakaoSDKAuth/auth/AuthRequestRetrier.swift; sourceTree = "<group>"; };
@@ -336,6 +352,7 @@
 		57A75D5B23B9BF4DDCF33B59310E1A83 /* KakaoSDKUser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKUser.release.xcconfig; sourceTree = "<group>"; };
 		59466DD55959CAE5A957F8635B7F88FD /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
 		5BA35A81B7824EF095567255A8DBB9EC /* Pods-mumuk-mumukUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-mumuk-mumukUITests-dummy.m"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DBDCD1B9F219F6ED1A4E46A88F2761C /* NMapsGeometry.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsGeometry.debug.xcconfig; sourceTree = "<group>"; };
 		63837427607BE566C76F86D1829A6B78 /* Result+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Result+Alamofire.swift"; path = "Source/Extensions/Result+Alamofire.swift"; sourceTree = "<group>"; };
@@ -352,6 +369,69 @@
 		78DDC92C2C062B56C9FF6C1371B8074A /* KakaoSDKAuth-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KakaoSDKAuth-umbrella.h"; sourceTree = "<group>"; };
 		7A0DB5937477E2C1F5C9C3AF002D7624 /* OperationQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "OperationQueue+Alamofire.swift"; path = "Source/Extensions/OperationQueue+Alamofire.swift"; sourceTree = "<group>"; };
 		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods-mumuk */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-mumuk"; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		5C3565E1892C915D23C533119C576B28 /* KakaoSDKCommon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = KakaoSDKCommon.swift; path = Sources/KakaoSDKCommon/common/KakaoSDKCommon.swift; sourceTree = "<group>"; };
+		5D0120102CBA39D6B7315F698F71B2BC /* EventMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EventMonitor.swift; path = Source/Features/EventMonitor.swift; sourceTree = "<group>"; };
+		5D0B07B0E8D0E002C1421D0680DB2ED4 /* SdkError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkError.swift; path = Sources/KakaoSDKCommon/common/common/SdkError.swift; sourceTree = "<group>"; };
+		5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE033800F731F232D14350AB60E48F0 /* SdkCrypto.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkCrypto.swift; path = Sources/KakaoSDKCommon/common/common/SdkCrypto.swift; sourceTree = "<group>"; };
+		5DE116E45730EE2B2CAAE29FF9793A36 /* SwiftSoup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSoup.swift; path = Sources/SwiftSoup.swift; sourceTree = "<group>"; };
+		5E9FA95DA5546B34B3B974A7CD8339F1 /* Scope.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Scope.swift; path = Sources/KakaoSDKUser/model/Scope.swift; sourceTree = "<group>"; };
+		5EADC2FB1E864C987CDE376C9D8CF24C /* AuthenticationInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationInterceptor.swift; path = Source/Features/AuthenticationInterceptor.swift; sourceTree = "<group>"; };
+		5F1B10FC220547CCA776047252DFEBD3 /* CachedResponseHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CachedResponseHandler.swift; path = Source/Features/CachedResponseHandler.swift; sourceTree = "<group>"; };
+		5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftSoup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FB1306A63E7B8646C2C9C0A8C508C80 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Core/Response.swift; sourceTree = "<group>"; };
+		617D5FE1ED3399B24D7039132457952C /* SwiftSoup-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftSoup-umbrella.h"; sourceTree = "<group>"; };
+		6361033DD61DE8728C2FCDC12933FA7B /* SwiftSoup-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftSoup-Info.plist"; sourceTree = "<group>"; };
+		64AAC195EA642D7D5815B4774AB88888 /* KakaoSDKCommon.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KakaoSDKCommon.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		658D184C2E59EFD79DFAEB85667848DB /* Parser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = Sources/Parser.swift; sourceTree = "<group>"; };
+		66A572DEA744D9BC121D2F0EC88229B1 /* AccessTokenInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AccessTokenInfo.swift; path = Sources/KakaoSDKUser/model/AccessTokenInfo.swift; sourceTree = "<group>"; };
+		671A0C83DCBFE44800D345E5B3C4CE11 /* StringEncoding+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "StringEncoding+Alamofire.swift"; path = "Source/Extensions/StringEncoding+Alamofire.swift"; sourceTree = "<group>"; };
+		6877D762E69AC4419EFEF1D7E33C6E78 /* TokenRefresher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenRefresher.swift; path = Sources/KakaoSDKAuth/auth/TokenRefresher.swift; sourceTree = "<group>"; };
+		6911C009F6AACAAFC6C83DB3ADC2FDDF /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/Features/ResponseSerialization.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		6949C9E6E306FA94F37E3CEADEE871D0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
+		6949C9E6E306FA94F37E3CEADEE871D0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+		6949C9E6E306FA94F37E3CEADEE871D0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+		6ADF5C2A232AFC1CD3C44CAF2D34D3D4 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Core/Request.swift; sourceTree = "<group>"; };
+		6C9EC0F82B9BD58D672ABF9AB9FF0FFB /* SdkCoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkCoder.swift; path = Sources/KakaoSDKCommon/common/common/SdkCoder.swift; sourceTree = "<group>"; };
+		70A16EE353DEC0E589976E175EA073BD /* CharacterReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CharacterReader.swift; path = Sources/CharacterReader.swift; sourceTree = "<group>"; };
+		717879D47BB18DAE97E65C48FF55046A /* HtmlTreeBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HtmlTreeBuilder.swift; path = Sources/HtmlTreeBuilder.swift; sourceTree = "<group>"; };
+		71FA92974CC8BB82E0706F1C9A79DB60 /* HtmlTreeBuilderState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HtmlTreeBuilderState.swift; path = Sources/HtmlTreeBuilderState.swift; sourceTree = "<group>"; };
+		733DE1B38714A475FB7FA0C71A88DF62 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/Core/ParameterEncoding.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		74E1421BDA99DB7494F36D9179BF64CB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/KakaoSDKCommon/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
+		74E1421BDA99DB7494F36D9179BF64CB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/KakaoSDKCommon/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+		74E1421BDA99DB7494F36D9179BF64CB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/KakaoSDKCommon/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+		753399B47021B6FEEBA0AACE88819C0D /* DataUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataUtil.swift; path = Sources/DataUtil.swift; sourceTree = "<group>"; };
+		75A8CF83B0855AF6575088AC436A9992 /* KakaoSDKAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKAuth.release.xcconfig; sourceTree = "<group>"; };
+		768C512591C747E1FC92DDD49D4BA683 /* ApiRequestAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApiRequestAdapter.swift; path = Sources/KakaoSDKCommon/network/ApiRequestAdapter.swift; sourceTree = "<group>"; };
+		76D9CF4847887FA5F5CB06B5CA9F21B5 /* Tag.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Tag.swift; path = Sources/Tag.swift; sourceTree = "<group>"; };
+		778F498FA05165F8A064B500BFB6A9B9 /* NMapsMap-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "NMapsMap-xcframeworks.sh"; sourceTree = "<group>"; };
+		797008DC85918550A040F9034295545B /* KakaoSDKCommon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKCommon.release.xcconfig; sourceTree = "<group>"; };
+		7977795532771BCD15FDC7F92DBBBCB6 /* SwiftSoup.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftSoup.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A3253DC7F5231725695507AC6CB931E /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
+		7BCD06BDE6170B2C528401C877DF1E6B /* AlamofireExtended.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlamofireExtended.swift; path = Source/Features/AlamofireExtended.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods-mumuk */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-mumuk"; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+<<<<<<< HEAD
+		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods_mumuk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods-mumuk */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-mumuk"; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+>>>>>>> main
 		7C1688750D71FD007EBD136F8280A3E4 /* Pods-mumukTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumukTests-Info.plist"; sourceTree = "<group>"; };
 		7CEF530777E828D661B84A649D0D59D9 /* RequestInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RequestInterceptor.swift; path = Source/Features/RequestInterceptor.swift; sourceTree = "<group>"; };
 		7F868219D7FD83938E08E8E3CED4A03C /* KakaoSDKUser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKUser.debug.xcconfig; sourceTree = "<group>"; };
@@ -378,6 +458,7 @@
 		9A7B3502E6075C51AA6532F622459C35 /* NMapsGeometry-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "NMapsGeometry-xcframeworks.sh"; sourceTree = "<group>"; };
 		9BC1D7A6FE539051AFA47015545517ED /* UIApplication+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIApplication+Utils.swift"; path = "Sources/KakaoSDKCommon/common/extension/UIApplication+Utils.swift"; sourceTree = "<group>"; };
 		9C4978BCFEB40224C1541B2A7D933FDA /* Pods-mumuk-mumukUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumuk-mumukUITests-Info.plist"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9E0C85F7CDF33E124D6C56FE31DC58FB /* NMapsMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = NMapsMap.release.xcconfig; sourceTree = "<group>"; };
 		9F453801F27585052F413F613C847DB2 /* KakaoSDKAuth */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KakaoSDKAuth; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -391,6 +472,47 @@
 		AED8701F8C4D2B3C8ADF2660231CCFEE /* Pods-mumukTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-mumukTests"; path = Pods_mumukTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D69BC6CB52306CD6951ECF83B619F4 /* URLSessionConfiguration+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLSessionConfiguration+Alamofire.swift"; path = "Source/Extensions/URLSessionConfiguration+Alamofire.swift"; sourceTree = "<group>"; };
 		B647C6E15A5563933F5945F5F77811EA /* Common.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Common.swift; path = Sources/KakaoSDKCommon/common/common/Common.swift; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+=======
+<<<<<<< HEAD
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+=======
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+		9DB2C6B3CAB49061B5B810B9120C3260 /* Pattern.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pattern.swift; path = Sources/Pattern.swift; sourceTree = "<group>"; };
+		9EA25DFE9FBE6A72175F90D8D243E3DA /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Features/Validation.swift; sourceTree = "<group>"; };
+		9F453801F27585052F413F613C847DB2 /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A07AAB5980470095F4CB46CBC82EF5C8 /* KakaoSDKUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KakaoSDKUser.h; path = Sources/KakaoSDKUser/KakaoSDKUser.h; sourceTree = "<group>"; };
+		A1CF424CE79C0673220B321DCF009731 /* MigrateManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MigrateManager.swift; path = Sources/KakaoSDKAuth/auth/MigrateManager.swift; sourceTree = "<group>"; };
+		A288224565952175891848AE6C0CADE0 /* KakaoSDKCommon-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KakaoSDKCommon-Info.plist"; sourceTree = "<group>"; };
+		A29D610AF27BB92435CF94A31FEDE1D1 /* Pods-mumuk-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumuk-Info.plist"; sourceTree = "<group>"; };
+		A3BC029A4963B708D3B4D5E1B54FAE52 /* RetryPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RetryPolicy.swift; path = Source/Features/RetryPolicy.swift; sourceTree = "<group>"; };
+		A3C7B288834F9E6BB60C364E1CA9DE73 /* ParameterEncoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoder.swift; path = Source/Core/ParameterEncoder.swift; sourceTree = "<group>"; };
+		A4A1970156D455FEB448F2A819459DCF /* HttpStatusException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HttpStatusException.swift; path = Sources/HttpStatusException.swift; sourceTree = "<group>"; };
+		A58A057A0D611BA18E3926F2D85E7740 /* SwiftSoup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftSoup.debug.xcconfig; sourceTree = "<group>"; };
+		A65CCE64759961A001A4D2CBD4B63734 /* URLRequest+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URLRequest+Alamofire.swift"; path = "Source/Extensions/URLRequest+Alamofire.swift"; sourceTree = "<group>"; };
+		AAB0DF03AC6692E3B9B2C28B91CFC77F /* UploadRequest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UploadRequest.swift; path = Source/Core/UploadRequest.swift; sourceTree = "<group>"; };
+		AED8701F8C4D2B3C8ADF2660231CCFEE /* Pods_mumukTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumukTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1AD5DC21DE8FD9327CD903C8AF918AB /* Array+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Utils.swift"; path = "Sources/KakaoSDKCommon/common/extension/Array+Utils.swift"; sourceTree = "<group>"; };
+		B2B29C84A18763F7292E2AA58B841D52 /* Evaluator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Evaluator.swift; path = Sources/Evaluator.swift; sourceTree = "<group>"; };
+		B2F734B92C9D75CB46AD49008FD078D4 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/Features/MultipartFormData.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		B386CB762095A56CE6724D999B504AEC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
+		B386CB762095A56CE6724D999B504AEC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+		B386CB762095A56CE6724D999B504AEC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+		B5759F5C8717035FDEAF7E64B524FA6E /* Date+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Utils.swift"; path = "Sources/KakaoSDKCommon/common/extension/Date+Utils.swift"; sourceTree = "<group>"; };
+		B57DF11095F073F0390ECDDB41C0AB11 /* UserShippingAddresses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserShippingAddresses.swift; path = Sources/KakaoSDKUser/model/UserShippingAddresses.swift; sourceTree = "<group>"; };
+		B6F59CFBBE9A96BD021732C83246CD3F /* KakaoSDKCommon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKCommon.debug.xcconfig; sourceTree = "<group>"; };
+		B89D8BD515C0BF95521096C241B220CC /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+>>>>>>> main
 		B9C70674130765702FD85828A60759C8 /* Pods-mumukTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumukTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		BA8769AED0E00C39E181FC00AEA8E2E2 /* Array+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Array+Utils.swift"; path = "Sources/KakaoSDKCommon/common/extension/Array+Utils.swift"; sourceTree = "<group>"; };
 		BB8118880348EB6E2845AC5CDD6258AE /* Pods-mumuk-mumukUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumuk-mumukUITests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -408,8 +530,29 @@
 		CA96F12658685CCA9FCE03B6CEC405AC /* AuthApiCommon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthApiCommon.swift; path = Sources/KakaoSDKAuth/auth/AuthApiCommon.swift; sourceTree = "<group>"; };
 		CD258D631E71C7C6667CC830DB31176D /* KakaoSDKCommon-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KakaoSDKCommon-prefix.pch"; sourceTree = "<group>"; };
 		CD2672C7D559C44D75548BEE9EB47D12 /* Pods-mumuk-mumukUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-mumuk-mumukUITests.modulemap"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		CE534E045C4B5475ABAEC30A1709673F /* KakaoSDKCommon-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KakaoSDKCommon-dummy.m"; sourceTree = "<group>"; };
 		D0BA47F5D47F9462BA22B41DCA4D68AC /* RedirectHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RedirectHandler.swift; path = Source/Features/RedirectHandler.swift; sourceTree = "<group>"; };
+=======
+		CD3CF21C7F208FFFE66B98943862E24D /* AuthApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthApi.swift; path = Sources/KakaoSDKAuth/auth/AuthApi.swift; sourceTree = "<group>"; };
+		CE9A82556482652C7E729304710F4510 /* KakaoSDKUser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KakaoSDKUser.modulemap; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		CED51F97DA2898248BE80E3FBA93CBE0 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
+		CED51F97DA2898248BE80E3FBA93CBE0 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
+=======
+		CED51F97DA2898248BE80E3FBA93CBE0 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+		CF44C5647CAAF691DA440DBDEDF019F1 /* Elements.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Elements.swift; path = Sources/Elements.swift; sourceTree = "<group>"; };
+		CF8706A15435BC79B363B6244C16ADB5 /* UserServiceTerms.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserServiceTerms.swift; path = Sources/KakaoSDKUser/model/UserServiceTerms.swift; sourceTree = "<group>"; };
+		D01DAEC036836576E53407D109D75885 /* KakaoSDKAuth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KakaoSDKAuth-prefix.pch"; sourceTree = "<group>"; };
+		D037FF109B8239C3018E82323420AA77 /* AppsErrorInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AppsErrorInfo.swift; path = Sources/KakaoSDKCommon/common/model/AppsErrorInfo.swift; sourceTree = "<group>"; };
+		D0483D602F4C3B8BE8ABF7F6A0E6E3E3 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		D0F2CCE96F4F616F8B9D9B1FE6AB3563 /* UserApi+Internal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UserApi+Internal.swift"; path = "Sources/KakaoSDKUser/UserApi+Internal.swift"; sourceTree = "<group>"; };
+		D32310F10C00C1915E9E09DCC51B0FF0 /* UserApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserApi.swift; path = Sources/KakaoSDKUser/UserApi.swift; sourceTree = "<group>"; };
+>>>>>>> main
 		D35EB57BAC29703452BC08CDB4489452 /* Pods-mumuk-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-mumuk-dummy.m"; sourceTree = "<group>"; };
 		D3BF1DF2360957ED16525F4A75502A8C /* Pods-mumukTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-mumukTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3C904961BD3507A2320B27B034A61F9 /* UserServiceTerms.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserServiceTerms.swift; path = Sources/KakaoSDKUser/model/UserServiceTerms.swift; sourceTree = "<group>"; };
@@ -564,8 +707,63 @@
 				3ABC86743F3CF241455F3C80C41B6586 /* Frameworks */,
 				01A17A568B628A0AA029F9FB3E62041D /* Support Files */,
 			);
+<<<<<<< HEAD
 			name = NMapsGeometry;
 			path = NMapsGeometry;
+=======
+<<<<<<< HEAD
+			name = KakaoSDKUser;
+=======
+<<<<<<< HEAD
+=======
+			name = KakaoSDKUser;
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+			path = KakaoSDKUser;
+			sourceTree = "<group>";
+		};
+		0BD740798790E990E535896C813BF1C2 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DE91DB517036BEE2703AFBFFF0C99263 /* KakaoSDKAuth.modulemap */,
+				51A261C07951A5C1A7B44664750CB014 /* KakaoSDKAuth-dummy.m */,
+				CBEB303CC951568C489BBC3F5D64AAA8 /* KakaoSDKAuth-Info.plist */,
+				D01DAEC036836576E53407D109D75885 /* KakaoSDKAuth-prefix.pch */,
+				1F709DC703383082EC8147511664835F /* KakaoSDKAuth-umbrella.h */,
+				2668E07E7FCC0DAFC3DE815D2012EDF7 /* KakaoSDKAuth.debug.xcconfig */,
+				75A8CF83B0855AF6575088AC436A9992 /* KakaoSDKAuth.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KakaoSDKAuth";
+			sourceTree = "<group>";
+		};
+		110148DC8AD84679F1C050F53C5A63CC /* KakaoSDKAuth */ = {
+			isa = PBXGroup;
+			children = (
+				3E2C0DBE6A23C2034B3AE510786A2664 /* Auth.swift */,
+				CD3CF21C7F208FFFE66B98943862E24D /* AuthApi.swift */,
+				F08B67F7078F1E09DD2171B58F111136 /* AuthApiCommon.swift */,
+				C5FB24E5FC050E1AEA9890FF18950AD0 /* AuthController.swift */,
+				80EA4BB1CE9608B0EF6339F66BDA620A /* AuthRequestAdapter.swift */,
+				1E65A7ADDF9CFDB094F5407AC2733797 /* AuthRequestRetrier.swift */,
+				156FB454B59E8A836DF1730095AD7955 /* KakaoSDKAuth.h */,
+				A1CF424CE79C0673220B321DCF009731 /* MigrateManager.swift */,
+				7F4BF0C434D12724DE6B0B64F3036497 /* OAuthToken.swift */,
+				3C9CE564E1002C29872BBF7F623C3E93 /* TokenManagable.swift */,
+				56B837AB4B4527B505B2590A166189D5 /* TokenManager.swift */,
+				6877D762E69AC4419EFEF1D7E33C6E78 /* TokenRefresher.swift */,
+				0BD740798790E990E535896C813BF1C2 /* Support Files */,
+			);
+<<<<<<< HEAD
+			name = KakaoSDKAuth;
+=======
+<<<<<<< HEAD
+=======
+			name = KakaoSDKAuth;
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+			path = KakaoSDKAuth;
+>>>>>>> main
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -636,7 +834,39 @@
 		3ABC86743F3CF241455F3C80C41B6586 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				546D324C86FCF89B0C71BE52FFAC28E6 /* NMapsGeometry.xcframework */,
+=======
+				4414079C23E571CBED3963708CF0EF6F /* Frameworks */,
+				6742BC78197AB8B3DE2C9C249B351745 /* Support Files */,
+			);
+<<<<<<< HEAD
+			name = NMapsGeometry;
+=======
+<<<<<<< HEAD
+=======
+			name = NMapsGeometry;
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+			path = NMapsGeometry;
+			sourceTree = "<group>";
+		};
+		403BA2860338BE03FDE88185E65097D4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				778F498FA05165F8A064B500BFB6A9B9 /* NMapsMap-xcframeworks.sh */,
+				CAF0DF1DDB117624FA5E1F97A5604328 /* NMapsMap.debug.xcconfig */,
+				033493A120736CB630D4813C2EA099B6 /* NMapsMap.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/NMapsMap";
+			sourceTree = "<group>";
+		};
+		4249FE2DE105623816731B84071D631A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				280D1AC2300BB287F71F52EA9B1D01C6 /* NMapsMap.xcframework */,
+>>>>>>> main
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -658,8 +888,103 @@
 				F6D583CCE5F0EB50563B3D35B20B34B4 /* TokenRefresher.swift */,
 				C5ED45686702F8854D663AD1E901A08D /* Support Files */,
 			);
+<<<<<<< HEAD
 			name = KakaoSDKAuth;
 			path = KakaoSDKAuth;
+=======
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4A1D3F1D044AA5623DD8A176468ED67F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B386CB762095A56CE6724D999B504AEC /* PrivacyInfo.xcprivacy */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		4CBEA48C1E4BE9B54811B8FF9955D7AC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				74E1421BDA99DB7494F36D9179BF64CB /* PrivacyInfo.xcprivacy */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		5E4E2E18F143A7BA94C82741AD1A5953 /* SwiftSoup */ = {
+			isa = PBXGroup;
+			children = (
+				C4B129EAB0E1F9A5E0F68F8331CA8936 /* ArrayExt.swift */,
+				0D2E100E6A47D541720E94C705A0720C /* Attribute.swift */,
+				C90C11B6CAD1ACBE39BC326306B9B3E0 /* Attributes.swift */,
+				10A61E78EB5A89403DC1A23EEEB2139C /* BinarySearch.swift */,
+				E6A3AC5E83FFDA49F4D0BEFEF791A9F6 /* BooleanAttribute.swift */,
+				EB553E46DC365D7D0072EFA59510E9B9 /* CharacterExt.swift */,
+				70A16EE353DEC0E589976E175EA073BD /* CharacterReader.swift */,
+				E4FC8E894994D338CF3423A522AFC890 /* Cleaner.swift */,
+				EA00A51F21BC9510EDB229372432D4D0 /* Collector.swift */,
+				F5C261F96F61C06EDAAA76D757756A18 /* CombiningEvaluator.swift */,
+				1CDA2B6BDB1370790D578FB409D7CD55 /* Comment.swift */,
+				DB6D88BDA29D13DAE8CEE1851CB70EE2 /* Connection.swift */,
+				417786C8848307C88503494BF70F9A01 /* CssSelector.swift */,
+				885593F52E7197F0FACE2EAA5ABEC262 /* DataNode.swift */,
+				753399B47021B6FEEBA0AACE88819C0D /* DataUtil.swift */,
+				EA4577CCF7D740D9B620A896FB2FE452 /* Document.swift */,
+				08484DC2795718A63545AD8979B9A6A0 /* DocumentType.swift */,
+				434CB39C4C066F7C99B8ACE0DA37311F /* Element.swift */,
+				CF44C5647CAAF691DA440DBDEDF019F1 /* Elements.swift */,
+				3D47FA261E1063E5BBDC9BF5A81E2544 /* Entities.swift */,
+				B2B29C84A18763F7292E2AA58B841D52 /* Evaluator.swift */,
+				3B8B7FB6A66D0E426E1042ADF94DBDEE /* Exception.swift */,
+				DBD12C2FE32FB1AF042FDA9E0C3A11F1 /* FormElement.swift */,
+				717879D47BB18DAE97E65C48FF55046A /* HtmlTreeBuilder.swift */,
+				71FA92974CC8BB82E0706F1C9A79DB60 /* HtmlTreeBuilderState.swift */,
+				A4A1970156D455FEB448F2A819459DCF /* HttpStatusException.swift */,
+				2329F4CA737478F8E2CC033BE465915F /* Mutex.swift */,
+				9ABC56FCCAF5F81E49D5A6FCE1DF81E4 /* Node.swift */,
+				393FC0D153DA8AB39D247701629119A9 /* NodeTraversor.swift */,
+				BB7C33D02F9169392EF5F4FDBCEB896A /* NodeVisitor.swift */,
+				C63930E9C0EC22BC9792EAD63F8FF675 /* OrderedSet.swift */,
+				42BCCE66DD9351C6BFF2F9AB130029E0 /* ParseError.swift */,
+				94442ED598ED368E3ED85B058C8004F7 /* ParseErrorList.swift */,
+				658D184C2E59EFD79DFAEB85667848DB /* Parser.swift */,
+				0642B5C151C9DD89D42FA11EDC9CACE8 /* ParseSettings.swift */,
+				9DB2C6B3CAB49061B5B810B9120C3260 /* Pattern.swift */,
+				21ED383A54545AE2377D6F1866D5CADF /* QueryParser.swift */,
+				E1D35BE61752EFE3CB8214B4F27B0DA3 /* SerializationException.swift */,
+				516ED73AF777B9A9EE57EA5ECD312B94 /* SimpleDictionary.swift */,
+				FDC6D20576E0F0395F75CAA336A757FA /* StreamReader.swift */,
+				DD09A1141CA4D068546F027223172695 /* String.swift */,
+				822A212E6CB0E53739507B638D5D56B5 /* StringBuilder.swift */,
+				4C5C75D25EE0C6D293DA5C2192035A78 /* StringUtil.swift */,
+				05219A06A6B9C7BFB86E2A883EAEB7F4 /* StructuralEvaluator.swift */,
+				5DE116E45730EE2B2CAAE29FF9793A36 /* SwiftSoup.swift */,
+				76D9CF4847887FA5F5CB06B5CA9F21B5 /* Tag.swift */,
+				DC1EE1E3A7828AA138CB7543A92609C6 /* TextNode.swift */,
+				D84A6881B4621C2070ACC65DB93186A5 /* Token.swift */,
+				88F1FA1D114EF159765AC5B4181663CB /* Tokeniser.swift */,
+				FDE25AF513E9158D995617D9F46FAD46 /* TokeniserState.swift */,
+				168924520CB7A96E6DA4426E7862043E /* TokenQueue.swift */,
+				D6EFF93935D75DF941AFECD56188CB3B /* TreeBuilder.swift */,
+				4D77FCCEA778935456257C9ACF033510 /* UnfairLock.swift */,
+				F5F7BDBD5A5D0EFE4E4C2751204F206A /* UnicodeScalar.swift */,
+				4882BE0A485CEFAFDE06621C08822A83 /* Validate.swift */,
+				F65ADF29E0559776A6EE85843E069B96 /* Whitelist.swift */,
+				868B17CFE53516B2D133627940E5DAB4 /* XmlDeclaration.swift */,
+				D3AD2D3E3A7011B69CEE1CB736C1EC4D /* XmlTreeBuilder.swift */,
+				4A1D3F1D044AA5623DD8A176468ED67F /* Resources */,
+				31278E410FF8CCB3D8DEAA314C3682C6 /* Support Files */,
+			);
+<<<<<<< HEAD
+			name = SwiftSoup;
+=======
+<<<<<<< HEAD
+=======
+			name = SwiftSoup;
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+			path = SwiftSoup;
+>>>>>>> main
 			sourceTree = "<group>";
 		};
 		61C8CC330A5CA84DA2F5F1D32AB07069 /* iOS */ = {
@@ -704,13 +1029,26 @@
 				E58F8FB4EDB1DAE519BFF2F38D6D1BBB /* Alamofire.release.xcconfig */,
 				A1B9730E774A0A4A9C554E362F7BD017 /* ResourceBundle-Alamofire-Alamofire-Info.plist */,
 			);
+<<<<<<< HEAD
 			name = "Support Files";
 			path = "../Target Support Files/Alamofire";
+=======
+<<<<<<< HEAD
+			name = KakaoSDKCommon;
+=======
+<<<<<<< HEAD
+=======
+			name = KakaoSDKCommon;
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+			path = KakaoSDKCommon;
+>>>>>>> main
 			sourceTree = "<group>";
 		};
 		881DD44802165B0C0602F88A05E0146E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				4379791A46823D906018FAE7ADB3893B /* AppsErrorInfo.swift */,
 				BA8769AED0E00C39E181FC00AEA8E2E2 /* Array+Utils.swift */,
 				1B3BA5CB7D84DFC4AF66E2B446FD6831 /* AuthErrorInfo.swift */,
@@ -731,6 +1069,33 @@
 				9BC1D7A6FE539051AFA47015545517ED /* UIApplication+Utils.swift */,
 				BD23741518211E2D2387BFD1CCD0C5E7 /* URL+Utils.swift */,
 				643365E0C32FB866697CC8EF3C073E9E /* Urls.swift */,
+=======
+<<<<<<< HEAD
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire.framework */,
+				085DBCE7DD98588B2ED103B1C1F36026 /* Alamofire.bundle */,
+				9F453801F27585052F413F613C847DB2 /* KakaoSDKAuth.framework */,
+				25BDA6E824AD6CBD857358A023C694AD /* KakaoSDKCommon.framework */,
+				64AAC195EA642D7D5815B4774AB88888 /* KakaoSDKCommon.bundle */,
+				1353D6A467F43A6A3EA21D310BD35A31 /* KakaoSDKUser.framework */,
+				7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods_mumuk.framework */,
+				0E34AE840D65850D12C35565185E64BD /* Pods_mumuk_mumukUITests.framework */,
+				AED8701F8C4D2B3C8ADF2660231CCFEE /* Pods_mumukTests.framework */,
+				5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup.framework */,
+				7977795532771BCD15FDC7F92DBBBCB6 /* SwiftSoup.bundle */,
+=======
+				5D797E9A5C5782CE845840781FA1CC81 /* Alamofire */,
+				085DBCE7DD98588B2ED103B1C1F36026 /* Alamofire-Alamofire */,
+				9F453801F27585052F413F613C847DB2 /* KakaoSDKAuth */,
+				25BDA6E824AD6CBD857358A023C694AD /* KakaoSDKCommon */,
+				64AAC195EA642D7D5815B4774AB88888 /* KakaoSDKCommon-KakaoSDKCommon */,
+				1353D6A467F43A6A3EA21D310BD35A31 /* KakaoSDKUser */,
+				7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods-mumuk */,
+				0E34AE840D65850D12C35565185E64BD /* Pods-mumuk-mumukUITests */,
+				AED8701F8C4D2B3C8ADF2660231CCFEE /* Pods-mumukTests */,
+				5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */,
+				7977795532771BCD15FDC7F92DBBBCB6 /* SwiftSoup-SwiftSoup */,
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -816,6 +1181,7 @@
 				A29E815225FB8E25A2F8FB5294C454B1 /* UserShippingAddresses.swift */,
 				D378C92899A8229E93362977EAD896E6 /* Support Files */,
 			);
+<<<<<<< HEAD
 			name = KakaoSDKUser;
 			path = KakaoSDKUser;
 			sourceTree = "<group>";
@@ -869,6 +1235,16 @@
 				81F67163FC84FC87CFF65C11E9BBD553 /* Support Files */,
 			);
 			name = Alamofire;
+=======
+<<<<<<< HEAD
+			name = Alamofire;
+=======
+<<<<<<< HEAD
+=======
+			name = Alamofire;
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+>>>>>>> main
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -902,9 +1278,36 @@
 		FF7699B3B5A44AEA49F720643B8AE1F8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				17C34F14942E6B8C8143D27A42017787 /* NMapsMap-xcframeworks.sh */,
 				7415EE068CE59D307D7D9E0AD0CB49A0 /* NMapsMap.debug.xcconfig */,
 				9E0C85F7CDF33E124D6C56FE31DC58FB /* NMapsMap.release.xcconfig */,
+=======
+				4249FE2DE105623816731B84071D631A /* Frameworks */,
+				403BA2860338BE03FDE88185E65097D4 /* Support Files */,
+			);
+<<<<<<< HEAD
+			name = NMapsMap;
+=======
+<<<<<<< HEAD
+=======
+			name = NMapsMap;
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+			path = NMapsMap;
+			sourceTree = "<group>";
+		};
+		FEA358726134F8E65650743EA0CC5319 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CE9A82556482652C7E729304710F4510 /* KakaoSDKUser.modulemap */,
+				82E6ADAC4E8580518C2C606FB52E6323 /* KakaoSDKUser-dummy.m */,
+				44970AD9DD9503DE705A28FEBB6C9AB7 /* KakaoSDKUser-Info.plist */,
+				C93FA3F3CA0CDF54548852E9CCA277E1 /* KakaoSDKUser-prefix.pch */,
+				43D4A613ABD05F30FAC132F7D412CBD5 /* KakaoSDKUser-umbrella.h */,
+				129E7DD98E557153D9F0786B3FD955C5 /* KakaoSDKUser.debug.xcconfig */,
+				92A8847A783B61C3FF766D926BE85A62 /* KakaoSDKUser.release.xcconfig */,
+>>>>>>> main
 			);
 			name = "Support Files";
 			path = "../Target Support Files/NMapsMap";
@@ -1116,6 +1519,36 @@
 			productReference = 085DBCE7DD98588B2ED103B1C1F36026 /* Alamofire-Alamofire */;
 			productType = "com.apple.product-type.bundle";
 		};
+<<<<<<< HEAD
+=======
+		D89F48405DFAFEF441B4E758A15117A5 /* SwiftSoup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 824843DDDF47B80EA2E130A7226815CA /* Build configuration list for PBXNativeTarget "SwiftSoup" */;
+			buildPhases = (
+				E018861E5DC9A7335B215A492E747D7D /* Headers */,
+				C960FA4EB4832F5F2586731959DB90F0 /* Sources */,
+				9BEA9753D2A095E4A045210B0860F6F4 /* Frameworks */,
+				B64891B47CF605E26C0A3BC29A87D7DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				34A46E92A0DC732547AE008CB1A9155E /* PBXTargetDependency */,
+			);
+			name = SwiftSoup;
+			productName = SwiftSoup;
+<<<<<<< HEAD
+			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */;
+=======
+<<<<<<< HEAD
+			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup.framework */;
+=======
+			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */;
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
+			productType = "com.apple.product-type.framework";
+		};
+>>>>>>> main
 		D9FA6A40A82A3427691DEEECC5E8AF74 /* KakaoSDKCommon-KakaoSDKCommon */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C36678A1AC4A11DF74980718A1D1CE /* Build configuration list for PBXNativeTarget "KakaoSDKCommon-KakaoSDKCommon" */;
