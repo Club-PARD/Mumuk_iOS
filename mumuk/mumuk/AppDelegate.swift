@@ -22,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         KakaoSDK.initSDK(appKey: "1e6b5167b05b0aaf5f1873503dcf2af3")
 
-
+        //이 부분을 추가해서 일단 앱을 키면 삭제된 기록 지우고 default값으로 되돌리려고 합니다. 이건 ExampleModelData의  resetToDefault 함수를 실행시키는 것이다.
+            ExampleModelData.resetToDefault()
         
         //앱이 켜져있을 때 알림 허용하는 delegate
         UNUserNotificationCenter.current().delegate = self
@@ -48,10 +49,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         return true
     }
-    
-    
-
- 
 
     // MARK: UISceneSession Lifecycle
 
