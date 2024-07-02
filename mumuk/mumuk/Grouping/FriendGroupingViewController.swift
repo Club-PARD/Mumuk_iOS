@@ -1,7 +1,6 @@
 import UIKit
 
-
-class FriendGroupingViewController: UIViewController {
+class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     
     var uid: String?
     var name: String?
@@ -12,7 +11,11 @@ class FriendGroupingViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let bottomViewHeight: CGFloat = 122
-
+    
+    private var allFriends: [(emoji: String, name: String)] = []
+    private var filteredFriends: [(emoji: String, name: String)] = []
+    private var checkedFriends: [String: Bool] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -21,8 +24,13 @@ class FriendGroupingViewController: UIViewController {
         setupBackButton()
         setupSearchBar()
         setupFriendLabel()
+        setupFriends()
         setupFriendsScrollView()
         setupBottomView()
+        
+        // 탭 제스처 인식기 추가
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
     func setupTitleLabel() {
@@ -79,6 +87,10 @@ class FriendGroupingViewController: UIViewController {
             searchIconView.tintColor = textColor
         }
         
+        // 키보드에 "완료" 버튼 추가
+        searchBar.returnKeyType = .done
+        searchBar.delegate = self
+        
         view.addSubview(searchBar)
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -111,6 +123,14 @@ class FriendGroupingViewController: UIViewController {
         ])
     }
     
+    func setupFriends() {
+        let emojis = ["👶🏻", "👩🏻", "👨🏻", "👵🏻", "👴🏻", "🧑🏻", "🧒🏻", "👦🏻", "👧🏻", "🧓🏻", "👱🏻", "👱🏻‍♀️", "👨🏻‍🦰", "👩🏻‍🦰", "👨🏻‍🦱"]
+        let names = ["맛있으면우는사람", "행복한미식가", "음식탐험가", "요리의달인", "맛집사냥꾼", "식도락여행자", "건강한먹보", "달콤한입맛", "매운맛마니아", "미식의여왕", "음식평론가", "요리연구가", "맛집블로거", "식재료전문가", "음식사진작가"]
+        
+        allFriends = Array(zip(emojis, names))
+        filteredFriends = allFriends
+    }
+    
     func setupFriendsScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -131,11 +151,15 @@ class FriendGroupingViewController: UIViewController {
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         
-        let emojis = ["👶🏻", "👩🏻", "👨🏻", "👵🏻", "👴🏻", "🧑🏻", "🧒🏻", "👦🏻", "👧🏻", "🧓🏻", "👱🏻", "👱🏻‍♀️", "👨🏻‍🦰", "👩🏻‍🦰", "👨🏻‍🦱"]
-        let names = ["맛있으면우는사람", "행복한미식가", "음식탐험가", "요리의달인", "맛집사냥꾼", "식도락여행자", "건강한먹보", "달콤한입맛", "매운맛마니아", "미식의여왕", "음식평론가", "요리연구가", "맛집블로거", "식재료전문가", "음식사진작가"]
+        updateFriendsView()
+    }
+    
+    func updateFriendsView() {
+        // 기존 친구 뷰 제거
+        contentView.subviews.forEach { $0.removeFromSuperview() }
         
-        for i in 0..<15 {
-            let containerView = createFriendView(emoji: emojis[i], name: names[i])
+        for (index, friend) in filteredFriends.enumerated() {
+            let containerView = createFriendView(emoji: friend.emoji, name: friend.name)
             contentView.addSubview(containerView)
             
             NSLayoutConstraint.activate([
@@ -144,13 +168,13 @@ class FriendGroupingViewController: UIViewController {
                 containerView.heightAnchor.constraint(equalToConstant: 60)
             ])
             
-            if i == 0 {
+            if index == 0 {
                 containerView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
             } else {
-                containerView.topAnchor.constraint(equalTo: contentView.subviews[i-1].bottomAnchor, constant: 15).isActive = true
+                containerView.topAnchor.constraint(equalTo: contentView.subviews[index-1].bottomAnchor, constant: 15).isActive = true
             }
             
-            if i == 14 {
+            if index == filteredFriends.count - 1 {
                 containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
             }
         }
@@ -178,6 +202,7 @@ class FriendGroupingViewController: UIViewController {
         nameLabel.textColor = .black
         
         let checkBox = createCheckBox()
+        updateCheckBoxAppearance(checkBox, isChecked: checkedFriends[name] ?? false)
         
         containerView.addSubview(emojiView)
         containerView.addSubview(nameLabel)
@@ -213,21 +238,21 @@ class FriendGroupingViewController: UIViewController {
         checkBox.layer.cornerRadius = 10.5
         checkBox.backgroundColor = .white
         checkBox.addTarget(self, action: #selector(checkBoxTapped), for: .touchUpInside)
-
+        
         let checkmarkLabel = UILabel()
         checkmarkLabel.text = "✓"
         checkmarkLabel.textColor = .white
         checkmarkLabel.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         checkmarkLabel.textAlignment = .center
         checkmarkLabel.isHidden = true
-
+        
         checkBox.addSubview(checkmarkLabel)
         checkmarkLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             checkmarkLabel.centerXAnchor.constraint(equalTo: checkBox.centerXAnchor),
             checkmarkLabel.centerYAnchor.constraint(equalTo: checkBox.centerYAnchor)
         ])
-
+        
         return checkBox
     }
     
@@ -264,70 +289,96 @@ class FriendGroupingViewController: UIViewController {
         
         view.addSubview(bottomView)
         bottomView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomView.heightAnchor.constraint(equalToConstant: bottomViewHeight),
-            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
         
-        let buttonView = UIButton(type: .custom)
-        buttonView.frame = CGRect(x: 0, y: 0, width: 146, height: 56.75)
-        buttonView.layer.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
-        buttonView.layer.cornerRadius = buttonView.frame.height / 2
-        buttonView.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
-        buttonView.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
-
-        view.addSubview(buttonView)
-        buttonView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            buttonView.widthAnchor.constraint(equalToConstant: 146),
-            buttonView.heightAnchor.constraint(equalToConstant: 56.75),
-            buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -0.19),
-            buttonView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35)
-        ])
+                    bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    bottomView.heightAnchor.constraint(equalToConstant: bottomViewHeight),
+                    bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                ])
+                
+                let buttonView = UIButton(type: .custom)
+                buttonView.frame = CGRect(x: 0, y: 0, width: 146, height: 56.75)
+                buttonView.layer.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
+                buttonView.layer.cornerRadius = buttonView.frame.height / 2
+                buttonView.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+                buttonView.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
 
-        let buttonLabel = UILabel()
-        buttonLabel.frame = CGRect(x: 0, y: 0, width: 73, height: 19)
-        buttonLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        buttonLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
-        buttonLabel.text = "그룹 만들기"
+                view.addSubview(buttonView)
+                buttonView.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    buttonView.widthAnchor.constraint(equalToConstant: 146),
+                    buttonView.heightAnchor.constraint(equalToConstant: 56.75),
+                    buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -0.19),
+                    buttonView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35)
+                ])
 
-        buttonView.addSubview(buttonLabel)
-        buttonLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            buttonLabel.centerXAnchor.constraint(equalTo: buttonView.centerXAnchor),
-            buttonLabel.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor)
-        ])
-    }
-    
-    @objc func buttonTouchDown(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.1) {
-            sender.backgroundColor = UIColor(red: 0.8, green: 0.474, blue: 0.082, alpha: 1)
-        }
-    }
+                let buttonLabel = UILabel()
+                buttonLabel.frame = CGRect(x: 0, y: 0, width: 73, height: 19)
+                buttonLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+                buttonLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
+                buttonLabel.text = "그룹 만들기"
 
-    @objc func buttonTouchUp(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.1) {
-            sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-        }
-    }
-    
-    @objc func dismissVC() {
-        dismiss(animated: true, completion: nil)
-    }
-    
+                buttonView.addSubview(buttonLabel)
+                buttonLabel.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([
+                    buttonLabel.centerXAnchor.constraint(equalTo: buttonView.centerXAnchor),
+                    buttonLabel.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor)
+                ])
+            }
+            
+            @objc func buttonTouchDown(_ sender: UIButton) {
+                UIView.animate(withDuration: 0.1) {
+                    sender.backgroundColor = UIColor(red: 0.8, green: 0.474, blue: 0.082, alpha: 1)
+                }
+            }
+
+            @objc func buttonTouchUp(_ sender: UIButton) {
+                UIView.animate(withDuration: 0.1) {
+                    sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+                }
+            }
+            
+            @objc func dismissVC() {
+                dismiss(animated: true, completion: nil)
+            }
+            
     @objc func checkBoxTapped(_ sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        if sender.isSelected {
-            let selectedColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-            sender.backgroundColor = selectedColor
-            sender.layer.borderColor = selectedColor.cgColor
-            sender.subviews.first(where: { $0 is UILabel })?.isHidden = false // 체크마크 표시
-        } else {
-            sender.backgroundColor = .white
-            sender.layer.borderColor = UIColor(red: 0.875, green: 0.878, blue: 0.878, alpha: 1).cgColor
-            sender.subviews.first(where: { $0 is UILabel })?.isHidden = true // 체크마크 숨김
+        guard let containerView = sender.superview,
+              let nameLabel = containerView.subviews.first(where: { $0 is UILabel && $0 != sender }) as? UILabel,
+              let name = nameLabel.text else {
+            return
         }
+        
+        checkedFriends[name] = !(checkedFriends[name] ?? false)
+        updateCheckBoxAppearance(sender, isChecked: checkedFriends[name] ?? false)
     }
-}
+
+    func updateCheckBoxAppearance(_ checkBox: UIButton, isChecked: Bool) {
+        let selectedColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+        checkBox.backgroundColor = isChecked ? selectedColor : .white
+        checkBox.layer.borderColor = isChecked ? selectedColor.cgColor : UIColor(red: 0.875, green: 0.878, blue: 0.878, alpha: 1).cgColor
+        checkBox.subviews.first(where: { $0 is UILabel })?.isHidden = !isChecked
+    }
+            
+            // MARK: - Keyboard Dismissal
+            
+            @objc func dismissKeyboard() {
+                view.endEditing(true)
+            }
+            
+            // MARK: - UISearchBarDelegate
+            
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredFriends = allFriends
+        } else {
+            filteredFriends = allFriends.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        }
+        updateFriendsView()
+    }
+            
+            @objc func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+                searchBar.resignFirstResponder()
+            }
+        }

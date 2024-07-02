@@ -13,7 +13,7 @@ class KakaoLoginViewController: UIViewController {
     let superTitle1 : UILabel = {
         let label = UILabel()
         label.text = "고르다 지친 당신을 위한"
-        label.font = UIFont.systemFont(ofSize: 22 , weight: .medium)
+        label.font = UIFont(name: "Pretendard-Medium", size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -22,21 +22,13 @@ class KakaoLoginViewController: UIViewController {
     let superTitle2 : UILabel = {
         let label = UILabel()
         label.text = "메뉴 추천 플랫폼"
-        label.font = UIFont.systemFont(ofSize: 22 , weight: .bold)
+        label.font = UIFont(name: "Pretendard-Bold", size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     
-    let titleLabel : UILabel = {
-        let label = UILabel()
-        label.text = "MUMUK"
-        label.textColor = #colorLiteral(red: 1, green: 0.5660945177, blue: 0, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 40 , weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+
     
     let titleImage : UIImageView = {
         let titleImage = UIImageView()
@@ -68,7 +60,7 @@ class KakaoLoginViewController: UIViewController {
         config.title = "카카오톡으로 시작하기"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
             var outgoing = incoming
-            outgoing.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+            outgoing.font = UIFont(name: "Pretendard-Medium", size: 18)
             outgoing.foregroundColor = UIColor.black
             return outgoing
         }
@@ -91,7 +83,7 @@ class KakaoLoginViewController: UIViewController {
 //        NotificationController.requestNotificationAuthorization()
 //        NotificationController.scheduleDailyNotification()
 //        NotificationController.scheduleNotification()
-//        
+//
         
         
     }
@@ -255,15 +247,15 @@ class KakaoLoginViewController: UIViewController {
         
         let nextVC = TabbarViewController()
         nextVC.modalPresentationStyle = .fullScreen
-        //            nextVC.userId = self.userId ?? "" // 데이터 전달하기 
+        //            nextVC.userId = self.userId ?? "" // 데이터 전달하기
         present(nextVC, animated: true, completion: nil)
     }
     
     
     func moveToLoginController() {
-        let nextVC = LoginController()
+        let nextVC = TabbarViewController()
         nextVC.modalPresentationStyle = .fullScreen
-        nextVC.userId = self.userId ?? ""
+//        nextVC.userId = self.userId ?? ""
         present(nextVC, animated: true, completion: nil)
     }
     
