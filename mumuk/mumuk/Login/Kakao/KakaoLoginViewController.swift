@@ -88,10 +88,10 @@ class KakaoLoginViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         
-        NotificationController.requestNotificationAuthorization()
-        NotificationController.scheduleDailyNotification()
-        NotificationController.scheduleNotification()
-        
+//        NotificationController.requestNotificationAuthorization()
+//        NotificationController.scheduleDailyNotification()
+//        NotificationController.scheduleNotification()
+//        
         
         
     }
@@ -204,7 +204,7 @@ class KakaoLoginViewController: UIViewController {
             return
         }
         
-        guard let url = URL(string: "http://172.30.1.93:8080/user/checkExists?uid=\(userId)") else {
+        guard let url = URL(string: "http://172.30.1.21:8080/user/checkExists?uid=\(userId)") else {
             print("🚨Error: Invalid URL")
             return
         }
@@ -253,7 +253,7 @@ class KakaoLoginViewController: UIViewController {
     //    메인 화면으로 이동
     func moveToMainViewController() {
         
-        let nextVC = ViewController() // 임시로 ViewController로 해놨음 MainViewController 로 바꾸기
+        let nextVC = TabbarViewController()
         nextVC.modalPresentationStyle = .fullScreen
         //            nextVC.userId = self.userId ?? "" // 데이터 전달하기 
         present(nextVC, animated: true, completion: nil)
