@@ -34,8 +34,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("알림 권한 요청 오류: \(error.localizedDescription)")
             }
         }
-<<<<<<< HEAD
-=======
         
         // 기본 폰트 크기
             let defaultSize: CGFloat = 17
@@ -49,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             // 네비게이션 바 타이틀 폰트
             UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.pretendard(.bold, size: defaultSize + 2)]
 
->>>>>>> main
         return true
     }
 

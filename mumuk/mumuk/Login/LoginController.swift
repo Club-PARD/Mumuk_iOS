@@ -157,11 +157,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
             showAlert(title: "입력 오류", message: "닉네임을 올바르게 입력해주세요.")
             return
         }
-<<<<<<< HEAD
-        //MemoModel 이용해서 newMemo에 값 넣어주고 그걸 이용해서 makePostRequest라는 put하는 함수 시작.
-        let newMember = NameModel(uid: "", name: name, image: image)
-        makePostRequest(newMember)
-=======
         guard name.count >= 2 && name.count <= 6 else {
                 showAlert(title: "입력 오류", message: "닉네임은 2글자에서 6글자 사이여야 합니다.")
                 return
@@ -170,7 +165,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         
         //서버에 name이 존재하는 지 확인하고 있으면 alert 띄우고 없으면 POST 하기
         checkNameExists(name: name, image: image)
->>>>>>> main
     }
 
     
@@ -322,11 +316,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     
     // Post request 보내는 함수
        func makePostRequest(_ memo: NameModel) {
-<<<<<<< HEAD
-           guard let url = URL(string: "http://172.30.1.51:8080/user/create") else {
-=======
            guard let url = URL(string: "http://172.30.1.21:8080/user/create") else {
->>>>>>> main
                print("🚨 Invalid URL")
                return
            }
