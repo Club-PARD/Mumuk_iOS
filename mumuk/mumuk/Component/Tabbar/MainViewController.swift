@@ -387,7 +387,7 @@ class MainViewController: UIViewController {
     }
     
     private func fetchUserData() {
-        guard let url = URL(string: "http://172.30.1.93:8080/user/users?uid=\(uid)") else {
+        guard let url = URL(string: "http://172.30.1.21:8080/user/users?uid=\(uid)") else {
             print("Invalid URL")
             return
         }
