@@ -16,6 +16,7 @@ pod 'SwiftSoup'
     # Pods for testing
   end
 pod 'NMapsMap'
+pod 'NMapsGeometry'
 pod 'KakaoSDKCommon'
 pod 'KakaoSDKAuth'
 pod 'KakaoSDKUser'

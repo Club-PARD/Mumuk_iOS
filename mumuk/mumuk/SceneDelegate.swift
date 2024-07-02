@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
+<<<<<<< HEAD
         
         window = UIWindow(windowScene: windowScene)
         
@@ -29,6 +30,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //        window?.rootViewController = LoginController()
 //                window?.rootViewController = NotificationController()
         
+=======
+<<<<<<< HEAD
+
+        window = UIWindow(windowScene: windowScene)
+
+        window?.rootViewController = TabbarViewController()
+
+=======
+>>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+        
+        window = UIWindow(windowScene: windowScene)
+        
+        window?.rootViewController = KakaoLoginViewController()
+        //        window?.rootViewController = LoginController()
+//                window?.rootViewController = NotificationController()
+        
+>>>>>>> main
         window?.makeKeyAndVisible()
     }
     
