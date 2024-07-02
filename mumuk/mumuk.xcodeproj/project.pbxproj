@@ -595,11 +595,7 @@
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
-<<<<<<< HEAD
-				815FE7DA2C3197240090BDBE /* ExampleModelData.swift in Sources */,
-=======
 				224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */,
->>>>>>> main
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
