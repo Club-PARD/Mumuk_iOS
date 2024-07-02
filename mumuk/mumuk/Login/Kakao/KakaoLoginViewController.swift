@@ -4,69 +4,165 @@ import KakaoSDKUser
 import KakaoSDKCommon
 
 class KakaoLoginViewController: UIViewController {
-    private let nickNameLabel = UILabel()
-    private let emailLabel = UILabel()
     
-    private let kakaoLoginButton = UIButton(type: .system)
-    private let logoutButton = UIButton(type: .system)
-
+    var memos: [NameModel] = []
+    var nickname : String?
+    var userId : String?
+    var exists : Bool?
+    
+    let superTitle1 : UILabel = {
+        let label = UILabel()
+        label.text = "고르다 지친 당신을 위한"
+        label.font = UIFont.systemFont(ofSize: 22 , weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    let superTitle2 : UILabel = {
+        let label = UILabel()
+        label.text = "메뉴 추천 플랫폼"
+        label.font = UIFont.systemFont(ofSize: 22 , weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    let titleLabel : UILabel = {
+        let label = UILabel()
+        label.text = "MUMUK"
+        label.textColor = #colorLiteral(red: 1, green: 0.5660945177, blue: 0, alpha: 1)
+        label.font = UIFont.systemFont(ofSize: 40 , weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    let titleImage : UIImageView = {
+        let titleImage = UIImageView()
+        
+        titleImage.image = UIImage(named: "MUMUK")
+        titleImage.translatesAutoresizingMaskIntoConstraints = false
+        titleImage.contentMode = .scaleAspectFit
+        return titleImage
+    }()
+    
+    
+    
+    let mainImage : UIImageView = {
+        let mainImage = UIImageView()
+        mainImage.image = UIImage(named: "mainImage")
+        mainImage.translatesAutoresizingMaskIntoConstraints = false
+        return mainImage
+    }()
+    
+    
+    let kakaoLoginButton : UIButton = {
+        var config = UIButton.Configuration.filled()
+        config.background.backgroundColor = #colorLiteral(red: 1, green: 0.8935882449, blue: 0, alpha: 1)
+        config.image = UIImage(named: "kakaoLogo")
+        config.imagePadding = 12
+        // 내부 여백 설정
+        config.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 67, bottom: 15, trailing: 67)
+        
+        config.title = "카카오톡으로 시작하기"
+        config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+            var outgoing = incoming
+            outgoing.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+            outgoing.foregroundColor = UIColor.black
+            return outgoing
+        }
+        
+        var button = UIButton(configuration: config)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 27
+        button.layer.masksToBounds = true
+        
+        
+        return button
+        
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        NotificationController.requestNotificationAuthorization()
+        NotificationController.scheduleDailyNotification()
+        NotificationController.scheduleNotification()
+        
+        
+        
     }
-
-    private func setupUI() {
+    
+    func setupUI() {
         view.backgroundColor = .white
-
-        nickNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        kakaoLoginButton.translatesAutoresizingMaskIntoConstraints = false
-        logoutButton.translatesAutoresizingMaskIntoConstraints = false
-
-        view.addSubview(nickNameLabel)
-        view.addSubview(emailLabel)
+        
+        
+        view.addSubview(superTitle1)
+        view.addSubview(superTitle2)
+        view.addSubview(titleImage)
+        view.addSubview(mainImage)
         view.addSubview(kakaoLoginButton)
-        view.addSubview(logoutButton)
-
-        kakaoLoginButton.setTitle("Kakao Login", for: .normal)
-        kakaoLoginButton.addTarget(self, action: #selector(loginAction), for: .touchUpInside)
-
-        logoutButton.setTitle("Logout", for: .normal)
-        logoutButton.addTarget(self, action: #selector(logoutAction), for: .touchUpInside)
-
+        
+        
+        
+        kakaoLoginButton.addTarget(self, action: #selector(loginAction) , for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
-            nickNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nickNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-
-            emailLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailLabel.topAnchor.constraint(equalTo: nickNameLabel.bottomAnchor, constant: 20),
-
-            kakaoLoginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            kakaoLoginButton.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 40),
-
-            logoutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoutButton.topAnchor.constraint(equalTo: kakaoLoginButton.bottomAnchor, constant: 20)
+            
+            superTitle1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            superTitle1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 62),
+            
+            
+            superTitle2.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            superTitle2.topAnchor.constraint(equalTo: superTitle1.bottomAnchor),
+            
+            titleImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            titleImage.topAnchor.constraint(equalTo: superTitle2.bottomAnchor, constant: 10),
+            titleImage.heightAnchor.constraint(equalToConstant: 40),
+            titleImage.widthAnchor.constraint(equalToConstant: 183),
+            
+            
+            
+            mainImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 75),
+            mainImage.topAnchor.constraint(equalTo: titleImage.bottomAnchor, constant: 109),
+            
+            kakaoLoginButton.heightAnchor.constraint(equalToConstant: 54),
+            kakaoLoginButton.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 84),
+            kakaoLoginButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+            kakaoLoginButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32),
+            
         ])
     }
-
+    
+    
+    // 카카오 API를 사용하여 사용자 정보 가져오기
     private func setUserInfo() {
         UserApi.shared.me { (user, error) in
             if let error = error {
                 print(error)
             } else {
-                print("nickname: \(user?.kakaoAccount?.profile?.nickname ?? "no nickname")")
-                print("email: \(user?.kakaoAccount?.email ?? "no email")")
-                guard let userId = user?.id else { return }
-                print("닉네임: \(user?.kakaoAccount?.profile?.nickname ?? "no nickname").....이메일: \(user?.kakaoAccount?.email ?? "no email").....유저 ID: \(userId)")
                 
-                DispatchQueue.main.async {
-                    self.nickNameLabel.text = "Nickname: \(user?.kakaoAccount?.profile?.nickname ?? "no nickname")"
-                    self.emailLabel.text = "Email: \(user?.kakaoAccount?.email ?? "no email")"
-                }
+                self.nickname = user?.kakaoAccount?.profile?.nickname ?? "no nickname"
+                self.userId = String(user?.id ?? 0)
+                // 잘 가져왔는지 확인
+//                print(self.nickname ?? 0)
+//                print(self.userId ?? 0)
+//                print("🟢")
+//                print(self.exists ?? nil)
+                self.checkUid()
+                
+                
+                
+                
             }
         }
     }
-
+    
+    
+    //카카오 앱을 통한 로그인 시도 : 카카오 앱 설치 유무 확인후 앱이 존재하면 앱으로 로그인, 없으면 웹으로 로그인
     @objc private func loginAction() {
         if (UserApi.isKakaoTalkLoginAvailable()) {
             UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
@@ -83,7 +179,9 @@ class KakaoLoginViewController: UIViewController {
             self.loginWithKakaoAccount()
         }
     }
-
+    
+    
+    // 카카오 계정을 통해 웹 로그인
     private func loginWithKakaoAccount() {
         UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
             if let error = error {
@@ -95,18 +193,82 @@ class KakaoLoginViewController: UIViewController {
             }
         }
     }
-
-    @objc private func logoutAction() {
-        UserApi.shared.logout { (error) in
+    
+    
+    
+    // MARK: - 서버 통신 메소드
+        
+    func checkUid() {
+        guard let userId = self.userId else {
+            print("🚨Error: userId is nil")
+            return
+        }
+        
+        guard let url = URL(string: "http://172.30.1.93:8080/user/checkExists?uid=\(userId)") else {
+            print("🚨Error: Invalid URL")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let error = error {
-                print(error)
-            } else {
-                print("kakao logout success")
+                print("🚨 Network error:", error)
+                return
+            }
+            
+            guard let data = data else {
+                print("🚨 No data received")
+                return
+            }
+            
+            if let responseString = String(data: data, encoding: .utf8) {
+                print("Server response: \(responseString)")
+                
+                let exists = responseString.lowercased() == "true"
+                
                 DispatchQueue.main.async {
-                    self.nickNameLabel.text = "Nickname: "
-                    self.emailLabel.text = "Email: "
+                    self?.exists = exists
+                    print("✅ User exists:", exists)
+                    
+                    if exists {
+                        print("User already exists")
+                        // 기존 사용자에 대한 처리
+                        self?.moveToMainViewController()
+                        
+                    } else {
+                        print("New user")
+                        // 새 사용자에 대한 처리
+                        self?.moveToLoginController()
+                    }
                 }
+            } else {
+                print("🚨 Unable to convert data to string")
             }
         }
+        
+        task.resume()
     }
+    
+    
+    //MARK: - 화면 이동 메소드
+    //    메인 화면으로 이동
+    func moveToMainViewController() {
+        
+        let nextVC = ViewController() // 임시로 ViewController로 해놨음 MainViewController 로 바꾸기
+        nextVC.modalPresentationStyle = .fullScreen
+        //            nextVC.userId = self.userId ?? "" // 데이터 전달하기 
+        present(nextVC, animated: true, completion: nil)
+    }
+    
+    
+    func moveToLoginController() {
+        let nextVC = LoginController()
+        nextVC.modalPresentationStyle = .fullScreen
+        nextVC.userId = self.userId ?? ""
+        present(nextVC, animated: true, completion: nil)
+    }
+    
 }
+
+
+
+
