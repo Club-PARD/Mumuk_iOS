@@ -401,10 +401,14 @@
 		25BDA6E824AD6CBD857358A023C694AD /* KakaoSDKCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2668E07E7FCC0DAFC3DE815D2012EDF7 /* KakaoSDKAuth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKAuth.debug.xcconfig; sourceTree = "<group>"; };
 <<<<<<< HEAD
+		280D1AC2300BB287F71F52EA9B1D01C6 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
 		280D1AC2300BB287F71F52EA9B1D01C6 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
 =======
 		280D1AC2300BB287F71F52EA9B1D01C6 /* NMapsMap.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsMap.xcframework; path = framework/NMapsMap.xcframework; sourceTree = "<group>"; };
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 		289BCA12400957A96A43442147B12125 /* Api.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Api.swift; path = Sources/KakaoSDKCommon/network/Api.swift; sourceTree = "<group>"; };
 		318B518D6E8F7778F1C39839DB239E07 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/Core/SessionDelegate.swift; sourceTree = "<group>"; };
 		31C0BD0B00FA526B1260B21543D195D4 /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
@@ -459,10 +463,14 @@
 		6877D762E69AC4419EFEF1D7E33C6E78 /* TokenRefresher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TokenRefresher.swift; path = Sources/KakaoSDKAuth/auth/TokenRefresher.swift; sourceTree = "<group>"; };
 		6911C009F6AACAAFC6C83DB3ADC2FDDF /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/Features/ResponseSerialization.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+		6949C9E6E306FA94F37E3CEADEE871D0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
 		6949C9E6E306FA94F37E3CEADEE871D0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 =======
 		6949C9E6E306FA94F37E3CEADEE871D0 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Source/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 		6ADF5C2A232AFC1CD3C44CAF2D34D3D4 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Core/Request.swift; sourceTree = "<group>"; };
 		6C9EC0F82B9BD58D672ABF9AB9FF0FFB /* SdkCoder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SdkCoder.swift; path = Sources/KakaoSDKCommon/common/common/SdkCoder.swift; sourceTree = "<group>"; };
 		70A16EE353DEC0E589976E175EA073BD /* CharacterReader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CharacterReader.swift; path = Sources/CharacterReader.swift; sourceTree = "<group>"; };
@@ -470,10 +478,14 @@
 		71FA92974CC8BB82E0706F1C9A79DB60 /* HtmlTreeBuilderState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HtmlTreeBuilderState.swift; path = Sources/HtmlTreeBuilderState.swift; sourceTree = "<group>"; };
 		733DE1B38714A475FB7FA0C71A88DF62 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/Core/ParameterEncoding.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+		74E1421BDA99DB7494F36D9179BF64CB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/KakaoSDKCommon/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
 		74E1421BDA99DB7494F36D9179BF64CB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/KakaoSDKCommon/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 =======
 		74E1421BDA99DB7494F36D9179BF64CB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/KakaoSDKCommon/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 		753399B47021B6FEEBA0AACE88819C0D /* DataUtil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataUtil.swift; path = Sources/DataUtil.swift; sourceTree = "<group>"; };
 		75A8CF83B0855AF6575088AC436A9992 /* KakaoSDKAuth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKAuth.release.xcconfig; sourceTree = "<group>"; };
 		768C512591C747E1FC92DDD49D4BA683 /* ApiRequestAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ApiRequestAdapter.swift; path = Sources/KakaoSDKCommon/network/ApiRequestAdapter.swift; sourceTree = "<group>"; };
@@ -484,10 +496,14 @@
 		7A3253DC7F5231725695507AC6CB931E /* Alamofire-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Alamofire-Info.plist"; sourceTree = "<group>"; };
 		7BCD06BDE6170B2C528401C877DF1E6B /* AlamofireExtended.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlamofireExtended.swift; path = Source/Features/AlamofireExtended.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods-mumuk */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-mumuk"; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+<<<<<<< HEAD
 		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods_mumuk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 =======
 		7BE4D32AA7DF828BDC5C69D1BAE05D1B /* Pods-mumuk */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-mumuk"; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 		7C1688750D71FD007EBD136F8280A3E4 /* Pods-mumukTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumukTests-Info.plist"; sourceTree = "<group>"; };
 		7F4BF0C434D12724DE6B0B64F3036497 /* OAuthToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OAuthToken.swift; path = Sources/KakaoSDKAuth/model/OAuthToken.swift; sourceTree = "<group>"; };
 		80EA4BB1CE9608B0EF6339F66BDA620A /* AuthRequestAdapter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthRequestAdapter.swift; path = Sources/KakaoSDKAuth/auth/AuthRequestAdapter.swift; sourceTree = "<group>"; };
@@ -511,10 +527,14 @@
 		9B8DC626B9D910D78A93F49C19E088E5 /* URL+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "URL+Utils.swift"; path = "Sources/KakaoSDKCommon/common/extension/URL+Utils.swift"; sourceTree = "<group>"; };
 		9C4978BCFEB40224C1541B2A7D933FDA /* Pods-mumuk-mumukUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-mumuk-mumukUITests-Info.plist"; sourceTree = "<group>"; };
 <<<<<<< HEAD
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+=======
+<<<<<<< HEAD
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 =======
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 		9DB2C6B3CAB49061B5B810B9120C3260 /* Pattern.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Pattern.swift; path = Sources/Pattern.swift; sourceTree = "<group>"; };
 		9EA25DFE9FBE6A72175F90D8D243E3DA /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Features/Validation.swift; sourceTree = "<group>"; };
 		9F453801F27585052F413F613C847DB2 /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -533,10 +553,14 @@
 		B2B29C84A18763F7292E2AA58B841D52 /* Evaluator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Evaluator.swift; path = Sources/Evaluator.swift; sourceTree = "<group>"; };
 		B2F734B92C9D75CB46AD49008FD078D4 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/Features/MultipartFormData.swift; sourceTree = "<group>"; };
 <<<<<<< HEAD
+		B386CB762095A56CE6724D999B504AEC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
 		B386CB762095A56CE6724D999B504AEC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 =======
 		B386CB762095A56CE6724D999B504AEC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 		B5759F5C8717035FDEAF7E64B524FA6E /* Date+Utils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Date+Utils.swift"; path = "Sources/KakaoSDKCommon/common/extension/Date+Utils.swift"; sourceTree = "<group>"; };
 		B57DF11095F073F0390ECDDB41C0AB11 /* UserShippingAddresses.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserShippingAddresses.swift; path = Sources/KakaoSDKUser/model/UserShippingAddresses.swift; sourceTree = "<group>"; };
 		B6F59CFBBE9A96BD021732C83246CD3F /* KakaoSDKCommon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KakaoSDKCommon.debug.xcconfig; sourceTree = "<group>"; };
@@ -562,10 +586,14 @@
 		CD3CF21C7F208FFFE66B98943862E24D /* AuthApi.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthApi.swift; path = Sources/KakaoSDKAuth/auth/AuthApi.swift; sourceTree = "<group>"; };
 		CE9A82556482652C7E729304710F4510 /* KakaoSDKUser.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KakaoSDKUser.modulemap; sourceTree = "<group>"; };
 <<<<<<< HEAD
+		CED51F97DA2898248BE80E3FBA93CBE0 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
+=======
+<<<<<<< HEAD
 		CED51F97DA2898248BE80E3FBA93CBE0 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcframework; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
 =======
 		CED51F97DA2898248BE80E3FBA93CBE0 /* NMapsGeometry.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = NMapsGeometry.xcframework; path = framework/NMapsGeometry.xcframework; sourceTree = "<group>"; };
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 		CF44C5647CAAF691DA440DBDEDF019F1 /* Elements.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Elements.swift; path = Sources/Elements.swift; sourceTree = "<group>"; };
 		CF8706A15435BC79B363B6244C16ADB5 /* UserServiceTerms.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UserServiceTerms.swift; path = Sources/KakaoSDKUser/model/UserServiceTerms.swift; sourceTree = "<group>"; };
 		D01DAEC036836576E53407D109D75885 /* KakaoSDKAuth-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KakaoSDKAuth-prefix.pch"; sourceTree = "<group>"; };
@@ -747,9 +775,13 @@
 				FEA358726134F8E65650743EA0CC5319 /* Support Files */,
 			);
 <<<<<<< HEAD
+			name = KakaoSDKUser;
+=======
+<<<<<<< HEAD
 =======
 			name = KakaoSDKUser;
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			path = KakaoSDKUser;
 			sourceTree = "<group>";
 		};
@@ -786,9 +818,13 @@
 				0BD740798790E990E535896C813BF1C2 /* Support Files */,
 			);
 <<<<<<< HEAD
+			name = KakaoSDKAuth;
+=======
+<<<<<<< HEAD
 =======
 			name = KakaoSDKAuth;
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			path = KakaoSDKAuth;
 			sourceTree = "<group>";
 		};
@@ -840,9 +876,13 @@
 				6742BC78197AB8B3DE2C9C249B351745 /* Support Files */,
 			);
 <<<<<<< HEAD
+			name = NMapsGeometry;
+=======
+<<<<<<< HEAD
 =======
 			name = NMapsGeometry;
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			path = NMapsGeometry;
 			sourceTree = "<group>";
 		};
@@ -954,9 +994,13 @@
 				31278E410FF8CCB3D8DEAA314C3682C6 /* Support Files */,
 			);
 <<<<<<< HEAD
+			name = SwiftSoup;
+=======
+<<<<<<< HEAD
 =======
 			name = SwiftSoup;
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			path = SwiftSoup;
 			sourceTree = "<group>";
 		};
@@ -1003,9 +1047,13 @@
 				F292B9ECB30CC6D4EFD7CCEDF59BB111 /* Support Files */,
 			);
 <<<<<<< HEAD
+			name = KakaoSDKCommon;
+=======
+<<<<<<< HEAD
 =======
 			name = KakaoSDKCommon;
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			path = KakaoSDKCommon;
 			sourceTree = "<group>";
 		};
@@ -1155,9 +1203,13 @@
 				F34F6E04E6C0B0FEC6F9E3F65895E055 /* Support Files */,
 			);
 <<<<<<< HEAD
+			name = Alamofire;
+=======
+<<<<<<< HEAD
 =======
 			name = Alamofire;
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -1217,9 +1269,13 @@
 				403BA2860338BE03FDE88185E65097D4 /* Support Files */,
 			);
 <<<<<<< HEAD
+			name = NMapsMap;
+=======
+<<<<<<< HEAD
 =======
 			name = NMapsMap;
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			path = NMapsMap;
 			sourceTree = "<group>";
 		};
@@ -1488,10 +1544,14 @@
 			name = SwiftSoup;
 			productName = SwiftSoup;
 <<<<<<< HEAD
+			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */;
+=======
+<<<<<<< HEAD
 			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup.framework */;
 =======
 			productReference = 5F38EF8DCE7D46A354D1D1BBAC952903 /* SwiftSoup */;
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 			productType = "com.apple.product-type.framework";
 		};
 		D9FA6A40A82A3427691DEEECC5E8AF74 /* KakaoSDKCommon-KakaoSDKCommon */ = {

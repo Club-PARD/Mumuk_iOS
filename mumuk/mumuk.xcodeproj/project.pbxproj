@@ -701,9 +701,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55JW9PZ4J9;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 =======
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -737,9 +740,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55JW9PZ4J9;
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 =======
 >>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
+>>>>>>> main
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";

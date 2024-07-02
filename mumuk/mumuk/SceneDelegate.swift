@@ -23,6 +23,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 <<<<<<< HEAD
+        
+        window = UIWindow(windowScene: windowScene)
+        
+        window?.rootViewController = KakaoLoginViewController()
+        //        window?.rootViewController = LoginController()
+//                window?.rootViewController = NotificationController()
+        
+=======
+<<<<<<< HEAD
 
         window = UIWindow(windowScene: windowScene)
 
@@ -37,6 +46,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //        window?.rootViewController = LoginController()
 //                window?.rootViewController = NotificationController()
         
+>>>>>>> main
         window?.makeKeyAndVisible()
     }
     
