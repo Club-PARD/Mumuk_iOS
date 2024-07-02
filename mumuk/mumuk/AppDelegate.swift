@@ -9,8 +9,6 @@ import UIKit
 
 import KakaoSDKCommon
 import KakaoSDKAuth
-
-
 import UserNotifications
 
 
@@ -36,6 +34,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("알림 권한 요청 오류: \(error.localizedDescription)")
             }
         }
+<<<<<<< HEAD
+=======
+        
+        // 기본 폰트 크기
+            let defaultSize: CGFloat = 17
+            
+            // 기본 폰트 설정
+            UILabel.appearance().font = .pretendard(.regular, size: defaultSize)
+            UITextField.appearance().font = .pretendard(.regular, size: defaultSize)
+            UITextView.appearance().font = .pretendard(.regular, size: defaultSize)
+            UIButton.appearance().titleLabel?.font = .pretendard(.regular, size: defaultSize)
+            
+            // 네비게이션 바 타이틀 폰트
+            UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.pretendard(.bold, size: defaultSize + 2)]
+
+>>>>>>> main
         return true
     }
 

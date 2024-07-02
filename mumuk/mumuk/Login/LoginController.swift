@@ -10,15 +10,16 @@ import UIKit
 class LoginController: UIViewController, ModalImageSelectDelegate {
     var memos: [NameModel] = []    // memos 배열
     var selectedIndex: Int? = 0
-
+    var userId : String = ""
     var roundedImageButton: CustomImageField!
-
+    var exists : Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupRoundedImageButton()
-
+        
+        
         setUI()
     }
 
@@ -34,6 +35,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     
     private lazy var idField: CustomTextField = {
         let textField = CustomTextField()
+        
         return textField
     }()
 
@@ -149,18 +151,30 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
 //     로그인하기 버튼이 눌렸을 때
     @objc private func LoginButtonPressed() {
         print("Login button tapped!")
+        
         guard let name = idField.text, !name.isEmpty,
               let image = selectedIndex else {
             showAlert(title: "입력 오류", message: "닉네임을 올바르게 입력해주세요.")
             return
         }
+<<<<<<< HEAD
         //MemoModel 이용해서 newMemo에 값 넣어주고 그걸 이용해서 makePostRequest라는 put하는 함수 시작.
         let newMember = NameModel(uid: "", name: name, image: image)
         makePostRequest(newMember)
+=======
+        guard name.count >= 2 && name.count <= 6 else {
+                showAlert(title: "입력 오류", message: "닉네임은 2글자에서 6글자 사이여야 합니다.")
+                return
+            }
+        
+        
+        //서버에 name이 존재하는 지 확인하고 있으면 alert 띄우고 없으면 POST 하기
+        checkNameExists(name: name, image: image)
+>>>>>>> main
     }
 
     
-    
+    // alert 창 설정
     private func showAlert(title: String, message: String) {
 //        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 //        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
@@ -174,6 +188,42 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         present(alert, animated: true, completion: nil)
         
     }
+    
+    private func showCustomAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        
+        let messageLabel = UILabel()
+        messageLabel.text = message
+        messageLabel.textAlignment = .center
+        messageLabel.numberOfLines = 0
+        messageLabel.font = UIFont.systemFont(ofSize: 14)
+        
+        let containerView = UIView()
+        containerView.addSubview(messageLabel)
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            messageLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+            messageLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
+            messageLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
+            messageLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
+        ])
+        
+        alert.view.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: alert.view.topAnchor, constant: 50),
+            containerView.leadingAnchor.constraint(equalTo: alert.view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: alert.view.trailingAnchor),
+            containerView.bottomAnchor.constraint(equalTo: alert.view.bottomAnchor, constant: -50)
+        ])
+        
+        let check = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(check)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    
     
     @objc func tapModalButton() {
         //키보드 내리기
@@ -216,9 +266,67 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     }
     
     
+    // 서버에 이미 존재하는 이름인지 확인하기
+    func checkNameExists(name: String, image: Int) {
+        guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+              let url = URL(string: "http://172.30.1.21:8080/user/checkExists?name=\(encodedName)") else {
+            print("🚨Error: Invalid URL")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error {
+                print("🚨 Network error:", error)
+                return
+            }
+            
+            guard let data = data else {
+                print("🚨 No data received")
+                return
+            }
+            
+            if let responseString = String(data: data, encoding: .utf8) {
+                print("Server response: \(responseString)")
+                
+                let exists = responseString.lowercased() == "true"
+                
+                DispatchQueue.main.async {
+                    self?.exists = exists
+                    print("✅ User with name '\(name)' exists:", exists)
+                    
+                    if exists {
+                        print("User with name '\(name)' already exists")
+                        // 기존 사용자에 대한 처리
+                        self?.showCustomAlert(title: "중복 닉네임", message: "이미 사용 중인 닉네임입니다.\n다른 닉네임을 선택해주세요.")
+                    } else {
+                        print("User with name '\(name)' is new")
+                        // 새 사용자에 대한 처리
+                        let newMember = NameModel(uid: self?.userId ?? "", name: name, image: image)
+                        self?.makePostRequest(newMember)
+                    }
+                }
+            } else {
+                print("🚨 Unable to convert data to string")
+            }
+        }
+        
+        task.resume()
+    }
+
+    
+    
+    
+    
+    
+    
+    
     // Post request 보내는 함수
        func makePostRequest(_ memo: NameModel) {
+<<<<<<< HEAD
            guard let url = URL(string: "http://172.30.1.51:8080/user/create") else {
+=======
+           guard let url = URL(string: "http://172.30.1.21:8080/user/create") else {
+>>>>>>> main
                print("🚨 Invalid URL")
                return
            }
@@ -236,7 +344,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                        print("🚨", error)
                    } else if let data = data {
                        if let responseString = String(data: data, encoding: .utf8) {
-                           print("Response: \(responseString)")
+                           print("✅Response: \(responseString)")
                            DispatchQueue.main.async {
                                self.navigateToNextViewController()
                            }
@@ -249,8 +357,9 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
            }
        }
     
+    // 화면 이동하기
     func navigateToNextViewController() {
-        let nextVC = ViewController()
+        let nextVC = TabbarViewController()
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }
@@ -263,3 +372,4 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     
 }
 
+    

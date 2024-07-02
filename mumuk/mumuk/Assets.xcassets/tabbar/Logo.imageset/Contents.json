@@ -9,7 +9,11 @@
       "scale" : "2x"
     },
     {
+<<<<<<< HEAD
       "filename" : "메뉴 버튼-3.png",
+=======
+      "filename" : "메뉴 버튼-3 1.png",
+>>>>>>> main
       "idiom" : "universal",
       "scale" : "3x"
     }
