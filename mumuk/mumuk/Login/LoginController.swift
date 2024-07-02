@@ -155,7 +155,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
             return
         }
         //MemoModel 이용해서 newMemo에 값 넣어주고 그걸 이용해서 makePostRequest라는 put하는 함수 시작.
-        let newMember = NameModel(name: name, image: image)
+        let newMember = NameModel(uid: "", name: name, image: image)
         makePostRequest(newMember)
     }
 
@@ -218,7 +218,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     
     // Post request 보내는 함수
        func makePostRequest(_ memo: NameModel) {
-           guard let url = URL(string: "http://172.17.194.52:8080/user/create") else {
+           guard let url = URL(string: "http://172.30.1.51:8080/user/create") else {
                print("🚨 Invalid URL")
                return
            }

@@ -25,10 +25,15 @@
 		81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */; };
 		81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E312C29E23600EEC5FB /* ModalImageSelect.swift */; };
 		811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811168B82C2E9A7500A09CD3 /* NotificationController.swift */; };
+		8151A0C12C332DCF00F1D8B9 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0C02C332DCF00F1D8B9 /* TagCell.swift */; };
 		815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7C62C304E120090BDBE /* TabbarViewController.swift */; };
 		815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7C92C304F3F0090BDBE /* FriendViewController.swift */; };
 		815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7CF2C304FA70090BDBE /* MainViewController.swift */; };
 		815FE7D22C304FC20090BDBE /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7D12C304FC20090BDBE /* MyViewController.swift */; };
+		815FE7D42C3146770090BDBE /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7D32C3146770090BDBE /* FriendComponent.swift */; };
+		815FE7D82C314BB90090BDBE /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7D72C314BB90090BDBE /* FriendModel.swift */; };
+		815FE7DA2C3197240090BDBE /* ExampleModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7D92C3197240090BDBE /* ExampleModelData.swift */; };
+		815FE7DC2C31F1130090BDBE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7DB2C31F1130090BDBE /* DetailViewController.swift */; };
 		81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375F92C2AF3D7006D986F /* CustomCell.swift */; };
 		81F375FC2C2AF93A006D986F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FB2C2AF93A006D986F /* Model.swift */; };
 		81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */; };
@@ -80,10 +85,15 @@
 		81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageField.swift; sourceTree = "<group>"; };
 		81042E312C29E23600EEC5FB /* ModalImageSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelect.swift; sourceTree = "<group>"; };
 		811168B82C2E9A7500A09CD3 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		8151A0C02C332DCF00F1D8B9 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		815FE7C62C304E120090BDBE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		815FE7C92C304F3F0090BDBE /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		815FE7CF2C304FA70090BDBE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		815FE7D12C304FC20090BDBE /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		815FE7D32C3146770090BDBE /* FriendComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendComponent.swift; sourceTree = "<group>"; };
+		815FE7D72C314BB90090BDBE /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		815FE7D92C3197240090BDBE /* ExampleModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleModelData.swift; sourceTree = "<group>"; };
+		815FE7DB2C31F1130090BDBE /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		81F375F92C2AF3D7006D986F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		81F375FB2C2AF93A006D986F /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelectDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +225,8 @@
 			children = (
 				81042E2A2C29A6CA00EEC5FB /* NameModel.swift */,
 				81F375FB2C2AF93A006D986F /* Model.swift */,
+				815FE7D72C314BB90090BDBE /* FriendModel.swift */,
+				815FE7D92C3197240090BDBE /* ExampleModelData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +257,9 @@
 			isa = PBXGroup;
 			children = (
 				815FE7C82C304EB20090BDBE /* Tabbar */,
+				815FE7D32C3146770090BDBE /* FriendComponent.swift */,
+				815FE7DB2C31F1130090BDBE /* DetailViewController.swift */,
+				8151A0C02C332DCF00F1D8B9 /* TagCell.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -499,10 +514,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				815FE7D42C3146770090BDBE /* FriendComponent.swift in Sources */,
 				4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */,
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
 				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
+				815FE7D82C314BB90090BDBE /* FriendModel.swift in Sources */,
 				815FE7D22C304FC20090BDBE /* MyViewController.swift in Sources */,
 				22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */,
 				81042E2B2C29A6CA00EEC5FB /* NameModel.swift in Sources */,
@@ -513,10 +530,13 @@
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
+				8151A0C12C332DCF00F1D8B9 /* TagCell.swift in Sources */,
+				815FE7DC2C31F1130090BDBE /* DetailViewController.swift in Sources */,
 				815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
+				815FE7DA2C3197240090BDBE /* ExampleModelData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
