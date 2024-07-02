@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		224E2C232C31427F00E69F97 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E2C222C31427F00E69F97 /* UIFont.swift */; };
+		224E2C2E2C31437A00E69F97 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C252C31437900E69F97 /* Pretendard-Black.otf */; };
+		224E2C2F2C31437A00E69F97 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C262C31437900E69F97 /* Pretendard-Regular.otf */; };
+		224E2C302C31437A00E69F97 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C272C31437900E69F97 /* Pretendard-Medium.otf */; };
+		224E2C312C31437A00E69F97 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C282C31437900E69F97 /* Pretendard-Light.otf */; };
+		224E2C322C31437A00E69F97 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C292C31437900E69F97 /* Pretendard-Bold.otf */; };
+		224E2C332C31437A00E69F97 /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C2A2C31437A00E69F97 /* Pretendard-Thin.otf */; };
+		224E2C342C31437A00E69F97 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C2B2C31437A00E69F97 /* Pretendard-ExtraLight.otf */; };
+		224E2C352C31437A00E69F97 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C2C2C31437A00E69F97 /* Pretendard-SemiBold.otf */; };
+		224E2C362C31437A00E69F97 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C2D2C31437A00E69F97 /* Pretendard-ExtraBold.otf */; };
+		224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E2C382C32C56E00E69F97 /* FriendGroupingViewController.swift */; };
 		22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB25E92C22E31B00F7585E /* AppDelegate.swift */; };
 		22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB25EB2C22E31B00F7585E /* SceneDelegate.swift */; };
 		22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB25ED2C22E31B00F7585E /* ViewController.swift */; };
@@ -54,6 +65,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		224E2C222C31427F00E69F97 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		224E2C252C31437900E69F97 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		224E2C262C31437900E69F97 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		224E2C272C31437900E69F97 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		224E2C282C31437900E69F97 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		224E2C292C31437900E69F97 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		224E2C2A2C31437A00E69F97 /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		224E2C2B2C31437A00E69F97 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		224E2C2C2C31437A00E69F97 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		224E2C2D2C31437A00E69F97 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		224E2C382C32C56E00E69F97 /* FriendGroupingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGroupingViewController.swift; sourceTree = "<group>"; };
 		22BB25E62C22E31B00F7585E /* mumuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mumuk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22BB25E92C22E31B00F7585E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22BB25EB2C22E31B00F7585E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +143,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		224E2C242C31436D00E69F97 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				224E2C252C31437900E69F97 /* Pretendard-Black.otf */,
+				224E2C292C31437900E69F97 /* Pretendard-Bold.otf */,
+				224E2C2D2C31437A00E69F97 /* Pretendard-ExtraBold.otf */,
+				224E2C2B2C31437A00E69F97 /* Pretendard-ExtraLight.otf */,
+				224E2C282C31437900E69F97 /* Pretendard-Light.otf */,
+				224E2C272C31437900E69F97 /* Pretendard-Medium.otf */,
+				224E2C262C31437900E69F97 /* Pretendard-Regular.otf */,
+				224E2C2C2C31437A00E69F97 /* Pretendard-SemiBold.otf */,
+				224E2C2A2C31437A00E69F97 /* Pretendard-Thin.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		224E2C372C32C55900E69F97 /* Grouping */ = {
+			isa = PBXGroup;
+			children = (
+				224E2C382C32C56E00E69F97 /* FriendGroupingViewController.swift */,
+			);
+			path = Grouping;
+			sourceTree = "<group>";
+		};
 		22BB25DD2C22E31A00F7585E = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +192,8 @@
 		22BB25E82C22E31B00F7585E /* mumuk */ = {
 			isa = PBXGroup;
 			children = (
+				224E2C372C32C55900E69F97 /* Grouping */,
+				224E2C242C31436D00E69F97 /* Fonts */,
 				815FE7C52C304D1A0090BDBE /* Component */,
 				811168B92C2E9A7500A09CD3 /* Notification */,
 				81042E2C2C29B65000EEC5FB /* Login */,
@@ -158,6 +206,7 @@
 				22BB25F22C22E31E00F7585E /* Assets.xcassets */,
 				22BB25F42C22E31E00F7585E /* LaunchScreen.storyboard */,
 				22BB25F72C22E31E00F7585E /* Info.plist */,
+				224E2C222C31427F00E69F97 /* UIFont.swift */,
 			);
 			path = mumuk;
 			sourceTree = "<group>";
@@ -253,8 +302,8 @@
 			isa = PBXGroup;
 			children = (
 				815FE7C62C304E120090BDBE /* TabbarViewController.swift */,
-				815FE7C92C304F3F0090BDBE /* FriendViewController.swift */,
 				815FE7CF2C304FA70090BDBE /* MainViewController.swift */,
+				815FE7C92C304F3F0090BDBE /* FriendViewController.swift */,
 				815FE7D12C304FC20090BDBE /* MyViewController.swift */,
 			);
 			path = Tabbar;
@@ -369,9 +418,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				224E2C352C31437A00E69F97 /* Pretendard-SemiBold.otf in Resources */,
 				22BB25F32C22E31E00F7585E /* Assets.xcassets in Resources */,
+				224E2C362C31437A00E69F97 /* Pretendard-ExtraBold.otf in Resources */,
+				224E2C322C31437A00E69F97 /* Pretendard-Bold.otf in Resources */,
+				224E2C342C31437A00E69F97 /* Pretendard-ExtraLight.otf in Resources */,
 				22BB25F62C22E31E00F7585E /* Base in Resources */,
+				224E2C332C31437A00E69F97 /* Pretendard-Thin.otf in Resources */,
+				224E2C2F2C31437A00E69F97 /* Pretendard-Regular.otf in Resources */,
+				224E2C2E2C31437A00E69F97 /* Pretendard-Black.otf in Resources */,
+				224E2C312C31437A00E69F97 /* Pretendard-Light.otf in Resources */,
 				22BB25F12C22E31B00F7585E /* Base in Resources */,
+				224E2C302C31437A00E69F97 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +567,7 @@
 				81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */,
 				815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */,
 				81F375FC2C2AF93A006D986F /* Model.swift in Sources */,
+				224E2C232C31427F00E69F97 /* UIFont.swift in Sources */,
 				815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */,
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
@@ -517,6 +576,7 @@
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
+				224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,13 +760,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55JW9PZ4J9;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-=======
->>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
->>>>>>> main
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -739,13 +793,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 55JW9PZ4J9;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-=======
->>>>>>> 67afce9 (민준 : 카카오 로그인 구현, 로그인 UI 구현 및 클백 연결)
->>>>>>> main
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = mumuk/Info.plist;
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";

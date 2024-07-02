@@ -14,7 +14,6 @@ PODS:
   - NMapsGeometry (1.0.2)
   - NMapsMap (3.18.1):
     - NMapsGeometry
-  - SwiftSoup (2.7.2)
 
 DEPENDENCIES:
   - KakaoSDKAuth
@@ -22,7 +21,6 @@ DEPENDENCIES:
   - KakaoSDKUser
   - NMapsGeometry
   - NMapsMap
-  - SwiftSoup
 
 SPEC REPOS:
   trunk:
@@ -32,7 +30,6 @@ SPEC REPOS:
     - KakaoSDKUser
     - NMapsGeometry
     - NMapsMap
-    - SwiftSoup
 
 SPEC CHECKSUMS:
   Alamofire: f36a35757af4587d8e4f4bfa223ad10be2422b8c
@@ -41,8 +38,7 @@ SPEC CHECKSUMS:
   KakaoSDKUser: ad33a38ec7f1da566c882ed498022923198599a7
   NMapsGeometry: 4e02554fa9880ef02ed96b075dc84355d6352479
   NMapsMap: e879088eeee2d1e3b97f0a609076e1824dce2cad
-  SwiftSoup: 4164c6bd8af69acd119c23fb36906975a60d71bb
 
-PODFILE CHECKSUM: 54379a39a9c56d2e0542f0dc48ca7facf48c53a2
+PODFILE CHECKSUM: fc2869f4601238af32b3580fa91a02e1cabebe0c
 
 COCOAPODS: 1.15.2

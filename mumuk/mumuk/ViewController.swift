@@ -2,7 +2,6 @@
 
 import CoreLocation
 import NMapsMap
-import SwiftSoup
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -132,7 +131,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             print("위치 서비스 Off 상태")
         }
-        crawl()
         
         
         
@@ -186,45 +184,3 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
-
-
-
-
-
-
-
-
-
-
-func crawl(){
-    let url = URL(string: "https://map.naver.com/p/search/%EC%9D%8C%EC%8B%9D%EC%A0%90?c=15.00,0,0,0,dh")
-    
-    guard let myURL = url else {   return    }
-    
-    do {
-        let html = try String(contentsOf: myURL, encoding: .utf8)
-        let doc: Document = try SwiftSoup.parse(html)
-        let headerTitle = try doc.title()
-        print(headerTitle)
-        
-        let places: Elements = try doc.select(".place_bluelink.TYaxT").select("span") // 정확한 CSS 선택자 사용
-        for place in places {
-            let placeName = try place.text()
-            print("Title: \(placeName)")
-        }
-        
-        
-    } catch Exception.Error(let type, let message) {
-        print("Message: \(message)")
-    } catch {
-        print("error")
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-}
