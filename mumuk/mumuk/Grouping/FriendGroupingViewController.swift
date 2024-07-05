@@ -4,6 +4,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     
     var uid: String?
     var name: String?
+    private var buttonView: UIButton!
     
     private let searchBar = UISearchBar()
     private var friendLabel: UILabel!
@@ -12,13 +13,13 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     private let contentView = UIView()
     private let bottomViewHeight: CGFloat = 122
     
-    private var allFriends: [(emoji: String, name: String)] = []
-    private var filteredFriends: [(emoji: String, name: String)] = []
+    private var allFriends: [(emoji: String, name: String, uid: String)] = []
+    private var filteredFriends: [(emoji: String, name: String, uid: String)] = []
     private var checkedFriends: [String: Bool] = [:]
     
     private var checkedFriendsScrollView: UIScrollView!
     private var checkedFriendsStack: UIStackView!
-    private var checkedFriendsViewHeight: CGFloat = 70 // 체크된 친구들 뷰의 높이
+    private var checkedFriendsViewHeight: CGFloat = 87 // 체크된 친구들 뷰의 높이
     private var checkedFriendsViewTopConstraint: NSLayoutConstraint!
     private var titleLabel: UILabel!
     private var scrollViewBottomConstraint: NSLayoutConstraint!
@@ -76,7 +77,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
             backButton.widthAnchor.constraint(equalToConstant: 10),
             backButton.heightAnchor.constraint(equalToConstant: 22),
             backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 31.79),
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 68)
+            backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
         ])
     }
     
@@ -140,7 +141,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
             searchBar.heightAnchor.constraint(equalToConstant: 36),
             searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 121.01)
+            searchBar.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 25)
         ])
     }
     
@@ -166,10 +167,9 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     }
     
     func setupFriends() {
-        // API에서 친구 목록을 가져오는 함수 호출
         fetchFriends { [weak self] friends in
             DispatchQueue.main.async {
-                self?.allFriends = friends.map { (emoji: self?.getRandomEmoji() ?? "👤", name: $0.name) }
+                self?.allFriends = friends.map { (emoji: self?.getRandomEmoji() ?? "👤", name: $0.name, uid: $0.uid) }
                 self?.filteredFriends = self?.allFriends ?? []
                 self?.updateFriendsView()
             }
@@ -182,7 +182,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     }
 
     func fetchFriends(completion: @escaping ([Friend]) -> Void) {
-        guard let url = URL(string: "http://172.30.1.21:8080/friend/\(name ?? "")") else {
+        guard let url = URL(string: "http://172.30.1.27:8080/friend/\(name ?? "")") else {
             print("Invalid URL")
             return
         }
@@ -382,12 +382,13 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
                     bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
                 ])
                 
-                let buttonView = UIButton(type: .custom)
+                buttonView = UIButton(type: .custom)
                 buttonView.frame = CGRect(x: 0, y: 0, width: 146, height: 56.75)
                 buttonView.layer.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
                 buttonView.layer.cornerRadius = buttonView.frame.height / 2
                 buttonView.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
                 buttonView.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
+                buttonView.addTarget(self, action: #selector(createGroupButtonTapped), for: .touchUpInside)
 
                 view.addSubview(buttonView)
                 buttonView.translatesAutoresizingMaskIntoConstraints = false
@@ -410,19 +411,107 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
                     buttonLabel.centerXAnchor.constraint(equalTo: buttonView.centerXAnchor),
                     buttonLabel.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor)
                 ])
+                
+                buttonView.addTarget(self, action: #selector(createGroupButtonTapped), for: .touchUpInside)
+                updateCreateGroupButtonState()
+            }
+    func updateCreateGroupButtonState() {
+        let isEnabled = !checkedFriends.filter { $0.value }.isEmpty
+        buttonView.isEnabled = isEnabled
+        buttonView.alpha = isEnabled ? 1.0 : 0.5
+    }
+    
+    @objc func createGroupButtonTapped() {
+        if !checkedFriends.filter({ $0.value }).isEmpty {
+            // 선택된 친구들의 uid를 가져옵니다.
+            let selectedFriendUids = allFriends.filter { friend in
+                checkedFriends[friend.name] == true
+            }.map { $0.uid }
+            
+            // 사용자 자신의 uid를 배열의 첫 번째 요소로 추가합니다.
+            var userUids = [self.uid ?? ""]
+            userUids.append(contentsOf: selectedFriendUids)
+            
+            // API 요청을 위한 데이터를 준비합니다.
+            let requestData: [String: [String]] = ["userUids": userUids]
+            
+            // API 요청을 보냅니다.
+            createGroup(with: requestData) { result in
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        print("그룹이 성공적으로 생성되었습니다.")
+                        // 성공 시 다음 화면으로 이동
+                        let groupingMainVC = GroupingMainViewController()
+                        groupingMainVC.uid = self.uid
+                        groupingMainVC.name = self.name
+                        groupingMainVC.selectedFriends = self.checkedFriends.filter { $0.value }.map { $0.key }
+                        groupingMainVC.modalPresentationStyle = .fullScreen
+                        self.present(groupingMainVC, animated: true, completion: nil)
+                    case .failure(let error):
+                        print("그룹 생성 실패: \(error.localizedDescription)")
+                        // 실패 시 사용자에게 알림
+                        self.showAlert(message: "그룹 생성에 실패했습니다. 다시 시도해주세요.")
+                    }
+                }
+            }
+        }
+    }
+
+    func createGroup(with data: [String: [String]], completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let url = URL(string: "http://172.30.1.27:8080/group") else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: data, options: [])
+        } catch {
+            completion(.failure(error))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+                return
             }
             
-            @objc func buttonTouchDown(_ sender: UIButton) {
-                UIView.animate(withDuration: 0.1) {
-                    sender.backgroundColor = UIColor(red: 0.8, green: 0.474, blue: 0.082, alpha: 1)
-                }
+            guard let httpResponse = response as? HTTPURLResponse,
+                  (200...299).contains(httpResponse.statusCode) else {
+                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Server error"])))
+                return
             }
+            
+            completion(.success(()))
+        }.resume()
+    }
 
-            @objc func buttonTouchUp(_ sender: UIButton) {
-                UIView.animate(withDuration: 0.1) {
-                    sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-                }
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+            
+    @objc func buttonTouchDown(_ sender: UIButton) {
+        if sender.isEnabled {
+            UIView.animate(withDuration: 0.1) {
+                sender.backgroundColor = UIColor(red: 0.8, green: 0.474, blue: 0.082, alpha: 1)
             }
+        }
+    }
+
+    @objc func buttonTouchUp(_ sender: UIButton) {
+        if sender.isEnabled {
+            UIView.animate(withDuration: 0.1) {
+                sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+            }
+        }
+    }
             
             @objc func dismissVC() {
                 dismiss(animated: true, completion: nil)
@@ -449,6 +538,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         }
         
         updateFriendsView()
+        updateCreateGroupButtonState()
     }
 
         func updateCheckBoxAppearance(_ checkBox: UIButton, isChecked: Bool) {
@@ -562,7 +652,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
             containerView.widthAnchor.constraint(equalToConstant: 50), // 컨테이너 뷰의 너비
             containerView.heightAnchor.constraint(equalToConstant: checkedFriendsViewHeight),
             
-            circleView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -10), // 세로 중앙에서 약간 위로
+            circleView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 5),
             circleView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             circleView.widthAnchor.constraint(equalToConstant: 50),
             circleView.heightAnchor.constraint(equalToConstant: 50),
@@ -593,6 +683,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         checkedFriends[name] = false
         removeCheckedFriend(name: name)
         updateFriendsView()
+        updateCreateGroupButtonState()
     }
             
             // MARK: - Keyboard Dismissal

@@ -14,6 +14,7 @@
 		2243B6682C33F58300F6EFBF /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6642C33F58200F6EFBF /* NameModel.swift */; };
 		2243B6692C33F58300F6EFBF /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6652C33F58200F6EFBF /* FriendModel.swift */; };
 		2243B66A2C33F58300F6EFBF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6662C33F58300F6EFBF /* Model.swift */; };
+		2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */; };
 		224E2C232C31427F00E69F97 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E2C222C31427F00E69F97 /* UIFont.swift */; };
 		224E2C2E2C31437A00E69F97 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C252C31437900E69F97 /* Pretendard-Black.otf */; };
 		224E2C2F2C31437A00E69F97 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C262C31437900E69F97 /* Pretendard-Regular.otf */; };
@@ -77,6 +78,7 @@
 		2243B6642C33F58200F6EFBF /* NameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameModel.swift; sourceTree = "<group>"; };
 		2243B6652C33F58200F6EFBF /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendModel.swift; path = ../../../../../../Downloads/Model/FriendModel.swift; sourceTree = "<group>"; };
 		2243B6662C33F58300F6EFBF /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingMainViewController.swift; sourceTree = "<group>"; };
 		224E2C222C31427F00E69F97 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		224E2C252C31437900E69F97 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		224E2C262C31437900E69F97 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				224E2C382C32C56E00E69F97 /* FriendGroupingViewController.swift */,
+				2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */,
 			);
 			path = Grouping;
 			sourceTree = "<group>";
@@ -574,6 +577,7 @@
 			files = (
 				2243B6672C33F58300F6EFBF /* ExampleModelData.swift in Sources */,
 				4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */,
+				2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */,
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
 				2243B6622C33F54500F6EFBF /* DetailViewController.swift in Sources */,
 				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,

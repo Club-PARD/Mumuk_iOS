@@ -1,7 +1,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let uid = "1111" // 테스트용 임의의 UID
+    let uid = "3600804107" // 테스트용 임의의 UID
     var timer: Timer?
     var name: String?
 
@@ -319,7 +319,7 @@ class MainViewController: UIViewController {
         preferenceButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
         preferenceButton.addTarget(self, action: #selector(buttonTouchUpInside), for: [.touchUpInside, .touchUpOutside])
         groupBeforeButton.addTarget(self, action: #selector(groupButtonTapped), for: .touchUpInside)
-        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)  // 추가
+        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }
 
     @objc private func createButtonTapped() {
@@ -389,7 +389,7 @@ class MainViewController: UIViewController {
     }
     
     private func fetchUserData() {
-        guard let url = URL(string: "http://172.30.1.21:8080/user/users?uid=\(uid)") else {
+        guard let url = URL(string: "http:/172.30.1.27:8080/user/users?uid=\(uid)") else {
             print("Invalid URL")
             return
         }
