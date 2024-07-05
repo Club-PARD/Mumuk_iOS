@@ -1,7 +1,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let uid = "3600804107" // 테스트용 임의의 UID
+    let uid = "36885" // 테스트용 임의의 UID
     var timer: Timer?
     var name: String?
 

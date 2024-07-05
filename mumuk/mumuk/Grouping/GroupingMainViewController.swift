@@ -1,3 +1,4 @@
+
 //
 //  GroupingMainViewController.swift
 //  mumuk
@@ -10,7 +11,8 @@ import UIKit
 class GroupingMainViewController: UIViewController {
     var uid: String?
     var name: String?
-    var selectedFriends: [String] = []
+    private var updateTimer: Timer?
+    private var groupData: GroupResponse?
     private var titleLabel: UILabel!
     private var introLabel: UILabel!
     private let shadowedView: UIView = {
@@ -25,6 +27,9 @@ class GroupingMainViewController: UIViewController {
     }()
     private let bottomViewHeight: CGFloat = 122
     
+    // 이모지 배열
+    private let emojis = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -32,9 +37,42 @@ class GroupingMainViewController: UIViewController {
         setupTitleLabel()
         setupBackButton()
         setupIntroLabel()
+        
+        // 초기 API 호출
+        fetchGroupData()
+        
+        // 1초마다 API를 호출하는 타이머 설정
+        updateTimer = Timer.scheduledTimer(withTimeInterval: 1000.0, repeats: true) { [weak self] _ in
+            self?.fetchGroupData()
+        }
+    }
+    
+    private func fetchGroupData() {
+        if let groupId = uid {
+            APIService.fetchGroupData(groupId: groupId) { [weak self] result in
+                switch result {
+                case .success(let groupResponse):
+                    self?.groupData = groupResponse
+                    DispatchQueue.main.async {
+                        self?.updateUI()
+                    }
+                case .failure(let error):
+                    print("Error fetching group data: \(error)")
+                }
+            }
+        }
+    }
+
+    private func updateUI() {
         setupShadowedView()
         setupFriendsLabel()
         setupBottomView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        updateTimer?.invalidate()
+        updateTimer = nil
     }
     
     func setupTitleLabel() {
@@ -53,7 +91,7 @@ class GroupingMainViewController: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 67),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(greaterThanOrEqualTo: view.leadingAnchor, constant: 20),
             titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: view.trailingAnchor, constant: -20)
         ])
@@ -100,8 +138,6 @@ class GroupingMainViewController: UIViewController {
     }
     
     func setupShadowedView() {
-
-        
         // 원형 뷰 추가
         let circleView = UIView()
         circleView.frame = CGRect(x: 0, y: 0, width: 70, height: 70)
@@ -116,7 +152,7 @@ class GroupingMainViewController: UIViewController {
         let readyView = UIView()
         readyView.frame = CGRect(x: 0, y: 0, width: 63, height: 23.85)
         readyView.layer.backgroundColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
-        readyView.layer.cornerRadius = 11.925 // height의 절반으로 설정하여 완전한 둥근 모서리 만들기
+        readyView.layer.cornerRadius = 11.925
         shadowedView.addSubview(readyView)
         readyView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -154,25 +190,44 @@ class GroupingMainViewController: UIViewController {
         view.addSubview(shadowedView)
         shadowedView.translatesAutoresizingMaskIntoConstraints = false
         
-        // ??? 텍스트가 있는 새로운 뷰 추가
-          let questionView = UIView()
-          questionView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-          questionView.layer.cornerRadius = 8
-          questionView.layer.borderWidth = 1
-          questionView.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
-          
-          shadowedView.addSubview(questionView)
-          questionView.translatesAutoresizingMaskIntoConstraints = false
+        // questionView를 스크롤 뷰로 변경
+        let questionScrollView = UIScrollView()
+        questionScrollView.showsHorizontalScrollIndicator = false
+        shadowedView.addSubview(questionScrollView)
+        questionScrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let questionStackView = UIStackView()
+        questionStackView.axis = .horizontal
+        questionStackView.spacing = 10
+        questionScrollView.addSubview(questionStackView)
+        questionStackView.translatesAutoresizingMaskIntoConstraints = false
 
-          // ??? 텍스트 레이블 추가
-          let questionLabel = UILabel()
-          questionLabel.text = "???"
-          questionLabel.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-          questionLabel.font = UIFont(name: "Pretendard-Regular", size: 12)
-          questionLabel.textAlignment = .center
-          
-          questionView.addSubview(questionLabel)
-          questionLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            questionStackView.topAnchor.constraint(equalTo: questionScrollView.topAnchor),
+            questionStackView.leadingAnchor.constraint(equalTo: questionScrollView.leadingAnchor),
+            questionStackView.trailingAnchor.constraint(equalTo: questionScrollView.trailingAnchor),
+            questionStackView.bottomAnchor.constraint(equalTo: questionScrollView.bottomAnchor),
+            questionStackView.heightAnchor.constraint(equalTo: questionScrollView.heightAnchor)
+        ])
+
+        // ??? 텍스트 레이블 추가
+        let questionLabel = UILabel()
+        questionLabel.text = "???"
+        questionLabel.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+        questionLabel.font = UIFont(name: "Pretendard-Regular", size: 12)
+        questionLabel.textAlignment = .center
+        
+        NSLayoutConstraint.activate([
+            questionScrollView.leadingAnchor.constraint(equalTo: yesterdayFoodLabel.leadingAnchor),
+            questionScrollView.topAnchor.constraint(equalTo: yesterdayFoodLabel.bottomAnchor, constant: 7.5),
+            questionScrollView.trailingAnchor.constraint(equalTo: shadowedView.trailingAnchor, constant: -20),
+            questionScrollView.heightAnchor.constraint(equalToConstant: 24)
+        ])
+
+        // leaderUser가 있을 때 updateUserView 호출
+        if let leaderUser = groupData?.users.values.first(where: { $0.name == self.name }) {
+            updateUserView(user: leaderUser, isLeader: true)
+        }
         
         // MY 레이블 추가
         let myLabel = UILabel()
@@ -188,38 +243,31 @@ class GroupingMainViewController: UIViewController {
         myLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // 오늘의 입맛 찾기 레이블 추가
-        let findTasteLabel = UILabel()
-        findTasteLabel.textColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
-        findTasteLabel.font = UIFont(name: "Pretendard-Medium", size: 10)
-        
-        paragraphStyle.lineHeightMultiple = 1.68
-        
-        findTasteLabel.textAlignment = .center
-        let attributedString = NSMutableAttributedString(string: "오늘의 입맛 찾기 >")
-        attributedString.addAttributes([
-            .underlineStyle: NSUnderlineStyle.single.rawValue,
-            .paragraphStyle: paragraphStyle
-        ], range: NSRange(location: 0, length: attributedString.length))
-        findTasteLabel.attributedText = attributedString
-        
-        shadowedView.addSubview(findTasteLabel)
-        findTasteLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        // GroupingTextBalloon 이미지 추가
-        let balloonImageView = UIImageView(image: UIImage(named: "GroupingTextBalloon"))
-        shadowedView.addSubview(balloonImageView)
-        balloonImageView.translatesAutoresizingMaskIntoConstraints = false
-
-        // 텍스트 레이블 추가
-        let balloonTextLabel = UILabel()
-        balloonTextLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        balloonTextLabel.font = UIFont(name: "Pretendard-SemiBold", size: 11)
-
-        balloonTextLabel.textAlignment = .center
-        
-        balloonTextLabel.attributedText = NSMutableAttributedString(
-            string: "오늘의 입맛 찾기를 완료하면 Ready 상태가 돼요!"
-        )
+         let findTasteLabel = UILabel()
+         findTasteLabel.textColor = UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
+         findTasteLabel.font = UIFont(name: "Pretendard-Medium", size: 11)
+         
+         let paragraphStyle2 = NSMutableParagraphStyle()
+         paragraphStyle2.lineHeightMultiple = 1.52
+         
+         findTasteLabel.textAlignment = .center
+         let attributedString = NSMutableAttributedString(string: "오늘의 입맛 찾기 >")
+         attributedString.addAttributes([
+             .underlineStyle: NSUnderlineStyle.single.rawValue,
+             .paragraphStyle: paragraphStyle
+         ], range: NSRange(location: 0, length: attributedString.length))
+         findTasteLabel.attributedText = attributedString
+         
+         shadowedView.addSubview(findTasteLabel)
+         findTasteLabel.translatesAutoresizingMaskIntoConstraints = false
+         
+         // GroupingTextBalloon 이미지와 텍스트 레이블
+         let balloonImageView = UIImageView(image: UIImage(named: "GroupingTextBalloon"))
+         let balloonTextLabel = UILabel()
+         balloonTextLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+         balloonTextLabel.font = UIFont(name: "Pretendard-SemiBold", size: 11)
+         balloonTextLabel.textAlignment = .center
+         balloonTextLabel.text = "오늘의 입맛 찾기를 완료하면 Ready 상태가 돼요!"
         
         shadowedView.addSubview(balloonTextLabel)
         balloonTextLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -254,396 +302,503 @@ class GroupingMainViewController: UIViewController {
             myLabel.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 20),
             myLabel.topAnchor.constraint(equalTo: shadowedView.topAnchor, constant: 30),
             
-            // 어제 먹은 음식 레이블에 대한 제약 조건
             yesterdayFoodLabel.widthAnchor.constraint(equalToConstant: 92),
             yesterdayFoodLabel.heightAnchor.constraint(equalToConstant: 13),
             yesterdayFoodLabel.leadingAnchor.constraint(equalTo: myLabel.leadingAnchor),
             yesterdayFoodLabel.topAnchor.constraint(equalTo: myLabel.bottomAnchor, constant: 5),
-         
-            // questionView에 대한 제약 조건
-             questionView.widthAnchor.constraint(equalToConstant: 53),
-             questionView.heightAnchor.constraint(equalToConstant: 24),
-             questionView.leadingAnchor.constraint(equalTo: yesterdayFoodLabel.leadingAnchor),
-             questionView.topAnchor.constraint(equalTo: yesterdayFoodLabel.bottomAnchor, constant: 7.5),
-
-             // questionLabel에 대한 제약 조건
-             questionLabel.centerXAnchor.constraint(equalTo: questionView.centerXAnchor),
-             questionLabel.centerYAnchor.constraint(equalTo: questionView.centerYAnchor),
-            
-            // findTasteLabel에 대한 제약 조건
-                    findTasteLabel.widthAnchor.constraint(equalToConstant: 75),
-                    findTasteLabel.heightAnchor.constraint(equalToConstant: 20),
-                    findTasteLabel.leadingAnchor.constraint(equalTo: questionView.trailingAnchor, constant: 40),
-                    findTasteLabel.centerYAnchor.constraint(equalTo: questionView.centerYAnchor),
-            
-            // GroupingTextBalloon 이미지 제약 조건
-            balloonImageView.topAnchor.constraint(equalTo: readyView.bottomAnchor, constant: 3),
-            balloonImageView.centerXAnchor.constraint(equalTo: shadowedView.centerXAnchor),
-            balloonImageView.widthAnchor.constraint(equalToConstant: 237),
-            balloonImageView.heightAnchor.constraint(equalToConstant: 30),
-
-            // 텍스트 레이블 제약 조건
-            balloonTextLabel.centerXAnchor.constraint(equalTo: balloonImageView.centerXAnchor),
-            balloonTextLabel.centerYAnchor.constraint(equalTo: balloonImageView.centerYAnchor, constant: 3),
-            balloonTextLabel.widthAnchor.constraint(equalToConstant: 219),
-            balloonTextLabel.heightAnchor.constraint(equalToConstant: 12)
-        ])
-        
+            questionScrollView.leadingAnchor.constraint(equalTo: yesterdayFoodLabel.leadingAnchor),
+            questionScrollView.topAnchor.constraint(equalTo: yesterdayFoodLabel.bottomAnchor, constant: 7.5),
+            questionScrollView.trailingAnchor.constraint(equalTo: shadowedView.trailingAnchor, constant: -20),
+            questionScrollView.heightAnchor.constraint(equalToConstant: 24),
+                       
+            findTasteLabel.widthAnchor.constraint(equalToConstant: 82),
+                findTasteLabel.heightAnchor.constraint(equalToConstant: 11.36),
+            findTasteLabel.trailingAnchor.constraint(equalTo: shadowedView.trailingAnchor, constant: -37.5),
+                findTasteLabel.centerYAnchor.constraint(equalTo: myLabel.centerYAnchor)
+                   ])
+                   
         // 버튼 기능 추가
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(findTasteTapped))
-        findTasteLabel.isUserInteractionEnabled = true
-        findTasteLabel.addGestureRecognizer(tapGesture)
-    }
-    
-    func setupFriendsLabel() {
-        let containerView = UIView()
-        view.addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
-        let numberLabel = UILabel()
-        numberLabel.text = "3"
-        numberLabel.font = UIFont(name: "Pretendard-SemiBold", size: 16)
-        numberLabel.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-        
-        let textLabel = UILabel()
-        textLabel.text = "명의 친구와 함께 먹어요"
-        textLabel.font = UIFont(name: "Pretendard-SemiBold", size: 16)
-        textLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-        
-        containerView.addSubview(numberLabel)
-        containerView.addSubview(textLabel)
-        
-        numberLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            containerView.topAnchor.constraint(equalTo: shadowedView.bottomAnchor, constant: 50),
-            containerView.heightAnchor.constraint(equalToConstant: 19),
-            
-            numberLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            numberLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            
-            textLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 1),
-            textLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            
-            containerView.trailingAnchor.constraint(equalTo: textLabel.trailingAnchor)
-        ])
-        
-        // 스크롤뷰 주변에 테두리 추가
-        let borderView = UIView()
-        borderView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        borderView.layer.cornerRadius = 25
-        borderView.layer.borderWidth = 1.5
-        borderView.layer.borderColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1).cgColor
-        view.addSubview(borderView)
-        borderView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            borderView.widthAnchor.constraint(equalToConstant: 330),
-            borderView.heightAnchor.constraint(equalToConstant: 426),
-            borderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            borderView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            borderView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 20)
-        ])
-        
-        // 스크롤뷰 설정
-        let scrollView = UIScrollView()
-        borderView.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(findTasteTapped))
+            findTasteLabel.isUserInteractionEnabled = true
+            findTasteLabel.addGestureRecognizer(tapGesture)
 
-        let contentView = UIView()
-        scrollView.addSubview(contentView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: borderView.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(bottomViewHeight + 5)),
-            scrollView.leadingAnchor.constraint(equalTo: borderView.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: borderView.trailingAnchor),
-            
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
-        ])
-
-
-         // 친구 목록 생성
-        let friendNames = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Henry", "Ivy", "Jack"]
-        let emojis = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯"]
-        let foods = ["스테이크", "샐러드", "피자", "파스타", "초밥", "햄버거", "타코", "카레", "라멘", "치킨"]
-        let allTags = ["육류", "채소", "유제품", "해산물", "과일", "곡물", "달걀", "견과류", "향신료", "음료", "면류", "빵류", "콩류", "버섯류", "튀김류", "매운맛", "단맛", "짠맛", "신맛", "쓴맛", "탄수화물", "단백질", "지방", "비타민", "무기질"]
-
-        for (index, name) in friendNames.enumerated() {
-            // 각 친구마다 8개의 랜덤 태그 선택
-            let selectedTags = Array(allTags.shuffled().prefix(8))
-            
-            let friendView = createFriendView(name: name, emoji: emojis[index], food: foods[index], tags: selectedTags)
-            contentView.addSubview(friendView)
-            friendView.translatesAutoresizingMaskIntoConstraints = false
-
-            NSLayoutConstraint.activate([
-                friendView.topAnchor.constraint(equalTo: index == 0 ? contentView.topAnchor : contentView.subviews[index * 2 - 1].bottomAnchor, constant: 10),
-                friendView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-                friendView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-                friendView.heightAnchor.constraint(equalToConstant: 118)
-            ])
-
-            // 마지막 친구가 아닌 경우에만 구분선 추가
-            if index < friendNames.count - 1 {
-                let separatorView = createSeparatorView()
-                contentView.addSubview(separatorView)
+            if let leaderUser = groupData?.users.values.first(where: { $0.name == self.name }) {
+                updateUserView(user: leaderUser, isLeader: true)
                 
-                NSLayoutConstraint.activate([
-                    separatorView.topAnchor.constraint(equalTo: friendView.bottomAnchor, constant: 10),
-                    separatorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-                    separatorView.widthAnchor.constraint(equalToConstant: 258),
-                    separatorView.heightAnchor.constraint(equalToConstant: 1.5)
-                ])
-            }
+                // daily 상태에 따라 balloon 표시 여부 결정
+                if leaderUser.daily {
+                    balloonImageView.isHidden = true
+                    balloonTextLabel.isHidden = true
+                } else {
+                    shadowedView.addSubview(balloonImageView)
+                    shadowedView.addSubview(balloonTextLabel)
+                    balloonImageView.translatesAutoresizingMaskIntoConstraints = false
+                    balloonTextLabel.translatesAutoresizingMaskIntoConstraints = false
+                    
+                    NSLayoutConstraint.activate([
+                        balloonImageView.topAnchor.constraint(equalTo: readyView.bottomAnchor, constant: 3),
+                        balloonImageView.centerXAnchor.constraint(equalTo: shadowedView.centerXAnchor),
+                        balloonImageView.widthAnchor.constraint(equalToConstant: 237),
+                        balloonImageView.heightAnchor.constraint(equalToConstant: 30),
 
-            if index == friendNames.count - 1 {
-                friendView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+                        balloonTextLabel.centerXAnchor.constraint(equalTo: balloonImageView.centerXAnchor),
+                        balloonTextLabel.centerYAnchor.constraint(equalTo: balloonImageView.centerYAnchor, constant: 3),
+                        balloonTextLabel.widthAnchor.constraint(equalToConstant: 219),
+                        balloonTextLabel.heightAnchor.constraint(equalToConstant: 12)
+                    ])
+                }
             }
         }
-    }
+               
+               func setupFriendsLabel() {
+                   let containerView = UIView()
+                   view.addSubview(containerView)
+                   containerView.translatesAutoresizingMaskIntoConstraints = false
+                   
+                   let numberLabel = UILabel()
+                   let friendUsers = groupData?.users.values.filter { $0.name != self.name } ?? []
+                   numberLabel.text = "\(friendUsers.count)"
+                   numberLabel.font = UIFont(name: "Pretendard-SemiBold", size: 16)
+                   numberLabel.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+                   
+                   let textLabel = UILabel()
+                   textLabel.text = "명의 친구와 함께 먹어요"
+                   textLabel.font = UIFont(name: "Pretendard-SemiBold", size: 16)
+                   textLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+                   
+                   containerView.addSubview(numberLabel)
+                   containerView.addSubview(textLabel)
+                   
+                   numberLabel.translatesAutoresizingMaskIntoConstraints = false
+                   textLabel.translatesAutoresizingMaskIntoConstraints = false
+                   
+                   NSLayoutConstraint.activate([
+                       containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+                       containerView.topAnchor.constraint(equalTo: shadowedView.bottomAnchor, constant: 50),
+                       containerView.heightAnchor.constraint(equalToConstant: 19),
+                       
+                       numberLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                       numberLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+                       
+                       textLabel.leadingAnchor.constraint(equalTo: numberLabel.trailingAnchor, constant: 1),
+                       textLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+                       
+                       containerView.trailingAnchor.constraint(equalTo: textLabel.trailingAnchor)
+                   ])
+                   
+                   // 스크롤뷰 주변에 테두리 추가
+                   let borderView = UIView()
+                   borderView.layer.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+                   borderView.layer.cornerRadius = 25
+                   borderView.layer.borderWidth = 1.5
+                   borderView.layer.borderColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1).cgColor
+                   view.addSubview(borderView)
+                   borderView.translatesAutoresizingMaskIntoConstraints = false
+                   
+                   NSLayoutConstraint.activate([
+                       borderView.widthAnchor.constraint(equalToConstant: 330),
+                       borderView.heightAnchor.constraint(equalToConstant: 426),
+                       borderView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+                       borderView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
+                       borderView.topAnchor.constraint(equalTo: containerView.bottomAnchor, constant: 20)
+                   ])
+                   
+                   // 스크롤뷰 설정
+                   let scrollView = UIScrollView()
+                   borderView.addSubview(scrollView)
+                   scrollView.translatesAutoresizingMaskIntoConstraints = false
+                   scrollView.showsVerticalScrollIndicator = false
+                   scrollView.showsHorizontalScrollIndicator = false
 
-    func createSeparatorView() -> UIView {
-        let separatorView = UIView()
-        separatorView.backgroundColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1)
-        separatorView.translatesAutoresizingMaskIntoConstraints = false
-        return separatorView
-    }
-    
-    func createFriendView(name: String, emoji: String, food: String, tags: [String]) -> UIView {
-        let friendView = UIView()
-        friendView.backgroundColor = .white
+                   let contentView = UIView()
+                   scrollView.addSubview(contentView)
+                   contentView.translatesAutoresizingMaskIntoConstraints = false
+                   
+                   NSLayoutConstraint.activate([
+                       scrollView.topAnchor.constraint(equalTo: borderView.topAnchor),
+                       scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(bottomViewHeight + 5)),
+                       scrollView.leadingAnchor.constraint(equalTo: borderView.leadingAnchor),
+                       scrollView.trailingAnchor.constraint(equalTo: borderView.trailingAnchor),
+                       
+                       contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                       contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                       contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                       contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+                       contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+                   ])
 
-        // 원형 뷰
-        let circleView = UIView()
-        circleView.layer.cornerRadius = 35
-        circleView.layer.borderWidth = 2
-        circleView.layer.borderColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
-        friendView.addSubview(circleView)
+                   for (index, user) in friendUsers.enumerated() {
+                       let friendView = createFriendView(user: user)
+                       contentView.addSubview(friendView)
+                       friendView.translatesAutoresizingMaskIntoConstraints = false
 
-        // 이모지 레이블
-        let emojiLabel = UILabel()
-        emojiLabel.text = emoji
-        emojiLabel.font = .systemFont(ofSize: 40)
-        emojiLabel.textAlignment = .center
-        circleView.addSubview(emojiLabel)
-        
-        // Ready 텍스트가 있는 뷰 추가
-        let readyView = UIView()
-        readyView.frame = CGRect(x: 0, y: 0, width: 63, height: 23.85)
-        readyView.layer.backgroundColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
-        readyView.layer.cornerRadius = 11.925 // height의 절반으로 설정하여 완전한 둥근 모서리 만들기
-        friendView.addSubview(readyView)
-        readyView.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Ready 텍스트 레이블 추가
-        let readyLabel = UILabel()
-        readyLabel.text = "Ready"
-        readyLabel.textColor = .white
-        readyLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
-        readyLabel.textAlignment = .center
-        readyView.addSubview(readyLabel)
-        readyLabel.translatesAutoresizingMaskIntoConstraints = false
+                       NSLayoutConstraint.activate([
+                           friendView.topAnchor.constraint(equalTo: index == 0 ? contentView.topAnchor : contentView.subviews[index * 2 - 1].bottomAnchor, constant: 10),
+                           friendView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                           friendView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                           friendView.heightAnchor.constraint(equalToConstant: 118)
+                       ])
 
-        // 이름 레이블
-        let nameLabel = UILabel()
-        nameLabel.text = name
-        nameLabel.font = UIFont(name: "Pretendard-Bold", size: 14)
-        friendView.addSubview(nameLabel)
+                       // 마지막 친구가 아닌 경우에만 구분선 추가
+                       if index < friendUsers.count - 1 {
+                           let separatorView = createSeparatorView()
+                           contentView.addSubview(separatorView)
+                           
+                           NSLayoutConstraint.activate([
+                               separatorView.topAnchor.constraint(equalTo: friendView.bottomAnchor, constant: 10),
+                               separatorView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+                               separatorView.widthAnchor.constraint(equalToConstant: 258),
+                               separatorView.heightAnchor.constraint(equalToConstant: 1.5)
+                           ])
+                       }
 
-        // 어제 먹은 음식 레이블
-        let yesterdayFoodLabel = UILabel()
-        yesterdayFoodLabel.font = UIFont(name: "Pretendard-Light", size: 11)
-        let attributedString = NSMutableAttributedString(string: "어제 먹은 음식은 ")
-        attributedString.append(NSAttributedString(string: food, attributes: [.foregroundColor: UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)]))
+                       if index == friendUsers.count - 1 {
+                           friendView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+                       }
+                   }
+               }
+               
+    func updateUserView(user: GroupUser, isLeader: Bool, in view: UIView? = nil) {
+        let containerView: UIView
+        if isLeader {
+            containerView = shadowedView
+        } else {
+            guard let friendView = view else { return }
+            containerView = friendView
+        }
+
+        guard let circleView = containerView.subviews.first(where: { $0 is UIView && $0.layer.cornerRadius == 35 }),
+              let readyView = containerView.subviews.first(where: { $0 is UIView && $0.layer.cornerRadius == 11.925 }),
+              let nameLabel = containerView.subviews.first(where: { $0 is UILabel && ($0 as? UILabel)?.font == UIFont(name: "Pretendard-Bold", size: 14) }) as? UILabel,
+              let yesterdayFoodLabel = containerView.subviews.first(where: { $0 is UILabel && ($0 as? UILabel)?.font == UIFont(name: "Pretendard-Light", size: 11) }) as? UILabel,
+              let tagScrollView = containerView.subviews.first(where: { $0 is UIScrollView }) as? UIScrollView
+        else {
+            print("Error: Unable to find required views")
+            return
+        }
+
+        if user.daily {
+            circleView.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
+            readyView.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+        } else {
+            circleView.layer.borderColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
+            readyView.backgroundColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1)
+        }
+
+        nameLabel.text = isLeader ? "MY" : user.name
+
+        let foodText = user.notToday ?? "???"
+        let attributedString = NSMutableAttributedString(string: "어제 먹은 음식은 ", attributes: [.foregroundColor: UIColor.black])
+        attributedString.append(NSAttributedString(string: foodText, attributes: [.foregroundColor: UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)]))
         yesterdayFoodLabel.attributedText = attributedString
-        friendView.addSubview(yesterdayFoodLabel)
 
-        // 태그 스크롤뷰
-         let tagScrollView = UIScrollView()
-         tagScrollView.showsHorizontalScrollIndicator = false
-         friendView.addSubview(tagScrollView)
-
-         let tagStackView = UIStackView()
-         tagStackView.axis = .horizontal
-         tagStackView.spacing = 10
-         tagScrollView.addSubview(tagStackView)
-
-         for tag in tags {
-             let tagView = UIView()
-             tagView.backgroundColor = .white
-             tagView.layer.cornerRadius = 8
-             tagView.layer.borderWidth = 1
-             tagView.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
-
-             let tagLabel = UILabel()
-             tagLabel.text = tag
-             tagLabel.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-             tagLabel.font = UIFont(name: "Pretendard-Regular", size: 12)
-             tagView.addSubview(tagLabel)
-
-             tagStackView.addArrangedSubview(tagView)
-
-             tagLabel.translatesAutoresizingMaskIntoConstraints = false
-             NSLayoutConstraint.activate([
-                tagView.heightAnchor.constraint(equalToConstant: 5),
-                 tagLabel.topAnchor.constraint(equalTo: tagView.topAnchor, constant: 4),
-                 tagLabel.bottomAnchor.constraint(equalTo: tagView.bottomAnchor, constant: -4),
-                 tagLabel.leadingAnchor.constraint(equalTo: tagView.leadingAnchor, constant: 8),
-                 tagLabel.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -8)
-             ])
-         }
-
-         // Auto Layout 설정
-         tagScrollView.translatesAutoresizingMaskIntoConstraints = false
-         tagStackView.translatesAutoresizingMaskIntoConstraints = false
-
-        // Auto Layout 설정
-        circleView.translatesAutoresizingMaskIntoConstraints = false
-        readyView.translatesAutoresizingMaskIntoConstraints = false
-        readyLabel.translatesAutoresizingMaskIntoConstraints = false
-        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        yesterdayFoodLabel.translatesAutoresizingMaskIntoConstraints = false
-        tagScrollView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            circleView.leadingAnchor.constraint(equalTo: friendView.leadingAnchor, constant: 20),
-            circleView.centerYAnchor.constraint(equalTo: friendView.centerYAnchor),
-            circleView.widthAnchor.constraint(equalToConstant: 70),
-            circleView.heightAnchor.constraint(equalToConstant: 70),
+        if isLeader {
+            if let questionScrollView = containerView.subviews.first(where: { $0 is UIScrollView }) as? UIScrollView {
+                updateTags(for: user, in: questionScrollView)
+            }
+        } else {
+            if let tagScrollView = containerView.subviews.first(where: { $0 is UIScrollView }) as? UIScrollView {
+                updateTags(for: user, in: tagScrollView)
+            }
+        }
+    }
             
-            readyView.widthAnchor.constraint(equalToConstant: 63),
-            readyView.heightAnchor.constraint(equalToConstant: 23.85),
-            readyView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            readyView.topAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -10),
-            
-            readyLabel.topAnchor.constraint(equalTo: readyView.topAnchor),
-            readyLabel.bottomAnchor.constraint(equalTo: readyView.bottomAnchor),
-            readyLabel.leadingAnchor.constraint(equalTo: readyView.leadingAnchor),
-            readyLabel.trailingAnchor.constraint(equalTo: readyView.trailingAnchor),
+    func updateTags(for user: GroupUser, in scrollView: UIScrollView) {
+        var tags: [String] = []
 
-            emojiLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+        if user.daily {
+            // Daily true인 경우의 태그
+            if user.todayKoreanFood == 1 { tags.append("🇰🇷 한식") }
+            if user.todayJapaneseFood == 1 { tags.append("🇯🇵 일식") }
+            if user.todayChineseFood == 1 { tags.append("🇨🇳 중식") }
+            if user.todayWesternFood == 1 { tags.append("🇮🇹 양식") }
+            if user.todaySoutheastAsianFood == 1 { tags.append("🇹🇭 동남아") }
+            if user.todayElseFood == 1 { tags.append("🇮🇳 기타") }
+            if user.todayMeat == 1 { tags.append("🥩 육류") }
+            if user.todaySeafood == 1 { tags.append("🐟 해산물") }
+            if user.todayCarbohydrate == 1 { tags.append("🍚 탄수화물") }
+            if user.todayVegetable == 1 { tags.append("🥬 채소") }
+            if user.todayHeavy == 1 { tags.append("🥘 헤비") }
+            if user.todayLight == 1 { tags.append("🥗 라이트") }
+            if user.todaySoup == 1 { tags.append("🥣 국물") }
+            if user.todayNoSoup == 1 { tags.append("🍽️ 국물") }
+            if user.redFood == 1 { tags.append("🌶️ 빨간맛") }
+            if user.notRedFood == 1 { tags.append("🌶️🚫 안 빨간맛") }
+            if user.todayRice == 1 { tags.append("🍙 밥") }
+            if user.todayBread == 1 { tags.append("🍞 빵") }
+            if user.todayNoodle == 1 { tags.append("🍜 면") }
+        } else {
+            // Daily false인 경우의 태그
+            if let foodType = user.foodTypes ?? user.foodType {
+                switch foodType {
+                case "다이어트": tags.append("💪🏻 다이어트")
+                case "할랄": tags.append("🐷🚫 할랄")
+                case "비건": tags.append("🥦 비건")
+                default: tags.append("🚫 특이사항없음")
+                }
+            }
+            tags.append(user.spicyType ? "🔥 맵고수" : "🍼 맵찔이")
+        }
 
-            nameLabel.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 20),
-            nameLabel.topAnchor.constraint(equalTo: friendView.topAnchor, constant: 30),
-
-            yesterdayFoodLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            yesterdayFoodLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
-
-            tagScrollView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-                tagScrollView.trailingAnchor.constraint(equalTo: friendView.trailingAnchor, constant: -20),
-                tagScrollView.topAnchor.constraint(equalTo: yesterdayFoodLabel.bottomAnchor, constant: 10),
-                tagScrollView.heightAnchor.constraint(equalToConstant: 24),
-
-                tagStackView.topAnchor.constraint(equalTo: tagScrollView.topAnchor),
-                tagStackView.leadingAnchor.constraint(equalTo: tagScrollView.leadingAnchor),
-                tagStackView.trailingAnchor.constraint(equalTo: tagScrollView.trailingAnchor),
-                tagStackView.bottomAnchor.constraint(equalTo: tagScrollView.bottomAnchor),
-                tagStackView.heightAnchor.constraint(equalTo: tagScrollView.heightAnchor)
+        // 태그 업데이트 로직
+        let stackView = scrollView.subviews.first { $0 is UIStackView } as? UIStackView ?? {
+            let sv = UIStackView()
+            sv.axis = .horizontal
+            sv.spacing = 10
+            scrollView.addSubview(sv)
+            sv.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                sv.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                sv.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+                sv.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+                sv.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+                sv.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
             ])
-        return friendView
-    }
-    
-    func setupBottomView() {
-        let bottomView = UIView()
-        bottomView.frame = CGRect(x: 0, y: 0, width: 393, height: bottomViewHeight)
-        
-        let shadows = UIView()
-        shadows.frame = bottomView.frame
-        shadows.clipsToBounds = false
-        bottomView.addSubview(shadows)
-        
-        let shadowPath0 = UIBezierPath(roundedRect: shadows.bounds, cornerRadius: 0)
-        let layer0 = CALayer()
-        layer0.shadowPath = shadowPath0.cgPath
-        layer0.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        layer0.shadowOpacity = 1
-        layer0.shadowRadius = 4
-        layer0.shadowOffset = CGSize(width: 0, height: 4)
-        layer0.bounds = shadows.bounds
-        layer0.position = shadows.center
-        shadows.layer.addSublayer(layer0)
-        
-        let shapes = UIView()
-        shapes.frame = bottomView.frame
-        shapes.clipsToBounds = true
-        bottomView.addSubview(shapes)
-        
-        let layer1 = CALayer()
-        layer1.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
-        layer1.bounds = shapes.bounds
-        layer1.position = shapes.center
-        shapes.layer.addSublayer(layer1)
-        
-        view.addSubview(bottomView)
-        bottomView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            bottomView.heightAnchor.constraint(equalToConstant: bottomViewHeight),
-            bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        let buttonView = UIButton(type: .custom)
-        buttonView.frame = CGRect(x: 0, y: 0, width: 146, height: 56.75)
-        buttonView.layer.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
-        buttonView.layer.cornerRadius = buttonView.frame.height / 2
-        buttonView.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
-        buttonView.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
+            return sv
+        }()
 
-        view.addSubview(buttonView)
-        buttonView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            buttonView.widthAnchor.constraint(equalToConstant: 146),
-            buttonView.heightAnchor.constraint(equalToConstant: 56.75),
-            buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -0.19),
-            buttonView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35)
-        ])
+        stackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
 
-        let buttonLabel = UILabel()
-        buttonLabel.frame = CGRect(x: 0, y: 0, width: 73, height: 19)
-        buttonLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        buttonLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
-        buttonLabel.text = "메뉴 추천 START"
-
-        buttonView.addSubview(buttonLabel)
-        buttonLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            buttonLabel.centerXAnchor.constraint(equalTo: buttonView.centerXAnchor),
-            buttonLabel.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor)
-        ])
-        
-    }
-    
-    @objc func findTasteTapped() {
-        print("오늘의 입맛 찾기가 탭되었습니다.")
-    }
-    
-    @objc func dismissVC() {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func buttonTouchDown(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.1) {
-            sender.backgroundColor = UIColor(red: 0.8, green: 0.474, blue: 0.082, alpha: 1)
+        for tag in tags {
+            let tagView = createTagView(with: tag)
+            stackView.addArrangedSubview(tagView)
         }
     }
 
-    @objc func buttonTouchUp(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.1) {
-            sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-        }
-    }
-}
+               func createSeparatorView() -> UIView {
+                   let separatorView = UIView()
+                   separatorView.backgroundColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1)
+                   separatorView.translatesAutoresizingMaskIntoConstraints = false
+                   return separatorView
+               }
+               
+               func createFriendView(user: GroupUser) -> UIView {
+                   let friendView = UIView()
+                   friendView.backgroundColor = .white
+
+                   // 원형 뷰
+                   let circleView = UIView()
+                   circleView.layer.cornerRadius = 35
+                   circleView.layer.borderWidth = 2
+                   circleView.layer.borderColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
+                   friendView.addSubview(circleView)
+
+                   // 이모지 레이블
+                   let emojiLabel = UILabel()
+                   emojiLabel.text = getEmoji(for: user.imageId)
+                   emojiLabel.font = .systemFont(ofSize: 40)
+                   emojiLabel.textAlignment = .center
+                   circleView.addSubview(emojiLabel)
+                   
+                   // Ready 텍스트가 있는 뷰 추가
+                   let readyView = UIView()
+                   readyView.frame = CGRect(x: 0, y: 0, width: 63, height: 23.85)
+                   readyView.layer.backgroundColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
+                   readyView.layer.cornerRadius = 11.925 // height의 절반으로 설정하여 완전한 둥근 모서리 만들기
+                   friendView.addSubview(readyView)
+                   readyView.translatesAutoresizingMaskIntoConstraints = false
+                   
+                   // Ready 텍스트 레이블 추가
+                   let readyLabel = UILabel()
+                   readyLabel.text = "Ready"
+                   readyLabel.textColor = .white
+                          readyLabel.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+                          readyLabel.textAlignment = .center
+                          readyView.addSubview(readyLabel)
+                          readyLabel.translatesAutoresizingMaskIntoConstraints = false
+
+                          // 이름 레이블
+                          let nameLabel = UILabel()
+                          nameLabel.text = user.name
+                          nameLabel.font = UIFont(name: "Pretendard-Bold", size: 14)
+                          friendView.addSubview(nameLabel)
+
+                   // 어제 먹은 음식 레이블
+                   let yesterdayFoodLabel = UILabel()
+                   yesterdayFoodLabel.font = UIFont(name: "Pretendard-Light", size: 11)
+                   let attributedString = NSMutableAttributedString(string: "어제 먹은 음식은 ", attributes: [.foregroundColor: UIColor.black])
+                   attributedString.append(NSAttributedString(string: user.notToday ?? "???", attributes: [.foregroundColor: UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)]))
+                   yesterdayFoodLabel.attributedText = attributedString
+                   friendView.addSubview(yesterdayFoodLabel)
+
+                          // 태그 스크롤뷰
+                   // 태그 스크롤뷰
+                   let tagScrollView = UIScrollView()
+                   tagScrollView.showsHorizontalScrollIndicator = false
+                   friendView.addSubview(tagScrollView)
+
+                          let tagStackView = UIStackView()
+                          tagStackView.axis = .horizontal
+                          tagStackView.spacing = 10
+                          tagScrollView.addSubview(tagStackView)
+
+                          // Auto Layout 설정
+                          circleView.translatesAutoresizingMaskIntoConstraints = false
+                          readyView.translatesAutoresizingMaskIntoConstraints = false
+                          readyLabel.translatesAutoresizingMaskIntoConstraints = false
+                          emojiLabel.translatesAutoresizingMaskIntoConstraints = false
+                          nameLabel.translatesAutoresizingMaskIntoConstraints = false
+                          yesterdayFoodLabel.translatesAutoresizingMaskIntoConstraints = false
+                          tagScrollView.translatesAutoresizingMaskIntoConstraints = false
+                          tagStackView.translatesAutoresizingMaskIntoConstraints = false
+
+                          NSLayoutConstraint.activate([
+                              circleView.leadingAnchor.constraint(equalTo: friendView.leadingAnchor, constant: 20),
+                              circleView.centerYAnchor.constraint(equalTo: friendView.centerYAnchor),
+                              circleView.widthAnchor.constraint(equalToConstant: 70),
+                              circleView.heightAnchor.constraint(equalToConstant: 70),
+                              
+                              readyView.widthAnchor.constraint(equalToConstant: 63),
+                              readyView.heightAnchor.constraint(equalToConstant: 23.85),
+                              readyView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+                              readyView.topAnchor.constraint(equalTo: circleView.bottomAnchor, constant: -10),
+                              
+                              readyLabel.topAnchor.constraint(equalTo: readyView.topAnchor),
+                              readyLabel.bottomAnchor.constraint(equalTo: readyView.bottomAnchor),
+                              readyLabel.leadingAnchor.constraint(equalTo: readyView.leadingAnchor),
+                              readyLabel.trailingAnchor.constraint(equalTo: readyView.trailingAnchor),
+
+                              emojiLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+                              emojiLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+
+                              nameLabel.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 20),
+                              nameLabel.topAnchor.constraint(equalTo: friendView.topAnchor, constant: 30),
+
+                              yesterdayFoodLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+                              yesterdayFoodLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
+
+                              tagScrollView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+                              tagScrollView.trailingAnchor.constraint(equalTo: friendView.trailingAnchor, constant: -20),
+                              tagScrollView.topAnchor.constraint(equalTo: yesterdayFoodLabel.bottomAnchor, constant: 10),
+                              tagScrollView.heightAnchor.constraint(equalToConstant: 24),
+
+                              tagStackView.topAnchor.constraint(equalTo: tagScrollView.topAnchor),
+                              tagStackView.leadingAnchor.constraint(equalTo: tagScrollView.leadingAnchor),
+                              tagStackView.trailingAnchor.constraint(equalTo: tagScrollView.trailingAnchor),
+                              tagStackView.bottomAnchor.constraint(equalTo: tagScrollView.bottomAnchor),
+                              tagStackView.heightAnchor.constraint(equalTo: tagScrollView.heightAnchor)
+                          ])
+                          
+                   updateUserView(user: user, isLeader: false, in: friendView)
+                          return friendView
+                      }
+                      
+                      func createTagView(with tag: String) -> UIView {
+                          let tagView = UIView()
+                          tagView.backgroundColor = .white
+                          tagView.layer.cornerRadius = 8
+                          tagView.layer.borderWidth = 1
+                          tagView.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
+
+                          let tagLabel = UILabel()
+                          tagLabel.text = tag
+                          tagLabel.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+                          tagLabel.font = UIFont(name: "Pretendard-Regular", size: 12)
+                          tagView.addSubview(tagLabel)
+
+                          tagLabel.translatesAutoresizingMaskIntoConstraints = false
+                          NSLayoutConstraint.activate([
+                              tagLabel.topAnchor.constraint(equalTo: tagView.topAnchor, constant: 4),
+                              tagLabel.bottomAnchor.constraint(equalTo: tagView.bottomAnchor, constant: -4),
+                              tagLabel.leadingAnchor.constraint(equalTo: tagView.leadingAnchor, constant: 8),
+                              tagLabel.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -8)
+                          ])
+
+                          return tagView
+                      }
+                      
+                      func getEmoji(for imageId: Int) -> String {
+                          return emojis[imageId % emojis.count]
+                      }
+                      
+                      func setupBottomView() {
+                          let bottomView = UIView()
+                          bottomView.frame = CGRect(x: 0, y: 0, width: 393, height: bottomViewHeight)
+                          
+                          let shadows = UIView()
+                          shadows.frame = bottomView.frame
+                          shadows.clipsToBounds = false
+                          bottomView.addSubview(shadows)
+                          
+                          let shadowPath0 = UIBezierPath(roundedRect: shadows.bounds, cornerRadius: 0)
+                          let layer0 = CALayer()
+                          layer0.shadowPath = shadowPath0.cgPath
+                          layer0.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+                          layer0.shadowOpacity = 0.5
+                          layer0.shadowRadius = 4
+                          layer0.shadowOffset = CGSize(width: 0, height: 4)
+                          layer0.bounds = shadows.bounds
+                          layer0.position = shadows.center
+                          shadows.layer.addSublayer(layer0)
+                          
+                          let shapes = UIView()
+                          shapes.frame = bottomView.frame
+                          shapes.clipsToBounds = true
+                          bottomView.addSubview(shapes)
+                          
+                          let layer1 = CALayer()
+                          layer1.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+                          layer1.bounds = shapes.bounds
+                          layer1.position = shapes.center
+                          shapes.layer.addSublayer(layer1)
+                          
+                          view.addSubview(bottomView)
+                          bottomView.translatesAutoresizingMaskIntoConstraints = false
+                          
+                          NSLayoutConstraint.activate([
+                              bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                              bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                              bottomView.heightAnchor.constraint(equalToConstant: bottomViewHeight),
+                              bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                          ])
+                          
+                          let buttonView = UIButton(type: .custom)
+                          buttonView.frame = CGRect(x: 0, y: 0, width: 146, height: 56.75)
+                          buttonView.layer.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
+                          buttonView.layer.cornerRadius = buttonView.frame.height / 2
+                          buttonView.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+                          buttonView.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
+
+                          view.addSubview(buttonView)
+                          buttonView.translatesAutoresizingMaskIntoConstraints = false
+                          NSLayoutConstraint.activate([
+                              buttonView.widthAnchor.constraint(equalToConstant: 146),
+                              buttonView.heightAnchor.constraint(equalToConstant: 56.75),
+                              buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -0.19),
+                              buttonView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35)
+                          ])
+
+                          let buttonLabel = UILabel()
+                          buttonLabel.frame = CGRect(x: 0, y: 0, width: 73, height: 19)
+                          buttonLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+                          buttonLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
+                          buttonLabel.text = "메뉴 추천 START"
+
+                          buttonView.addSubview(buttonLabel)
+                          buttonLabel.translatesAutoresizingMaskIntoConstraints = false
+                          NSLayoutConstraint.activate([
+                              buttonLabel.centerXAnchor.constraint(equalTo: buttonView.centerXAnchor),
+                              buttonLabel.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor)
+                          ])
+                      }
+                      
+                      @objc func findTasteTapped() {
+                          print("오늘의 입맛 찾기가 탭되었습니다.")
+                      }
+                      
+                      @objc func dismissVC() {
+                          dismiss(animated: true, completion: nil)
+                      }
+                      
+                      @objc func buttonTouchDown(_ sender: UIButton) {
+                          UIView.animate(withDuration: 0.1) {
+                              sender.backgroundColor = UIColor(red: 0.8, green: 0.474, blue: 0.082, alpha: 1)
+                          }
+                      }
+
+                      @objc func buttonTouchUp(_ sender: UIButton) {
+                          UIView.animate(withDuration: 0.1) {
+                              sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+                          }
+                      }
+                   }

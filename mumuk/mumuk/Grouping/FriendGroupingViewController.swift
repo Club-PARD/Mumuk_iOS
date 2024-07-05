@@ -445,7 +445,6 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
                         let groupingMainVC = GroupingMainViewController()
                         groupingMainVC.uid = self.uid
                         groupingMainVC.name = self.name
-                        groupingMainVC.selectedFriends = self.checkedFriends.filter { $0.value }.map { $0.key }
                         groupingMainVC.modalPresentationStyle = .fullScreen
                         self.present(groupingMainVC, animated: true, completion: nil)
                     case .failure(let error):
