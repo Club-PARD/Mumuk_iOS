@@ -223,11 +223,6 @@ class GroupingMainViewController: UIViewController {
             questionScrollView.trailingAnchor.constraint(equalTo: shadowedView.trailingAnchor, constant: -20),
             questionScrollView.heightAnchor.constraint(equalToConstant: 24)
         ])
-
-        // leaderUser가 있을 때 updateUserView 호출
-        if let leaderUser = groupData?.users.values.first(where: { $0.name == self.name }) {
-            updateUserView(user: leaderUser, isLeader: true)
-        }
         
         // MY 레이블 추가
         let myLabel = UILabel()
@@ -260,6 +255,19 @@ class GroupingMainViewController: UIViewController {
          
          shadowedView.addSubview(findTasteLabel)
          findTasteLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        
+        // leaderUser가 있을 때 updateUserView 호출
+        if let leaderUser = groupData?.users.values.first(where: { $0.name == self.name }) {
+            updateUserView(user: leaderUser, isLeader: true)
+            
+            // daily 상태에 따라 findTasteLabel 표시 여부 결정
+            if leaderUser.daily {
+                findTasteLabel.isHidden = true
+            } else {
+                findTasteLabel.isHidden = false
+            }
+        }
          
          // GroupingTextBalloon 이미지와 텍스트 레이블
          let balloonImageView = UIImageView(image: UIImage(named: "GroupingTextBalloon"))
@@ -781,6 +789,36 @@ class GroupingMainViewController: UIViewController {
                               buttonLabel.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor)
                           ])
                       }
+    func checkGroupReadyStatus() -> Bool {
+        let leaderReady = groupData?.users.values.first(where: { $0.name == self.name })?.daily ?? false
+        let allFriendsReady = groupData?.users.values.filter({ $0.name != self.name }).allSatisfy({ $0.daily }) ?? false
+        return leaderReady && allFriendsReady
+    }
+
+    func showNotReadyAlert() {
+        let alert = UIAlertController(title: nil, message: "아직 Ready가 안된 그룹원들이 있어요! \n 정확한 입맛 적중률 측정을 위해 \n 조금만 더 기다려볼까요?", preferredStyle: .alert)
+        
+        let recommendAction = UIAlertAction(title: "메뉴 추천", style: .default) { [weak self] _ in
+            self?.navigateToNextPage()
+        }
+        
+        let waitAction = UIAlertAction(title: "기다리기", style: .default, handler: nil)
+        
+        // 메뉴 추천 액션을 먼저 추가하여 왼쪽에 위치하게 함
+        alert.addAction(recommendAction)
+        alert.addAction(waitAction)
+        
+        // 기다리기 액션을 preferred로 설정 (사용자가 Return 키를 누를 때 실행되는 액션)
+        alert.preferredAction = waitAction
+        
+        present(alert, animated: true, completion: nil)
+    }
+
+    func navigateToNextPage() {
+        // 다음 페이지로 이동하는 코드를 여기에 작성하세요.
+        // 예: let nextVC = NextViewController()
+        //     navigationController?.pushViewController(nextVC, animated: true)
+    }
                       
                       @objc func findTasteTapped() {
                           print("오늘의 입맛 찾기가 탭되었습니다.")
@@ -796,9 +834,15 @@ class GroupingMainViewController: UIViewController {
                           }
                       }
 
-                      @objc func buttonTouchUp(_ sender: UIButton) {
-                          UIView.animate(withDuration: 0.1) {
-                              sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-                          }
-                      }
+    @objc func buttonTouchUp(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1) {
+            sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+        }
+        
+        if checkGroupReadyStatus() {
+            navigateToNextPage()
+        } else {
+            showNotReadyAlert()
+        }
+    }
                    }

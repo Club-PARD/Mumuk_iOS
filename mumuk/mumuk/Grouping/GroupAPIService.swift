@@ -58,7 +58,7 @@ struct GroupResponse: Codable {
 
 class APIService {
     static func fetchGroupData(groupId: String, completion: @escaping (Result<GroupResponse, Error>) -> Void) {
-        let urlString = "http://172.30.1.27:8080/with-pref/daily/group?groupId=\(groupId)"
+        let urlString = "https:/mumuk.store/with-pref/daily/group?groupId=\(groupId)"
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return

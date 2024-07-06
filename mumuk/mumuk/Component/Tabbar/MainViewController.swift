@@ -1,7 +1,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let uid = "36885" // 테스트용 임의의 UID
+    let uid = "1111" // 테스트용 임의의 UID
     var timer: Timer?
     var name: String?
 
@@ -389,7 +389,7 @@ class MainViewController: UIViewController {
     }
     
     private func fetchUserData() {
-        guard let url = URL(string: "http:/172.30.1.27:8080/user/users?uid=\(uid)") else {
+        guard let url = URL(string: "https:/mumuk.store/user/users?uid=\(uid)") else {
             print("Invalid URL")
             return
         }
