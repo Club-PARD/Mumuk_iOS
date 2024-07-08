@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        window?.rootViewController = KakaoLoginViewController()
 //        window?.rootViewController = FriendGroupingViewController()
-        window?.rootViewController = ReconFoodViewController1()
+        window?.rootViewController = SummaryViewController()
         //        window?.rootViewController = LoginController()
 //                window?.rootViewController = NotificationController()
         
