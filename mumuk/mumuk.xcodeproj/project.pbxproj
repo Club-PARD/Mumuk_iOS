@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
-=======
 		2243B6602C33F54500F6EFBF /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B65D2C33F54400F6EFBF /* TagCell.swift */; };
 		2243B6612C33F54500F6EFBF /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B65E2C33F54400F6EFBF /* FriendComponent.swift */; };
 		2243B6622C33F54500F6EFBF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B65F2C33F54500F6EFBF /* DetailViewController.swift */; };
@@ -24,7 +22,6 @@
 		2243B6772C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6762C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift */; };
 		2243B67B2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B67A2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift */; };
 		2243B67D2C3B960A00F6EFBF /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B67C2C3B960A00F6EFBF /* SummaryViewController.swift */; };
->>>>>>> hj_branch
 		224E2C232C31427F00E69F97 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E2C222C31427F00E69F97 /* UIFont.swift */; };
 		224E2C2E2C31437A00E69F97 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C252C31437900E69F97 /* Pretendard-Black.otf */; };
 		224E2C2F2C31437A00E69F97 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C262C31437900E69F97 /* Pretendard-Regular.otf */; };
@@ -45,7 +42,6 @@
 		22BB26012C22E31E00F7585E /* mumukTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB26002C22E31E00F7585E /* mumukTests.swift */; };
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
-<<<<<<< HEAD
 		480950A72C3C3D3B00C2DF8B /* underbordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119398C2C3BB3AC00D32043 /* underbordCell.swift */; };
 		48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D162C3C1A8200FC7EA3 /* TagCell.swift */; };
 		48307D262C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D252C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift */; };
@@ -59,9 +55,7 @@
 		48307D412C3C3A7C00FC7EA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB52C33F778005E88B0 /* Model.swift */; };
 		48307D432C3C3AB100FC7EA3 /* dailytasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0D22C36EA7800F1D8B9 /* dailytasteCell.swift */; };
 		48307D442C3C3ABB00FC7EA3 /* underTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0D02C36B6C100F1D8B9 /* underTagCell.swift */; };
-=======
 		22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9D992C3C5B6600CBC79F /* LoadingViewController.swift */; };
->>>>>>> hj_branch
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
 		48622ADD2C3C3E000062C8C0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
@@ -118,8 +112,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
-=======
 		2243B65D2C33F54400F6EFBF /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "../../../../../../Downloads/아카이브/TagCell.swift"; sourceTree = "<group>"; };
 		2243B65E2C33F54400F6EFBF /* FriendComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendComponent.swift; path = "../../../../../../Downloads/아카이브/FriendComponent.swift"; sourceTree = "<group>"; };
 		2243B65F2C33F54500F6EFBF /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "../../../../../../Downloads/아카이브/DetailViewController.swift"; sourceTree = "<group>"; };
@@ -135,7 +127,6 @@
 		2243B6762C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailViewController2.swift; sourceTree = "<group>"; };
 		2243B67A2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailViewController3.swift; sourceTree = "<group>"; };
 		2243B67C2C3B960A00F6EFBF /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
->>>>>>> hj_branch
 		224E2C222C31427F00E69F97 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		224E2C252C31437900E69F97 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		224E2C262C31437900E69F97 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -314,12 +305,9 @@
 		22BB25E82C22E31B00F7585E /* mumuk */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				486D5CD92C3538FD005E88B0 /* OpenPrefer */,
 				486D5CC22C34071B005E88B0 /* Prefer */,
-=======
 				2243B66F2C39830100F6EFBF /* Menu */,
->>>>>>> hj_branch
 				224E2C372C32C55900E69F97 /* Grouping */,
 				224E2C242C31436D00E69F97 /* Fonts */,
 				48307D252C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift */,
@@ -746,7 +734,6 @@
 				486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */,
 				486D5CC62C343D6C005E88B0 /* PreferViewController1.swift in Sources */,
 				4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */,
-<<<<<<< HEAD
 				48307D282C3C2F2B00FC7EA3 /* FriendComponent.swift in Sources */,
 				48307D2E2C3C336800FC7EA3 /* ModalImageUpdate.swift in Sources */,
 				48307D2A2C3C30A200FC7EA3 /* EditController.swift in Sources */,
@@ -754,10 +741,8 @@
 				486D5CDF2C353A1F005E88B0 /* OpenPreferViewController2.swift in Sources */,
 				48307D262C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				486D5CCE2C343F7D005E88B0 /* PreferViewController5.swift in Sources */,
-=======
 				2243B6772C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift in Sources */,
 				2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */,
->>>>>>> hj_branch
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
 				486D5CD42C344809005E88B0 /* LoadingViewController.swift in Sources */,
 				486D5CD62C34EC8E005E88B0 /* DailyFoorofileViewController.swift in Sources */,
@@ -780,40 +765,28 @@
 				486D5CEB2C3852D3005E88B0 /* OpenPreferModel.swift in Sources */,
 				815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */,
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
-<<<<<<< HEAD
 				4874DD132C3AE77400674DE3 /* SearchTableViewCell.swift in Sources */,
-=======
 				22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */,
->>>>>>> hj_branch
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
 				486D5CDD2C353A0E005E88B0 /* OpenPreferViewController1.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
-<<<<<<< HEAD
 				48307D432C3C3AB100FC7EA3 /* dailytasteCell.swift in Sources */,
 				48307D412C3C3A7C00FC7EA3 /* Model.swift in Sources */,
 				48622AE12C3C8E3B0062C8C0 /* Openprofile.swift in Sources */,
-=======
 				2243B67B2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift in Sources */,
 				2243B67D2C3B960A00F6EFBF /* SummaryViewController.swift in Sources */,
 				2243B6602C33F54500F6EFBF /* TagCell.swift in Sources */,
->>>>>>> hj_branch
 				815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */,
 				48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
-<<<<<<< HEAD
 				48307D322C3C350100FC7EA3 /* FriendModel.swift in Sources */,
-=======
 				2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */,
->>>>>>> hj_branch
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				2243B6752C3A7EE000F6EFBF /* ReconFoodViewController2.swift in Sources */,
 				2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
-<<<<<<< HEAD
 				48307D402C3C3A6800FC7EA3 /* UserPreference.swift in Sources */,
-=======
 				2243B6732C39C7E800F6EFBF /* RecommendationDetailViewController1.swift in Sources */,
->>>>>>> hj_branch
 				224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
