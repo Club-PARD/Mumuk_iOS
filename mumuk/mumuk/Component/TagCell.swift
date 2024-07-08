@@ -30,8 +30,8 @@ class TagCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             tagLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             tagLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-//            tagLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//            tagLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+            tagLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            tagLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
     }
 

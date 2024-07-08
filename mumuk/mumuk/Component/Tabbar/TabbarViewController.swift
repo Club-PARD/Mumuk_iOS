@@ -2,8 +2,8 @@ import UIKit
 
 class TabbarViewController: UITabBarController {
     //데이터 전달을 위해 추가한 부분
-    var uid : String?
-    var name : String?
+    var uid : String = ""
+    var name : String = ""
     //
     
     
