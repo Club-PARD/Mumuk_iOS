@@ -1,6 +1,8 @@
 import UIKit
 
 class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
+    var rank2: Rank?
+    var rank3: Rank?
     private var scrollView: UIScrollView!
     private var pageControl: UIPageControl!
     private var cardView: UIView!
@@ -271,8 +273,10 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
         
         if index == 0 {
             detailVC = RecommendationDetailViewController2()
+//            detailVC.rank2 = rank2
         } else {
             detailVC = RecommendationDetailViewController3()
+//            detailVC.rank3 = rank3
         }
         
         if let sheet = detailVC.sheetPresentationController {

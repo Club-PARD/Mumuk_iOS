@@ -1,6 +1,11 @@
 import UIKit
 
 class ReconFoodViewController1: UIViewController {
+    
+    var rank1: Rank?
+    var rank2: Rank?
+    var rank3: Rank?
+    var userName: String?
     private var mainLabel: UILabel!
     private var subLabel: UILabel!
     private var reconFoodImageView: UIImageView!
@@ -19,16 +24,24 @@ class ReconFoodViewController1: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        setupLabels()
-        setupCircularProgressView()
-        setupReconFoodImage()
-        setupFoodNameLabel()
-        setupPercentageLabel()
-        setupDescriptionLabel()
-        setupDetailLinkButton()
-        setupMainButton()
-        setupsecondButton()
+        if let rank1 = rank1 {
+            setupUI(with: rank1)
+        }
     }
+    
+    private func setupUI(with rank: Rank) {
+         setupLabels()
+         setupCircularProgressView()
+         setupReconFoodImage(with: rank.image_url)
+         setupFoodNameLabel(with: rank.foodname)
+         setupPercentageLabel(with: rank.group_preference)
+         setupDescriptionLabel(with: rank)
+         setupDetailLinkButton()
+         setupMainButton()
+         setupsecondButton()
+         
+         setProgress(to: CGFloat(rank.group_preference / 100.0), withAnimation: false)
+     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -98,13 +111,13 @@ class ReconFoodViewController1: UIViewController {
         createCircularPath()
     }
     
-    private func setupReconFoodImage() {
+    private func setupReconFoodImage(with imageUrl: String) {
         guard let circularProgressView = circularProgressView else {
             print("Error: circularProgressView is nil")
             return
         }
 
-        reconFoodImageView = UIImageView(image: UIImage(named: "reconFood"))
+        reconFoodImageView = UIImageView()
         reconFoodImageView.contentMode = .scaleAspectFit
         circularProgressView.addSubview(reconFoodImageView)
         
@@ -114,6 +127,49 @@ class ReconFoodViewController1: UIViewController {
             reconFoodImageView.heightAnchor.constraint(equalToConstant: 59),
             reconFoodImageView.topAnchor.constraint(equalTo: circularProgressView.topAnchor, constant: 66),
             reconFoodImageView.centerXAnchor.constraint(equalTo: circularProgressView.centerXAnchor)
+        ])
+        
+        if let url = URL(string: imageUrl) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.reconFoodImageView.image = image
+                    }
+                }
+            }
+        }
+    }
+    
+    private func setupFoodNameLabel(with foodName: String) {
+        foodNameLabel = UILabel()
+        foodNameLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        foodNameLabel.font = UIFont(name: "Pretendard-Light", size: 15)
+        foodNameLabel.text = "1등 \(foodName)"
+        view.addSubview(foodNameLabel)
+         
+        foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            foodNameLabel.widthAnchor.constraint(equalToConstant: 75),
+            foodNameLabel.heightAnchor.constraint(equalToConstant: 18),
+            foodNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.16),
+            foodNameLabel.topAnchor.constraint(equalTo: reconFoodImageView.bottomAnchor, constant: 3)
+        ])
+    }
+
+    private func setupPercentageLabel(with percentage: Double) {
+        percentageLabel = UILabel()
+        percentageLabel.textColor = UIColor(red: 1, green: 0.546, blue: 0, alpha: 1)
+        percentageLabel.font = UIFont(name: "Pretendard-Black", size: 28)
+        percentageLabel.textAlignment = .center
+        percentageLabel.text = String(format: "%.1f%%", percentage)
+        view.addSubview(percentageLabel)
+         
+        percentageLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            percentageLabel.widthAnchor.constraint(equalToConstant: 89),
+            percentageLabel.heightAnchor.constraint(equalToConstant: 33),
+            percentageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.66),
+            percentageLabel.topAnchor.constraint(equalTo: foodNameLabel.bottomAnchor, constant: 7)
         ])
     }
 
@@ -168,9 +224,8 @@ class ReconFoodViewController1: UIViewController {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.duration = 1.5
         animation.fromValue = 0
-        animation.toValue = 0.927
+        animation.toValue = progressLayer.strokeEnd
         animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        progressLayer.strokeEnd = 0.927
         progressLayer.add(animation, forKey: "animateProgress")
     }
     
@@ -185,73 +240,40 @@ class ReconFoodViewController1: UIViewController {
         progressLayer.add(animation, forKey: "animateProgress")
     }
     
-    private func setupFoodNameLabel() {
-         foodNameLabel = UILabel()
-         foodNameLabel.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
-         foodNameLabel.font = UIFont(name: "Pretendard-Light", size: 15)
-         foodNameLabel.text = "1등 스파게티"
-         view.addSubview(foodNameLabel)
-         
-         foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([
-             foodNameLabel.widthAnchor.constraint(equalToConstant: 75),
-             foodNameLabel.heightAnchor.constraint(equalToConstant: 18),
-             foodNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.16),
-             foodNameLabel.topAnchor.constraint(equalTo: reconFoodImageView.bottomAnchor, constant: 3)
-         ])
-     }
-
-     private func setupPercentageLabel() {
-         percentageLabel = UILabel()
-         percentageLabel.textColor = UIColor(red: 1, green: 0.546, blue: 0, alpha: 1)
-         percentageLabel.font = UIFont(name: "Pretendard-Black", size: 28)
-         percentageLabel.textAlignment = .center
-         percentageLabel.text = "92.7%"
-         view.addSubview(percentageLabel)
-         
-         percentageLabel.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([
-             percentageLabel.widthAnchor.constraint(equalToConstant: 89),
-             percentageLabel.heightAnchor.constraint(equalToConstant: 33),
-             percentageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.66),
-             percentageLabel.topAnchor.constraint(equalTo: foodNameLabel.bottomAnchor, constant: 7)
-         ])
-     }
-    private func setupDescriptionLabel() {
-        descriptionLabel = UILabel()
-        descriptionLabel.textColor = UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
-        descriptionLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.lineBreakMode = .byWordWrapping
-        
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineHeightMultiple = 1.26
-        paragraphStyle.alignment = .center
-        
-        let fullString = "김현중국집님 그룹의 선호가\n92.7% 반영된 최적의 메뉴에요!"
-        let attributedString = NSMutableAttributedString(string: fullString, attributes: [
-            .paragraphStyle: paragraphStyle,
-            .font: UIFont(name: "Pretendard-Bold", size: 16)!,
-            .foregroundColor: UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
-        ])
-        
-        // "92.7%" 부분을 더 진한 회색으로 설정
-        let percentageRange = (fullString as NSString).range(of: "92.7%")
-        attributedString.addAttributes([
-            .foregroundColor: UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1) // 더 진한 회색
-        ], range: percentageRange)
-        
-        descriptionLabel.attributedText = attributedString
-        
-        view.addSubview(descriptionLabel)
-        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            descriptionLabel.widthAnchor.constraint(equalToConstant: 250), // 너비를 늘렸습니다
-            descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            descriptionLabel.topAnchor.constraint(equalTo: circularProgressView.bottomAnchor, constant: 30)
-        ])
-    }
+    private func setupDescriptionLabel(with rank: Rank) {
+           descriptionLabel = UILabel()
+           descriptionLabel.textColor = UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
+           descriptionLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
+           descriptionLabel.numberOfLines = 0
+           descriptionLabel.lineBreakMode = .byWordWrapping
+           
+           let paragraphStyle = NSMutableParagraphStyle()
+           paragraphStyle.lineHeightMultiple = 1.26
+           paragraphStyle.alignment = .center
+           
+           let fullString = "\(userName ?? "그룹")님의 그룹의 선호가\n\(String(format: "%.1f%%", rank.group_preference)) 반영된 최적의 메뉴에요!"
+           let attributedString = NSMutableAttributedString(string: fullString, attributes: [
+               .paragraphStyle: paragraphStyle,
+               .font: UIFont(name: "Pretendard-Bold", size: 16)!,
+               .foregroundColor: UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
+           ])
+           
+           let percentageRange = (fullString as NSString).range(of: String(format: "%.1f%%", rank.group_preference))
+           attributedString.addAttributes([
+               .foregroundColor: UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
+           ], range: percentageRange)
+           
+           descriptionLabel.attributedText = attributedString
+           
+           view.addSubview(descriptionLabel)
+           descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+           
+           NSLayoutConstraint.activate([
+               descriptionLabel.widthAnchor.constraint(equalToConstant: 250),
+               descriptionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+               descriptionLabel.topAnchor.constraint(equalTo: circularProgressView.bottomAnchor, constant: 30)
+           ])
+       }
     
     private func setupDetailLinkButton() {
         detailLinkButton = UIButton(type: .system)
@@ -338,6 +360,8 @@ class ReconFoodViewController1: UIViewController {
     private func presentRecommendationDetail() {
         let detailVC = RecommendationDetailViewController1()
         
+        detailVC.rank = rank1 // rank1 데이터를 전달
+        
         if let sheet = detailVC.sheetPresentationController {
             sheet.detents = [.large()]
             sheet.prefersGrabberVisible = true
@@ -355,6 +379,9 @@ class ReconFoodViewController1: UIViewController {
     
     private func toReconFoodVC() {
         let reconFoodVC2 = ReconFoodViewController2()
+        
+        reconFoodVC2.rank2 = rank2
+        reconFoodVC2.rank3 = rank3
         
         reconFoodVC2.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
         present(reconFoodVC2, animated: true, completion: nil)

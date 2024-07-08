@@ -2,6 +2,8 @@ import UIKit
 
 class RecommendationDetailViewController2: UIViewController {
     
+    var rank2: Rank?
+    
     private var titleLabel: UILabel!
     private var descriptionLabel: UILabel!
     private var categoryLabel: UILabel!
