@@ -15,18 +15,29 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-
+    
+    
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
         KakaoSDK.initSDK(appKey: "1e6b5167b05b0aaf5f1873503dcf2af3")
 
-        //이 부분을 추가해서 일단 앱을 키면 삭제된 기록 지우고 default값으로 되돌리려고 합니다. 이건 ExampleModelData의  resetToDefault 함수를 실행시키는 것이다.
-//            ExampleModelData.resetToDefault()
         
         //앱이 켜져있을 때 알림 허용하는 delegate
         UNUserNotificationCenter.current().delegate = self
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+//
+//        let initialViewController = PreferViewController1() // 여기에 시작하려는 뷰 컨트롤러를 넣으세요
+//        let navigationController = UINavigationController(rootViewController: initialViewController)
+//        
+//        window.rootViewController = navigationController
+//        window.makeKeyAndVisible()
+        
+        
         
         // 알림 권한 요청
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in

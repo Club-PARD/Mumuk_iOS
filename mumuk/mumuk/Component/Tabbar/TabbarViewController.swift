@@ -4,7 +4,7 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
     var mainViewController: MainViewController?
     var myViewController: MyViewController?
     var friendViewController: FriendViewController?
-    
+
     let logoImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false

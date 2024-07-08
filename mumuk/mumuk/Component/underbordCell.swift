@@ -19,7 +19,7 @@ class underbordCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.cornerRadius = 14.5
         label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor        
+        label.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
         label.setPadding(top: 6, left: 11, bottom: 6, right: 11)
         label.clipsToBounds = true
         

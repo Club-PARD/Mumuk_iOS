@@ -83,7 +83,9 @@ class ModalImageSelect: UIViewController {
         view.addSubview(collectionview)
         view.addSubview(selectButton)
         view.addSubview(deleteButton)
-                
+
+
+        
         setUI()
         
         //이미 고른 이미지 모달 창 열 때 불러오기

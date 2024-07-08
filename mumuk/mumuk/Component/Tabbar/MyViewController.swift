@@ -15,6 +15,7 @@ class MyViewController: UIViewController {
     
     func deepProfile() {
         print("상세 데이터 불러오기 시작")
+        print("✅uid \(uid)")
         if let url = URL(string: "https://mumuk.store/with-pref/daily/\(name)") {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
@@ -228,10 +229,10 @@ class MyViewController: UIViewController {
 //        label.textColor = UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
 //        label.font = UIFont(name: "Pretendard-Medium", size: 12)
 //        edit.addSubview(label)
-//        
+//
 //        var paragraphStyle = NSMutableParagraphStyle()
 //        paragraphStyle.lineHeightMultiple = 1.52
-//        
+//
 //        return edit
 //    }()
     
@@ -458,7 +459,7 @@ class MyViewController: UIViewController {
 //             transition.type = .push
 //             transition.subtype = .fromRight
 //             transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-//             
+//
 //             // 현재 window에 전환 애니메이션 적용
 //             view.window?.layer.add(transition, forKey: kCATransition)
 //         preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
@@ -489,7 +490,7 @@ class MyViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) { // 뷰가 사라질 때 실행되는 함수
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
-    }    
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

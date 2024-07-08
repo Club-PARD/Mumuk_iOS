@@ -35,7 +35,7 @@ struct UserPreference: Codable {
     let exceptionalFoods: [String]
     let daily: Bool
     
-//    
+//
 //    init(name: String, imageId: Int, spicyType: Bool, todayKoreanFood: Int, todayJapaneseFood: Int, todayChineseFood: Int, todayWesternFood: Int, todaySoutheastAsianFood: Int, todayElseFood: Int, todayMeat: Int, todaySeafood: Int, todayCarbohydrate: Int, todayVegetable: Int, redFood: Int, notRedFood: Int, todayRice: Int, todayBread: Int, todayNoodle: Int, todayHeavy: Int, todayLight: Int, todaySoup: Int, todayNoSoup: Int, notToday: String, foodType: String, exceptionalFoods: [String], daily: Bool ) {
 //        self.name =
 //        self.imageId: Int
@@ -64,8 +64,8 @@ struct UserPreference: Codable {
 //        self.exceptionalFoods: [String]
 //        self.daily: Bool
 //    }
-//    
-//    
+//
+//
     //    //얘는 약간 초기함수처럼 쓰이는데 데이터 값 받아올 때 입력 되게 설정하는거임. id는 비어있어야하는데 값이 입력되면 안되니깐 이렇게 설정해서 nil 넣어주는거임
     //    init(name: String, image: Int, grouped: Bool = false, daily: Bool = false) {
     //        self.name = name

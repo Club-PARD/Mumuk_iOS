@@ -10,6 +10,7 @@ import UIKit
 
 class FriendViewController: UIViewController{
     var name: String = ""
+    var uid: String = ""
 
     var isSearching = false
     var friend: [FriendModel] = []
