@@ -1,13 +1,15 @@
-////
-////  DailyFoorofileViewController.swift
-////  mumuk
-////
-////  Created by 김민준 on 7/3/24.
-////
+//
+//  Openprofile.swift
+//  mumuk
+//
+//  Created by 김민준 on 7/9/24.
+//
+
+
 
 import UIKit
 
-class DailyFoorofileViewController : UIViewController {
+class Openprofile : UIViewController {
     //MARK: - 컴포넌트
     var selectedIndex : Int = 0
     var label : String = ""        //foodtype
@@ -16,6 +18,7 @@ class DailyFoorofileViewController : UIViewController {
     var daily: [String] = [] // 오늘 내 입맛은?
     var yesterdayFood: String = ""  // 어제 먹은 음식은
     var spicyType: Bool = false
+    var uid : String = ""
     
     
     func firstProfile() {
@@ -156,10 +159,10 @@ class DailyFoorofileViewController : UIViewController {
         back.translatesAutoresizingMaskIntoConstraints = false
         back.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         back.layer.cornerRadius = 15
-        back.layer.shadowColor = UIColor.black.cgColor
-        back.layer.shadowOpacity = 0.5
+        back.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+        back.layer.shadowOpacity = 1
         back.layer.shadowOffset = CGSize(width: 0, height: 2)
-        back.layer.shadowRadius = 4
+        back.layer.shadowRadius = 10
         return back
     }()
     
@@ -173,8 +176,6 @@ class DailyFoorofileViewController : UIViewController {
     
     let mainLabel : UILabel = {
         let label =  UILabel()
-        
-        label.text = "오늘의 FOOROFIL"
         label.textAlignment = .center
         label.font = UIFont(name: "Pretendard-Bold" , size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -184,7 +185,7 @@ class DailyFoorofileViewController : UIViewController {
     let subLabel : UILabel = {
         let label =  UILabel()
         
-        label.text = "생성완료!"
+        label.text = "FOOROFILE 생성완료!"
         label.textAlignment = .center
         label.font = UIFont(name: "Pretendard-Light" , size: 20)
         
@@ -210,10 +211,10 @@ class DailyFoorofileViewController : UIViewController {
     
         var button = UIButton(configuration: config)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = 29
         button.layer.masksToBounds = true
-        button.isEnabled = false
-        button.addTarget(self, action: #selector(dailyButtonTapped), for: .touchUpInside)
+        button.isEnabled = true
+        button.addTarget(self, action: #selector(firstButtonTapped), for: .touchUpInside)
 
         return button
         
@@ -306,7 +307,7 @@ lazy var yesterdayeat: UILabel = {
         return label
     }()
     
-    @objc private func dailyButtonTapped() {
+    @objc private func firstButtonTapped() {
         let preferVC = TabbarViewController()
         
         let transition = CATransition()
@@ -334,6 +335,8 @@ lazy var yesterdayeat: UILabel = {
         dailytasteCollectionView.dataSource = self
         dailytasteCollectionView.delegate = self
         dailytasteCollectionView.register(dailytasteCell.self, forCellWithReuseIdentifier: "dailytasteCell")
+
+        mainLabel.text = name + "님의"
 
         firstProfile()
         setUI()
@@ -365,11 +368,11 @@ lazy var yesterdayeat: UILabel = {
         view.addSubview(dailytasteCollectionView)
 
         NSLayoutConstraint.activate([
-            mainLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 72.3),
-            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+            mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             
-            subLabel.leadingAnchor.constraint(equalTo: mainLabel.trailingAnchor , constant: 4),
-            subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+            subLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 45),
             
             background.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
             background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
@@ -441,7 +444,7 @@ lazy var yesterdayeat: UILabel = {
     
     
 }
-extension DailyFoorofileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension Openprofile: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == tagUnderCollectionView{
             return tags.count

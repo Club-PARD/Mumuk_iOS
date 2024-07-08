@@ -45,6 +45,7 @@
 		48622ADD2C3C3E000062C8C0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
 		48622ADE2C3C3E660062C8C0 /* PreferViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CCF2C343F8D005E88B0 /* PreferViewController6.swift */; };
 		48622ADF2C3C3F210062C8C0 /* OpenPreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CE02C353B63005E88B0 /* OpenPreferViewController3.swift */; };
+		48622AE12C3C8E3B0062C8C0 /* Openprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48622AE02C3C8E3B0062C8C0 /* Openprofile.swift */; };
 		486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB72C33F778005E88B0 /* NameModel.swift */; };
 		486D5CC62C343D6C005E88B0 /* PreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC52C343D6C005E88B0 /* PreferViewController1.swift */; };
 		486D5CC82C343F55005E88B0 /* PreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC72C343F55005E88B0 /* PreferViewController2.swift */; };
@@ -132,6 +133,7 @@
 		48307D3F2C3C3A6800FC7EA3 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 		485008072C2C44A800C9A196 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 		485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
+		48622AE02C3C8E3B0062C8C0 /* Openprofile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Openprofile.swift; sourceTree = "<group>"; };
 		486D5CB52C33F778005E88B0 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		486D5CB72C33F778005E88B0 /* NameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameModel.swift; sourceTree = "<group>"; };
 		486D5CBD2C33F784005E88B0 /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "/Downloads/아카이브/TagCell.swift"; sourceTree = "<absolute>"; };
@@ -340,6 +342,7 @@
 				486D5CDE2C353A1F005E88B0 /* OpenPreferViewController2.swift */,
 				486D5CE02C353B63005E88B0 /* OpenPreferViewController3.swift */,
 				486D5CE22C353B6B005E88B0 /* OpenPreferViewController4.swift */,
+				48622AE02C3C8E3B0062C8C0 /* Openprofile.swift */,
 			);
 			path = OpenPrefer;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
 				48307D432C3C3AB100FC7EA3 /* dailytasteCell.swift in Sources */,
 				48307D412C3C3A7C00FC7EA3 /* Model.swift in Sources */,
+				48622AE12C3C8E3B0062C8C0 /* Openprofile.swift in Sources */,
 				815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */,
 				48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,

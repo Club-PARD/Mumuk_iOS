@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         window?.rootViewController = KakaoLoginViewController()
-//                window?.rootViewController = PreferViewController1()
+//                window?.rootViewController = Openprofile()
 //        window?.rootViewController = TabbarViewController()
 //        
 //                window?.rootViewController = LoginController()

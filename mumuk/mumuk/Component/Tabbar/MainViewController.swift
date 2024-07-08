@@ -7,7 +7,7 @@ class MainViewController: UIViewController {
     var uid : String = KakaoLoginViewController.globalUid
 //    var name : String = 
     var timer: Timer?
-    var name: String = "유재혁"
+    var name: String = ""
 
     let imageView: UIImageView = {
         let imageView = UIImageView()

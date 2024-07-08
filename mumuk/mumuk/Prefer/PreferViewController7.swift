@@ -146,6 +146,7 @@ class PreferViewController7 : UIViewController{
         button.layer.cornerRadius = 24
         button.layer.masksToBounds = true
         button.isEnabled = false
+    
         
         return button
         
@@ -242,8 +243,6 @@ class PreferViewController7 : UIViewController{
         return button
         
     }()
-    
-   
     
     
     override func viewDidLoad() {
@@ -388,7 +387,7 @@ class PreferViewController7 : UIViewController{
     
     @objc func skipToNext(){
         if foodButton1.isSelected == false && foodButton2.isSelected == false {
-            let preferVC = TabbarViewController()
+            let preferVC = DailyFoorofileViewController()
                         
             if var model = dailyScrumModel {
                 model.todaySoup = 1
@@ -429,7 +428,7 @@ class PreferViewController7 : UIViewController{
     
     @objc func moveToNext(){
         if foodButton1.isSelected || foodButton2.isSelected {
-            let preferVC = TabbarViewController()
+            let preferVC = DailyFoorofileViewController()
             
 //                    preferVC.uid = self.uid  // uid 전달
 //                    preferVC.name = self.name  // name 전달
