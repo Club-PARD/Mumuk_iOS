@@ -28,6 +28,7 @@
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
 		48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D162C3C1A8200FC7EA3 /* TagCell.swift */; };
+		48307D242C3C2DCD00FC7EA3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
 		48307D262C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D252C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		48307D282C3C2F2B00FC7EA3 /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D272C3C2F2B00FC7EA3 /* FriendComponent.swift */; };
 		48307D2A2C3C30A200FC7EA3 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D292C3C30A200FC7EA3 /* EditController.swift */; };
@@ -35,10 +36,10 @@
 		48307D2E2C3C336800FC7EA3 /* ModalImageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D2D2C3C336800FC7EA3 /* ModalImageUpdate.swift */; };
 		48307D302C3C33F600FC7EA3 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D2F2C3C33F600FC7EA3 /* DetailModel.swift */; };
 		48307D322C3C350100FC7EA3 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D312C3C350100FC7EA3 /* FriendModel.swift */; };
-		48307D362C3C38D900FC7EA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D352C3C38D900FC7EA3 /* Model.swift */; };
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
 		486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB72C33F778005E88B0 /* NameModel.swift */; };
+		486D5CC02C33F784005E88B0 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CBD2C33F784005E88B0 /* TagCell.swift */; };
 		486D5CC12C33F784005E88B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CBE2C33F784005E88B0 /* DetailViewController.swift */; };
 		486D5CC62C343D6C005E88B0 /* PreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC52C343D6C005E88B0 /* PreferViewController1.swift */; };
 		486D5CC82C343F55005E88B0 /* PreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC72C343F55005E88B0 /* PreferViewController2.swift */; };
@@ -123,9 +124,9 @@
 		48307D2D2C3C336800FC7EA3 /* ModalImageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageUpdate.swift; sourceTree = "<group>"; };
 		48307D2F2C3C33F600FC7EA3 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		48307D312C3C350100FC7EA3 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
-		48307D352C3C38D900FC7EA3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		485008072C2C44A800C9A196 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 		485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
+		486D5CB52C33F778005E88B0 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		486D5CB72C33F778005E88B0 /* NameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameModel.swift; sourceTree = "<group>"; };
 		486D5CBD2C33F784005E88B0 /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "/Downloads/아카이브/TagCell.swift"; sourceTree = "<absolute>"; };
 		486D5CBE2C33F784005E88B0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "/Downloads/아카이브/DetailViewController.swift"; sourceTree = "<absolute>"; };
@@ -358,9 +359,9 @@
 		81042E272C29A69C00EEC5FB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				486D5CB52C33F778005E88B0 /* Model.swift */,
 				486D5CB72C33F778005E88B0 /* NameModel.swift */,
 				48307D312C3C350100FC7EA3 /* FriendModel.swift */,
-				48307D352C3C38D900FC7EA3 /* Model.swift */,
 				4874DD102C39BDD600674DE3 /* PreferModel.swift */,
 				486D5CE82C383533005E88B0 /* FoodListModel.swift */,
 				486D5CEA2C3852D3005E88B0 /* OpenPreferModel.swift */,
@@ -686,7 +687,6 @@
 				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
 				486D5CC82C343F55005E88B0 /* PreferViewController2.swift in Sources */,
-				48307D362C3C38D900FC7EA3 /* Model.swift in Sources */,
 				48307D302C3C33F600FC7EA3 /* DetailModel.swift in Sources */,
 				815FE7D22C304FC20090BDBE /* MyViewController.swift in Sources */,
 				486D5CE92C383533005E88B0 /* FoodListModel.swift in Sources */,
