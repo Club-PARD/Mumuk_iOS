@@ -9,31 +9,21 @@ import UIKit
 
 
 class FriendViewController: UIViewController{
-    
-    // 데이터 전달을 위해 추가함 
-    var uid : String?
-    var name : String?
-    
-    
-    
-    
-    var friend: [FriendModel] = []    // memos 배열
-    var filteredFriends: [FriendModel] = [] // 검색된 친구 목록
-    var isSearching = false
-    
-    var filteredExampleModel: [[ExampleModel]] = []     //임시 데이터 검색,삭제
+    var name: String = ""
+    var uid: String = ""
 
-    //    static let URL_GET_MEMBERS = "https://pard-host.onrender.com/pard"  // 데이터 가져오기위한 api주소
+    var isSearching = false
+    var friend: [FriendModel] = []
+    var filteredFriends: [FriendModel] = [] // 검색된 친구 목록
     
     let homeTitle: UILabel =  {
         let label = UILabel()
         label.text = "친구 찾기"
-        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
+        label.font = UIFont(name: "Pretendard-Bold", size: 22)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
     
     // 버튼 생성
     let addfriend: UIButton = {
@@ -45,7 +35,6 @@ class FriendViewController: UIViewController{
             let resizedImage = image.resized(to: CGSize(width: 36, height: 36))
             button.setImage(resizedImage, for: .normal)
         }
-        
         return button
     }()
     
@@ -53,8 +42,6 @@ class FriendViewController: UIViewController{
     private lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.placeholder = "닉네임 검색"
-//        searchBar.searchTextField.textColor = #colorLiteral(red: 0.6394036412, green: 0.6394036412, blue: 0.6394036412, alpha: 1)
-//        searchBar.backgroundColor = #colorLiteral(red: 0.9688948989, green: 0.9657412171, blue: 0.9656746984, alpha: 1)
         searchBar.delegate = self
         searchBar.searchBarStyle = .minimal // 검색창의 형태 최대한 간소화
         searchBar.searchTextField.layer.cornerRadius = 20
@@ -82,7 +69,6 @@ class FriendViewController: UIViewController{
         return searchBar
     }()
     
-    
     //tableview생성
     private lazy var friendTableView: UITableView = {     // lazy : 값이 계속 바뀔 수 있을 때 사용
         let tableView = UITableView(frame: .zero, style: .plain)    //header함께 움직임
@@ -105,34 +91,36 @@ class FriendViewController: UIViewController{
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(uid)
+                
+        print(self.name)
         view.backgroundColor = .white
-        
-        _ = ExampleModelData.modeling
 
-        
-        
-        //아래 가려지는거 없애보려는 중
         friendTableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // 셀 사이의 간격 설정
         friendTableView.register(FriendComponent.self, forCellReuseIdentifier: "FriendComponent")
         friendTableView.dataSource = self
         friendTableView.delegate = self
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        friendTableView.addGestureRecognizer(tapGesture)
+        friendTableView.keyboardDismissMode = .onDrag
         
         view.addSubview(friendTableView)
         view.addSubview(homeTitle)
         view.addSubview(addfriend)
         view.addSubview(searchBar)
         addConstraints()
-//        fetchMembers()
-        
+        fetchMembers()
         
         // TabBar 높이 만큼 contentInset 설정
         if let tabBarHeight = tabBarController?.tabBar.frame.height {
             friendTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tabBarHeight/2, right: 0)
         }
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -148,7 +136,6 @@ class FriendViewController: UIViewController{
         NSLayoutConstraint.activate([
             friendTableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 162),
             friendTableView.widthAnchor.constraint(equalToConstant: view.frame.width),
-            //            friendTableView.heightAnchor.constraint(equalToConstant: view.frame.height),
             friendTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
             homeTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 66),
@@ -172,13 +159,9 @@ class FriendViewController: UIViewController{
         ])
     }
     
-    
-    
-    
     // 친구 추가 버튼 누를 때
     @objc func tapModalButton() {
         let alertController = UIAlertController(title: "추가할 친구의 아이디를 입력해주세요.", message: nil, preferredStyle: .alert)
-        
         alertController.addTextField { (textField) in
             textField.placeholder = "아이디"
         }
@@ -189,17 +172,11 @@ class FriendViewController: UIViewController{
                 self?.friendCheckRequest(id)
             }
         }
-        
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
-        
         present(alertController, animated: true, completion: nil)
     }
-    
-    
-    
     
     //친구추가 했을 때 있는 닉네임인지
     func friendCheckRequest(_ id: String) {
@@ -237,8 +214,7 @@ class FriendViewController: UIViewController{
                 if let responseBool = Bool(trimmedResponse) {
                     DispatchQueue.main.async {
                         if responseBool {
-                            let currentUserName = "ssss" // 실제 사용자 이름으로 대체
-                            self?.makePostRequest(id: id, name: currentUserName)
+                            self?.makePostRequest(id: id, name: self!.name)
                         } else {
                             self?.showAlert(message: "존재하지 않는 닉네임입니다.")
                         }
@@ -259,10 +235,7 @@ class FriendViewController: UIViewController{
         
         task.resume()
     }
-//    
     
-    
-    // Post request 보내는 함수
     func makePostRequest(id: String, name: String) {
         guard let url = URL(string: "https://mumuk.store/friend/add?userName=\(name)&friendName=\(id)") else {
             print("🚨 Invalid URL")
@@ -295,7 +268,7 @@ class FriendViewController: UIViewController{
                             switch httpResponse.statusCode {
                             case 200:
                                 self.showAlert(message: "친구가 추가되었습니다.")
-//                                self.fetchMembers()
+                                self.fetchMembers()
                             case 409:
                                 self.showAlert(message: "이미 추가된 사람입니다.")
                             default:
@@ -319,84 +292,114 @@ class FriendViewController: UIViewController{
         present(alertController, animated: true, completion: nil)
     }
     
+    // 데이터 불러오기 함수 (친구 목록 갱신)
+    func fetchMembers() {
+            print("데이터 불러오기 시작")
+        if let url = URL(string: "https://mumuk.store/with-pref/friend?name=\(self.name)") {
+                let session = URLSession(configuration: .default)
+                let task = session.dataTask(with: url) { data, response, error in
+                    if error != nil {
+                        print("🚨🚨🚨", error!)
+                        return
+                    }
+                    if let JSONdata = data {
+                        let dataString = String(data: JSONdata, encoding: .utf8)
+                        print(dataString!)
+                        
+                        let decoder = JSONDecoder()
+                        do {
+                            //데이터가 배열 안의 배열로 오고있음
+                            let decodeData = try decoder.decode([String: FriendModel].self, from: JSONdata)
+                            let friendsArray = Array(decodeData.values)
+                            self.friend = friendsArray
+                            DispatchQueue.main.async {
+                                self.friendTableView.reloadData()
+                            }
+                        } catch let error as NSError {
+                            print("🚨🚨🚨", error)
+                        }
+                    }
+                }
+                task.resume()
+            }
+        }
     
-//    // 데이터 불러오기 함수 (친구 목록 갱신)
-//    func fetchMembers() {
-//        print("데이터 불러오기 시작")
-//        if let url = URL(string: "http://172.30.1.21:8080/friend/유재혁") {
-//            let session = URLSession(configuration: .default)
-//            let task = session.dataTask(with: url) { data, response, error in
-//                if error != nil {
-//                    print("🚨🚨🚨", error!)
-//                    return
-//                }
-//                if let JSONdata = data {
-//                    let dataString = String(data: JSONdata, encoding: .utf8)
-//                    print(dataString!)
-//                    
-//                    let decoder = JSONDecoder()
-//                    do {
-//                        let decodeData = try decoder.decode([NameModel].self, from: JSONdata)
-//                        self.friend = decodeData
-//                        DispatchQueue.main.async {
-//                            self.friendTableView.reloadData()
-//                        }
-//                    } catch let error as NSError {
-//                        print("🚨🚨🚨", error)
-//                    }
-//                }
-//            }
-//            task.resume()
-//        }
-//    }
-//
 }
 
-
+// MARK: 검색 ------------------------------------------------------------------------------------------------------------------------------------
 // 검색 위한 delegate
 extension FriendViewController: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchText.isEmpty {
-//            isSearching = false
-//            filteredFriends.removeAll()
-//        } else {
-//            isSearching = true
-//            filteredFriends = friend.filter { $0.name.contains(searchText) }
-//        }
-//        friendTableView.reloadData()
-//    }
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchFriends(with: searchText)
     }
-    
-    //서치바 검색 x버튼 누르면 초기화
+
+//  서치바 검색 취소 버튼 누를 때
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         isSearching = false
         filteredFriends.removeAll()
         friendTableView.reloadData()
-        searchBar.resignFirstResponder()
+        searchBar.resignFirstResponder() // 키보드 숨기기
+    }
+//  서치바 검색 확인 버튼
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder() // 키보드 숨기기
+        
+        // 검색 로직 실행
+        if let searchText = searchBar.text {
+            searchFriends(with: searchText)
+        }
     }
     
-    //빈화면 터치 시 키보드 내리기
+    // 빈 화면 터치 시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
     
-    
-    
-    
+    //    검색
+        func searchFriends(with searchText: String) {
+            if searchText.isEmpty {
+                filteredFriends = friend
+            } else {
+                filteredFriends = friend.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+            }
+            isSearching = !searchText.isEmpty
+            friendTableView.reloadData()
+        }
 }
 
+// MARK:  -----------------------------------------------------------------
 
 extension FriendViewController: UITableViewDataSource, UITableViewDelegate {
-    //    // 섹션 수 반환
-//        func numberOfSections(in tableView: UITableView) -> Int {
-//            return isSearching ? filteredFriends.count : friend.count
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendComponent", for: indexPath) as? FriendComponent else {
+            return UITableViewCell()
+        }
+        
+        // 데이터 소스 선택
+        let friendsInSection = isSearching ? filteredFriends : friend
+        
+        // 현재 섹션의 데이터 인덱스 계산
+        let dataIndex = indexPath.section
+        
+//        if dataIndex < friendsInSection.count {
+            let friend = friendsInSection[dataIndex]
+            cell.configure(with: friend)
+            cell.detailController = self  // 프로필 상세 누르면 모달 뜨게 하기 위해서 여기에 추가
+//        } else {
+//            // 데이터가 없는 경우 기본값 설정
+//            cell.configure(with: FriendModel(name: "친구없음", image: 0))
+//            cell.detailController = self  // 프로필 상세 누르면 모달 뜨게 하기 위해서 여기에 추가
 //        }
-    
+
+        return cell
+    }
+    //cell의 높이
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 145
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
-        return isSearching ? filteredExampleModel.count : ExampleModelData.modeling.count
+        return isSearching ? filteredFriends.count : friend.count
     }
     
     // 각 섹션에 대한 행 수 반환
@@ -404,102 +407,95 @@ extension FriendViewController: UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        print("cellForRowAt")
-//        guard let cell = friendTableView.dequeueReusableCell(withIdentifier: "FriendViewController", for: indexPath) as? FriendComponent else {
-//            return UITableViewCell()
-//        }
-//        
-//        let memo = isSearching ? filteredFriends[indexPath.row] : friend[indexPath.row] // 여기도 단순히 row수가 아니라 검색도 추가
-//        cell.configure(with: memo)
-//        return cell
-//    }
-    
-    
-    //검색 도전 중인거
-    func searchFriends(with searchText: String) {
-        if searchText.isEmpty {
-            filteredExampleModel = ExampleModelData.modeling
-        } else {
-            filteredExampleModel = ExampleModelData.modeling.map { section in
-                section.filter { friend in
-                    friend.name.lowercased().contains(searchText.lowercased())
-                }
-            }
-        }
-        friendTableView.reloadData()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        view.endEditing(true)   //키보드 내리기
     }
-    
-    
-    
-    //더미 데이터로 하는 중
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendComponent", for: indexPath) as? FriendComponent else {
-            return UITableViewCell()
-        }
 
-        let friendsInSection = isSearching ? filteredExampleModel[indexPath.section] : ExampleModelData.modeling[indexPath.section]
-        
-        if indexPath.row < friendsInSection.count {
-            let friend = friendsInSection[indexPath.row]
-            cell.configure(with: friend)
-            cell.detailController = self  // 프로필 상세 누르면 모달 뜨게 하기 위해서 여기에 추가
-        } else {
-            // 데이터가 없는 경우 기본값 설정
-            cell.configure(with: ExampleModel(name: "", tags: [], user: "", image: ""))
-            cell.detailController = self  // 프로필 상세 누르면 모달 뜨게 하기 위해서 여기에 추가
-        }
-
-        return cell
-    }
     
-    
+// MARK: 삭제 ------------------------------------------------------------------------------------------------------------------------------------------
+    //모든 행에 대한 삭제
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
-        
     }
     
 //     editingStyle 삭제하면 없어지게 하는거
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            tableView.beginUpdates()
+            // 현재 데이터 소스 선택
+            let currentDataSource = isSearching ? filteredFriends : friend
             
-            // 해당 섹션에서 행 삭제
-            ExampleModelData.modeling[indexPath.section].remove(at: indexPath.row)
-            
-            // 섹션이 비어있다면 섹션도 삭제
-            if ExampleModelData.modeling[indexPath.section].isEmpty {
-                ExampleModelData.modeling.remove(at: indexPath.section)
-                tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
-            } else {
-                tableView.deleteRows(at: [indexPath], with: .fade)
+            // 인덱스 유효성 검사
+            guard indexPath.section < currentDataSource.count else {
+                print("Invalid index")
+                return
             }
             
-            // 변경사항 저장
-            ExampleModelData.saveModeling()
+            let friendToDelete = currentDataSource[indexPath.section]
             
-            tableView.endUpdates()
+            print(friendToDelete.name)
+            
+            // 서버에서 삭제
+            deleteFriend(with: friendToDelete.name, userName: self.name)
+            
+            // 데이터 소스에서 삭제
+            if isSearching {
+                filteredFriends.remove(at: indexPath.section)
+            } else {
+                friend.remove(at: indexPath.section)
+            }
+            
+            // 테이블 뷰 업데이트
+            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
+            
         }
     }
     
-    
-    //cell의 높이
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 145
+    //친구삭제
+    func deleteFriend(with friendName: String, userName: String) {
+        guard let url = URL(string: "https://mumuk.store/friend/delete?userName=\(userName)&friendName=\(friendName)") else {
+            print("🚨 Invalid URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+
+        // 요청 본문에 JSON 데이터를 포함
+        let parameters = ["userName": userName, "friendName": friendName]
+        request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
+
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("🚨🚨 Error : \(error.localizedDescription)")
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("🚨 Invalid response")
+                return
+            }
+
+            print("Response status code: \(httpResponse.statusCode)")
+
+            if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                print("Response data: \(responseString)")
+            }
+
+            if httpResponse.statusCode == 200 {
+                print("✅ Delete success")
+                DispatchQueue.main.async {
+                    self.fetchMembers()
+                }
+            } else {
+                print("🚨 Error: Unexpected status code \(httpResponse.statusCode)")
+            }
+        }
+        task.resume()
     }
-    //
-    //
-    //        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //            let memo = memos[indexPath.row]
-    //
-    //            let detailViewController = DetailViewController()
-    //            detailViewController.memo = memo
-    //            detailViewController.viewController = self
-    //
-    //            present(detailViewController, animated: true, completion: nil)
-    //        }
-    //
     
+// MARK: 삭제 ------------------------------------------------------------------------------------------------------------------------------------------
 }
 
 //이미지 크기 조절 하기 위해서
@@ -512,5 +508,3 @@ extension UIImage {
         return resizedImage!
     }
 }
-
-

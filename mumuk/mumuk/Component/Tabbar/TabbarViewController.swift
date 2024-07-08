@@ -1,15 +1,10 @@
 import UIKit
 
-class TabbarViewController: UITabBarController {
-    //데이터 전달을 위해 추가한 부분
-    var uid : String = ""
-    var name : String = ""
-    //
-    
-    
-    
-    
-    
+class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
+    var mainViewController: MainViewController?
+    var myViewController: MyViewController?
+    var friendViewController: FriendViewController?
+
     let logoImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -31,6 +26,9 @@ class TabbarViewController: UITabBarController {
         view.backgroundColor = .red
         setTabBar()
         addLogoToTabBar()
+        customizeTabBarAppearance()  // 새로운 메서드 호출
+        
+        self.delegate = self  // Set the delegate
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(logoTapped))
         logoImage.addGestureRecognizer(tapGesture)
@@ -45,6 +43,7 @@ class TabbarViewController: UITabBarController {
         tabBar.layer.masksToBounds = false
         
         selectedIndex = 1
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,6 +67,12 @@ class TabbarViewController: UITabBarController {
         logoImage.center = CGPoint(x: tabBar.center.x, y: tabBar.frame.minY - 30)
     }
     
+    private func customizeTabBarAppearance() {
+        tabBar.backgroundImage = UIImage()
+        tabBar.shadowImage = UIImage()
+        tabBar.clipsToBounds = true
+    }
+    
     private func addLogoToTabBar() {
         tabBar.addSubview(logoImage)
         
@@ -80,36 +85,17 @@ class TabbarViewController: UITabBarController {
     }
     
     func setTabBar() {
+        let friendVC = FriendViewController()
+        self.friendViewController = friendVC
+        let vc1 = UINavigationController(rootViewController: friendVC)
         
-        // 데이터 전달을 위해 추가한 부분
+        let mainVC = MainViewController()
+        self.mainViewController = mainVC
+        let vc2 = UINavigationController(rootViewController: mainVC)
         
-        let friendViewController = FriendViewController()
-        let mainViewController = MainViewController()
-        let myViewController = MyViewController()
-        //
-        
-     
-        
-        print("여기서 에러\(uid)")
-        
-        //데이터 전달을 위해 추가한 부분
-        friendViewController.uid = self.uid
-        friendViewController.name = self.name
-        
-        mainViewController.uid = self.uid
-        mainViewController.name = self.name
-        
-        myViewController.uid = self.uid
-        myViewController.name = self.name
-        
-        //
-       
-        
-        // 위의 인스턴스 사용함 FriendViewController() -> friendViewController
-        let vc1 = UINavigationController(rootViewController: friendViewController)
-        let vc2 = UINavigationController(rootViewController: mainViewController)
-        let vc3 = UINavigationController(rootViewController: myViewController)
-        
+        let myVC = MyViewController()
+        self.myViewController = myVC
+        let vc3 = UINavigationController(rootViewController: myVC)
         
         self.viewControllers = [vc1, vc2, vc3]
         self.tabBar.unselectedItemTintColor = #colorLiteral(red: 0.6465258002, green: 0.6465258002, blue: 0.6465258002, alpha: 1)
@@ -134,7 +120,7 @@ class TabbarViewController: UITabBarController {
             item.setTitleTextAttributes([.font: UIFont.pretendard(.bold, size: 13)], for: .normal)
             item.setTitleTextAttributes([.font: UIFont.pretendard(.bold, size: 13)], for: .selected)
         }
-
+        
         // 메뉴 추천(중앙 탭) 설정
         tabBarItems[1].isEnabled = true
         tabBarItems[1].imageInsets = UIEdgeInsets(top: -1, left: 0, bottom: -40, right: 0)
@@ -143,5 +129,21 @@ class TabbarViewController: UITabBarController {
     
     @objc func logoTapped() {
         selectedIndex = 1
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let navController = viewController as? UINavigationController {
+            if let friendVC = navController.viewControllers.first as? FriendViewController,
+               let mainVC = self.mainViewController {
+                friendVC.name = mainVC.name
+                friendVC.fetchMembers()
+            } else if let myVC = navController.viewControllers.first as? MyViewController,
+                      let mainVC = self.mainViewController {
+                // MainViewController에서 MyViewController로 데이터 전달
+                myVC.name = mainVC.name
+                myVC.uid = mainVC.uid
+                myVC.deepProfile()
+            }
+        }
     }
 }

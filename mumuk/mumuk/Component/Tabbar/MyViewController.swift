@@ -15,6 +15,7 @@ class MyViewController: UIViewController {
     
     func deepProfile() {
         print("상세 데이터 불러오기 시작")
+        print("✅uid \(uid)")
         if let url = URL(string: "https://mumuk.store/with-pref/daily/\(name)") {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in

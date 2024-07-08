@@ -352,7 +352,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     func navigateToNextViewController() {
         let nextVC = OpenPreferViewController1()
         nextVC.uid = self.uid
-    
+        nextVC.name = self.name
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }

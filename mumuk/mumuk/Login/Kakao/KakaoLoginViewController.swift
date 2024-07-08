@@ -252,7 +252,7 @@ class KakaoLoginViewController: UIViewController {
         }
     
         nextVC.modalPresentationStyle = .fullScreen
-//        nextVC.uid = self.ui
+//        nextVC.uid = self.uid
         present(nextVC, animated: true, completion: nil)
     }
     

@@ -409,7 +409,7 @@ class PreferViewController7 : UIViewController{
             
 //            preferVC.dailyScrumModel = self.dailyScrumModel
 //                    preferVC.uid = self.uid  // uid 전달
-                    preferVC.name = self.name  // name 전달
+//                    preferVC.name = self.name  // name 전달
             let transition = CATransition()
             transition.duration = 0.4
             transition.type = .push

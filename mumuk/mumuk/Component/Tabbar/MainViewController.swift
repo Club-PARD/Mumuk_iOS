@@ -3,9 +3,11 @@ import UIKit
 class MainViewController: UIViewController {
 //    let uid = "1111123" // 테스트용 임의의 UID
    //데이터 전달을 위해 추가함 
-    var uid : String?
+//    var uid : String = "36000804107"
+    var uid : String = KakaoLoginViewController.globalUid
+//    var name : String = 
     var timer: Timer?
-    var name: String?
+    var name: String = "유재혁"
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -325,6 +327,7 @@ class MainViewController: UIViewController {
 
     @objc private func createButtonTapped() {
         let friendGroupingVC = FriendGroupingViewController()
+        uid = KakaoLoginViewController.globalUid
         friendGroupingVC.uid = self.uid  // uid 전달
         friendGroupingVC.name = self.name  // name 전달
         friendGroupingVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
@@ -334,10 +337,11 @@ class MainViewController: UIViewController {
     @objc private func moveToPreferViewController(){
         let preferVC = PreferViewController1()
         uid = KakaoLoginViewController.globalUid
-        if let uid = uid{
-            preferVC.uid = uid
-            print("메인 uid : \(uid)")
-        }
+        preferVC.uid = uid
+//        if let uid = uid{
+//           
+//            print("메인 uid : \(uid)")
+//        }
         
         
         preferVC.name = self.name  // name 전달

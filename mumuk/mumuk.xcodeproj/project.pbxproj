@@ -43,8 +43,9 @@
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
 		48622ADD2C3C3E000062C8C0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
+		48622ADE2C3C3E660062C8C0 /* PreferViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CCF2C343F8D005E88B0 /* PreferViewController6.swift */; };
+		48622ADF2C3C3F210062C8C0 /* OpenPreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CE02C353B63005E88B0 /* OpenPreferViewController3.swift */; };
 		486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB72C33F778005E88B0 /* NameModel.swift */; };
-		486D5CC12C33F784005E88B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CBE2C33F784005E88B0 /* DetailViewController.swift */; };
 		486D5CC62C343D6C005E88B0 /* PreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC52C343D6C005E88B0 /* PreferViewController1.swift */; };
 		486D5CC82C343F55005E88B0 /* PreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC72C343F55005E88B0 /* PreferViewController2.swift */; };
 		486D5CCA2C343F5F005E88B0 /* PreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC92C343F5F005E88B0 /* PreferViewController3.swift */; };
@@ -674,7 +675,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48622ADE2C3C3E660062C8C0 /* PreferViewController6.swift in Sources */,
 				48307D2C2C3C30CC00FC7EA3 /* ModalImageEdite.swift in Sources */,
+				48622ADF2C3C3F210062C8C0 /* OpenPreferViewController3.swift in Sources */,
 				486D5CCA2C343F5F005E88B0 /* PreferViewController3.swift in Sources */,
 				486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */,
 				486D5CC62C343D6C005E88B0 /* PreferViewController1.swift in Sources */,

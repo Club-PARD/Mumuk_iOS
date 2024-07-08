@@ -537,7 +537,7 @@ class OpenPreferViewController4 : UIViewController {
              OpenPreferViewController4.globalUid = uid
             }
             
-            preferVC.name = name  // name 전달
+//            preferVC.name = name   // name 전달
             let transition = CATransition()
             transition.duration = 0.4 
             transition.type = .push
