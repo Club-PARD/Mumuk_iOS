@@ -28,7 +28,6 @@
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
 		48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D162C3C1A8200FC7EA3 /* TagCell.swift */; };
-		48307D242C3C2DCD00FC7EA3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
 		48307D262C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D252C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		48307D282C3C2F2B00FC7EA3 /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D272C3C2F2B00FC7EA3 /* FriendComponent.swift */; };
 		48307D2A2C3C30A200FC7EA3 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D292C3C30A200FC7EA3 /* EditController.swift */; };
@@ -36,10 +35,15 @@
 		48307D2E2C3C336800FC7EA3 /* ModalImageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D2D2C3C336800FC7EA3 /* ModalImageUpdate.swift */; };
 		48307D302C3C33F600FC7EA3 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D2F2C3C33F600FC7EA3 /* DetailModel.swift */; };
 		48307D322C3C350100FC7EA3 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D312C3C350100FC7EA3 /* FriendModel.swift */; };
+		48307D402C3C3A6800FC7EA3 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D3F2C3C3A6800FC7EA3 /* UserPreference.swift */; };
+		48307D412C3C3A7C00FC7EA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB52C33F778005E88B0 /* Model.swift */; };
+		48307D432C3C3AB100FC7EA3 /* dailytasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0D22C36EA7800F1D8B9 /* dailytasteCell.swift */; };
+		48307D442C3C3ABB00FC7EA3 /* underTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0D02C36B6C100F1D8B9 /* underTagCell.swift */; };
+		48307D452C3C3ABD00FC7EA3 /* underbordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119398C2C3BB3AC00D32043 /* underbordCell.swift */; };
+		48307D462C3C3B8800FC7EA3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
 		486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB72C33F778005E88B0 /* NameModel.swift */; };
-		486D5CC02C33F784005E88B0 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CBD2C33F784005E88B0 /* TagCell.swift */; };
 		486D5CC12C33F784005E88B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CBE2C33F784005E88B0 /* DetailViewController.swift */; };
 		486D5CC62C343D6C005E88B0 /* PreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC52C343D6C005E88B0 /* PreferViewController1.swift */; };
 		486D5CC82C343F55005E88B0 /* PreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC72C343F55005E88B0 /* PreferViewController2.swift */; };
@@ -124,6 +128,7 @@
 		48307D2D2C3C336800FC7EA3 /* ModalImageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageUpdate.swift; sourceTree = "<group>"; };
 		48307D2F2C3C33F600FC7EA3 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
 		48307D312C3C350100FC7EA3 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		48307D3F2C3C3A6800FC7EA3 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 		485008072C2C44A800C9A196 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 		485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
 		486D5CB52C33F778005E88B0 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -365,6 +370,7 @@
 				4874DD102C39BDD600674DE3 /* PreferModel.swift */,
 				486D5CE82C383533005E88B0 /* FoodListModel.swift */,
 				486D5CEA2C3852D3005E88B0 /* OpenPreferModel.swift */,
+				48307D3F2C3C3A6800FC7EA3 /* UserPreference.swift */,
 				48307D2F2C3C33F600FC7EA3 /* DetailModel.swift */,
 			);
 			path = Model;
@@ -691,6 +697,8 @@
 				815FE7D22C304FC20090BDBE /* MyViewController.swift in Sources */,
 				486D5CE92C383533005E88B0 /* FoodListModel.swift in Sources */,
 				22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */,
+				48307D442C3C3ABB00FC7EA3 /* underTagCell.swift in Sources */,
+				48307D452C3C3ABD00FC7EA3 /* underbordCell.swift in Sources */,
 				81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */,
 				4874DD112C39BDD600674DE3 /* PreferModel.swift in Sources */,
 				486D5CE52C36BA72005E88B0 /* PreferViewController7.swift in Sources */,
@@ -704,12 +712,15 @@
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
 				486D5CDD2C353A0E005E88B0 /* OpenPreferViewController1.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
+				48307D432C3C3AB100FC7EA3 /* dailytasteCell.swift in Sources */,
+				48307D412C3C3A7C00FC7EA3 /* Model.swift in Sources */,
 				815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */,
 				48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				48307D322C3C350100FC7EA3 /* FriendModel.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
+				48307D402C3C3A6800FC7EA3 /* UserPreference.swift in Sources */,
 				224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
