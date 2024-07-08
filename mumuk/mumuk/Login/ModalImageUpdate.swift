@@ -1,5 +1,5 @@
 //
-//  ModalImageSelect.swift
+//  ModalImageUpdate.swift
 //  mumuk
 //
 //  Created by 유재혁 on 6/25/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ModalImageSelect: UIViewController {
+class ModalImageUpdate: UIViewController {
     let cellidentifier = "cell"
     var selectedImage: UIImage?// 이미 설정된 이미지 불러오기위한 변수
     weak var delegate: ModalImageSelectDelegate?
@@ -15,6 +15,7 @@ class ModalImageSelect: UIViewController {
     // 선택된 이미지의 인덱스와 모델 데이터 저장
     var selectedIndex: Int?
     var modelData: [Model] = Model.ModelData
+    var uid: String = ""
     
     private var LoginTitle: UILabel =  {
         let label = UILabel()
@@ -83,7 +84,10 @@ class ModalImageSelect: UIViewController {
         view.addSubview(collectionview)
         view.addSubview(selectButton)
         view.addSubview(deleteButton)
-                
+        
+        print(selectedImage)
+        print(uid)
+        
         setUI()
         
         //이미 고른 이미지 모달 창 열 때 불러오기
@@ -153,7 +157,7 @@ class ModalImageSelect: UIViewController {
     }
 }
 
-extension ModalImageSelect: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ModalImageUpdate: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Model.ModelData.count - 1
     }
@@ -179,7 +183,7 @@ extension ModalImageSelect: UICollectionViewDelegate, UICollectionViewDataSource
     }
 }
 
-extension ModalImageSelect: UICollectionViewDelegateFlowLayout {
+extension ModalImageUpdate: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth: CGFloat = 62
         let itemHeight: CGFloat = 62

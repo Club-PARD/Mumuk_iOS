@@ -8,8 +8,9 @@
 import UIKit
 
 class LoginController: UIViewController, ModalImageSelectDelegate {
-    var memos: [NameModel] = []    // memos 배열
+    var memos: [NameModel] = []
     var selectedIndex: Int? = 0
+    var name: String?
     var userId : String = ""
     var roundedImageButton: CustomImageField!
     var exists : Bool?
@@ -18,8 +19,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupRoundedImageButton()
-        
-        
         setUI()
     }
 
@@ -31,7 +30,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         label.numberOfLines = 2
         return label
     }()
-    
     
     private lazy var idField: CustomTextField = {
         let textField = CustomTextField()
@@ -70,7 +68,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         roundedImageButton = customImageField
     }
     
-    
     private let modalButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 17
@@ -85,14 +82,12 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         return button
     }()
     
-    
     private let containerView: UIView = {
          let view = UIView()
          return view
      }()
     
     private func setUI() {
-
         view.addSubview(LoginTitle)
         view.addSubview(idField)
         view.addSubview(LoginButton)
@@ -100,7 +95,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         view.addSubview(containerView) // containerView 추가
         containerView.addSubview(roundedImageButton) // roundedImageButton을 containerView에 추가
         containerView.addSubview(modalButton) // modalButton을 containerView에 추가
-
 
         LoginTitle.translatesAutoresizingMaskIntoConstraints = false
         idField.translatesAutoresizingMaskIntoConstraints = false
@@ -110,9 +104,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         modalButton.translatesAutoresizingMaskIntoConstraints = false
         containerView.translatesAutoresizingMaskIntoConstraints = false
 
-        
         NSLayoutConstraint.activate([
-
             LoginTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 107),
             LoginTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             LoginTitle.widthAnchor.constraint(equalToConstant: 156),
@@ -162,6 +154,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                 return
             }
         
+        self.name = name // name 변수를 클래스 속성으로 할당
         
         //서버에 name이 존재하는 지 확인하고 있으면 alert 띄우고 없으면 POST 하기
         checkNameExists(name: name, image: image)
@@ -259,11 +252,10 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
         dismiss(animated: true)
     }
     
-    
     // 서버에 이미 존재하는 이름인지 확인하기
     func checkNameExists(name: String, image: Int) {
         guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: "http://172.30.1.21:8080/user/checkExists?name=\(encodedName)") else {
+              let url = URL(string: "https://mumuk.store/user/checkExists?name=\(encodedName)") else {
             print("🚨Error: Invalid URL")
             return
         }
@@ -303,20 +295,12 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                 print("🚨 Unable to convert data to string")
             }
         }
-        
         task.resume()
     }
 
-    
-    
-    
-    
-    
-    
-    
     // Post request 보내는 함수
        func makePostRequest(_ memo: NameModel) {
-           guard let url = URL(string: "http://172.30.1.21:8080/user/create") else {
+           guard let url = URL(string: "https://mumuk.store/user/create") else {
                print("🚨 Invalid URL")
                return
            }
@@ -336,7 +320,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                        if let responseString = String(data: data, encoding: .utf8) {
                            print("✅Response: \(responseString)")
                            DispatchQueue.main.async {
-                               self.navigateToNextViewController()
+//                               self.navigateToNextViewController()
                            }
                        }
                    }
@@ -348,18 +332,16 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
        }
     
     // 화면 이동하기
-    func navigateToNextViewController() {
-        let nextVC = TabbarViewController()
-        nextVC.modalPresentationStyle = .fullScreen
-        present(nextVC, animated: true, completion: nil)
-    }
-    
-    
-    //빈화면 터치 시 키보드 내리기
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            view.endEditing(true)
-        }
+//    func navigateToNextViewController() {
+//        let nextVC = TabbarViewController()
+//        nextVC.modalPresentationStyle = .fullScreen
+//        nextVC.name = self.name ?? ""  // name 전달
+//        present(nextVC, animated: true, completion: nil)
+//    }
+//    
+//    //빈화면 터치 시 키보드 내리기
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//            view.endEditing(true)
+//        }
     
 }
-
-    
