@@ -398,12 +398,12 @@
 			children = (
 				486D5CBE2C33F784005E88B0 /* DetailViewController.swift */,
 				486D5CBC2C33F784005E88B0 /* FriendComponent.swift */,
-				486D5CBD2C33F784005E88B0 /* TagCell.swift */,
+
 				81C2CE1A2C3BFF8F002BF3AF /* LeftAlignedCollectionViewFlowLayout.swift */,
 				81628B522C3C02E200D3BEBB /* FriendComponent.swift */,
 				8151A0D02C36B6C100F1D8B9 /* underTagCell.swift */,
 				8119398C2C3BB3AC00D32043 /* underbordCell.swift */,
-
+				48307D162C3C1A8200FC7EA3 /* TagCell.swift */,
 				8151A0D22C36EA7800F1D8B9 /* dailytasteCell.swift */,
 				815FE7C82C304EB20090BDBE /* Tabbar */,
 			);
