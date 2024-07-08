@@ -9,7 +9,6 @@ class SummaryViewController: UIViewController {
     private var scrollView: UIScrollView!
     private var contentView: UIView!
     private var label: UILabel!
-    private let emojis = ["👶🏻", "👩🏻", "👨🏻", "👵🏻", "👴🏻"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +23,12 @@ class SummaryViewController: UIViewController {
             }
         }
     }
-
+    
+    private func getImage(for imageId: Int) -> UIImage {
+        let modelData = Model.ModelData
+        let index = imageId % modelData.count
+        return UIImage(named: modelData[index].image) ?? UIImage(named: "default")!
+    }
     
     func fetchGroupLeaderName(completion: @escaping (String) -> Void) {
         guard let groupId = groupId else {
@@ -260,12 +264,18 @@ class SummaryViewController: UIViewController {
         circleView.layer.borderColor = user.daily ? UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor : UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
         friendView.addSubview(circleView)
         
-        // 이모지 레이블
-        let emojiLabel = UILabel()
-        emojiLabel.text = emojis[user.imageId % emojis.count]
-        emojiLabel.font = .systemFont(ofSize: 40)
-        emojiLabel.textAlignment = .center
-        circleView.addSubview(emojiLabel)
+        let imageView = UIImageView(image: getImage(for: user.imageId))
+        imageView.contentMode = .scaleAspectFit
+        circleView.addSubview(imageView)
+
+        // 이미지 뷰에 대한 제약 조건 설정
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalTo: circleView.widthAnchor, multiplier: 0.7),
+            imageView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 0.7)
+        ])
         
         // 이름 레이블
         let nameLabel = UILabel()
@@ -319,7 +329,6 @@ class SummaryViewController: UIViewController {
         
         // Auto Layout 설정
         circleView.translatesAutoresizingMaskIntoConstraints = false
-        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         yesterdayFoodLabel.translatesAutoresizingMaskIntoConstraints = false
         tagScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -330,9 +339,6 @@ class SummaryViewController: UIViewController {
             circleView.centerYAnchor.constraint(equalTo: friendView.centerYAnchor),
             circleView.widthAnchor.constraint(equalToConstant: 70),
             circleView.heightAnchor.constraint(equalToConstant: 70),
-            
-            emojiLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
             
             nameLabel.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 10),
             nameLabel.topAnchor.constraint(equalTo: friendView.topAnchor, constant: 20),

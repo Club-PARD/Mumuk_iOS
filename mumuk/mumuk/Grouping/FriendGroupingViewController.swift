@@ -13,8 +13,8 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     private let contentView = UIView()
     private let bottomViewHeight: CGFloat = 122
     
-    private var allFriends: [(emoji: String, name: String, uid: String)] = []
-    private var filteredFriends: [(emoji: String, name: String, uid: String)] = []
+    private var allFriends: [(imageId: Int, name: String, uid: String)] = []
+    private var filteredFriends: [(imageId: Int, name: String, uid: String)] = []
     private var checkedFriends: [String: Bool] = [:]
     
     private var checkedFriendsScrollView: UIScrollView!
@@ -169,16 +169,11 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     func setupFriends() {
         fetchFriends { [weak self] friends in
             DispatchQueue.main.async {
-                self?.allFriends = friends.map { (emoji: self?.getRandomEmoji() ?? "👤", name: $0.name, uid: $0.uid) }
+                self?.allFriends = friends.map { (imageId: $0.imageId, name: $0.name, uid: $0.uid) }
                 self?.filteredFriends = self?.allFriends ?? []
                 self?.updateFriendsView()
             }
         }
-    }
-
-    func getRandomEmoji() -> String {
-        let emojis = ["👶🏻", "👩🏻", "👨🏻", "👵🏻", "👴🏻", "🧑🏻", "🧒🏻", "👦🏻", "👧🏻", "🧓🏻", "👱🏻", "👱🏻‍♀️", "👨🏻‍🦰", "👩🏻‍🦰", "👨🏻‍🦱"]
-        return emojis.randomElement() ?? "👤"
     }
 
     func fetchFriends(completion: @escaping ([Friend]) -> Void) {
@@ -244,7 +239,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         contentView.subviews.forEach { $0.removeFromSuperview() }
         
         for (index, friend) in filteredFriends.enumerated() {
-            let containerView = createFriendView(emoji: friend.emoji, name: friend.name)
+            let containerView = createFriendView(imageId: friend.imageId, name: friend.name)
             contentView.addSubview(containerView)
             
             NSLayoutConstraint.activate([
@@ -264,21 +259,19 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
             }
         }
     }
+
     
-    func createFriendView(emoji: String, name: String) -> UIView {
+    func createFriendView(imageId: Int, name: String) -> UIView {
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        let emojiView = UIView()
-        emojiView.translatesAutoresizingMaskIntoConstraints = false
-        emojiView.layer.backgroundColor = UIColor(red: 0.918, green: 0.914, blue: 0.914, alpha: 1).cgColor
-        emojiView.layer.cornerRadius = 22
-        
-        let emojiLabel = UILabel()
-        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
-        emojiLabel.text = emoji
-        emojiLabel.font = UIFont.systemFont(ofSize: 25)
-        emojiLabel.textAlignment = .center
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 22
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: getImageName(for: imageId))
+        imageView.accessibilityIdentifier = "\(imageId)"
         
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -289,21 +282,17 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         let checkBox = createCheckBox()
         updateCheckBoxAppearance(checkBox, isChecked: checkedFriends[name] ?? false)
         
-        containerView.addSubview(emojiView)
+        containerView.addSubview(imageView)
         containerView.addSubview(nameLabel)
         containerView.addSubview(checkBox)
-        emojiView.addSubview(emojiLabel)
         
         NSLayoutConstraint.activate([
-            emojiView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            emojiView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            emojiView.widthAnchor.constraint(equalToConstant: 44),
-            emojiView.heightAnchor.constraint(equalToConstant: 44),
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 44),
+            imageView.heightAnchor.constraint(equalToConstant: 44),
             
-            emojiLabel.centerXAnchor.constraint(equalTo: emojiView.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: emojiView.centerYAnchor),
-            
-            nameLabel.leadingAnchor.constraint(equalTo: emojiView.trailingAnchor, constant: 13),
+            nameLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 13),
             nameLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             
             checkBox.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
@@ -314,6 +303,12 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         
         return containerView
     }
+
+
+    func getImageName(for imageId: Int) -> String {
+        return Model.ModelData.first { $0.number == imageId }?.image ?? "default"
+    }
+
     
     func createCheckBox() -> UIButton {
         let checkBox = UIButton(type: .custom)
@@ -520,9 +515,9 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         guard let containerView = sender.superview,
               let nameLabel = containerView.subviews.first(where: { $0 is UILabel && $0 != sender }) as? UILabel,
               let name = nameLabel.text,
-              let emojiView = containerView.subviews.first(where: { $0 is UIView && $0 != sender && $0 != nameLabel }),
-              let emojiLabel = emojiView.subviews.first as? UILabel,
-              let emoji = emojiLabel.text else {
+              let imageView = containerView.subviews.first(where: { $0 is UIImageView && $0 != sender && $0 != nameLabel }),
+              let imageIdString = imageView.accessibilityIdentifier,
+              let imageId = Int(imageIdString) else {
             return
         }
         
@@ -531,7 +526,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         updateCheckBoxAppearance(sender, isChecked: isChecked)
         
         if isChecked {
-            addCheckedFriend(emoji: emoji, name: name)
+            addCheckedFriend(imageId: imageId, name: name)
         } else {
             removeCheckedFriend(name: name)
         }
@@ -547,8 +542,8 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
                 checkBox.subviews.first(where: { $0 is UILabel })?.isHidden = !isChecked
             }
             
-    func addCheckedFriend(emoji: String, name: String) {
-        let friendView = createCheckedFriendView(emoji: emoji, name: name)
+    func addCheckedFriend(imageId: Int, name: String) {
+        let friendView = createCheckedFriendView(imageId: imageId, name: name)
         checkedFriendsStack.addArrangedSubview(friendView)
         
         if checkedFriendsStack.arrangedSubviews.count == 1 || checkedFriendsScrollView.isHidden {
@@ -611,20 +606,17 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         }
     }
             
-    func createCheckedFriendView(emoji: String, name: String) -> UIView {
+    func createCheckedFriendView(imageId: Int, name: String) -> UIView {
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        let circleView = UIView()
-        circleView.translatesAutoresizingMaskIntoConstraints = false
-        circleView.layer.cornerRadius = 25 // 원형 뷰의 반지름
-        circleView.layer.backgroundColor = UIColor(red: 0.918, green: 0.914, blue: 0.914, alpha: 1).cgColor
-        
-        let emojiLabel = UILabel()
-        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
-        emojiLabel.text = emoji
-        emojiLabel.font = UIFont.systemFont(ofSize: 25)
-        emojiLabel.textAlignment = .center
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 25 // 원형 뷰의 반지름
+        imageView.layer.backgroundColor = UIColor(red: 0.918, green: 0.914, blue: 0.914, alpha: 1).cgColor
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: getImageName(for: imageId))
         
         let closeButton = UIButton(type: .system)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
@@ -642,35 +634,32 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         nameLabel.textColor = UIColor(red: 0.518, green: 0.514, blue: 0.518, alpha: 1)
         nameLabel.textAlignment = .center
         
-        containerView.addSubview(circleView)
+        containerView.addSubview(imageView)
         containerView.addSubview(closeButton)
         containerView.addSubview(nameLabel)
-        circleView.addSubview(emojiLabel)
         
         NSLayoutConstraint.activate([
             containerView.widthAnchor.constraint(equalToConstant: 50), // 컨테이너 뷰의 너비
             containerView.heightAnchor.constraint(equalToConstant: checkedFriendsViewHeight),
             
-            circleView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 5),
-            circleView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
-            circleView.widthAnchor.constraint(equalToConstant: 50),
-            circleView.heightAnchor.constraint(equalToConstant: 50),
+            imageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 5),
+            imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 50),
+            imageView.heightAnchor.constraint(equalToConstant: 50),
             
-            emojiLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
-            
-            closeButton.topAnchor.constraint(equalTo: circleView.topAnchor),
-            closeButton.trailingAnchor.constraint(equalTo: circleView.trailingAnchor),
+            closeButton.topAnchor.constraint(equalTo: imageView.topAnchor),
+            closeButton.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
             closeButton.widthAnchor.constraint(equalToConstant: 16),
             closeButton.heightAnchor.constraint(equalToConstant: 16),
             
-            nameLabel.topAnchor.constraint(equalTo: circleView.bottomAnchor, constant: 4),
+            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 4),
             nameLabel.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             nameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
         
         return containerView
     }
+
             
     @objc func closeButtonTapped(_ sender: UIButton) {
         guard let containerView = sender.superview,

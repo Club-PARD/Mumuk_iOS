@@ -20,9 +20,6 @@ class GroupingMainViewController: UIViewController {
     }()
     private let bottomViewHeight: CGFloat = 122
     
-    // 이모지 배열
-    private let emojis = ["🐶", "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐨", "🐯"]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -184,13 +181,22 @@ class GroupingMainViewController: UIViewController {
         readyView.addSubview(readyLabel)
         readyLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        // 이모티콘 레이블 추가
-        let emojiLabel = UILabel()
-        emojiLabel.text = "🐷"
-        emojiLabel.font = UIFont.systemFont(ofSize: 40)
-        emojiLabel.textAlignment = .center
-        circleView.addSubview(emojiLabel)
-        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
+        // 현재 사용자(리더)의 imageiD
+        let leaderImageId = groupData?.users.values.first(where: { $0.name == self.name })?.imageId ?? 0
+
+        // 이모지 레이블 대신 이미지 뷰 사용
+        let imageView = UIImageView(image: getImage(for: leaderImageId))
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
+        circleView.addSubview(imageView)
+
+        // 이미지 뷰에 대한 제약 조건 설정
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalTo: circleView.widthAnchor, multiplier: 0.7),
+            imageView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 0.7)
+        ])
         
         // 어제 먹은 음식 레이블 추가
         let yesterdayFoodLabel = UILabel()
@@ -310,9 +316,6 @@ class GroupingMainViewController: UIViewController {
             circleView.heightAnchor.constraint(equalToConstant: 70),
             circleView.centerXAnchor.constraint(equalTo: shadowedView.centerXAnchor, constant: -95.5),
             circleView.centerYAnchor.constraint(equalTo: shadowedView.centerYAnchor),
-            
-            emojiLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
             
             readyView.widthAnchor.constraint(equalToConstant: 63),
             readyView.heightAnchor.constraint(equalToConstant: 23.85),
@@ -602,12 +605,19 @@ class GroupingMainViewController: UIViewController {
         circleView.layer.borderColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
         friendView.addSubview(circleView)
         
-        // 이모지 레이블
-        let emojiLabel = UILabel()
-        emojiLabel.text = getEmoji(for: user.imageId)
-        emojiLabel.font = .systemFont(ofSize: 40)
-        emojiLabel.textAlignment = .center
-        circleView.addSubview(emojiLabel)
+        // 이모지 레이블 대신 이미지 뷰 사용
+        let imageView = UIImageView(image: getImage(for: user.imageId))
+        imageView.contentMode = .scaleAspectFit
+        circleView.addSubview(imageView)
+
+        // 이미지 뷰에 대한 제약 조건 설정
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imageView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            imageView.widthAnchor.constraint(equalTo: circleView.widthAnchor, multiplier: 0.7),
+            imageView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 0.7)
+        ])
         
         // Ready 텍스트가 있는 뷰 추가
         let readyView = UIView()
@@ -654,7 +664,6 @@ class GroupingMainViewController: UIViewController {
         circleView.translatesAutoresizingMaskIntoConstraints = false
         readyView.translatesAutoresizingMaskIntoConstraints = false
         readyLabel.translatesAutoresizingMaskIntoConstraints = false
-        emojiLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         yesterdayFoodLabel.translatesAutoresizingMaskIntoConstraints = false
         tagScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -675,9 +684,6 @@ class GroupingMainViewController: UIViewController {
             readyLabel.bottomAnchor.constraint(equalTo: readyView.bottomAnchor),
             readyLabel.leadingAnchor.constraint(equalTo: readyView.leadingAnchor),
             readyLabel.trailingAnchor.constraint(equalTo: readyView.trailingAnchor),
-            
-            emojiLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            emojiLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
             
             nameLabel.leadingAnchor.constraint(equalTo: circleView.trailingAnchor, constant: 20),
             nameLabel.topAnchor.constraint(equalTo: friendView.topAnchor, constant: 30),
@@ -725,8 +731,10 @@ class GroupingMainViewController: UIViewController {
         return tagView
     }
     
-    func getEmoji(for imageId: Int) -> String {
-        return emojis[imageId % emojis.count]
+    func getImage(for imageId: Int) -> UIImage {
+        let modelData = Model.ModelData
+        let index = imageId % modelData.count
+        return UIImage(named: modelData[index].image) ?? UIImage(named: "default")!
     }
     
     func setupBottomView() {
