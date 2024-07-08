@@ -25,21 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         
         window = UIWindow(windowScene: windowScene)
-        
-<<<<<<< HEAD
         window?.rootViewController = KakaoLoginViewController()
-//                window?.rootViewController = Openprofile()
-//        window?.rootViewController = TabbarViewController()
-//        
-//                window?.rootViewController = LoginController()
 
-=======
-//        window?.rootViewController = KakaoLoginViewController()
-//        window?.rootViewController = FriendGroupingViewController()
-        window?.rootViewController = TabbarViewController()
-        //        window?.rootViewController = LoginController()
-//                window?.rootViewController = NotificationController()
->>>>>>> hj_branch
         
         window?.makeKeyAndVisible()
     }

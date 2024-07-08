@@ -1,21 +1,13 @@
 import UIKit
 
 class MainViewController: UIViewController {
-<<<<<<< HEAD
-//    let uid = "1111123" // 테스트용 임의의 UID
-   //데이터 전달을 위해 추가함 
-//    var uid : String = "36000804107"
+
     var uid : String = KakaoLoginViewController.globalUid
-//    var name : String = 
     var timer: Timer?
     var name: String = ""
-=======
-    let uid = "1111" // 테스트용 임의의 UID
     var timer: Timer?
-    var name: String?
     var groupId: String?
->>>>>>> hj_branch
-
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "mumuk")
