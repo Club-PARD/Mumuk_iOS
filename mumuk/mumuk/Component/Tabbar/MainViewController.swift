@@ -1,9 +1,11 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let uid = "3600804107" // 테스트용 임의의 UID
+//    let uid = "1111123" // 테스트용 임의의 UID
+   //데이터 전달을 위해 추가함 
+    var uid : String?
     var timer: Timer?
-    var name: String = "하람"
+    var name: String?
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -315,6 +317,7 @@ class MainViewController: UIViewController {
     
     private func setupButtonActions() {
         preferenceButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+        preferenceButton.addTarget(self, action: #selector(moveToPreferViewController), for: .touchUpInside) //
         preferenceButton.addTarget(self, action: #selector(buttonTouchUpInside), for: [.touchUpInside, .touchUpOutside])
         groupBeforeButton.addTarget(self, action: #selector(groupButtonTapped), for: .touchUpInside)
         createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)  // 추가
@@ -328,6 +331,26 @@ class MainViewController: UIViewController {
         present(friendGroupingVC, animated: true, completion: nil)
     }
 
+    @objc private func moveToPreferViewController(){
+        let preferVC = PreferViewController1()
+        uid = KakaoLoginViewController.globalUid
+        if let uid = uid{
+            preferVC.uid = uid
+            print("메인 uid : \(uid)")
+        }
+        
+        
+        preferVC.name = self.name  // name 전달
+        preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+        present(preferVC, animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    
+    
+    
     @objc private func buttonTouchDown() {
         preferenceButton.backgroundColor = .lightGray
     }
