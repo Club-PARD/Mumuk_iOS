@@ -1,13 +1,13 @@
 //
-//  ModalImageSelect.swift
+//  ModalImageEdite.swift
 //  mumuk
 //
-//  Created by 유재혁 on 6/25/24.
+//  Created by 유재혁 on 7/7/24.
 //
 
 import UIKit
 
-class ModalImageSelect: UIViewController {
+class ModalImageEdite: UIViewController {
     let cellidentifier = "cell"
     var selectedImage: UIImage?// 이미 설정된 이미지 불러오기위한 변수
     weak var delegate: ModalImageSelectDelegate?
@@ -15,10 +15,11 @@ class ModalImageSelect: UIViewController {
     // 선택된 이미지의 인덱스와 모델 데이터 저장
     var selectedIndex: Int?
     var modelData: [Model] = Model.ModelData
+    var uid: String = ""
     
     private var LoginTitle: UILabel =  {
         let label = UILabel()
-        label.text = "프로필 이미지를 \n꾸며보세요"
+        label.text = "프로필 이미지를 \n수정해보세요"
         label.font = UIFont.systemFont(ofSize: 25, weight: .thin)
         label.textColor = .black
         label.numberOfLines = 2
@@ -78,12 +79,19 @@ class ModalImageSelect: UIViewController {
         collectionview.delegate = self
         collectionview.register(CustomCell.self, forCellWithReuseIdentifier: cellidentifier)
         
+        if let image = selectedImage {
+            selectedImageView.image = image
+        }
+        
         view.addSubview(LoginTitle)
         view.addSubview(selectedImageView)
         view.addSubview(collectionview)
         view.addSubview(selectButton)
         view.addSubview(deleteButton)
-                
+        
+        print(selectedImage)
+        print(uid)
+        
         setUI()
         
         //이미 고른 이미지 모달 창 열 때 불러오기
@@ -132,6 +140,9 @@ class ModalImageSelect: UIViewController {
         if let selectedIndex = selectedIndex {
             let selectedNumber = modelData[selectedIndex].number
             delegate?.didSelectImage(withNumber: selectedNumber)
+            
+            updateprofile(id: self.uid, imageid: self.selectedIndex ?? 0)
+            
             dismiss(animated: true, completion: nil)
         }
     }
@@ -153,7 +164,7 @@ class ModalImageSelect: UIViewController {
     }
 }
 
-extension ModalImageSelect: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ModalImageEdite: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Model.ModelData.count - 1
     }
@@ -177,9 +188,42 @@ extension ModalImageSelect: UICollectionViewDelegate, UICollectionViewDataSource
         let image = UIImage(named: "\(target.image).jpeg")
         updateSelectedImage(with: image, at: indexPath.item+1)    //선택한 이미지 큰 곳에 전송
     }
+    
+    func updateprofile(id: String, imageid: Int) {
+        guard let url = URL(string: "https://mumuk.store/user/\(id)?imageId=\(imageid)") else {
+            print("🚨 Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let requestBody = ["imageid": imageid]
+        
+        do {
+            let encoder = JSONEncoder()
+            let jsonData = try encoder.encode(requestBody)
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                if let error = error {
+                    print("🚨", error)
+                } else if let data = data {
+                    if let responseString = String(data: data, encoding: .utf8) {
+                        print("Response: \(responseString)")
+                        DispatchQueue.main.async {
+                        }
+                    }
+                }
+            }
+            task.resume()        } catch {
+            print("🚨 Encoding Error:", error)
+        }
+    }
 }
 
-extension ModalImageSelect: UICollectionViewDelegateFlowLayout {
+extension ModalImageEdite: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemWidth: CGFloat = 62
         let itemHeight: CGFloat = 62
