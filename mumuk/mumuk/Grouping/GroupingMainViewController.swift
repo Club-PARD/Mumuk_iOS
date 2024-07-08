@@ -851,41 +851,63 @@ class GroupingMainViewController: UIViewController {
         }
     }
     private func fetchRecommendationData() {
-        guard let uid = uid else { return }
-        let urlString = "https://mumuk.store/food/recommend/\(uid)"
-        print("Request URL: \(urlString)")
-        
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            if let error = error {
-                print("Error fetching data: \(error)")
-                return
-            }
-            
-            guard let self = self, let data = data else {
-                print("No data received")
-                return
-            }
-            
-            do {
-                let responseBody = try JSONDecoder().decode(ResponseBody.self, from: data)
-                self.fetchUserName(groupId: responseBody.groupId) { userName in
-                    DispatchQueue.main.async {
-                        self.navigateToNextPage(with: responseBody, userName: userName)
-                    }
-                }
-            } catch {
-                print("Error decoding response: \(error)")
-            }
-        }.resume()
-    }
+           guard let uid = uid else { return }
+           let urlString = "https://mumuk.store/food/recommend/\(uid)"
+           print("Request URL: \(urlString)")
+           
+           guard let url = URL(string: urlString) else {
+               print("Invalid URL")
+               return
+           }
+           
+           var request = URLRequest(url: url)
+           request.httpMethod = "POST"
+           
+           URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+               if let error = error {
+                   print("Error fetching data: \(error)")
+                   return
+               }
+               
+               guard let self = self, let data = data else {
+                   print("No data received")
+                   return
+               }
+               
+               do {
+                   let responseBody = try JSONDecoder().decode(ResponseBody.self, from: data)
+                   self.fetchUserName(groupId: responseBody.groupId) { userName in
+                       DispatchQueue.main.async {
+                           self.navigateToLoadingView(with: responseBody, userName: userName)
+                       }
+                   }
+               } catch {
+                   print("Error decoding response: \(error)")
+               }
+           }.resume()
+       }
+    
+    private func navigateToLoadingView(with responseBody: ResponseBody, userName: String) {
+           let loadingVC = LoadingViewController()
+           loadingVC.rank1 = responseBody.rank1
+           loadingVC.rank2 = responseBody.rank2
+           loadingVC.rank3 = responseBody.rank3
+           loadingVC.userName = userName
+           
+           loadingVC.modalPresentationStyle = .fullScreen
+           present(loadingVC, animated: true) {
+               DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                   let reconFoodVC = ReconFoodViewController1()
+                   reconFoodVC.rank1 = responseBody.rank1
+                   reconFoodVC.rank2 = responseBody.rank2
+                   reconFoodVC.rank3 = responseBody.rank3
+                   reconFoodVC.userName = userName
+                   
+                   reconFoodVC.modalPresentationStyle = .fullScreen
+                   self.present(reconFoodVC, animated: true, completion: nil)
+               }
+           }
+       }
     
     private func fetchUserName(groupId: String, completion: @escaping (String) -> Void) {
         let urlString = "https://mumuk.store/user/users?uid=\(groupId)"

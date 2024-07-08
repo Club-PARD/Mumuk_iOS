@@ -530,13 +530,24 @@ class SummaryViewController: UIViewController {
                 let responseBody = try JSONDecoder().decode(ResponseBody.self, from: data)
                 self.fetchUserName(groupId: responseBody.groupId) { userName in
                     DispatchQueue.main.async {
-                        self.navigateToNextPage(with: responseBody, userName: userName)
+                        self.navigateToLoadingView(with: responseBody, userName: userName)
                     }
                 }
             } catch {
                 print("Error decoding response: \(error)")
             }
         }.resume()
+    }
+
+    private func navigateToLoadingView(with responseBody: ResponseBody, userName: String) {
+        let loadingVC = LoadingViewController()
+        loadingVC.rank1 = responseBody.rank1
+        loadingVC.rank2 = responseBody.rank2
+        loadingVC.rank3 = responseBody.rank3
+        loadingVC.userName = userName
+        
+        loadingVC.modalPresentationStyle = .fullScreen
+        present(loadingVC, animated: true, completion: nil)
     }
     
     private func fetchUserName(groupId: String, completion: @escaping (String) -> Void) {

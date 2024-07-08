@@ -224,14 +224,14 @@ class ReconFoodViewController1: UIViewController {
         }
     }
     
-    private func animateProgress() {
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.duration = 1.5
-        animation.fromValue = 0
-        animation.toValue = progressLayer.strokeEnd
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        progressLayer.add(animation, forKey: "animateProgress")
-    }
+    internal func animateProgress() {
+          let animation = CABasicAnimation(keyPath: "strokeEnd")
+          animation.duration = 1.5
+          animation.fromValue = 0
+          animation.toValue = progressLayer.strokeEnd
+          animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+          progressLayer.add(animation, forKey: "animateProgress")
+      }
     
     func setProgress(to progressConstant: CGFloat, withAnimation: Bool) {
         let duration: CFTimeInterval = withAnimation ? 0.3 : 0
