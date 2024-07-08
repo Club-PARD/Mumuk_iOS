@@ -1,13 +1,13 @@
 import UIKit
 
-class ReconFoodViewController: UIViewController {
+class ReconFoodViewController1: UIViewController {
+    private var mainLabel: UILabel!
+    private var subLabel: UILabel!
+    private var reconFoodImageView: UIImageView!
     private var circleLayer = CAShapeLayer()
     private var progressLayer = CAShapeLayer()
     private var gradientLayer = CAGradientLayer()
     private var circularProgressView: UIView!
-    private var mainLabel: UILabel!
-    private var subLabel: UILabel!
-    private var reconFoodImageView: UIImageView!
     private var foodNameLabel: UILabel!
     private var percentageLabel: UILabel!
     private var descriptionLabel: UILabel!
@@ -305,7 +305,7 @@ class ReconFoodViewController: UIViewController {
     }
 
     @objc private func secondButtonTapped() {
-        print("2, 3등 메뉴 보러가기 버튼이 탭되었습니다.")
+        toReconFoodVC()
     }
     
     private func setupMainButton() {
@@ -332,11 +332,11 @@ class ReconFoodViewController: UIViewController {
      }
 
      @objc private func mainButtonTapped() {
-         print("메인으로 버튼이 탭되었습니다.")
+         toMain()
      }
     
     private func presentRecommendationDetail() {
-        let detailVC = RecommendationDetailViewController()
+        let detailVC = RecommendationDetailViewController1()
         
         if let sheet = detailVC.sheetPresentationController {
             sheet.detents = [.large()]
@@ -344,5 +344,19 @@ class ReconFoodViewController: UIViewController {
         }
         
         present(detailVC, animated: true, completion: nil)
+    }
+    
+    private func toMain() {
+        let mainVC = TabbarViewController()
+        
+        mainVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+        present(mainVC, animated: true, completion: nil)
+    }
+    
+    private func toReconFoodVC() {
+        let reconFoodVC2 = ReconFoodViewController2()
+        
+        reconFoodVC2.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+        present(reconFoodVC2, animated: true, completion: nil)
     }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-class RecommendationDetailViewController: UIViewController {
+class RecommendationDetailViewController3: UIViewController {
     
     private var titleLabel: UILabel!
     private var descriptionLabel: UILabel!
@@ -8,6 +8,8 @@ class RecommendationDetailViewController: UIViewController {
     private var percentageLabel: UILabel!
     private var progressLayers: [CAShapeLayer] = []
     private var gradientLayers: [CAGradientLayer] = []
+    private var animationCompleted = false
+    private var finalProgressValues: [CGFloat] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class RecommendationDetailViewController: UIViewController {
         modalPresentationStyle = .custom
         // 트랜지션 델리게이트 설정
         transitioningDelegate = self
+        finalProgressValues = Array(repeating: 0, count: 6) // 카테고리 수에 맞춰 조정
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -51,6 +54,7 @@ class RecommendationDetailViewController: UIViewController {
         for index in 0..<self.progressLayers.count {
             self.animateProgress(for: index)
         }
+        animationCompleted = true
     }
 
     override func viewDidLayoutSubviews() {
@@ -65,22 +69,24 @@ class RecommendationDetailViewController: UIViewController {
     }
     
     private func animateProgress(for index: Int) {
-        guard let maskLayer = gradientLayers[index].mask as? CAShapeLayer else { return }
-        
-        maskLayer.removeAnimation(forKey: "animateProgress")
-        
-        let animation = CABasicAnimation(keyPath: "strokeEnd")
-        animation.duration = 1.5
-        animation.fromValue = 0
-        let randomPercentage = CGFloat.random(in: 0...1)
-        animation.toValue = randomPercentage
-        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        animation.fillMode = .forwards
-        animation.isRemovedOnCompletion = false
-        
-        maskLayer.add(animation, forKey: "animateProgress")
-        maskLayer.strokeEnd = randomPercentage
-    }
+           guard let maskLayer = gradientLayers[index].mask as? CAShapeLayer else { return }
+           
+           maskLayer.removeAnimation(forKey: "animateProgress")
+           
+           let animation = CABasicAnimation(keyPath: "strokeEnd")
+           animation.duration = 1.5
+           animation.fromValue = 0
+           let randomPercentage = CGFloat.random(in: 0...1)
+           animation.toValue = randomPercentage
+           animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+           animation.fillMode = .forwards
+           animation.isRemovedOnCompletion = false
+           
+           maskLayer.add(animation, forKey: "animateProgress")
+           maskLayer.strokeEnd = randomPercentage
+           finalProgressValues[index] = randomPercentage
+       }
+
     
     private func setupTitleLabel() {
         titleLabel = UILabel()
@@ -285,30 +291,28 @@ class RecommendationDetailViewController: UIViewController {
             progressLayer.frame = backgroundBar.bounds
             
             // 마스크 레이어 설정
-            let maskLayer = CAShapeLayer()
-            maskLayer.path = progressPath.cgPath
-            maskLayer.strokeColor = UIColor.white.cgColor
-            maskLayer.fillColor = UIColor.clear.cgColor
-            maskLayer.lineWidth = 14
-            maskLayer.lineCap = .round
-            
-            gradientLayer.mask = maskLayer
-            
-            // 초기 strokeEnd 값 설정
-            maskLayer.strokeEnd = 0
-        }
+                        let maskLayer = CAShapeLayer()
+                        maskLayer.path = progressPath.cgPath
+                        maskLayer.strokeColor = UIColor.white.cgColor
+                        maskLayer.fillColor = UIColor.clear.cgColor
+                        maskLayer.lineWidth = 14
+                        maskLayer.lineCap = .round
+                        
+                        gradientLayer.mask = maskLayer
+                        
+                        // 애니메이션이 완료된 경우 마지막 상태 유지
+                        if animationCompleted {
+                            maskLayer.strokeEnd = finalProgressValues[index]
+                        } else {
+                            maskLayer.strokeEnd = 0
+                        }
+                    }
     }
 }
 
 // UIViewControllerTransitioningDelegate를 extension으로 구현
-extension RecommendationDetailViewController: UIViewControllerTransitioningDelegate {
+extension RecommendationDetailViewController3: UIViewControllerTransitioningDelegate {
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return CustomPresentationController(presentedViewController: presented, presenting: presenting)
-    }
-}
-
-class CustomPresentationController: UIPresentationController {
-    override func presentationTransitionDidEnd(_ completed: Bool) {
-        super.presentationTransitionDidEnd(completed)
     }
 }

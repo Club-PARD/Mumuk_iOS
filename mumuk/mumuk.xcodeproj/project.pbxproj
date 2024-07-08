@@ -16,8 +16,12 @@
 		2243B66A2C33F58300F6EFBF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6662C33F58300F6EFBF /* Model.swift */; };
 		2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */; };
 		2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */; };
-		2243B6712C39832A00F6EFBF /* ReconFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6702C39832900F6EFBF /* ReconFoodViewController.swift */; };
-		2243B6732C39C7E800F6EFBF /* RecommendationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6722C39C7E700F6EFBF /* RecommendationDetailViewController.swift */; };
+		2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */; };
+		2243B6732C39C7E800F6EFBF /* RecommendationDetailViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6722C39C7E700F6EFBF /* RecommendationDetailViewController1.swift */; };
+		2243B6752C3A7EE000F6EFBF /* ReconFoodViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6742C3A7EE000F6EFBF /* ReconFoodViewController2.swift */; };
+		2243B6772C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6762C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift */; };
+		2243B67B2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B67A2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift */; };
+		2243B67D2C3B960A00F6EFBF /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B67C2C3B960A00F6EFBF /* SummaryViewController.swift */; };
 		224E2C232C31427F00E69F97 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E2C222C31427F00E69F97 /* UIFont.swift */; };
 		224E2C2E2C31437A00E69F97 /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C252C31437900E69F97 /* Pretendard-Black.otf */; };
 		224E2C2F2C31437A00E69F97 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C262C31437900E69F97 /* Pretendard-Regular.otf */; };
@@ -83,8 +87,12 @@
 		2243B6662C33F58300F6EFBF /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingMainViewController.swift; sourceTree = "<group>"; };
 		2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPIService.swift; sourceTree = "<group>"; };
-		2243B6702C39832900F6EFBF /* ReconFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconFoodViewController.swift; sourceTree = "<group>"; };
-		2243B6722C39C7E700F6EFBF /* RecommendationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailViewController.swift; sourceTree = "<group>"; };
+		2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconFoodViewController1.swift; sourceTree = "<group>"; };
+		2243B6722C39C7E700F6EFBF /* RecommendationDetailViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailViewController1.swift; sourceTree = "<group>"; };
+		2243B6742C3A7EE000F6EFBF /* ReconFoodViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconFoodViewController2.swift; sourceTree = "<group>"; };
+		2243B6762C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailViewController2.swift; sourceTree = "<group>"; };
+		2243B67A2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationDetailViewController3.swift; sourceTree = "<group>"; };
+		2243B67C2C3B960A00F6EFBF /* SummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		224E2C222C31427F00E69F97 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		224E2C252C31437900E69F97 /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
 		224E2C262C31437900E69F97 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -164,8 +172,12 @@
 		2243B66F2C39830100F6EFBF /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				2243B6702C39832900F6EFBF /* ReconFoodViewController.swift */,
-				2243B6722C39C7E700F6EFBF /* RecommendationDetailViewController.swift */,
+				2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */,
+				2243B6722C39C7E700F6EFBF /* RecommendationDetailViewController1.swift */,
+				2243B6742C3A7EE000F6EFBF /* ReconFoodViewController2.swift */,
+				2243B6762C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift */,
+				2243B67A2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift */,
+				2243B67C2C3B960A00F6EFBF /* SummaryViewController.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -594,6 +606,7 @@
 			files = (
 				2243B6672C33F58300F6EFBF /* ExampleModelData.swift in Sources */,
 				4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */,
+				2243B6772C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift in Sources */,
 				2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */,
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
 				2243B6622C33F54500F6EFBF /* DetailViewController.swift in Sources */,
@@ -612,14 +625,17 @@
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
+				2243B67B2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift in Sources */,
+				2243B67D2C3B960A00F6EFBF /* SummaryViewController.swift in Sources */,
 				2243B6602C33F54500F6EFBF /* TagCell.swift in Sources */,
 				815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
-				2243B6712C39832A00F6EFBF /* ReconFoodViewController.swift in Sources */,
+				2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
+				2243B6752C3A7EE000F6EFBF /* ReconFoodViewController2.swift in Sources */,
 				2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
-				2243B6732C39C7E800F6EFBF /* RecommendationDetailViewController.swift in Sources */,
+				2243B6732C39C7E800F6EFBF /* RecommendationDetailViewController1.swift in Sources */,
 				224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
