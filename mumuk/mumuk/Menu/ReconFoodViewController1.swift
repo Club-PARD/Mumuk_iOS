@@ -41,11 +41,15 @@ class ReconFoodViewController1: UIViewController {
          setupsecondButton()
          
          setProgress(to: CGFloat(rank.group_preference / 100.0), withAnimation: false)
+        
+        // 데이터를 다 불러온 후 애니메이션 실행
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.animateProgress()
+        }
      }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateProgress()
     }
     
     private func setupLabels() {
@@ -239,7 +243,7 @@ class ReconFoodViewController1: UIViewController {
         progressLayer.strokeEnd = progressConstant
         progressLayer.add(animation, forKey: "animateProgress")
     }
-    
+
     private func setupDescriptionLabel(with rank: Rank) {
            descriptionLabel = UILabel()
            descriptionLabel.textColor = UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
@@ -382,6 +386,7 @@ class ReconFoodViewController1: UIViewController {
         
         reconFoodVC2.rank2 = rank2
         reconFoodVC2.rank3 = rank3
+        reconFoodVC2.userName = userName
         
         reconFoodVC2.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
         present(reconFoodVC2, animated: true, completion: nil)

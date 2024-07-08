@@ -542,7 +542,7 @@ class GroupingMainViewController: UIViewController {
             if user.todayHeavy == 1 { tags.append("🥘 헤비") }
             if user.todayLight == 1 { tags.append("🥗 라이트") }
             if user.todaySoup == 1 { tags.append("🥣 국물") }
-            if user.todayNoSoup == 1 { tags.append("🍽️ 국물") }
+            if user.todayNoSoup == 1 { tags.append("🍽️ NO국물") }
             if user.redFood == 1 { tags.append("🌶️ 빨간맛") }
             if user.notRedFood == 1 { tags.append("🌶️🚫 안 빨간맛") }
             if user.todayRice == 1 { tags.append("🍙 밥") }
@@ -852,7 +852,7 @@ class GroupingMainViewController: UIViewController {
     }
     private func fetchRecommendationData() {
         guard let uid = uid else { return }
-        let urlString = "http://172.30.1.44:8080/food/recommend/\(uid)"
+        let urlString = "https://mumuk.store/food/recommend/\(uid)"
         print("Request URL: \(urlString)")
         
         guard let url = URL(string: urlString) else {
@@ -888,7 +888,7 @@ class GroupingMainViewController: UIViewController {
     }
     
     private func fetchUserName(groupId: String, completion: @escaping (String) -> Void) {
-        let urlString = "http://172.30.1.44:8080/user/users?uid=\(groupId)"
+        let urlString = "https://mumuk.store/user/users?uid=\(groupId)"
         
         guard let url = URL(string: urlString) else {
             print("Invalid URL")

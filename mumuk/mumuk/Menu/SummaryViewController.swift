@@ -1,6 +1,9 @@
 import UIKit
 
 class SummaryViewController: UIViewController {
+    var groupId: String?
+    var name: String?
+    var groupUserData: GroupResponse?
     private var summaryImageView: UIImageView!
     private let bottomViewHeight: CGFloat = 122
     private var scrollView: UIScrollView!
@@ -11,13 +14,56 @@ class SummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
-        setupSummaryView()
-        setupSummaryLabel()
-        setupCardImage()
-        setupBottomView()
+
+        fetchGroupLeaderName { [weak self] groupName in
+            DispatchQueue.main.async {
+                self?.setupSummaryView()
+                self?.setupSummaryLabel(with: groupName)
+                self?.setupCardImage(with: groupName)
+                self?.setupBottomView()
+            }
+        }
     }
+
     
+    func fetchGroupLeaderName(completion: @escaping (String) -> Void) {
+        guard let groupId = groupId else {
+            completion("그룹장")
+            return
+        }
+        let urlString = "https://mumuk.store/user/users?uid=\(groupId)"
+        
+        guard let url = URL(string: urlString) else {
+            completion("그룹장")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error fetching group leader name: \(error)")
+                completion("그룹장")
+                return
+            }
+            
+            guard let data = data else {
+                completion("그룹장")
+                return
+            }
+            
+            do {
+                let users = try JSONDecoder().decode([User].self, from: data)
+                if let user = users.first {
+                    completion(user.name)
+                } else {
+                    completion("그룹장")
+                }
+            } catch {
+                print("Error decoding user data: \(error)")
+                completion("그룹장")
+            }
+        }.resume()
+    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -26,8 +72,14 @@ class SummaryViewController: UIViewController {
         print("ScrollView bounds after appearing: \(scrollView.bounds)")
         print("ContentView bounds after appearing: \(contentView.bounds)")
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        // scrollView와 contentView가 nil인지 확인
+        guard let scrollView = scrollView, let contentView = contentView else {
+            return
+        }
         
         scrollView.layoutIfNeeded()
         contentView.layoutIfNeeded()
@@ -39,6 +91,7 @@ class SummaryViewController: UIViewController {
         print("ScrollView bounds: \(scrollView.bounds)")
         print("ContentView bounds: \(contentView.bounds)")
     }
+
     
     func setupSummaryView() {
         // Summary 이미지 추가
@@ -56,7 +109,7 @@ class SummaryViewController: UIViewController {
         ])
     }
     
-    func setupSummaryLabel() {
+    func setupSummaryLabel(with groupName: String) {
         label = UILabel()
         label.frame = CGRect(x: 0, y: 0, width: 200, height: 44)
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
@@ -69,10 +122,10 @@ class SummaryViewController: UIViewController {
         paragraphStyle.lineHeightMultiple = 1.02
         paragraphStyle.alignment = .center
         
-        let attributedString = NSMutableAttributedString(string: "김현중국집님의 그룹 입맛을\n전부 조합해보았어요!")
+        let attributedString = NSMutableAttributedString(string: "\(groupName)님의 그룹 입맛을\n전부 조합해보았어요!")
         
         // Bold 처리
-        let boldRange = (attributedString.string as NSString).range(of: "김현중국집님의 그룹 입맛")
+        let boldRange = (attributedString.string as NSString).range(of: "\(groupName)님의 그룹 입맛")
         attributedString.addAttribute(.font, value: UIFont(name: "Pretendard-Bold", size: 18)!, range: boldRange)
         
         attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
@@ -89,15 +142,7 @@ class SummaryViewController: UIViewController {
         ])
     }
     
-    // 임시 GroupUser 구조체 정의
-    struct GroupUser {
-        let name: String
-        let imageId: Int
-        let notToday: String
-        let daily: Bool
-    }
-    
-    func setupCardImage() {
+    func setupCardImage(with groupName: String) {
         let cardImageView = UIImageView(image: UIImage(named: "Card"))
         cardImageView.contentMode = .scaleAspectFit
         view.addSubview(cardImageView)
@@ -115,7 +160,8 @@ class SummaryViewController: UIViewController {
         cardLabel.textColor = UIColor(red: 0.58, green: 0.58, blue: 0.58, alpha: 1)
         cardLabel.font = UIFont(name: "Pretendard-SemiBold", size: 14)
         cardLabel.textAlignment = .center
-        cardLabel.text = "김현중국집님의 그룹 입맛"
+        
+        cardLabel.text = "\(groupName)님의 그룹 입맛"
         
         view.addSubview(cardLabel)
         cardLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -148,14 +194,16 @@ class SummaryViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor)
         ])
         
-        // 더미 데이터 생성 및 친구 뷰 추가
-        let names = ["맛있으면우는사람", "행복한미식가", "음식탐험가", "요리의달인", "맛집사냥꾼"]
-        let yesterdayFoods = ["김치찌개", "파스타", "삼겹살", "초밥", "짜장면"]
+        // 친구 목록 업데이트
+        updateFriendViews()
+    }
+    
+    func updateFriendViews() {
+        guard let groupUserData = groupUserData else { return }
         
         var previousView: UIView?
         
-        for (index, name) in names.enumerated() {
-            let user = GroupUser(name: name, imageId: index, notToday: yesterdayFoods[index], daily: Bool.random())
+        for (index, user) in groupUserData.users.values.enumerated() {
             let friendView = createFriendView(user: user)
             contentView.addSubview(friendView)
             friendView.translatesAutoresizingMaskIntoConstraints = false
@@ -172,13 +220,13 @@ class SummaryViewController: UIViewController {
                 friendView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
             }
             
-            if index == names.count - 1 {
+            if index == groupUserData.users.count - 1 {
                 friendView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
             }
             
             previousView = friendView
             
-            if index < names.count - 1 {
+            if index < groupUserData.users.count - 1 {
                 let separatorView = createSeparatorView()
                 contentView.addSubview(separatorView)
                 
@@ -200,7 +248,7 @@ class SummaryViewController: UIViewController {
             contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor)
         ])
     }
-        
+    
     func createFriendView(user: GroupUser) -> UIView {
         let friendView = UIView()
         friendView.backgroundColor = .white
@@ -229,7 +277,7 @@ class SummaryViewController: UIViewController {
         let yesterdayFoodLabel = UILabel()
         yesterdayFoodLabel.font = UIFont(name: "Pretendard-Light", size: 11)
         let attributedString = NSMutableAttributedString(string: "어제 먹은 음식은 ", attributes: [.foregroundColor: UIColor.black])
-        attributedString.append(NSAttributedString(string: user.notToday, attributes: [.foregroundColor: UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)]))
+        attributedString.append(NSAttributedString(string: user.notToday ?? "???", attributes: [.foregroundColor: UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)]))
         yesterdayFoodLabel.attributedText = attributedString
         friendView.addSubview(yesterdayFoodLabel)
         
@@ -258,9 +306,9 @@ class SummaryViewController: UIViewController {
             tagStackView.heightAnchor.constraint(equalTo: tagScrollView.heightAnchor)
         ])
 
-        // 예시 태그 추가
-        let exampleTags = ["🍚 탄수화물", "🥩 육류", "🇰🇷 한식", "🌶️ 빨간맛", "🥘 헤비"]
-        for tag in exampleTags {
+        // 태그 추가
+        let tags = generateTags(for: user)
+        for tag in tags {
             let tagView = createTagView(with: tag)
             tagStackView.addArrangedSubview(tagView)
         }
@@ -291,43 +339,84 @@ class SummaryViewController: UIViewController {
             
             yesterdayFoodLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             yesterdayFoodLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 5),
-              ])
+            
+            tagScrollView.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            tagScrollView.trailingAnchor.constraint(equalTo: friendView.trailingAnchor, constant: -20),
+            tagScrollView.topAnchor.constraint(equalTo: yesterdayFoodLabel.bottomAnchor, constant: 10),
+            tagScrollView.heightAnchor.constraint(equalToConstant: 24)
+        ])
         
         return friendView
     }
-        func createSeparatorView() -> UIView {
-            let separatorView = UIView()
-            separatorView.backgroundColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1)
-            separatorView.translatesAutoresizingMaskIntoConstraints = false
-            return separatorView
+
+    func generateTags(for user: GroupUser) -> [String] {
+        var tags: [String] = []
+
+        if user.daily {
+            if user.todayKoreanFood == 1 { tags.append("🇰🇷 한식") }
+            if user.todayJapaneseFood == 1 { tags.append("🇯🇵 일식") }
+            if user.todayChineseFood == 1 { tags.append("🇨🇳 중식") }
+            if user.todayWesternFood == 1 { tags.append("🇮🇹 양식") }
+            if user.todaySoutheastAsianFood == 1 { tags.append("🇹🇭 동남아") }
+            if user.todayElseFood == 1 { tags.append("🇮🇳 기타") }
+            if user.todayMeat == 1 { tags.append("🥩 육류") }
+            if user.todaySeafood == 1 { tags.append("🐟 해산물") }
+            if user.todayCarbohydrate == 1 { tags.append("🍚 탄수화물") }
+            if user.todayVegetable == 1 { tags.append("🥬 채소") }
+            if user.todayHeavy == 1 { tags.append("🥘 헤비") }
+            if user.todayLight == 1 { tags.append("🥗 라이트") }
+            if user.todaySoup == 1 { tags.append("🥣 국물") }
+            if user.todayNoSoup == 1 { tags.append("🍽️ NO국물") }
+            if user.redFood == 1 { tags.append("🌶️ 빨간맛") }
+            if user.notRedFood == 1 { tags.append("🌶️🚫 안 빨간맛") }
+            if user.todayRice == 1 { tags.append("🍙 밥") }
+            if user.todayBread == 1 { tags.append("🍞 빵") }
+            if user.todayNoodle == 1 { tags.append("🍜 면") }
+        } else {
+            if let foodType = user.foodTypes ?? user.foodType {
+                switch foodType {
+                case "다이어트": tags.append("💪🏻 다이어트")
+                case "할랄": tags.append("🐷🚫 할랄")
+                case "비건": tags.append("🥦 비건")
+                default: tags.append("🚫 특이사항없음")
+                }
+            }
+            tags.append(user.spicyType ? "🔥 맵고수" : "🍼 맵찔이")
         }
+
+        return tags
+    }
+    
+    func createSeparatorView() -> UIView {
+        let separatorView = UIView()
+        separatorView.backgroundColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1)
+        separatorView.translatesAutoresizingMaskIntoConstraints = false
+        return separatorView
+    }
+    
+    func createTagView(with tag: String) -> UIView {
+        let tagView = UIView()
+        tagView.backgroundColor = .white
+        tagView.layer.cornerRadius = 8
+        tagView.layer.borderWidth = 1
+        tagView.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
         
-        func createTagView(with tag: String) -> UIView {
-            let tagView = UIView()
-            tagView.backgroundColor = .white
-            tagView.layer.cornerRadius = 8
-            tagView.layer.borderWidth = 1
-            tagView.layer.borderColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
-            
-            let tagLabel = UILabel()
-            tagLabel.text = tag
-            tagLabel.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
-            tagLabel.font = UIFont(name: "Pretendard-Regular", size: 12)
-            tagView.addSubview(tagLabel)
-            
-            tagView.translatesAutoresizingMaskIntoConstraints = false
-            tagLabel.translatesAutoresizingMaskIntoConstraints = false
-            
-            NSLayoutConstraint.activate([
-                tagView.heightAnchor.constraint(equalToConstant: 24),
-                tagLabel.topAnchor.constraint(equalTo: tagView.topAnchor, constant: 4),
-                tagLabel.bottomAnchor.constraint(equalTo: tagView.bottomAnchor, constant: -4),
-                tagLabel.leadingAnchor.constraint(equalTo: tagView.leadingAnchor, constant: 8),
-                tagLabel.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -8)
-            ])
-            
-            return tagView
-        }
+        let tagLabel = UILabel()
+        tagLabel.text = tag
+        tagLabel.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+        tagLabel.font = UIFont(name: "Pretendard-Regular", size: 12)
+        tagView.addSubview(tagLabel)
+        
+        tagLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tagLabel.topAnchor.constraint(equalTo: tagView.topAnchor, constant: 4),
+            tagLabel.bottomAnchor.constraint(equalTo: tagView.bottomAnchor, constant: -4),
+            tagLabel.leadingAnchor.constraint(equalTo: tagView.leadingAnchor, constant: 8),
+            tagLabel.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -8)
+        ])
+        
+        return tagView
+    }
     
     func setupBottomView() {
         let bottomView = UIView()
@@ -374,8 +463,9 @@ class SummaryViewController: UIViewController {
         buttonView.frame = CGRect(x: 0, y: 0, width: 146, height: 56.75)
         buttonView.layer.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
         buttonView.layer.cornerRadius = buttonView.frame.height / 2
-        buttonView.addTarget(self, action: #selector(dismissVC), for: .touchDown)
-
+        buttonView.addTarget(self, action: #selector(buttonTouchDown(_:)), for: .touchDown)
+        buttonView.addTarget(self, action: #selector(buttonTouchUp(_:)), for: [.touchUpInside, .touchUpOutside])
+        
         view.addSubview(buttonView)
         buttonView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -384,13 +474,13 @@ class SummaryViewController: UIViewController {
             buttonView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -0.19),
             buttonView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35)
         ])
-
+        
         let buttonLabel = UILabel()
         buttonLabel.frame = CGRect(x: 0, y: 0, width: 73, height: 19)
         buttonLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         buttonLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
         buttonLabel.text = "메뉴 추천 START"
-
+        
         buttonView.addSubview(buttonLabel)
         buttonLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -398,8 +488,101 @@ class SummaryViewController: UIViewController {
             buttonLabel.centerYAnchor.constraint(equalTo: buttonView.centerYAnchor)
         ])
     }
+
+    @objc func buttonTouchDown(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1) {
+            sender.backgroundColor = UIColor(red: 0.8, green: 0.474, blue: 0.082, alpha: 1)
+        }
+    }
     
-    @objc func dismissVC() {
-        dismiss(animated: true, completion: nil)
+    @objc private func buttonTouchUp(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.1) {
+            sender.backgroundColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
+        }
+        fetchRecommendationData()
+    }
+    
+    private func fetchRecommendationData() {
+        guard let groupId = groupId else { return }
+        let urlString = "https://mumuk.store/food/recommend/\(groupId)"
+        print("Request URL: \(urlString)")
+        
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            return
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            if let error = error {
+                print("Error fetching data: \(error)")
+                return
+            }
+            
+            guard let self = self, let data = data else {
+                print("No data received")
+                return
+            }
+            
+            do {
+                let responseBody = try JSONDecoder().decode(ResponseBody.self, from: data)
+                self.fetchUserName(groupId: responseBody.groupId) { userName in
+                    DispatchQueue.main.async {
+                        self.navigateToNextPage(with: responseBody, userName: userName)
+                    }
+                }
+            } catch {
+                print("Error decoding response: \(error)")
+            }
+        }.resume()
+    }
+    
+    private func fetchUserName(groupId: String, completion: @escaping (String) -> Void) {
+        let urlString = "https://mumuk.store/user/users?uid=\(groupId)"
+        
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            completion("")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("Error fetching user data: \(error)")
+                completion("")
+                return
+            }
+            
+            guard let data = data else {
+                print("No data received")
+                completion("")
+                return
+            }
+            
+            do {
+                let users = try JSONDecoder().decode([User].self, from: data)
+                if let user = users.first {
+                    completion(user.name)
+                } else {
+                    completion("")
+                }
+            } catch {
+                print("Error decoding user data: \(error)")
+                completion("")
+            }
+        }.resume()
+    }
+    
+    private func navigateToNextPage(with responseBody: ResponseBody, userName: String) {
+        let reconFoodVC = ReconFoodViewController1()
+        reconFoodVC.rank1 = responseBody.rank1
+        reconFoodVC.rank2 = responseBody.rank2
+        reconFoodVC.rank3 = responseBody.rank3
+        reconFoodVC.userName = userName
+        
+        reconFoodVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+        present(reconFoodVC, animated: true, completion: nil)
     }
 }

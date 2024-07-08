@@ -3,6 +3,7 @@ import UIKit
 class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
     var rank2: Rank?
     var rank3: Rank?
+    var userName: String?
     private var scrollView: UIScrollView!
     private var pageControl: UIPageControl!
     private var cardView: UIView!
@@ -21,12 +22,6 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        for (index, circularProgressView) in circularProgressViews.enumerated() {
-            print("Circular progress view \(index) frame: \(circularProgressView.frame)")
-            print("Circle layer \(index) frame: \(circleLayers[index].frame)")
-            print("Progress layer \(index) frame: \(progressLayers[index].frame)")
-            print("Gradient layer \(index) frame: \(gradientLayers[index].frame)")
-        }
         animateProgress()
     }
     
@@ -98,68 +93,69 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
     }
     
     private func setupCardView() {
-         cardView = UIView()
-         cardView.backgroundColor = .white
-         cardView.layer.cornerRadius = 20
-         cardView.layer.shadowColor = UIColor.black.cgColor
-         cardView.layer.shadowOpacity = 0.1
-         cardView.layer.shadowOffset = CGSize(width: 0, height: 4)
-         cardView.layer.shadowRadius = 10
-         
-         view.addSubview(cardView)
-         cardView.translatesAutoresizingMaskIntoConstraints = false
-         
-         NSLayoutConstraint.activate([
-             cardView.widthAnchor.constraint(equalToConstant: 297),
-             cardView.heightAnchor.constraint(equalToConstant: 454),
-             cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-             cardView.topAnchor.constraint(equalTo: additionalMessageLabel.bottomAnchor, constant: 25)
-         ])
-     }
-     
-     private func setupScrollView() {
-         scrollView = UIScrollView()
-         scrollView.isPagingEnabled = true
-         scrollView.showsHorizontalScrollIndicator = false
-         scrollView.delegate = self
-         cardView.addSubview(scrollView)
-         
-         scrollView.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([
-             scrollView.topAnchor.constraint(equalTo: cardView.topAnchor),
-             scrollView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
-             scrollView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
-             scrollView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor)
-         ])
-     }
-     
-     private func setupPageControl() {
-         pageControl = UIPageControl()
-         pageControl.numberOfPages = 2
-         pageControl.currentPage = 0
-         pageControl.pageIndicatorTintColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
-         pageControl.currentPageIndicatorTintColor = UIColor(red: 1.0, green: 0.59, blue: 0.10, alpha: 1.0)
-         view.addSubview(pageControl)
-         
-         pageControl.translatesAutoresizingMaskIntoConstraints = false
-         NSLayoutConstraint.activate([
-             pageControl.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 20),
-             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-         ])
-     }
-     
-     private func setupMenuPages() {
-         for i in 0..<2 {
-             let menuView = UIView()
-             menuView.backgroundColor = .clear
-             scrollView.addSubview(menuView)
-             menuViews.append(menuView)
-             
-             setupMenuPageContents(for: menuView, index: i)
-         }
-     }
-     
-    private func setupMenuPageContents(for menuView: UIView, index: Int) {
+        cardView = UIView()
+        cardView.backgroundColor = .white
+        cardView.layer.cornerRadius = 20
+        cardView.layer.shadowColor = UIColor.black.cgColor
+        cardView.layer.shadowOpacity = 0.1
+        cardView.layer.shadowOffset = CGSize(width: 0, height: 4)
+        cardView.layer.shadowRadius = 10
+        
+        view.addSubview(cardView)
+        cardView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            cardView.widthAnchor.constraint(equalToConstant: 297),
+            cardView.heightAnchor.constraint(equalToConstant: 454),
+            cardView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            cardView.topAnchor.constraint(equalTo: additionalMessageLabel.bottomAnchor, constant: 25)
+        ])
+    }
+    
+    private func setupScrollView() {
+        scrollView = UIScrollView()
+        scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.delegate = self
+        cardView.addSubview(scrollView)
+        
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: cardView.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: cardView.bottomAnchor)
+        ])
+    }
+    
+    private func setupPageControl() {
+        pageControl = UIPageControl()
+        pageControl.numberOfPages = 2
+        pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
+        pageControl.currentPageIndicatorTintColor = UIColor(red: 1.0, green: 0.59, blue: 0.10, alpha: 1.0)
+        view.addSubview(pageControl)
+        
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            pageControl.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 20),
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    private func setupMenuPages() {
+        let ranks = [rank2, rank3]
+        for i in 0..<2 {
+            let menuView = UIView()
+            menuView.backgroundColor = .clear
+            scrollView.addSubview(menuView)
+            menuViews.append(menuView)
+            
+            setupMenuPageContents(for: menuView, with: ranks[i], index: i)
+        }
+    }
+    
+    private func setupMenuPageContents(for menuView: UIView, with rank: Rank?, index: Int) {
         let circularProgressView = UIView()
         circularProgressView.backgroundColor = .clear
         menuView.addSubview(circularProgressView)
@@ -185,11 +181,10 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
         circularProgressView.layer.addSublayer(gradientLayer)
         gradientLayer.mask = progressLayer
 
-
         createCircularPath(for: circularProgressView, index: index)
 
         // ReconFoodImageView 설정
-        let reconFoodImageView = UIImageView(image: UIImage(named: "reconFood"))
+        let reconFoodImageView = UIImageView()
         reconFoodImageView.contentMode = .scaleAspectFit
         circularProgressView.addSubview(reconFoodImageView)
         reconFoodImageViews.append(reconFoodImageView)
@@ -202,9 +197,19 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
             reconFoodImageView.centerYAnchor.constraint(equalTo: circularProgressView.centerYAnchor, constant: -30)
         ])
         
+        if let imageUrl = rank?.image_url, let url = URL(string: imageUrl) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        reconFoodImageView.image = image
+                    }
+                }
+            }
+        }
+
         // FoodNameLabel 설정
         let foodNameLabel = UILabel()
-        foodNameLabel.text = index == 0 ? "2등 메뉴" : "3등 메뉴"
+        foodNameLabel.text = index == 0 ? "2등 \(rank?.foodname ?? "메뉴")" : "3등 \(rank?.foodname ?? "메뉴")"
         foodNameLabel.font = UIFont(name: "Pretendard-Light", size: 15)
         foodNameLabel.textColor = .black
         circularProgressView.addSubview(foodNameLabel)
@@ -218,7 +223,7 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
         
         // PercentageLabel 설정
         let percentageLabel = UILabel()
-        percentageLabel.text = index == 0 ? "85.5%" : "78.2%"
+        percentageLabel.text = String(format: "%.1f%%", rank?.group_preference ?? 0)
         percentageLabel.font = UIFont(name: "Pretendard-Black", size: 28)
         percentageLabel.textColor = UIColor(red: 1, green: 0.546, blue: 0, alpha: 1)
         circularProgressView.addSubview(percentageLabel)
@@ -236,7 +241,7 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
         descriptionLabel.textAlignment = .center
         descriptionLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
         descriptionLabel.textColor = UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
-        descriptionLabel.text = "김현중국집님 그룹의 선호가\n\(index == 0 ? "85.5%" : "78.2%") 반영된 메뉴에요!"
+        descriptionLabel.text = "\(userName ?? "그룹")님의 그룹의 선호가\n\(String(format: "%.1f%%", rank?.group_preference ?? 0)) 반영된 메뉴에요!"
         menuView.addSubview(descriptionLabel)
         descriptionLabels.append(descriptionLabel)
         
@@ -270,22 +275,25 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
     
     private func presentRecommendationDetail(for index: Int) {
         let detailVC: UIViewController
-        
+
         if index == 0 {
-            detailVC = RecommendationDetailViewController2()
-//            detailVC.rank2 = rank2
+            let detailVC1 = RecommendationDetailViewController2()
+            detailVC1.rank = rank2
+            detailVC = detailVC1
         } else {
-            detailVC = RecommendationDetailViewController3()
-//            detailVC.rank3 = rank3
+            let detailVC2 = RecommendationDetailViewController3()
+            detailVC2.rank = rank3
+            detailVC = detailVC2
         }
-        
+
         if let sheet = detailVC.sheetPresentationController {
             sheet.detents = [.large()]
             sheet.prefersGrabberVisible = true
         }
-        
+
         present(detailVC, animated: true, completion: nil)
     }
+
      
     private func createCircularPath(for view: UIView, index: Int) {
         let circleLayer = circleLayers[index]
@@ -342,68 +350,18 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
             let animation = CABasicAnimation(keyPath: "strokeEnd")
             animation.duration = 1.5
             animation.fromValue = 0
-            animation.toValue = index == 0 ? 0.855 : 0.782
+            animation.toValue = index == 0 ? (rank2?.group_preference ?? 0) / 100.0 : (rank3?.group_preference ?? 0) / 100.0
             animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            progressLayer.strokeEnd = index == 0 ? 0.855 : 0.782
+            progressLayer.strokeEnd = index == 0 ? (rank2?.group_preference ?? 0) / 100.0 : (rank3?.group_preference ?? 0) / 100.0
             progressLayer.add(animation, forKey: "animateProgress")
         }
     }
     
-    private func updateCircularPath(for view: UIView, index: Int) {
-        let circleLayer = circleLayers[index]
-        let progressLayer = progressLayers[index]
-        let gradientLayer = gradientLayers[index]
-        
-        circleLayer.frame = view.bounds
-        progressLayer.frame = view.bounds
-        gradientLayer.frame = view.bounds
-        
-        let center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
-        let radius = (min(view.bounds.width, view.bounds.height) - 30) / 2
-        let circularPath = UIBezierPath(arcCenter: center,
-                                        radius: radius,
-                                        startAngle: 0,
-                                        endAngle: 2 * CGFloat.pi,
-                                        clockwise: true)
-        
-        circleLayer.path = circularPath.cgPath
-        circleLayer.fillColor = UIColor.clear.cgColor
-        circleLayer.lineCap = .round
-        circleLayer.lineWidth = 30.0
-        circleLayer.strokeColor = UIColor(white: 0.9, alpha: 0.3).cgColor
-        
-        progressLayer.path = circularPath.cgPath
-        progressLayer.fillColor = UIColor.clear.cgColor
-        progressLayer.lineCap = .round
-        progressLayer.lineWidth = 30.0
-        progressLayer.strokeEnd = 0
-        progressLayer.strokeColor = UIColor.black.cgColor
-        
-        gradientLayer.colors = [
-            UIColor(red: 1, green: 0.8, blue: 0.4, alpha: 1).cgColor,
-            UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor
-        ]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        
-        // 그라데이션 회전 각도 조정
-        gradientLayer.transform = CATransform3DMakeRotation(-CGFloat.pi / 2, 0, 0, 1)
-        
-        view.layer.addSublayer(circleLayer)
-        view.layer.addSublayer(gradientLayer)
-        gradientLayer.mask = progressLayer
-
-        view.layer.zPosition = 1
-        circleLayer.zPosition = 2
-        gradientLayer.zPosition = 3
+    // UIScrollViewDelegate 메서드
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        pageControl.currentPage = Int(pageNumber)
     }
-    
-     // UIScrollViewDelegate 메서드
-     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-         let pageNumber = round(scrollView.contentOffset.x / scrollView.frame.size.width)
-         pageControl.currentPage = Int(pageNumber)
-     }
     
     private func setupBackButton() {
         let backButton = UIButton(type: .system)
@@ -433,4 +391,4 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
     @objc private func backButtonTapped() {
         dismiss(animated: true, completion: nil)
     }
- }
+}

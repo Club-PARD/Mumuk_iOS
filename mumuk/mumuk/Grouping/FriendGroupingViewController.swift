@@ -182,7 +182,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     }
 
     func fetchFriends(completion: @escaping ([Friend]) -> Void) {
-        guard let url = URL(string: "http://172.30.1.44:8080/friend/\(name ?? "")") else {
+        guard let url = URL(string: "https://mumuk.store/friend/\(name ?? "")") else {
             print("Invalid URL")
             return
         }
@@ -458,7 +458,7 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
     }
 
     func createGroup(with data: [String: [String]], completion: @escaping (Result<Void, Error>) -> Void) {
-        guard let url = URL(string: "http://172.30.1.44:8080/group") else {
+        guard let url = URL(string: "https://mumuk.store/group") else {
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
             return
         }

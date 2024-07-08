@@ -4,6 +4,7 @@ class MainViewController: UIViewController {
     let uid = "1111" // 테스트용 임의의 UID
     var timer: Timer?
     var name: String?
+    var groupId: String?
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -340,9 +341,36 @@ class MainViewController: UIViewController {
 
     @objc private func groupButtonTapped() {
         if groupBeforeButton.isEnabled {
-            fetchUserData()
+            fetchGroupUserData()
         }
     }
+    
+    private func fetchGroupUserData() {
+        guard let groupId = self.groupId else {
+            print("Invalid Group ID")
+            return
+        }
+        
+        APIService.fetchGroupData(groupId: groupId) { [weak self] result in
+            switch result {
+            case .success(let groupResponse):
+                DispatchQueue.main.async {
+                    self?.presentSummaryViewController(with: groupResponse)
+                }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func presentSummaryViewController(with groupResponse: GroupResponse) {
+        let summaryVC = SummaryViewController()
+        summaryVC.groupUserData = groupResponse
+        summaryVC.groupId = groupId
+        summaryVC.modalPresentationStyle = .fullScreen
+        present(summaryVC, animated: true, completion: nil)
+    }
+
 
     private func setupShadow() {
         secondShadowView.layoutIfNeeded()
@@ -389,7 +417,7 @@ class MainViewController: UIViewController {
     }
     
     private func fetchUserData() {
-        guard let url = URL(string: "http://172.30.1.44:8080/user/users?uid=\(uid)") else {
+        guard let url = URL(string: "https://mumuk.store/user/users?uid=\(uid)") else {
             print("Invalid URL")
             return
         }
@@ -405,7 +433,8 @@ class MainViewController: UIViewController {
                 if let user = users.first {
                     DispatchQueue.main.async {
                         self?.name = user.name
-                        self?.updateGroupButton(isGrouped: user.grouped)
+                        self?.groupId = user.groupId
+                        self?.updateGroupButton(isResult: user.result)
                     }
                 }
             } catch {
@@ -414,12 +443,13 @@ class MainViewController: UIViewController {
         }.resume()
     }
 
-    private func updateGroupButton(isGrouped: Bool) {
-        let imageName = isGrouped ? "groupAfter" : "groupBefore"
+
+    private func updateGroupButton(isResult: Bool) {
+        let imageName = isResult ? "groupAfter" : "groupBefore"
         groupBeforeButton.setImage(UIImage(named: imageName), for: .normal)
         groupBeforeButton.setImage(UIImage(named: imageName), for: .disabled)
-        groupBeforeButton.isEnabled = isGrouped
-        groupBeforeButton.adjustsImageWhenHighlighted = isGrouped
+        groupBeforeButton.isEnabled = isResult
+        groupBeforeButton.adjustsImageWhenHighlighted = isResult
     }
 }
 
@@ -429,4 +459,6 @@ struct User: Codable {
     let imageId: Int
     let grouped: Bool
     let daily: Bool
+    let result: Bool
+    let groupId : String
 }
