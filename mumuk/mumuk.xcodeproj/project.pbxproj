@@ -42,42 +42,9 @@
 		22BB26012C22E31E00F7585E /* mumukTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB26002C22E31E00F7585E /* mumukTests.swift */; };
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
-		480950A72C3C3D3B00C2DF8B /* underbordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119398C2C3BB3AC00D32043 /* underbordCell.swift */; };
-		48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D162C3C1A8200FC7EA3 /* TagCell.swift */; };
-		48307D262C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D252C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift */; };
-		48307D282C3C2F2B00FC7EA3 /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D272C3C2F2B00FC7EA3 /* FriendComponent.swift */; };
-		48307D2A2C3C30A200FC7EA3 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D292C3C30A200FC7EA3 /* EditController.swift */; };
-		48307D2C2C3C30CC00FC7EA3 /* ModalImageEdite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D2B2C3C30CC00FC7EA3 /* ModalImageEdite.swift */; };
-		48307D2E2C3C336800FC7EA3 /* ModalImageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D2D2C3C336800FC7EA3 /* ModalImageUpdate.swift */; };
-		48307D302C3C33F600FC7EA3 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D2F2C3C33F600FC7EA3 /* DetailModel.swift */; };
-		48307D322C3C350100FC7EA3 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D312C3C350100FC7EA3 /* FriendModel.swift */; };
-		48307D402C3C3A6800FC7EA3 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D3F2C3C3A6800FC7EA3 /* UserPreference.swift */; };
-		48307D412C3C3A7C00FC7EA3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB52C33F778005E88B0 /* Model.swift */; };
-		48307D432C3C3AB100FC7EA3 /* dailytasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0D22C36EA7800F1D8B9 /* dailytasteCell.swift */; };
-		48307D442C3C3ABB00FC7EA3 /* underTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0D02C36B6C100F1D8B9 /* underTagCell.swift */; };
 		22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9D992C3C5B6600CBC79F /* LoadingViewController.swift */; };
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
-		48622ADD2C3C3E000062C8C0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
-		48622ADE2C3C3E660062C8C0 /* PreferViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CCF2C343F8D005E88B0 /* PreferViewController6.swift */; };
-		48622ADF2C3C3F210062C8C0 /* OpenPreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CE02C353B63005E88B0 /* OpenPreferViewController3.swift */; };
-		48622AE12C3C8E3B0062C8C0 /* Openprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48622AE02C3C8E3B0062C8C0 /* Openprofile.swift */; };
-		486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB72C33F778005E88B0 /* NameModel.swift */; };
-		486D5CC62C343D6C005E88B0 /* PreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC52C343D6C005E88B0 /* PreferViewController1.swift */; };
-		486D5CC82C343F55005E88B0 /* PreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC72C343F55005E88B0 /* PreferViewController2.swift */; };
-		486D5CCA2C343F5F005E88B0 /* PreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CC92C343F5F005E88B0 /* PreferViewController3.swift */; };
-		486D5CCC2C343F6A005E88B0 /* PreferViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CCB2C343F6A005E88B0 /* PreferViewController4.swift */; };
-		486D5CCE2C343F7D005E88B0 /* PreferViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CCD2C343F7D005E88B0 /* PreferViewController5.swift */; };
-		486D5CD42C344809005E88B0 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CD32C344809005E88B0 /* LoadingViewController.swift */; };
-		486D5CD62C34EC8E005E88B0 /* DailyFoorofileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CD52C34EC8E005E88B0 /* DailyFoorofileViewController.swift */; };
-		486D5CDD2C353A0E005E88B0 /* OpenPreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CDC2C353A0E005E88B0 /* OpenPreferViewController1.swift */; };
-		486D5CDF2C353A1F005E88B0 /* OpenPreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CDE2C353A1F005E88B0 /* OpenPreferViewController2.swift */; };
-		486D5CE32C353B6B005E88B0 /* OpenPreferViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CE22C353B6B005E88B0 /* OpenPreferViewController4.swift */; };
-		486D5CE52C36BA72005E88B0 /* PreferViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CE42C36BA72005E88B0 /* PreferViewController7.swift */; };
-		486D5CE92C383533005E88B0 /* FoodListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CE82C383533005E88B0 /* FoodListModel.swift */; };
-		486D5CEB2C3852D3005E88B0 /* OpenPreferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CEA2C3852D3005E88B0 /* OpenPreferModel.swift */; };
-		4874DD112C39BDD600674DE3 /* PreferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874DD102C39BDD600674DE3 /* PreferModel.swift */; };
-		4874DD132C3AE77400674DE3 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874DD122C3AE77400674DE3 /* SearchTableViewCell.swift */; };
 		64F11BC91D1D83A4DB6E74DC /* Pods_mumuk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEF935B5073A409ECC3986C0 /* Pods_mumuk.framework */; };
 		81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E252C29A3DF00EEC5FB /* LoginController.swift */; };
 		81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */; };
@@ -153,40 +120,8 @@
 		22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mumukUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		22CC9D992C3C5B6600CBC79F /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		2F75CE00BA15DAFB40D08F53 /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.release.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
-		48307D162C3C1A8200FC7EA3 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
-		48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		48307D252C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LeftAlignedCollectionViewFlowLayout.swift; path = Component/LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		48307D272C3C2F2B00FC7EA3 /* FriendComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendComponent.swift; sourceTree = "<group>"; };
-		48307D292C3C30A200FC7EA3 /* EditController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
-		48307D2B2C3C30CC00FC7EA3 /* ModalImageEdite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageEdite.swift; sourceTree = "<group>"; };
-		48307D2D2C3C336800FC7EA3 /* ModalImageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageUpdate.swift; sourceTree = "<group>"; };
-		48307D2F2C3C33F600FC7EA3 /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
-		48307D312C3C350100FC7EA3 /* FriendModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
-		48307D3F2C3C3A6800FC7EA3 /* UserPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
 		485008072C2C44A800C9A196 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 		485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
-		48622AE02C3C8E3B0062C8C0 /* Openprofile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Openprofile.swift; sourceTree = "<group>"; };
-		486D5CB52C33F778005E88B0 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		486D5CB72C33F778005E88B0 /* NameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameModel.swift; sourceTree = "<group>"; };
-		486D5CBD2C33F784005E88B0 /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "/Downloads/아카이브/TagCell.swift"; sourceTree = "<absolute>"; };
-		486D5CBE2C33F784005E88B0 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = "/Downloads/아카이브/DetailViewController.swift"; sourceTree = "<absolute>"; };
-		486D5CC52C343D6C005E88B0 /* PreferViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferViewController1.swift; sourceTree = "<group>"; };
-		486D5CC72C343F55005E88B0 /* PreferViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferViewController2.swift; sourceTree = "<group>"; };
-		486D5CC92C343F5F005E88B0 /* PreferViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferViewController3.swift; sourceTree = "<group>"; };
-		486D5CCB2C343F6A005E88B0 /* PreferViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferViewController4.swift; sourceTree = "<group>"; };
-		486D5CCD2C343F7D005E88B0 /* PreferViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferViewController5.swift; sourceTree = "<group>"; };
-		486D5CCF2C343F8D005E88B0 /* PreferViewController6.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferViewController6.swift; sourceTree = "<group>"; };
-		486D5CD32C344809005E88B0 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		486D5CD52C34EC8E005E88B0 /* DailyFoorofileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFoorofileViewController.swift; sourceTree = "<group>"; };
-		486D5CDC2C353A0E005E88B0 /* OpenPreferViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenPreferViewController1.swift; path = mumuk/Prefer/OpenPreferViewController1.swift; sourceTree = SOURCE_ROOT; };
-		486D5CDE2C353A1F005E88B0 /* OpenPreferViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenPreferViewController2.swift; path = mumuk/Prefer/OpenPreferViewController2.swift; sourceTree = SOURCE_ROOT; };
-		486D5CE02C353B63005E88B0 /* OpenPreferViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenPreferViewController3.swift; path = mumuk/Prefer/OpenPreferViewController3.swift; sourceTree = SOURCE_ROOT; };
-		486D5CE22C353B6B005E88B0 /* OpenPreferViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenPreferViewController4.swift; path = mumuk/Prefer/OpenPreferViewController4.swift; sourceTree = SOURCE_ROOT; };
-		486D5CE42C36BA72005E88B0 /* PreferViewController7.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferViewController7.swift; sourceTree = "<group>"; };
-		486D5CE82C383533005E88B0 /* FoodListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListModel.swift; sourceTree = "<group>"; };
-		486D5CEA2C3852D3005E88B0 /* OpenPreferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPreferModel.swift; sourceTree = "<group>"; };
-		4874DD102C39BDD600674DE3 /* PreferModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferModel.swift; sourceTree = "<group>"; };
-		4874DD122C3AE77400674DE3 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		5E5F26A57575343077AB162A /* Pods-mumuk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.debug.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.debug.xcconfig"; sourceTree = "<group>"; };
 		640E081A3AC51898FCC23B17 /* Pods-mumukTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.debug.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.debug.xcconfig"; sourceTree = "<group>"; };
 		72A3AA56CE3C50E0F787E7FF /* Pods-mumuk-mumukUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.release.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,9 +131,6 @@
 		81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageField.swift; sourceTree = "<group>"; };
 		81042E312C29E23600EEC5FB /* ModalImageSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelect.swift; sourceTree = "<group>"; };
 		811168B82C2E9A7500A09CD3 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		8119398C2C3BB3AC00D32043 /* underbordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = underbordCell.swift; sourceTree = "<group>"; };
-		8151A0D02C36B6C100F1D8B9 /* underTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = underTagCell.swift; sourceTree = "<group>"; };
-		8151A0D22C36EA7800F1D8B9 /* dailytasteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dailytasteCell.swift; sourceTree = "<group>"; };
 		815FE7C62C304E120090BDBE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		815FE7C92C304F3F0090BDBE /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		815FE7CF2C304FA70090BDBE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -288,7 +220,6 @@
 				22BB25E72C22E31B00F7585E /* Products */,
 				38A09A38CF24C88189E07B52 /* Pods */,
 				650F0B59193A5B3A6379C872 /* Frameworks */,
-				48307D222C3C2C0E00FC7EA3 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -305,12 +236,9 @@
 		22BB25E82C22E31B00F7585E /* mumuk */ = {
 			isa = PBXGroup;
 			children = (
-				486D5CD92C3538FD005E88B0 /* OpenPrefer */,
-				486D5CC22C34071B005E88B0 /* Prefer */,
 				2243B66F2C39830100F6EFBF /* Menu */,
 				224E2C372C32C55900E69F97 /* Grouping */,
 				224E2C242C31436D00E69F97 /* Fonts */,
-				48307D252C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift */,
 				815FE7C52C304D1A0090BDBE /* Component */,
 				811168B92C2E9A7500A09CD3 /* Notification */,
 				81042E2C2C29B65000EEC5FB /* Login */,
@@ -358,44 +286,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		48307D222C3C2C0E00FC7EA3 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				486D5CBE2C33F784005E88B0 /* DetailViewController.swift */,
-				486D5CBD2C33F784005E88B0 /* TagCell.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		486D5CC22C34071B005E88B0 /* Prefer */ = {
-			isa = PBXGroup;
-			children = (
-				486D5CC52C343D6C005E88B0 /* PreferViewController1.swift */,
-				486D5CC72C343F55005E88B0 /* PreferViewController2.swift */,
-				486D5CC92C343F5F005E88B0 /* PreferViewController3.swift */,
-				486D5CCB2C343F6A005E88B0 /* PreferViewController4.swift */,
-				486D5CCD2C343F7D005E88B0 /* PreferViewController5.swift */,
-				486D5CCF2C343F8D005E88B0 /* PreferViewController6.swift */,
-				486D5CE42C36BA72005E88B0 /* PreferViewController7.swift */,
-				486D5CD32C344809005E88B0 /* LoadingViewController.swift */,
-				486D5CD52C34EC8E005E88B0 /* DailyFoorofileViewController.swift */,
-				4874DD122C3AE77400674DE3 /* SearchTableViewCell.swift */,
-			);
-			path = Prefer;
-			sourceTree = "<group>";
-		};
-		486D5CD92C3538FD005E88B0 /* OpenPrefer */ = {
-			isa = PBXGroup;
-			children = (
-				486D5CDC2C353A0E005E88B0 /* OpenPreferViewController1.swift */,
-				486D5CDE2C353A1F005E88B0 /* OpenPreferViewController2.swift */,
-				486D5CE02C353B63005E88B0 /* OpenPreferViewController3.swift */,
-				486D5CE22C353B6B005E88B0 /* OpenPreferViewController4.swift */,
-				48622AE02C3C8E3B0062C8C0 /* Openprofile.swift */,
-			);
-			path = OpenPrefer;
-			sourceTree = "<group>";
-		};
 		48A2E8B72C2FE3A8007E4CE5 /* Kakao */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,14 +307,10 @@
 		81042E272C29A69C00EEC5FB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				486D5CB52C33F778005E88B0 /* Model.swift */,
-				486D5CB72C33F778005E88B0 /* NameModel.swift */,
-				48307D312C3C350100FC7EA3 /* FriendModel.swift */,
-				4874DD102C39BDD600674DE3 /* PreferModel.swift */,
-				486D5CE82C383533005E88B0 /* FoodListModel.swift */,
-				486D5CEA2C3852D3005E88B0 /* OpenPreferModel.swift */,
-				48307D3F2C3C3A6800FC7EA3 /* UserPreference.swift */,
-				48307D2F2C3C33F600FC7EA3 /* DetailModel.swift */,
+				2243B6632C33F58200F6EFBF /* ExampleModelData.swift */,
+				2243B6652C33F58200F6EFBF /* FriendModel.swift */,
+				2243B6662C33F58300F6EFBF /* Model.swift */,
+				2243B6642C33F58200F6EFBF /* NameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -434,7 +320,6 @@
 			children = (
 				48A2E8B72C2FE3A8007E4CE5 /* Kakao */,
 				81042E252C29A3DF00EEC5FB /* LoginController.swift */,
-				48307D2D2C3C336800FC7EA3 /* ModalImageUpdate.swift */,
 				81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */,
 				81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */,
 				81042E312C29E23600EEC5FB /* ModalImageSelect.swift */,
@@ -455,11 +340,9 @@
 		815FE7C52C304D1A0090BDBE /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				8151A0D02C36B6C100F1D8B9 /* underTagCell.swift */,
-				8119398C2C3BB3AC00D32043 /* underbordCell.swift */,
-				48307D162C3C1A8200FC7EA3 /* TagCell.swift */,
-				8151A0D22C36EA7800F1D8B9 /* dailytasteCell.swift */,
-				48307D272C3C2F2B00FC7EA3 /* FriendComponent.swift */,
+				2243B65F2C33F54500F6EFBF /* DetailViewController.swift */,
+				2243B65E2C33F54400F6EFBF /* FriendComponent.swift */,
+				2243B65D2C33F54400F6EFBF /* TagCell.swift */,
 				815FE7C82C304EB20090BDBE /* Tabbar */,
 			);
 			path = Component;
@@ -469,12 +352,9 @@
 			isa = PBXGroup;
 			children = (
 				815FE7C62C304E120090BDBE /* TabbarViewController.swift */,
-				48307D2B2C3C30CC00FC7EA3 /* ModalImageEdite.swift */,
 				815FE7CF2C304FA70090BDBE /* MainViewController.swift */,
 				815FE7C92C304F3F0090BDBE /* FriendViewController.swift */,
 				815FE7D12C304FC20090BDBE /* MyViewController.swift */,
-				48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */,
-				48307D292C3C30A200FC7EA3 /* EditController.swift */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -727,65 +607,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48622ADE2C3C3E660062C8C0 /* PreferViewController6.swift in Sources */,
-				48307D2C2C3C30CC00FC7EA3 /* ModalImageEdite.swift in Sources */,
-				48622ADF2C3C3F210062C8C0 /* OpenPreferViewController3.swift in Sources */,
-				486D5CCA2C343F5F005E88B0 /* PreferViewController3.swift in Sources */,
-				486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */,
-				486D5CC62C343D6C005E88B0 /* PreferViewController1.swift in Sources */,
+				2243B6672C33F58300F6EFBF /* ExampleModelData.swift in Sources */,
 				4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */,
-				48307D282C3C2F2B00FC7EA3 /* FriendComponent.swift in Sources */,
-				48307D2E2C3C336800FC7EA3 /* ModalImageUpdate.swift in Sources */,
-				48307D2A2C3C30A200FC7EA3 /* EditController.swift in Sources */,
-				486D5CE32C353B6B005E88B0 /* OpenPreferViewController4.swift in Sources */,
-				486D5CDF2C353A1F005E88B0 /* OpenPreferViewController2.swift in Sources */,
-				48307D262C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
-				486D5CCE2C343F7D005E88B0 /* PreferViewController5.swift in Sources */,
 				2243B6772C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift in Sources */,
 				2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */,
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
-				486D5CD42C344809005E88B0 /* LoadingViewController.swift in Sources */,
-				486D5CD62C34EC8E005E88B0 /* DailyFoorofileViewController.swift in Sources */,
+				2243B6622C33F54500F6EFBF /* DetailViewController.swift in Sources */,
 				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,
+				2243B6612C33F54500F6EFBF /* FriendComponent.swift in Sources */,
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
-				486D5CC82C343F55005E88B0 /* PreferViewController2.swift in Sources */,
-				48307D302C3C33F600FC7EA3 /* DetailModel.swift in Sources */,
-				48622ADD2C3C3E000062C8C0 /* DetailViewController.swift in Sources */,
 				815FE7D22C304FC20090BDBE /* MyViewController.swift in Sources */,
-				486D5CE92C383533005E88B0 /* FoodListModel.swift in Sources */,
 				22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */,
-				480950A72C3C3D3B00C2DF8B /* underbordCell.swift in Sources */,
-				48307D442C3C3ABB00FC7EA3 /* underTagCell.swift in Sources */,
 				81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */,
-				4874DD112C39BDD600674DE3 /* PreferModel.swift in Sources */,
-				486D5CE52C36BA72005E88B0 /* PreferViewController7.swift in Sources */,
-				486D5CCC2C343F6A005E88B0 /* PreferViewController4.swift in Sources */,
+				2243B66A2C33F58300F6EFBF /* Model.swift in Sources */,
 				815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */,
 				224E2C232C31427F00E69F97 /* UIFont.swift in Sources */,
-				486D5CEB2C3852D3005E88B0 /* OpenPreferModel.swift in Sources */,
 				815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */,
+				2243B6692C33F58300F6EFBF /* FriendModel.swift in Sources */,
+				2243B6682C33F58300F6EFBF /* NameModel.swift in Sources */,
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
-				4874DD132C3AE77400674DE3 /* SearchTableViewCell.swift in Sources */,
 				22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
-				486D5CDD2C353A0E005E88B0 /* OpenPreferViewController1.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
-				48307D432C3C3AB100FC7EA3 /* dailytasteCell.swift in Sources */,
-				48307D412C3C3A7C00FC7EA3 /* Model.swift in Sources */,
-				48622AE12C3C8E3B0062C8C0 /* Openprofile.swift in Sources */,
 				2243B67B2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift in Sources */,
 				2243B67D2C3B960A00F6EFBF /* SummaryViewController.swift in Sources */,
 				2243B6602C33F54500F6EFBF /* TagCell.swift in Sources */,
 				815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */,
-				48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
-				48307D322C3C350100FC7EA3 /* FriendModel.swift in Sources */,
 				2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				2243B6752C3A7EE000F6EFBF /* ReconFoodViewController2.swift in Sources */,
 				2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
-				48307D402C3C3A6800FC7EA3 /* UserPreference.swift in Sources */,
 				2243B6732C39C7E800F6EFBF /* RecommendationDetailViewController1.swift in Sources */,
 				224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */,
 			);
