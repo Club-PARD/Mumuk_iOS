@@ -27,6 +27,7 @@
 		22BB26012C22E31E00F7585E /* mumukTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB26002C22E31E00F7585E /* mumukTests.swift */; };
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
+		480950A52C3C3C8D00C2DF8B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
 		48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D162C3C1A8200FC7EA3 /* TagCell.swift */; };
 		48307D262C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D252C3C2E5D00FC7EA3 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		48307D282C3C2F2B00FC7EA3 /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D272C3C2F2B00FC7EA3 /* FriendComponent.swift */; };
@@ -40,7 +41,6 @@
 		48307D432C3C3AB100FC7EA3 /* dailytasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0D22C36EA7800F1D8B9 /* dailytasteCell.swift */; };
 		48307D442C3C3ABB00FC7EA3 /* underTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8151A0D02C36B6C100F1D8B9 /* underTagCell.swift */; };
 		48307D452C3C3ABD00FC7EA3 /* underbordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119398C2C3BB3AC00D32043 /* underbordCell.swift */; };
-		48307D462C3C3B8800FC7EA3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48307D232C3C2DCD00FC7EA3 /* DetailViewController.swift */; };
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
 		486D5CBB2C33F778005E88B0 /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486D5CB72C33F778005E88B0 /* NameModel.swift */; };
