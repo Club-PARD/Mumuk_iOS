@@ -181,7 +181,11 @@ class FriendViewController: UIViewController{
     //친구추가 했을 때 있는 닉네임인지
     func friendCheckRequest(_ id: String) {
         guard let encodedId = id.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+<<<<<<< HEAD
               let url = URL(string: "https://mumuk.store/user/checkExists?name=\(encodedId)") else {
+=======
+              let url = URL(string: "http://172.30.1.44:8080/user/checkExists?name=\(encodedId)") else {
+>>>>>>> hj_branch
             print("🚨 Invalid URL")
             return
         }

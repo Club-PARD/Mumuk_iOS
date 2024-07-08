@@ -1,6 +1,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
+<<<<<<< HEAD
 //    let uid = "1111123" // 테스트용 임의의 UID
    //데이터 전달을 위해 추가함 
 //    var uid : String = "36000804107"
@@ -8,6 +9,12 @@ class MainViewController: UIViewController {
 //    var name : String = 
     var timer: Timer?
     var name: String = ""
+=======
+    let uid = "1111" // 테스트용 임의의 UID
+    var timer: Timer?
+    var name: String?
+    var groupId: String?
+>>>>>>> hj_branch
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -249,11 +256,12 @@ class MainViewController: UIViewController {
             emojiImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
             emojiImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 91),
 
-            shadowView.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 30),
+            // shadowView(whiteView를 포함하는)의 제약 조건 (위치만 secondShadowView의 원래 위치로)
+            shadowView.widthAnchor.constraint(equalToConstant: 329),
+            shadowView.heightAnchor.constraint(equalToConstant: 169), // 원래 높이 유지
             shadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             shadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            shadowView.widthAnchor.constraint(equalToConstant: 329),
-            shadowView.heightAnchor.constraint(equalToConstant: 169),
+            shadowView.topAnchor.constraint(equalTo: secondShadowView.bottomAnchor, constant: 21),
 
             whiteView.topAnchor.constraint(equalTo: shadowView.topAnchor),
             whiteView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor),
@@ -284,11 +292,12 @@ class MainViewController: UIViewController {
             foodScrumCompleteLabel.widthAnchor.constraint(equalTo: textBalloonImageView.widthAnchor, constant: -10),
             foodScrumCompleteLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            secondShadowView.widthAnchor.constraint(equalToConstant: 329),
-            secondShadowView.heightAnchor.constraint(equalToConstant: 270),
+            // secondShadowView의 제약 조건 (위치만 whiteView의 원래 위치로)
+            secondShadowView.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 30),
             secondShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             secondShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            secondShadowView.topAnchor.constraint(equalTo: view.topAnchor, constant: 391),
+            secondShadowView.widthAnchor.constraint(equalToConstant: 329),
+            secondShadowView.heightAnchor.constraint(equalToConstant: 270), // 원래 높이 유지
 
             secondShapeView.topAnchor.constraint(equalTo: secondShadowView.topAnchor),
             secondShapeView.leadingAnchor.constraint(equalTo: secondShadowView.leadingAnchor),
@@ -298,12 +307,12 @@ class MainViewController: UIViewController {
             tastyMeetingLabel.widthAnchor.constraint(equalToConstant: 155),
             tastyMeetingLabel.heightAnchor.constraint(equalToConstant: 20),
             tastyMeetingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
-            tastyMeetingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 411),
+            tastyMeetingLabel.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 50),
 
             eatTogetherLabel.widthAnchor.constraint(equalToConstant: 83.38),
             eatTogetherLabel.heightAnchor.constraint(equalToConstant: 30),
             eatTogetherLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
-            eatTogetherLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 432),
+            eatTogetherLabel.topAnchor.constraint(equalTo: tastyMeetingLabel.bottomAnchor, constant: 1),
             
             groupBeforeButton.widthAnchor.constraint(equalToConstant: 135.51),
             groupBeforeButton.heightAnchor.constraint(equalToConstant: 118),
@@ -322,7 +331,7 @@ class MainViewController: UIViewController {
         preferenceButton.addTarget(self, action: #selector(moveToPreferViewController), for: .touchUpInside) //
         preferenceButton.addTarget(self, action: #selector(buttonTouchUpInside), for: [.touchUpInside, .touchUpOutside])
         groupBeforeButton.addTarget(self, action: #selector(groupButtonTapped), for: .touchUpInside)
-        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)  // 추가
+        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }
 
     @objc private func createButtonTapped() {
@@ -365,9 +374,36 @@ class MainViewController: UIViewController {
 
     @objc private func groupButtonTapped() {
         if groupBeforeButton.isEnabled {
-            fetchUserData()
+            fetchGroupUserData()
         }
     }
+    
+    private func fetchGroupUserData() {
+        guard let groupId = self.groupId else {
+            print("Invalid Group ID")
+            return
+        }
+        
+        APIService.fetchGroupData(groupId: groupId) { [weak self] result in
+            switch result {
+            case .success(let groupResponse):
+                DispatchQueue.main.async {
+                    self?.presentSummaryViewController(with: groupResponse)
+                }
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func presentSummaryViewController(with groupResponse: GroupResponse) {
+        let summaryVC = SummaryViewController()
+        summaryVC.groupUserData = groupResponse
+        summaryVC.groupId = groupId
+        summaryVC.modalPresentationStyle = .fullScreen
+        present(summaryVC, animated: true, completion: nil)
+    }
+
 
     private func setupShadow() {
         secondShadowView.layoutIfNeeded()
@@ -430,7 +466,8 @@ class MainViewController: UIViewController {
                 if let user = users.first {
                     DispatchQueue.main.async {
                         self?.name = user.name
-                        self?.updateGroupButton(isGrouped: user.grouped)
+                        self?.groupId = user.groupId
+                        self?.updateGroupButton(isResult: user.result)
                     }
                 }
             } catch {
@@ -439,12 +476,13 @@ class MainViewController: UIViewController {
         }.resume()
     }
 
-    private func updateGroupButton(isGrouped: Bool) {
-        let imageName = isGrouped ? "groupAfter" : "groupBefore"
+
+    private func updateGroupButton(isResult: Bool) {
+        let imageName = isResult ? "groupAfter" : "groupBefore"
         groupBeforeButton.setImage(UIImage(named: imageName), for: .normal)
         groupBeforeButton.setImage(UIImage(named: imageName), for: .disabled)
-        groupBeforeButton.isEnabled = isGrouped
-        groupBeforeButton.adjustsImageWhenHighlighted = isGrouped
+        groupBeforeButton.isEnabled = isResult
+        groupBeforeButton.adjustsImageWhenHighlighted = isResult
     }
 }
 
@@ -454,4 +492,6 @@ struct User: Codable {
     let imageId: Int
     let grouped: Bool
     let daily: Bool
+    let result: Bool
+    let groupId : String
 }

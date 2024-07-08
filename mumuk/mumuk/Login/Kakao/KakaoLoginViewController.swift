@@ -84,7 +84,7 @@ class KakaoLoginViewController: UIViewController {
 //        NotificationController.requestNotificationAuthorization()
 //        NotificationController.scheduleDailyNotification()
 //        NotificationController.scheduleNotification()
-//        
+//
         
         
     }
@@ -252,15 +252,23 @@ class KakaoLoginViewController: UIViewController {
         }
     
         nextVC.modalPresentationStyle = .fullScreen
+<<<<<<< HEAD
 //        nextVC.uid = self.uid
+=======
+        //            nextVC.userId = self.userId ?? "" // 데이터 전달하기
+>>>>>>> hj_branch
         present(nextVC, animated: true, completion: nil)
     }
     
     
     func moveToLoginController() {
-        let nextVC = LoginController()
+        let nextVC = TabbarViewController()
         nextVC.modalPresentationStyle = .fullScreen
+<<<<<<< HEAD
         
+=======
+//        nextVC.userId = self.userId ?? ""
+>>>>>>> hj_branch
         present(nextVC, animated: true, completion: nil)
     }
     
