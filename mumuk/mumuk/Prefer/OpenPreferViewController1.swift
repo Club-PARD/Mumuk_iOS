@@ -12,7 +12,7 @@ class OpenPreferViewController1 : UIViewController {
     var name : String?
     var okayAll : Int = 0
     var someCheck : Int = 0
-    var userId : String?
+    
     
     
     var model: OpenPreferModel = OpenPreferModel( // OpenPreferModel 인스턴스를 빈 값으로 초기화

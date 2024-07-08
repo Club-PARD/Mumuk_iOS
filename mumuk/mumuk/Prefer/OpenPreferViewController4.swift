@@ -74,8 +74,8 @@ class OpenPreferViewController4 : UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 24
         button.layer.masksToBounds = true
-        
-        
+//        button.addTarget(self, action: #selector(firstButtonTapped), for: .touchUpInside)
+
         return button
         
     }()
@@ -269,8 +269,10 @@ class OpenPreferViewController4 : UIViewController {
         
     }()
     
-    
-    
+//    @objc private func firstButtonTapped() {
+//        let mainViewController = Openprofile()
+//          navigationController?.pushViewController(mainViewController, animated: true)
+//    }
     
         
     override func viewDidLoad() {
@@ -528,14 +530,18 @@ class OpenPreferViewController4 : UIViewController {
     @objc func moveToNext(){
         if foodButton1.isSelected || foodButton2.isSelected || foodButton3.isSelected || foodButton4.isSelected {
            
-            
-            
-//            let dataVC = MainViewController()
-            let preferVC = TabbarViewController()
-            
             if let uid = uid {
              OpenPreferViewController4.globalUid = uid
             }
+            if let name = name{
+                self.name = name
+            }
+            
+            let preferVC = Openprofile()
+            preferVC.uid = OpenPreferViewController4.globalUid  // uid 전달
+            preferVC.name = self.name!  // name 전달
+            
+            
             
 //            preferVC.name = name   // name 전달
             let transition = CATransition()
