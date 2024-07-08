@@ -701,15 +701,12 @@
 				486D5CDD2C353A0E005E88B0 /* OpenPreferViewController1.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
 				815FE7CA2C304F3F0090BDBE /* FriendViewController.swift in Sources */,
-<<<<<<< HEAD
 				486D5CBA2C33F778005E88B0 /* ExampleModelData.swift in Sources */,
 				486D5CD02C343F8D005E88B0 /* PreferViewController6.swift in Sources */,
 				486D5CB92C33F778005E88B0 /* Model.swift in Sources */,
 				486D5CBF2C33F784005E88B0 /* FriendComponent.swift in Sources */,
 				486D5CE12C353B63005E88B0 /* OpenPreferViewController3.swift in Sources */,
-=======
 				48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */,
->>>>>>> main
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				486D5CC02C33F784005E88B0 /* TagCell.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
