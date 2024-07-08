@@ -303,6 +303,10 @@
 				81F375FB2C2AF93A006D986F /* Model.swift */,
 				8151A0CC2C35674700F1D8B9 /* DetailModel.swift */,
 				811939802C38266800D32043 /* UserPreference.swift */,
+				2243B6632C33F58200F6EFBF /* ExampleModelData.swift */,
+				2243B6652C33F58200F6EFBF /* FriendModel.swift */,
+				2243B6662C33F58300F6EFBF /* Model.swift */,
+				2243B6642C33F58200F6EFBF /* NameModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -339,6 +343,8 @@
 				8151A0C92C33F15E00F1D8B9 /* TagCell.swift */,
 				8151A0C62C33F15500F1D8B9 /* FriendComponent.swift */,
 				2243B65F2C33F54500F6EFBF /* DetailViewController.swift */,
+				2243B65E2C33F54400F6EFBF /* FriendComponent.swift */,
+				2243B65D2C33F54400F6EFBF /* TagCell.swift */,
 				815FE7C82C304EB20090BDBE /* Tabbar */,
 				8119398A2C39D9A000D32043 /* LeftAlignedCollectionViewFlowLayout.swift */,
 			);
