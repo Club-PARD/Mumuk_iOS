@@ -277,7 +277,6 @@ class RecommendationDetailViewController3: UIViewController {
         rankLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            rankLabel.widthAnchor.constraint(equalToConstant: 75),
             rankLabel.heightAnchor.constraint(equalToConstant: 18),
             rankLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor  ),
             rankLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 26.8)
@@ -298,7 +297,6 @@ class RecommendationDetailViewController3: UIViewController {
         percentageLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            percentageLabel.widthAnchor.constraint(equalToConstant: 96),
             percentageLabel.heightAnchor.constraint(equalToConstant: 36),
             percentageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             percentageLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 4)
