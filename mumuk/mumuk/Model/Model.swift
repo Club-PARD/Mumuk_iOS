@@ -20,12 +20,21 @@ extension Model{
     
     static var ModelData = [
         Model(number: 0, image: "default"),
-        Model(number: 1, image: "tory_1"),
-        Model(number: 2, image: "tory_2"),
-        Model(number: 3, image: "tory_3"),
-        Model(number: 4, image: "mu1"),
-        Model(number: 5, image: "mu2"),
-        Model(number: 6, image: "mu3"),
+        Model(number: 1, image: "red"),
+        Model(number: 2, image: "blue"),
+        Model(number: 3, image: "예시"),
+        Model(number: 4, image: "default"),
+        Model(number: 5, image: "red"),
+        Model(number: 6, image: "blue"),
+        Model(number: 7, image: "예시"),
+        Model(number: 8, image: "default"),
+        Model(number: 9, image: "red"),
+        Model(number: 10, image: "blue"),
+        Model(number: 11, image: "blue"),
+        Model(number: 12, image: "예시"),
+        Model(number: 13, image: "default"),
+        Model(number: 14, image: "red"),
+        Model(number: 15, image: "blue"),
     ]
 }
 #endif
