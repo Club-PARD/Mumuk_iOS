@@ -398,11 +398,12 @@
 			children = (
 				486D5CBE2C33F784005E88B0 /* DetailViewController.swift */,
 				486D5CBC2C33F784005E88B0 /* FriendComponent.swift */,
+				486D5CBD2C33F784005E88B0 /* TagCell.swift */,
 				81C2CE1A2C3BFF8F002BF3AF /* LeftAlignedCollectionViewFlowLayout.swift */,
 				81628B522C3C02E200D3BEBB /* FriendComponent.swift */,
 				8151A0D02C36B6C100F1D8B9 /* underTagCell.swift */,
 				8119398C2C3BB3AC00D32043 /* underbordCell.swift */,
-				48307D162C3C1A8200FC7EA3 /* TagCell.swift */,
+
 				8151A0D22C36EA7800F1D8B9 /* dailytasteCell.swift */,
 				815FE7C82C304EB20090BDBE /* Tabbar */,
 			);
@@ -705,7 +706,7 @@
 				486D5CB92C33F778005E88B0 /* Model.swift in Sources */,
 				486D5CBF2C33F784005E88B0 /* FriendComponent.swift in Sources */,
 				486D5CE12C353B63005E88B0 /* OpenPreferViewController3.swift in Sources */,
-				48307D172C3C1A8200FC7EA3 /* TagCell.swift in Sources */,
+
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				486D5CC02C33F784005E88B0 /* TagCell.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
