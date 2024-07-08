@@ -10,15 +10,15 @@ import UIKit
 class LoginController: UIViewController, ModalImageSelectDelegate {
     var memos: [NameModel] = []    // memos 배열
     var selectedIndex: Int? = 0
-    var userId : String = ""
+    var uid : String?
     var roundedImageButton: CustomImageField!
     var exists : Bool?
-
+    var name: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupRoundedImageButton()
-        
+        print("로그인 페이지 : \(uid)")
         
         setUI()
     }
@@ -26,7 +26,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     private var LoginTitle: UILabel =  {
         let label = UILabel()
         label.text = "회원 정보를 \n등록해주세요"
-        label.font = UIFont.systemFont(ofSize: 30, weight: .thin)
+        label.font = UIFont(name: "Pretendard-Thin", size: 30)
         label.textColor = .black
         label.numberOfLines = 2
         return label
@@ -58,7 +58,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     let nickName: UILabel =  {
         let label = UILabel()
         label.text = "닉네임"
-        label.font = UIFont.systemFont(ofSize: 15, weight: .light)
+        label.font = UIFont(name: "Pretendard-Light", size: 15)
         label.textColor = .black
         return label
     }()
@@ -162,9 +162,10 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                 return
             }
         
-        
+        let noSpaces = name.replacingOccurrences(of: " ", with: "")
+
         //서버에 name이 존재하는 지 확인하고 있으면 alert 띄우고 없으면 POST 하기
-        checkNameExists(name: name, image: image)
+        checkNameExists(name: noSpaces, image: image)
     }
 
     
@@ -263,7 +264,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     // 서버에 이미 존재하는 이름인지 확인하기
     func checkNameExists(name: String, image: Int) {
         guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: "http://172.30.1.21:8080/user/checkExists?name=\(encodedName)") else {
+              let url = URL(string: "https://mumuk.store/user/checkExists?name=\(encodedName)") else {
             print("🚨Error: Invalid URL")
             return
         }
@@ -295,7 +296,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                     } else {
                         print("User with name '\(name)' is new")
                         // 새 사용자에 대한 처리
-                        let newMember = NameModel(uid: self?.userId ?? "", name: name, image: image)
+                        let newMember = NameModel(uid: self?.uid ?? "", name: name, image: image)
                         self?.makePostRequest(newMember)
                     }
                 }
@@ -316,7 +317,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     
     // Post request 보내는 함수
        func makePostRequest(_ memo: NameModel) {
-           guard let url = URL(string: "http://172.30.1.21:8080/user/create") else {
+           guard let url = URL(string: "https://mumuk.store/user/create") else {
                print("🚨 Invalid URL")
                return
            }
@@ -346,13 +347,16 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                print("🚨", error)
            }
        }
-    
+
     // 화면 이동하기
     func navigateToNextViewController() {
-        let nextVC = TabbarViewController()
+        let nextVC = OpenPreferViewController1()
+        nextVC.uid = self.uid
+    
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }
+    
     
     
     //빈화면 터치 시 키보드 내리기

@@ -8,10 +8,20 @@
 import UIKit
 
 class MyViewController: UIViewController{
+    
+    
+    //데이터 전달을 위해 추가함 
+    var uid : String?
+    var name : String?
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBlue
         setUI()
+        
     }
     
     func setUI(){

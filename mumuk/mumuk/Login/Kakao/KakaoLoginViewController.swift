@@ -7,13 +7,14 @@ class KakaoLoginViewController: UIViewController {
     
     var memos: [NameModel] = []
     var nickname : String?
-    var userId : String?
+    var uid : String?
     var exists : Bool?
+    static var globalUid : String = ""
     
     let superTitle1 : UILabel = {
         let label = UILabel()
         label.text = "고르다 지친 당신을 위한"
-        label.font = UIFont.systemFont(ofSize: 22 , weight: .medium)
+        label.font = UIFont(name: "Pretendard-Medium", size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -22,21 +23,13 @@ class KakaoLoginViewController: UIViewController {
     let superTitle2 : UILabel = {
         let label = UILabel()
         label.text = "메뉴 추천 플랫폼"
-        label.font = UIFont.systemFont(ofSize: 22 , weight: .bold)
+        label.font = UIFont(name: "Pretendard-Bold", size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     
-    let titleLabel : UILabel = {
-        let label = UILabel()
-        label.text = "MUMUK"
-        label.textColor = #colorLiteral(red: 1, green: 0.5660945177, blue: 0, alpha: 1)
-        label.font = UIFont.systemFont(ofSize: 40 , weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
+
     
     let titleImage : UIImageView = {
         let titleImage = UIImageView()
@@ -68,7 +61,7 @@ class KakaoLoginViewController: UIViewController {
         config.title = "카카오톡으로 시작하기"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
             var outgoing = incoming
-            outgoing.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+            outgoing.font = UIFont(name: "Pretendard-Medium", size: 18)
             outgoing.foregroundColor = UIColor.black
             return outgoing
         }
@@ -146,7 +139,7 @@ class KakaoLoginViewController: UIViewController {
             } else {
                 
                 self.nickname = user?.kakaoAccount?.profile?.nickname ?? "no nickname"
-                self.userId = String(user?.id ?? 0)
+                self.uid = String(user?.id ?? 0)
                 // 잘 가져왔는지 확인
 //                print(self.nickname ?? 0)
 //                print(self.userId ?? 0)
@@ -199,12 +192,12 @@ class KakaoLoginViewController: UIViewController {
     // MARK: - 서버 통신 메소드
         
     func checkUid() {
-        guard let userId = self.userId else {
+        guard let uid = self.uid else {
             print("🚨Error: userId is nil")
             return
         }
         
-        guard let url = URL(string: "http://172.30.1.21:8080/user/checkExists?uid=\(userId)") else {
+        guard let url = URL(string: "https://mumuk.store/user/checkExists?uid=\(uid)") else {
             print("🚨Error: Invalid URL")
             return
         }
@@ -254,8 +247,12 @@ class KakaoLoginViewController: UIViewController {
     func moveToMainViewController() {
         
         let nextVC = TabbarViewController()
+        if let uid = uid {
+         KakaoLoginViewController.globalUid = uid
+        }
+    
         nextVC.modalPresentationStyle = .fullScreen
-        //            nextVC.userId = self.userId ?? "" // 데이터 전달하기 
+//        nextVC.uid = self.ui
         present(nextVC, animated: true, completion: nil)
     }
     
@@ -263,7 +260,7 @@ class KakaoLoginViewController: UIViewController {
     func moveToLoginController() {
         let nextVC = LoginController()
         nextVC.modalPresentationStyle = .fullScreen
-        nextVC.userId = self.userId ?? ""
+        
         present(nextVC, animated: true, completion: nil)
     }
     

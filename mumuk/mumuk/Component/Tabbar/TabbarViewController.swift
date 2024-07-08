@@ -1,6 +1,14 @@
 import UIKit
 
 class TabbarViewController: UITabBarController {
+    //데이터 전달을 위해 추가한 부분
+    var uid : String?
+    var name : String?
+    //
+    
+    
+    
+    
     
     let logoImage: UIImageView = {
         let image = UIImageView()
@@ -72,9 +80,36 @@ class TabbarViewController: UITabBarController {
     }
     
     func setTabBar() {
-        let vc1 = UINavigationController(rootViewController: FriendViewController())
-        let vc2 = UINavigationController(rootViewController: MainViewController())
-        let vc3 = UINavigationController(rootViewController: MyViewController())
+        
+        // 데이터 전달을 위해 추가한 부분
+        
+        let friendViewController = FriendViewController()
+        let mainViewController = MainViewController()
+        let myViewController = MyViewController()
+        //
+        
+     
+        
+        print("여기서 에러\(uid)")
+        
+        //데이터 전달을 위해 추가한 부분
+        friendViewController.uid = self.uid
+        friendViewController.name = self.name
+        
+        mainViewController.uid = self.uid
+        mainViewController.name = self.name
+        
+        myViewController.uid = self.uid
+        myViewController.name = self.name
+        
+        //
+       
+        
+        // 위의 인스턴스 사용함 FriendViewController() -> friendViewController
+        let vc1 = UINavigationController(rootViewController: friendViewController)
+        let vc2 = UINavigationController(rootViewController: mainViewController)
+        let vc3 = UINavigationController(rootViewController: myViewController)
+        
         
         self.viewControllers = [vc1, vc2, vc3]
         self.tabBar.unselectedItemTintColor = #colorLiteral(red: 0.6465258002, green: 0.6465258002, blue: 0.6465258002, alpha: 1)

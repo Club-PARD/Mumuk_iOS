@@ -15,7 +15,10 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
-
+    
+    
+    
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -27,6 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         //앱이 켜져있을 때 알림 허용하는 delegate
         UNUserNotificationCenter.current().delegate = self
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+//
+//        let initialViewController = PreferViewController1() // 여기에 시작하려는 뷰 컨트롤러를 넣으세요
+//        let navigationController = UINavigationController(rootViewController: initialViewController)
+//        
+//        window.rootViewController = navigationController
+//        window.makeKeyAndVisible()
+        
+        
         
         // 알림 권한 요청
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in

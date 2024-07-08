@@ -10,6 +10,12 @@ import UIKit
 
 class FriendViewController: UIViewController{
     
+    // 데이터 전달을 위해 추가함 
+    var uid : String?
+    var name : String?
+    
+    
+    
     
     var friend: [FriendModel] = []    // memos 배열
     var filteredFriends: [FriendModel] = [] // 검색된 친구 목록
@@ -102,7 +108,7 @@ class FriendViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(uid)
         view.backgroundColor = .white
         
         _ = ExampleModelData.modeling
@@ -193,10 +199,12 @@ class FriendViewController: UIViewController{
     }
     
     
+    
+    
     //친구추가 했을 때 있는 닉네임인지
     func friendCheckRequest(_ id: String) {
         guard let encodedId = id.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: "http://172.30.1.21:8080/user/checkExists?name=\(encodedId)") else {
+              let url = URL(string: "https://mumuk.store/user/checkExists?name=\(encodedId)") else {
             print("🚨 Invalid URL")
             return
         }
@@ -251,12 +259,12 @@ class FriendViewController: UIViewController{
         
         task.resume()
     }
-    
+//    
     
     
     // Post request 보내는 함수
     func makePostRequest(id: String, name: String) {
-        guard let url = URL(string: "http://172.30.1.21:8080/friend/add?userName=\(name)&friendName=\(id)") else {
+        guard let url = URL(string: "https://mumuk.store/friend/add?userName=\(name)&friendName=\(id)") else {
             print("🚨 Invalid URL")
             return
         }
