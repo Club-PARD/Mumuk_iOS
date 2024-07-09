@@ -14,9 +14,10 @@
 얘들아! 오늘 이거 먹자!
 
 
+
+
 # 🥄 페이지별 소개
 
----------------------
 1. 친구 목록
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/29551a1c-a532-46ae-b04d-511f20608845" width="300" height="650"/>
 
@@ -28,7 +29,7 @@
 
 
 --------------------
-
+1. MY 페이지
 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/302a9cfc-e9a7-4923-b20a-f547f9d4e612" width="300" height="650"/>
 
