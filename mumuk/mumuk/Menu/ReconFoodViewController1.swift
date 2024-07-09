@@ -153,9 +153,8 @@ class ReconFoodViewController1: UIViewController {
          
         foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            foodNameLabel.widthAnchor.constraint(equalToConstant: 75),
             foodNameLabel.heightAnchor.constraint(equalToConstant: 18),
-            foodNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.16),
+            foodNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             foodNameLabel.topAnchor.constraint(equalTo: reconFoodImageView.bottomAnchor, constant: 3)
         ])
     }
@@ -170,9 +169,8 @@ class ReconFoodViewController1: UIViewController {
          
         percentageLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            percentageLabel.widthAnchor.constraint(equalToConstant: 89),
             percentageLabel.heightAnchor.constraint(equalToConstant: 33),
-            percentageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.66),
+            percentageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             percentageLabel.topAnchor.constraint(equalTo: foodNameLabel.bottomAnchor, constant: 7)
         ])
     }

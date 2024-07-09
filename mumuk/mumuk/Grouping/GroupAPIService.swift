@@ -105,7 +105,7 @@ struct GroupResponse: Codable, Equatable {
 
 class APIService {
     static func fetchGroupData(groupId: String, completion: @escaping (Result<GroupResponse, Error>) -> Void) {
-        let urlString = "https://mumuk.store/with-pref/daily/group?groupId=\(groupId)"
+        let urlString = "http://172.30.1.10:8080/with-pref/group?groupId=\(groupId)"
         guard let url = URL(string: urlString) else {
             completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
@@ -126,8 +126,16 @@ class APIService {
                 let decoder = JSONDecoder()
                 let groupResponse = try decoder.decode(GroupResponse.self, from: data)
                 completion(.success(groupResponse))
+            } catch let DecodingError.dataCorrupted(context) {
+                print("Data corrupted: \(context)")
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found: \(context.debugDescription)")
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found: \(context.debugDescription)")
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch: \(context.debugDescription)")
             } catch {
-                completion(.failure(error))
+                print("Error: \(error.localizedDescription)")
             }
         }.resume()
     }

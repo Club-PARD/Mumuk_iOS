@@ -2,10 +2,9 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    var uid : String = KakaoLoginViewController.globalUid
+    var uid = "1231"
     var timer: Timer?
-    var name: String = ""
-    var timer: Timer?
+    var name : String?
     var groupId: String?
     
     let imageView: UIImageView = {
@@ -164,10 +163,10 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+                
         setupUI()
         setupButtonActions()
         fetchUserData() // 초기 데이터 로드
-        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             self?.fetchUserData()
         }
@@ -320,7 +319,7 @@ class MainViewController: UIViewController {
     
     private func setupButtonActions() {
         preferenceButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
-        preferenceButton.addTarget(self, action: #selector(moveToPreferViewController), for: .touchUpInside) //
+//        preferenceButton.addTarget(self, action: #selector(moveToPreferViewController), for: .touchUpInside) //
         preferenceButton.addTarget(self, action: #selector(buttonTouchUpInside), for: [.touchUpInside, .touchUpOutside])
         groupBeforeButton.addTarget(self, action: #selector(groupButtonTapped), for: .touchUpInside)
         createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
@@ -328,7 +327,6 @@ class MainViewController: UIViewController {
 
     @objc private func createButtonTapped() {
         let friendGroupingVC = FriendGroupingViewController()
-        uid = KakaoLoginViewController.globalUid
         friendGroupingVC.uid = self.uid  // uid 전달
         friendGroupingVC.name = self.name  // name 전달
         friendGroupingVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
@@ -442,7 +440,7 @@ class MainViewController: UIViewController {
     }
     
     private func fetchUserData() {
-        guard let url = URL(string: "https://mumuk.store/user/users?uid=\(uid)") else {
+        guard let url = URL(string: "http://172.30.1.10:8080/user/users?uid=\(uid)") else {
             print("Invalid URL")
             return
         }

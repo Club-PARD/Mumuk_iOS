@@ -35,7 +35,7 @@ class SummaryViewController: UIViewController {
             completion("그룹장")
             return
         }
-        let urlString = "https://mumuk.store/user/users?uid=\(groupId)"
+        let urlString = "http://172.30.1.10:8080/user/users?uid=\(groupId)"
         
         guard let url = URL(string: urlString) else {
             completion("그룹장")
@@ -510,7 +510,7 @@ class SummaryViewController: UIViewController {
     
     private func fetchRecommendationData() {
         guard let groupId = groupId else { return }
-        let urlString = "https://mumuk.store/food/recommend/\(groupId)"
+        let urlString = "http://172.30.1.10:8080/food/recommend/\(groupId)"
         print("Request URL: \(urlString)")
         
         guard let url = URL(string: urlString) else {
@@ -557,7 +557,7 @@ class SummaryViewController: UIViewController {
     }
     
     private func fetchUserName(groupId: String, completion: @escaping (String) -> Void) {
-        let urlString = "https://mumuk.store/user/users?uid=\(groupId)"
+        let urlString = "http://172.30.1.10:8080/user/users?uid=\(groupId)"
         
         guard let url = URL(string: urlString) else {
             print("Invalid URL")

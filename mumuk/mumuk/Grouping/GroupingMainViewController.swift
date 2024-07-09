@@ -860,7 +860,7 @@ class GroupingMainViewController: UIViewController {
     }
     private func fetchRecommendationData() {
            guard let uid = uid else { return }
-           let urlString = "https://mumuk.store/food/recommend/\(uid)"
+           let urlString = "http://172.30.1.10:8080/food/recommend/\(uid)"
            print("Request URL: \(urlString)")
            
            guard let url = URL(string: urlString) else {
@@ -918,7 +918,7 @@ class GroupingMainViewController: UIViewController {
        }
     
     private func fetchUserName(groupId: String, completion: @escaping (String) -> Void) {
-        let urlString = "https://mumuk.store/user/users?uid=\(groupId)"
+        let urlString = "http://172.30.1.10:8080/ fuser/users?uid=\(groupId)"
         
         guard let url = URL(string: urlString) else {
             print("Invalid URL")

@@ -135,12 +135,12 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         if let navController = viewController as? UINavigationController {
             if let friendVC = navController.viewControllers.first as? FriendViewController,
                let mainVC = self.mainViewController {
-                friendVC.name = mainVC.name
+                friendVC.name = mainVC.name!
                 friendVC.fetchMembers()
             } else if let myVC = navController.viewControllers.first as? MyViewController,
                       let mainVC = self.mainViewController {
                 // MainViewController에서 MyViewController로 데이터 전달
-                myVC.name = mainVC.name
+                myVC.name = mainVC.name!
                 myVC.uid = mainVC.uid
                 myVC.deepProfile()
             }

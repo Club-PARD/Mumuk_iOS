@@ -14,6 +14,8 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     var roundedImageButton: CustomImageField!
     var exists : Bool?
     var name: String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -264,7 +266,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     // 서버에 이미 존재하는 이름인지 확인하기
     func checkNameExists(name: String, image: Int) {
         guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: "https://mumuk.store/user/checkExists?name=\(encodedName)") else {
+              let url = URL(string: "https:/mumuk.store/user/checkExists?name=\(encodedName)") else {
             print("🚨Error: Invalid URL")
             return
         }
@@ -285,7 +287,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                 
                 let exists = responseString.lowercased() == "true"
                 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [self] in
                     self?.exists = exists
                     print("✅ User with name '\(name)' exists:", exists)
                     
@@ -295,9 +297,12 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                         self?.showCustomAlert(title: "중복 닉네임", message: "이미 사용 중인 닉네임입니다.\n다른 닉네임을 선택해주세요.")
                     } else {
                         print("User with name '\(name)' is new")
+                    
                         // 새 사용자에 대한 처리
                         let newMember = NameModel(uid: self?.uid ?? "", name: name, image: image)
                         self?.makePostRequest(newMember)
+                        self!.name = newMember.name
+                        print(name)
                     }
                 }
             } else {
@@ -317,7 +322,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     
     // Post request 보내는 함수
        func makePostRequest(_ memo: NameModel) {
-           guard let url = URL(string: "https://mumuk.store/user/create") else {
+           guard let url = URL(string: "https:/mumuk.store/user/create") else {
                print("🚨 Invalid URL")
                return
            }
@@ -352,7 +357,11 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     func navigateToNextViewController() {
         let nextVC = OpenPreferViewController1()
         nextVC.uid = self.uid
+        
+        
+                
         nextVC.name = self.name
+        print(name)
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }

@@ -197,7 +197,7 @@ class KakaoLoginViewController: UIViewController {
             return
         }
         
-        guard let url = URL(string: "https://mumuk.store/user/checkExists?uid=\(uid)") else {
+        guard let url = URL(string: "https:/mumuk.store/user/checkExists?uid=\(uid)") else {
             print("🚨Error: Invalid URL")
             return
         }
@@ -247,17 +247,18 @@ class KakaoLoginViewController: UIViewController {
     func moveToMainViewController() {
         
         let nextVC = TabbarViewController()
-        if let uid = uid {
-         KakaoLoginViewController.globalUid = uid
-        }
-    
+//        if let uid = uid {
+//         KakaoLoginViewController.globalUid = uid
+//        }
+//    
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }
     
     
     func moveToLoginController() {
-        let nextVC = TabbarViewController()
+        let nextVC = LoginController()
+        nextVC.uid = uid
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }
