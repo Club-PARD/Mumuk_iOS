@@ -55,23 +55,10 @@
 
 
 
-
-|---:|:---:|:---:|:---:|
-
-|제목|내용|설명|
-|------|---|---|
-|테스트1|<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/f5b7cfac-ca07-420d-b724-44952fd0e0a0" style="width: 300px; height: 300px; object-fit: cover;"> |테스트3|
-|테스트1|테스트2|테스트3|
-|테스트1|테스트2|테스트3|
-
-
-
-
-
-|                                                🐣 조예은                                                 |                          🐭 박예람                           |                          🦉 김기영                           |                          🐱 전소명                           |
+|                                                🐣 임시우                                                 |                          🐭 이주향                           |                          🦉 김예정                           |                          🐱                            |
 |:-----------------------------------------------------------------------------------------------------:|:---------------------------------------------------------:|:---------------------------------------------------------:|:---------------------------------------------------------:|
-|                                                  PM                                                   |                            기획                             |                            백엔드                            |                            백엔드                            |
-|  <img src="asset/images/profile/yeeun.jpeg" style="width: 150px; height: 150px; object-fit: cover;">  |  <img src="asset/images/profile/yeram.jpeg" style="width: 150px; height: 150px; object-fit: cover;">   | <img src="asset/images/profile/giyoung.png" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="asset/images/profile/somyung.jpeg" style="width: 150px; height: 150px; object-fit: cover;"> |
-|                                                🐰 이윤서                                                 |                          🐹 김예은                           |                          🐨 박주영                           |                          🐶 이민규                           |
-|                                                  디자인                                                  |                           프론트엔드                           |                           프론트엔드                           |                           프론트엔드                           |
-| <img src="asset/images/profile/yunseo1.jpeg" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="asset/images/profile/yepal.jpeg" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="asset/images/profile/juyoung.png" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="asset/images/profile/mingyu.jpeg" style="width: 150px; height: 150px; object-fit: cover;"> |
+|                                                  PM                                                   |                            기획                             |                           디자인                            |                            .                            |
+|  <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/b8ebc366-7bb2-40b3-9086-532a4e09cb12" style="width: 300px; height: 300px; object-fit: cover;">  |  <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/f5b7cfac-ca07-420d-b724-44952fd0e0a0" style="width: 300px; height: 300px; object-fit: cover;">   | <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/2a9b5bd9-9943-4c06-b207-bb611e37808f" style="width: 300px; height: 300px; object-fit: cover;"> |  |
+|                                                이시온                                                 |                          🐹 김현중                           |                          🐨 김민준                           |                          🐶 유재혁                           |
+|                                                  백엔드                                                  |                           프론트엔드                           |                           프론트엔드                           |                           프론트엔드                           |
+| <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/f26e4bed-3825-4461-8e1a-ef5a4d2dda8e" style="width: 300px; height: 300px; object-fit: cover;"> | <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/8803b490-b1cd-445a-a9c3-2686256fbe5f" style="width: 300px; height: 300px; object-fit: cover;"> | <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/df610ae8-d571-4a39-91b3-0c57a067dd84" style="width: 300px; height: 300px; object-fit: cover;"> | <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/f9d2904b-db60-4a17-aec1-246711d3da66" style="width: 300px; height: 300px; object-fit: cover;"> |
