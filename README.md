@@ -38,7 +38,7 @@
 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/302a9cfc-e9a7-4923-b20a-f547f9d4e612" width="300" height="650"/>
                 
-<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/680e4d5c-d0ec-44b6-b2bd-f455c7298c84" width="300" height="650"/>
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/058fed3b-73ff-4885-9b79-9f5f335613b1" width="300" height="650"/>
 <br/><br/>개인 Foorofile 수정 가능                                   프로필 수정 가능<br/><br/><br/><br/>
 
 -------------------
