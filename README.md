@@ -27,7 +27,7 @@
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/29551a1c-a532-46ae-b04d-511f20608845" width="300" height="650"/>
               
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/dad2ceb2-01e2-4e18-82a1-e0e57bf30710" width="300" height="650"/>
-<br/><br/>친구 검색 및 간단한 음식 선호도 확인 가능                              옆으로 밀어서 삭제 가능<br/><br/><br/><br/>
+<br/><br/>친구 검색 및 간단한 음식 선호도 확인 가능                                    옆으로 밀어서 삭제 가능<br/><br/><br/><br/>
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/e5c0a5da-e388-4874-a8c3-ec6b4c89d125" width="300" height="650"/>
                 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/85124c62-073e-45eb-9776-211610b18fe5" width="300" height="650"/>
