@@ -460,5 +460,5 @@ struct User: Codable {
     let grouped: Bool
     let daily: Bool
     let result: Bool
-    let groupId : String
+    let groupId : String?
 }

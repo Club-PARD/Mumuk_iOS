@@ -196,7 +196,7 @@ class KakaoLoginViewController: UIViewController {
             return
         }
         
-        guard let url = URL(string: "http://172.30.1.21:8080/user/checkExists?uid=\(userId)") else {
+        guard let url = URL(string: "https://mumuk.store/user/checkExists?uid=\(userId)") else {
             print("🚨Error: Invalid URL")
             return
         }

@@ -263,7 +263,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     // 서버에 이미 존재하는 이름인지 확인하기
     func checkNameExists(name: String, image: Int) {
         guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-              let url = URL(string: "http://172.30.1.21:8080/user/checkExists?name=\(encodedName)") else {
+              let url = URL(string: "https://mumuk.store/user/checkExists?name=\(encodedName)") else {
             print("🚨Error: Invalid URL")
             return
         }
@@ -316,7 +316,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     
     // Post request 보내는 함수
        func makePostRequest(_ memo: NameModel) {
-           guard let url = URL(string: "http://172.30.1.21:8080/user/create") else {
+           guard let url = URL(string: "https://mumuk.store/user/create") else {
                print("🚨 Invalid URL")
                return
            }
