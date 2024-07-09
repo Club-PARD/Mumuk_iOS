@@ -50,6 +50,6 @@
 
 |제목|내용|설명|
 |------|---|---|
-|테스트1|<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/1d5174df-2b27-4a97-8b01-a0d4a51c6bd1" style="width: 150px; height: 150px; object-fit: cover;"> |테스트3|
+|테스트1|<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/1d5174df-2b27-4a97-8b01-a0d4a51c6bd1" style="width: 300px; height: 300px; object-fit: cover;"> |테스트3|
 |테스트1|테스트2|테스트3|
 |테스트1|테스트2|테스트3|
