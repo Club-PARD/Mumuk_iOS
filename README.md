@@ -53,3 +53,15 @@
 |테스트1|<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/f5b7cfac-ca07-420d-b724-44952fd0e0a0" style="width: 300px; height: 300px; object-fit: cover;"> |테스트3|
 |테스트1|테스트2|테스트3|
 |테스트1|테스트2|테스트3|
+
+
+
+
+
+|                                                🐣 조예은                                                 |                          🐭 박예람                           |                          🦉 김기영                           |                          🐱 전소명                           |
+|:-----------------------------------------------------------------------------------------------------:|:---------------------------------------------------------:|:---------------------------------------------------------:|:---------------------------------------------------------:|
+|                                                  PM                                                   |                            기획                             |                            백엔드                            |                            백엔드                            |
+|  <img src="asset/images/profile/yeeun.jpeg" style="width: 150px; height: 150px; object-fit: cover;">  |  <img src="asset/images/profile/yeram.jpeg" style="width: 150px; height: 150px; object-fit: cover;">   | <img src="asset/images/profile/giyoung.png" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="asset/images/profile/somyung.jpeg" style="width: 150px; height: 150px; object-fit: cover;"> |
+|                                                🐰 이윤서                                                 |                          🐹 김예은                           |                          🐨 박주영                           |                          🐶 이민규                           |
+|                                                  디자인                                                  |                           프론트엔드                           |                           프론트엔드                           |                           프론트엔드                           |
+| <img src="asset/images/profile/yunseo1.jpeg" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="asset/images/profile/yepal.jpeg" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="asset/images/profile/juyoung.png" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="asset/images/profile/mingyu.jpeg" style="width: 150px; height: 150px; object-fit: cover;"> |
