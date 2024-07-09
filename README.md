@@ -21,3 +21,13 @@
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/680e4d5c-d0ec-44b6-b2bd-f455c7298c84" width="300" height="650"/>
 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/e5c0a5da-e388-4874-a8c3-ec6b4c89d125" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/85124c62-073e-45eb-9776-211610b18fe5" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/9e830321-28c9-4640-aa6f-cc0f977b9bf1" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/2d87706c-456c-48f3-a18d-5377756f8d8e" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/e56541f6-01d8-478f-bd9f-61e315ed5a39" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/dad2ceb2-01e2-4e18-82a1-e0e57bf30710" width="300" height="650"/>
