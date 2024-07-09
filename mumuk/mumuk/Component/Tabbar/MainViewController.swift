@@ -1,11 +1,11 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let uid = "1111" // 테스트용 임의의 UID
+    var uid : String = ""
     var timer: Timer?
-    var name: String?
+    var name: String? = ""
     var groupId: String?
-
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "mumuk")
@@ -162,10 +162,14 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        uid = KakaoLoginViewController.globalUid
+
         setupUI()
         setupButtonActions()
         fetchUserData() // 초기 데이터 로드
         
+        print("name 맞는지 확인 : \(name)")
+
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             self?.fetchUserData()
         }
@@ -318,6 +322,7 @@ class MainViewController: UIViewController {
     
     private func setupButtonActions() {
         preferenceButton.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+        preferenceButton.addTarget(self, action: #selector(moveToPreferViewController), for: .touchUpInside) //
         preferenceButton.addTarget(self, action: #selector(buttonTouchUpInside), for: [.touchUpInside, .touchUpOutside])
         groupBeforeButton.addTarget(self, action: #selector(groupButtonTapped), for: .touchUpInside)
         createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
@@ -325,12 +330,35 @@ class MainViewController: UIViewController {
 
     @objc private func createButtonTapped() {
         let friendGroupingVC = FriendGroupingViewController()
+        uid = KakaoLoginViewController.globalUid
+//        print(uid)
         friendGroupingVC.uid = self.uid  // uid 전달
         friendGroupingVC.name = self.name  // name 전달
         friendGroupingVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
         present(friendGroupingVC, animated: true, completion: nil)
     }
 
+    @objc private func moveToPreferViewController(){
+        let preferVC = PreferViewController1()
+        uid = KakaoLoginViewController.globalUid
+        preferVC.uid = uid
+//        if let uid = uid{
+//
+//            print("메인 uid : \(uid)")
+//        }
+        
+        
+        preferVC.name = self.name  // name 전달
+        preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+        present(preferVC, animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    
+    
+    
     @objc private func buttonTouchDown() {
         preferenceButton.backgroundColor = .lightGray
     }
@@ -421,8 +449,17 @@ class MainViewController: UIViewController {
             print("Invalid URL")
             return
         }
-
+        
         URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+           
+            if let httpResponse = response as? HTTPURLResponse {
+                    print("HTTP 상태 코드: \(httpResponse.statusCode)")
+                }
+                if let data = data {
+                    print("받은 데이터: \(String(data: data, encoding: .utf8) ?? "없음")")
+                }
+            
+            
             guard let data = data, error == nil else {
                 print("Error: \(error?.localizedDescription ?? "Unknown error")")
                 return
@@ -432,7 +469,10 @@ class MainViewController: UIViewController {
                 let users = try JSONDecoder().decode([User].self, from: data)
                 if let user = users.first {
                     DispatchQueue.main.async {
+                        print(user.name)
+                        
                         self?.name = user.name
+                        print(self?.name)
                         self?.groupId = user.groupId
                         self?.updateGroupButton(isResult: user.result)
                     }

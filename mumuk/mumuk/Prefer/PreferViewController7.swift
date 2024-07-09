@@ -131,7 +131,7 @@ class PreferViewController7 : UIViewController{
         
         
         // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -146,6 +146,7 @@ class PreferViewController7 : UIViewController{
         button.layer.cornerRadius = 24
         button.layer.masksToBounds = true
         button.isEnabled = false
+    
         
         return button
         
@@ -242,8 +243,6 @@ class PreferViewController7 : UIViewController{
         return button
         
     }()
-    
-   
     
     
     override func viewDidLoad() {
@@ -388,7 +387,7 @@ class PreferViewController7 : UIViewController{
     
     @objc func skipToNext(){
         if foodButton1.isSelected == false && foodButton2.isSelected == false {
-            let preferVC = TabbarViewController()
+            let preferVC = DailyFoorofileViewController()
                         
             if var model = dailyScrumModel {
                 model.todaySoup = 1
@@ -429,10 +428,10 @@ class PreferViewController7 : UIViewController{
     
     @objc func moveToNext(){
         if foodButton1.isSelected || foodButton2.isSelected {
-            let preferVC = TabbarViewController()
+            let preferVC = DailyFoorofileViewController()
             
-//                    preferVC.uid = self.uid  // uid 전달
-//                    preferVC.name = self.name  // name 전달
+            preferVC.uid = self.uid!  // uid 전달
+            preferVC.name = self.name!  // name 전달
             let transition = CATransition()
             transition.duration = 0.4
             transition.type = .push
@@ -545,7 +544,6 @@ class PreferViewController7 : UIViewController{
             nextButton.leadingAnchor.constraint(equalTo: line.trailingAnchor, constant: 10.6),
             nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32),
             nextButton.heightAnchor.constraint(equalToConstant: 48),
-            nextButton.widthAnchor.constraint(equalToConstant: 269.8),
             
             skipButton.topAnchor.constraint(equalTo: titleLabel4.bottomAnchor , constant: 26),
             skipButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 33.2),

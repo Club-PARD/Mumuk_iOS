@@ -1,13 +1,15 @@
-////
-////  DailyFoorofileViewController.swift
-////  mumuk
-////
-////  Created by 김민준 on 7/3/24.
-////
+//
+//  Openprofile.swift
+//  mumuk
+//
+//  Created by 김민준 on 7/9/24.
+//
+
+
 
 import UIKit
 
-class DailyFoorofileViewController : UIViewController {
+class Openprofile : UIViewController {
     //MARK: - 컴포넌트
     var selectedIndex : Int = 0
     var label : String = ""        //foodtype
@@ -21,32 +23,62 @@ class DailyFoorofileViewController : UIViewController {
     
     func firstProfile() {
         print("상세 데이터 불러오기 시작")
-        print("djsfsdlkfdslfsjldlffj\(name)")
-        if let url = URL(string: "https://mumuk.store/with-pref/daily/\(name)") {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    print("🚨🚨🚨", error)
-                    return
+        print("Name: \(name)")
+        
+        guard let url = URL(string: "https://mumuk.store/with-pref/\(name)") else {
+            print("🚨🚨🚨 Invalid URL")
+            return
+        }
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("🚨🚨🚨 Network error:", error)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("🚨🚨🚨 Invalid response")
+                return
+            }
+            
+            print("HTTP Status Code: \(httpResponse.statusCode)")
+            
+            guard let JSONdata = data else {
+                print("🚨🚨🚨 No data received")
+                return
+            }
+            
+            let dataString = String(data: JSONdata, encoding: .utf8)
+            print("Received data: \(dataString ?? "Unable to convert data to string")")
+            
+            let decoder = JSONDecoder()
+            do {
+                let decodeData = try decoder.decode(UserPreference.self, from: JSONdata)
+                DispatchQueue.main.async {
+                    self.configureViewFromData(decodeData)
+                    self.updateUI()
                 }
-                if let JSONdata = data {
-                    let dataString = String(data: JSONdata, encoding: .utf8)
-                    print(dataString ?? "No data")
-                    
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodeData = try decoder.decode(UserPreference.self, from: JSONdata)
-                        DispatchQueue.main.async {
-                            self.configureViewFromData(decodeData)
-                            self.updateUI()
-                        }
-                    } catch {
-                        print("🚨🚨🚨", error)
+            } catch {
+                print("🚨🚨🚨 Decoding error:", error)
+                if let decodingError = error as? DecodingError {
+                    switch decodingError {
+                    case .dataCorrupted(let context):
+                        print("Data corrupted: \(context.debugDescription)")
+                        print("Coding path: \(context.codingPath)")
+                    case .keyNotFound(let key, let context):
+                        print("Key not found: \(key.stringValue) in path \(context.codingPath)")
+                    case .typeMismatch(let type, let context):
+                        print("Type mismatch: expected \(type) in path \(context.codingPath)")
+                    case .valueNotFound(let type, let context):
+                        print("Value not found: expected \(type) in path \(context.codingPath)")
+                    @unknown default:
+                        print("Unknown decoding error")
                     }
                 }
             }
-            task.resume()
         }
+        task.resume()
     }
 
     func configureViewFromData(_ data: UserPreference) {
@@ -158,10 +190,10 @@ class DailyFoorofileViewController : UIViewController {
         back.translatesAutoresizingMaskIntoConstraints = false
         back.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         back.layer.cornerRadius = 15
-        back.layer.shadowColor = UIColor.black.cgColor
-        back.layer.shadowOpacity = 0.5
+        back.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor
+        back.layer.shadowOpacity = 1
         back.layer.shadowOffset = CGSize(width: 0, height: 2)
-        back.layer.shadowRadius = 4
+        back.layer.shadowRadius = 10
         return back
     }()
     
@@ -175,8 +207,6 @@ class DailyFoorofileViewController : UIViewController {
     
     let mainLabel : UILabel = {
         let label =  UILabel()
-        
-        label.text = "오늘의 FOOROFIL"
         label.textAlignment = .center
         label.font = UIFont(name: "Pretendard-Bold" , size: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -186,7 +216,7 @@ class DailyFoorofileViewController : UIViewController {
     let subLabel : UILabel = {
         let label =  UILabel()
         
-        label.text = "생성완료!"
+        label.text = "FOOROFILE 생성완료!"
         label.textAlignment = .center
         label.font = UIFont(name: "Pretendard-Light" , size: 20)
         
@@ -198,6 +228,7 @@ class DailyFoorofileViewController : UIViewController {
         var config = UIButton.Configuration.filled()
         config.background.backgroundColor = #colorLiteral(red: 1, green: 0.5921568627, blue: 0.1019607843, alpha: 1)
         
+        
         // 내부 여백 설정
         config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
         
@@ -208,13 +239,16 @@ class DailyFoorofileViewController : UIViewController {
             outgoing.foregroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             return outgoing
         }
-
+    
         var button = UIButton(configuration: config)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 28
+        button.layer.cornerRadius = 29
         button.layer.masksToBounds = true
-        
+        button.isEnabled = true
+        button.addTarget(self, action: #selector(firstButtonTapped), for: .touchUpInside)
+
         return button
+        
     }()
     
     let boundary: UILabel = {
@@ -304,13 +338,28 @@ lazy var yesterdayeat: UILabel = {
         return label
     }()
     
-    
+    @objc private func firstButtonTapped() {
+        let preferVC = TabbarViewController()
+        
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = .push
+        transition.subtype = .fromRight
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        
+        
+        view.window?.layer.add(transition, forKey: kCATransition)
+        preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+        present(preferVC, animated: false, completion: nil)
+    }
     
     
     //MARK: - func
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        self.name = LoginController.globalName
         
         tagUnderCollectionView.dataSource = self
         tagUnderCollectionView.delegate = self
@@ -319,10 +368,11 @@ lazy var yesterdayeat: UILabel = {
         dailytasteCollectionView.dataSource = self
         dailytasteCollectionView.delegate = self
         dailytasteCollectionView.register(dailytasteCell.self, forCellWithReuseIdentifier: "dailytasteCell")
-        nextButton.addTarget(self, action: #selector(toMain), for: .touchUpInside)
 
+        mainLabel.text = name + "님의"
         
         
+
         firstProfile()
         setUI()
     }
@@ -332,39 +382,7 @@ lazy var yesterdayeat: UILabel = {
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
 //    }
-//    @objc  func dailyButtonTapped() {
-//        let preferVC = TabbarViewController()
-//
-//        let transition = CATransition()
-//        transition.duration = 0.4
-//        transition.type = .push
-//        transition.subtype = .fromRight
-//        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-//
-//
-//        view.window?.layer.add(transition, forKey: kCATransition)
-//        preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
-//        present(preferVC, animated: false, completion: nil)
-//    }
-//
-    @objc private func toMain() {
-        let mainVC = TabbarViewController()
-        mainVC.modalPresentationStyle = .fullScreen
-        
-
-        if let navigationController = self.navigationController {
-            navigationController.setViewControllers([mainVC], animated: true)
-        } else {
-
-            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-            sceneDelegate?.window?.rootViewController = mainVC
-            sceneDelegate?.window?.makeKeyAndVisible()
-        }
-    }
     
-    
-    
-   
     
     func setUI(){
         view.addSubview(mainLabel)
@@ -385,16 +403,16 @@ lazy var yesterdayeat: UILabel = {
         view.addSubview(dailytasteCollectionView)
 
         NSLayoutConstraint.activate([
-            mainLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 72.3),
-            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+            mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             
-            subLabel.leadingAnchor.constraint(equalTo: mainLabel.trailingAnchor , constant: 4),
-            subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+            subLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 45),
             
             background.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
-                        background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
-                        background.widthAnchor.constraint(equalToConstant: 275),
-                        background.bottomAnchor.constraint(equalTo: backlabel.bottomAnchor , constant: -35),
+            background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+            background.heightAnchor.constraint(equalToConstant: 135),
+            background.widthAnchor.constraint(equalToConstant: 275),
         
             
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -452,19 +470,16 @@ lazy var yesterdayeat: UILabel = {
             dailytaste.heightAnchor.constraint(equalToConstant: 17),
             
             dailytasteCollectionView.leadingAnchor.constraint(equalTo: dailytaste.trailingAnchor, constant: 30),
-                      dailytasteCollectionView.topAnchor.constraint(equalTo: dailytaste.topAnchor, constant: -8),
-                      dailytasteCollectionView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -18),
-                      dailytasteCollectionView.bottomAnchor.constraint(equalTo: background.bottomAnchor , constant: -16.2),
+            dailytasteCollectionView.topAnchor.constraint(equalTo: dailytaste.topAnchor, constant: -8),
+            dailytasteCollectionView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -18),
+            dailytasteCollectionView.heightAnchor.constraint(equalToConstant: 70),
 
         ])
     }
     
     
-    
-    
-    
 }
-extension DailyFoorofileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension Openprofile: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == tagUnderCollectionView{
             return tags.count

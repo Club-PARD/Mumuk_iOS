@@ -419,35 +419,48 @@ extension FriendViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 //     editingStyle 삭제하면 없어지게 하는거
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // 현재 데이터 소스 선택
-            let currentDataSource = isSearching ? filteredFriends : friend
-            
-            // 인덱스 유효성 검사
-            guard indexPath.section < currentDataSource.count else {
-                print("Invalid index")
-                return
-            }
-            
-            let friendToDelete = currentDataSource[indexPath.section]
-            
-            print(friendToDelete.name)
-            
-            // 서버에서 삭제
-            deleteFriend(with: friendToDelete.name, userName: self.name)
-            
-            // 데이터 소스에서 삭제
-            if isSearching {
-                filteredFriends.remove(at: indexPath.section)
-            } else {
-                friend.remove(at: indexPath.section)
-            }
-            
-            // 테이블 뷰 업데이트
-            tableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
-            
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "삭제") { [weak self] (action, view, completion) in
+            self?.handleDelete(at: indexPath)
+            completion(true)
         }
+        
+        // 단일 주황색 설정
+        deleteAction.backgroundColor = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
+        
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = false // 전체 스와이프 동작 비활성화
+        
+        return configuration
+    }
+
+    func handleDelete(at indexPath: IndexPath) {
+        // 현재 데이터 소스 선택
+        let currentDataSource = isSearching ? filteredFriends : friend
+        
+        // 인덱스 유효성 검사
+        guard indexPath.section < currentDataSource.count else {
+            print("Invalid index")
+            return
+        }
+        
+        let friendToDelete = currentDataSource[indexPath.section]
+        
+        print(friendToDelete.name)
+        
+        // 서버에서 삭제
+        deleteFriend(with: friendToDelete.name, userName: self.name)
+        
+        // 데이터 소스에서 삭제
+        if isSearching {
+            filteredFriends.remove(at: indexPath.section)
+        } else {
+            friend.remove(at: indexPath.section)
+        }
+        
+        // 테이블 뷰 업데이트
+        friendTableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
     }
     
     //친구삭제
