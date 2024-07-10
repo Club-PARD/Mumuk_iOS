@@ -153,10 +153,9 @@ class ReconFoodViewController1: UIViewController {
          
         foodNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            foodNameLabel.widthAnchor.constraint(equalToConstant: 75),
             foodNameLabel.heightAnchor.constraint(equalToConstant: 18),
-            foodNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.16),
-            foodNameLabel.topAnchor.constraint(equalTo: reconFoodImageView.bottomAnchor, constant: 3)
+            foodNameLabel.centerXAnchor.constraint(equalTo: circularProgressView.centerXAnchor),
+            foodNameLabel.topAnchor.constraint(equalTo: reconFoodImageView.bottomAnchor, constant: 10)
         ])
     }
 
@@ -165,7 +164,7 @@ class ReconFoodViewController1: UIViewController {
         percentageLabel.textColor = UIColor(red: 1, green: 0.546, blue: 0, alpha: 1)
         percentageLabel.font = UIFont(name: "Pretendard-Black", size: 28)
         percentageLabel.textAlignment = .center
-        percentageLabel.text = String(format: "%.1f%%", percentage)
+        percentageLabel.text = "\(Int(percentage))%"
         view.addSubview(percentageLabel)
          
         percentageLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -173,7 +172,7 @@ class ReconFoodViewController1: UIViewController {
             percentageLabel.widthAnchor.constraint(equalToConstant: 89),
             percentageLabel.heightAnchor.constraint(equalToConstant: 33),
             percentageLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0.66),
-            percentageLabel.topAnchor.constraint(equalTo: foodNameLabel.bottomAnchor, constant: 7)
+            percentageLabel.topAnchor.constraint(equalTo: foodNameLabel.bottomAnchor, constant: 5)
         ])
     }
 
@@ -255,7 +254,7 @@ class ReconFoodViewController1: UIViewController {
            paragraphStyle.lineHeightMultiple = 1.26
            paragraphStyle.alignment = .center
            
-           let fullString = "\(userName ?? "그룹")님의 그룹의 선호가\n\(String(format: "%.1f%%", rank.group_preference)) 반영된 최적의 메뉴에요!"
+            let fullString = "\(userName ?? "그룹")님의 그룹의 선호가\n\(Int(rank.group_preference))% 반영된 최적의 메뉴에요!"
            let attributedString = NSMutableAttributedString(string: fullString, attributes: [
                .paragraphStyle: paragraphStyle,
                .font: UIFont(name: "Pretendard-Bold", size: 16)!,

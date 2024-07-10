@@ -388,36 +388,34 @@ class PreferViewController7 : UIViewController{
     @objc func skipToNext(){
         if foodButton1.isSelected == false && foodButton2.isSelected == false {
             let preferVC = DailyFoorofileViewController()
-                        
+            
             if var model = dailyScrumModel {
                 model.todaySoup = 1
                 model.todayNoSoup = 1
                 dailyScrumModel = model
             }
             
-    
-            
             if let model = dailyScrumModel, let userId = uid {
-                       makePostRequest(model: model, userId: userId)
-                   } else {
-                       print("🍎model : \(dailyScrumModel)")
-                       print("🍎uid : \(uid) ")
-                       print("🚨 Error: preferModel or uid is nil")
-                       return
-                   }
+                makePostRequest(model: model, userId: userId)
+            } else {
+                print("🍎model : \(dailyScrumModel)")
+                print("🍎uid : \(uid) ")
+                print("🚨 Error: preferModel or uid is nil")
+                return
+            }
             
-//            preferVC.dailyScrumModel = self.dailyScrumModel
-//                    preferVC.uid = self.uid  // uid 전달
-//                    preferVC.name = self.name  // name 전달
+            // 여기에 필요한 데이터를 전달합니다.
+            preferVC.uid = self.uid!
+            preferVC.name = self.name!
+            
             let transition = CATransition()
             transition.duration = 0.4
             transition.type = .push
             transition.subtype = .fromRight
             transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
             
-            // 현재 window에 전환 애니메이션 적용
             view.window?.layer.add(transition, forKey: kCATransition)
-            preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+            preferVC.modalPresentationStyle = .fullScreen
             present(preferVC, animated: false, completion: nil)
         }
     }

@@ -223,7 +223,7 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
         
         // PercentageLabel 설정
         let percentageLabel = UILabel()
-        percentageLabel.text = String(format: "%.1f%%", rank?.group_preference ?? 0)
+        percentageLabel.text = "\(Int(rank?.group_preference ?? 0))%"
         percentageLabel.font = UIFont(name: "Pretendard-Black", size: 28)
         percentageLabel.textColor = UIColor(red: 1, green: 0.546, blue: 0, alpha: 1)
         circularProgressView.addSubview(percentageLabel)
@@ -241,7 +241,7 @@ class ReconFoodViewController2: UIViewController, UIScrollViewDelegate {
         descriptionLabel.textAlignment = .center
         descriptionLabel.font = UIFont(name: "Pretendard-Bold", size: 16)
         descriptionLabel.textColor = UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
-        descriptionLabel.text = "\(userName ?? "그룹")님의 그룹의 선호가\n\(String(format: "%.1f%%", rank?.group_preference ?? 0)) 반영된 메뉴에요!"
+        descriptionLabel.text = "\(userName ?? "그룹")님의 그룹의 선호가\n\(Int(rank?.group_preference ?? 0))% 반영된 메뉴에요!"
         menuView.addSubview(descriptionLabel)
         descriptionLabels.append(descriptionLabel)
         

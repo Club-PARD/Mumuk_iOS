@@ -327,6 +327,11 @@ lazy var yesterdayeat: UILabel = {
         setUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        firstProfile()
+    }
+    
     
     
 //    override func viewWillAppear(_ animated: Bool) {
