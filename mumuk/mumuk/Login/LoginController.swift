@@ -341,6 +341,11 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                let jsonData = try encoder.encode(memo)
                request.httpBody = jsonData
                
+               // 디버깅을 위해 JSON 데이터 출력
+               if let jsonString = String(data: jsonData, encoding: .utf8) {
+                   print("Request JSON: \(jsonString)")
+               }
+               
                let task = URLSession.shared.dataTask(with: request) { data, response, error in
                    if let error = error {
                        print("🚨", error)

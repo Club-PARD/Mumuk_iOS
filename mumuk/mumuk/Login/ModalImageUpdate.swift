@@ -179,7 +179,8 @@ extension ModalImageUpdate: UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let target = Model.ModelData[indexPath.item + 1]
         let image = UIImage(named: "\(target.image).jpeg")
-        updateSelectedImage(with: image, at: indexPath.item+1)    //선택한 이미지 큰 곳에 전송
+        updateSelectedImage(with: image, at: indexPath.item + 1)
+        selectedIndex = indexPath.item + 1
     }
 }
 

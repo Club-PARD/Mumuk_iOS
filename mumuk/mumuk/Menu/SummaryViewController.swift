@@ -17,11 +17,31 @@ class SummaryViewController: UIViewController {
         fetchGroupLeaderName { [weak self] groupName in
             DispatchQueue.main.async {
                 self?.setupSummaryView()
+                self?.setupBackButton()
                 self?.setupSummaryLabel(with: groupName)
                 self?.setupCardImage(with: groupName)
                 self?.setupBottomView()
             }
         }
+    }
+    
+    func setupBackButton() {
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(UIImage(named: "back"), for: .normal)
+        backButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
+        
+        view.addSubview(backButton)
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            backButton.widthAnchor.constraint(equalToConstant: 10),
+            backButton.heightAnchor.constraint(equalToConstant: 22),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 31.79),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 75)
+        ])
+    }
+    
+    @objc func dismissVC() {
+        dismiss(animated: true, completion: nil)
     }
     
     private func getImage(for imageId: Int) -> UIImage {
@@ -224,10 +244,6 @@ class SummaryViewController: UIViewController {
                 friendView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
             }
             
-            if index == groupUserData.users.count - 1 {
-                friendView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-            }
-            
             previousView = friendView
             
             if index < groupUserData.users.count - 1 {
@@ -246,11 +262,18 @@ class SummaryViewController: UIViewController {
         }
         
         // contentView의 높이를 설정합니다.
-        let lastView = contentView.subviews.last!
-        NSLayoutConstraint.activate([
-            contentView.bottomAnchor.constraint(equalTo: lastView.bottomAnchor, constant: 20),
-            contentView.heightAnchor.constraint(greaterThanOrEqualTo: scrollView.heightAnchor)
-        ])
+        if let lastView = contentView.subviews.last {
+            NSLayoutConstraint.activate([
+                contentView.bottomAnchor.constraint(equalTo: lastView.bottomAnchor, constant: 20)
+            ])
+        }
+        
+        // 스크롤뷰의 contentSize를 설정합니다.
+        let contentHeight = contentView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+        scrollView.contentSize = CGSize(width: scrollView.bounds.width, height: contentHeight)
+        
+        // 스크롤뷰의 높이 제약 조건을 추가합니다.
+        scrollView.heightAnchor.constraint(greaterThanOrEqualToConstant: contentHeight).isActive = true
     }
     
     func createFriendView(user: GroupUser) -> UIView {
