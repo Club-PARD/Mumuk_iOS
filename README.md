@@ -43,10 +43,10 @@
 
 # 🥄 페이지별 소개
 
-* 메인 페이지
+## * 메인 페이지 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/0fbed8d7-46b4-4964-92b7-29f4682eae41" width="300" height="650"/>
 
-
+## * 함께 먹기 페이지 - 그룹핑을 하고 그륩핑된 유저의 선호도를 기반으로 메뉴를 추천하는 페이지입니다.
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/352951ce-0f7e-43c4-b2ec-5d47e344607b" width="300" height="650"/>
 
 
@@ -56,6 +56,8 @@
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/a2a142e8-01b6-4312-94df-5e6044c99386" width="300" height="650"/>
 
 
+
+### *메뉴추천페이지
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/88af62b0-8dab-45f2-9f90-a5df641a1d1f" width="300" height="650"/>
 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/010e9bdd-8cf3-4d4d-94e5-d319ceecaca3" width="300" height="650"/>
