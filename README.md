@@ -1,3 +1,8 @@
+<img src="https://capsule-render.vercel.app/api?type=wave&color=FF971A&height=300&section=header&text=Mumuk&fontSize=90" />
+
+
+
+
 # Mumuk_iOS
 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/8f870dd8-a4c0-4443-b537-81a85cbf3c50" width="700" height="400"/>
