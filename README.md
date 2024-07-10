@@ -104,3 +104,15 @@
 |                                                이시온                                                 |                          🐹 김현중                           |                          🐨 김민준                           |                          🐶 유재혁                           |
 |                                                  백엔드                                                  |                           프론트엔드                           |                           프론트엔드                           |                           프론트엔드                           |
 | <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/f26e4bed-3825-4461-8e1a-ef5a4d2dda8e" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/8803b490-b1cd-445a-a9c3-2686256fbe5f" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/df610ae8-d571-4a39-91b3-0c57a067dd84" style="width: 150px; height: 150px; object-fit: cover;"> | <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/f9d2904b-db60-4a17-aec1-246711d3da66" style="width: 150px; height: 150px; object-fit: cover;"> |
+
+
+
+
+
+## 개발환경 및 언어
+<img src="https://img.shields.io/badge/Swift-white?style=for-the-badge&logo=Swift&logoColor=FF971A">
+<div>
+  <img src="https://img.shields.io/badge/Github-white?style=for-the-badge&logo=Github&logoColor=FF971A">
+  <img src="https://img.shields.io/badge/Notion-white?style=for-the-badge&logo=Notion&logoColor=FF971A">
+  <img src="https://img.shields.io/badge/Figma-white?style=for-the-badge&logo=Figma&logoColor=FF971A">
+</div>
