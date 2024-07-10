@@ -77,9 +77,6 @@
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
 		22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9D992C3C5B6600CBC79F /* LoadingViewController.swift */; };
-		22CC9DC02C3CA30800CBC79F /* Openprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DAE2C3CA30800CBC79F /* Openprofile.swift */; };
-		22CC9DD52C3CA37200CBC79F /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DCF2C3CA37200CBC79F /* MyViewController.swift */; };
-		22CC9DD82C3CA37200CBC79F /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DD22C3CA37200CBC79F /* FriendViewController.swift */; };
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
 		4E03A6306342914DE51D89C0 /* Pods_mumuk_mumukUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DBF032E46D4DF3F0337C82 /* Pods_mumuk_mumukUITests.framework */; };
@@ -249,6 +246,16 @@
 			path = mumuk/Model;
 			sourceTree = "<group>";
 		};
+		223192DD2C3E46EC00BE699A /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				22CC9DD22C3CA37200CBC79F /* FriendViewController.swift */,
+				22CC9DCF2C3CA37200CBC79F /* MyViewController.swift */,
+				22CC9DAE2C3CA30800CBC79F /* Openprofile.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		2243B66F2C39830100F6EFBF /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +352,7 @@
 				22BB25E72C22E31B00F7585E /* Products */,
 				38A09A38CF24C88189E07B52 /* Pods */,
 				F409328A3A61DAEA0D6FF64D /* Frameworks */,
+				223192DD2C3E46EC00BE699A /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -785,10 +793,7 @@
 				2243B67D2C3B960A00F6EFBF /* SummaryViewController.swift in Sources */,
 				22688FE02C3D292900A3E3EE /* PreferViewController2.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
-				22CC9DD82C3CA37200CBC79F /* FriendViewController.swift in Sources */,
 				2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */,
-				22CC9DD52C3CA37200CBC79F /* MyViewController.swift in Sources */,
-				22CC9DC02C3CA30800CBC79F /* Openprofile.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
 				22688FF82C3D295400A3E3EE /* FriendModel.swift in Sources */,
 				2243B6752C3A7EE000F6EFBF /* ReconFoodViewController2.swift in Sources */,

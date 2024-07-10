@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-
-
-import Foundation
-
-struct OpenPreferModel : Codable{
-    
-    var exceptionalFoods: [String]
-    
-    var spicyType : Bool
-    
-    var koreanFood : Int
-    var westernFood : Int
-    var chineseFood : Int
-    var japaneseFood : Int
-    var southeastAsianFood : Int
-    var elseFood : Int
-    
-    var foodTypeId : Int
-    
-
-    
-=======
 import Foundation
 
 struct OpenPreferModel: Codable {
@@ -72,5 +49,4 @@ struct OpenPreferModel: Codable {
 //        self.elseFood = try container.decodeIfPresent(Int.self, forKey: .elseFood) ?? 0
 //        self.foodTypeId = try container.decodeIfPresent(Int.self, forKey: .foodTypeId) ?? 0
 //    }
->>>>>>> hj_branch
 }

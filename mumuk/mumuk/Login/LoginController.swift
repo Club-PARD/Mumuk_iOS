@@ -15,19 +15,12 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     var exists : Bool?
     var name: String?
     
-<<<<<<< HEAD
-=======
     static var globalName : String = ""
->>>>>>> hj_branch
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupRoundedImageButton()
-<<<<<<< HEAD
-=======
-        
->>>>>>> hj_branch
         print("로그인 페이지 : \(uid)")
         
         setUI()
@@ -274,11 +267,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     // 서버에 이미 존재하는 이름인지 확인하기
     func checkNameExists(name: String, image: Int) {
         guard let encodedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
-<<<<<<< HEAD
-              let url = URL(string: "https:/mumuk.store/user/checkExists?name=\(encodedName)") else {
-=======
               let url = URL(string: "https://mumuk.store/user/checkExists?name=\(encodedName)") else {
->>>>>>> hj_branch
             print("🚨Error: Invalid URL")
             return
         }
@@ -314,15 +303,11 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                         let newMember = NameModel(uid: self?.uid ?? "", name: name, image: image)
                         self?.makePostRequest(newMember)
                         self!.name = newMember.name
-<<<<<<< HEAD
-                        print(name)
-=======
                         
                         // 전역변수로 name
                         LoginController.globalName = newMember.name
                         
                         print("이거 확인\(name)")
->>>>>>> hj_branch
                     }
                 }
             } else {
@@ -342,11 +327,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     
     // Post request 보내는 함수
        func makePostRequest(_ memo: NameModel) {
-<<<<<<< HEAD
-           guard let url = URL(string: "https:/mumuk.store/user/create") else {
-=======
            guard let url = URL(string: "https://mumuk.store/user/create") else {
->>>>>>> hj_branch
                print("🚨 Invalid URL")
                return
            }
@@ -381,11 +362,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
     func navigateToNextViewController() {
         let nextVC = OpenPreferViewController1()
         nextVC.uid = self.uid
-        
-<<<<<<< HEAD
-        
-=======
->>>>>>> hj_branch
                 
         nextVC.name = self.name
         print(name)
