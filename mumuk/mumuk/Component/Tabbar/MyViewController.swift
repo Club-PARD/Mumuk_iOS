@@ -239,10 +239,10 @@ class MyViewController: UIViewController {
     }()
     
     private let tagUnderCollectionView: UICollectionView = {
-        let flowlayout = LeftAlignedCollectionViewFlowLayout()
-        flowlayout.scrollDirection = .horizontal
-        flowlayout.minimumInteritemSpacing = 5
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 5
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear

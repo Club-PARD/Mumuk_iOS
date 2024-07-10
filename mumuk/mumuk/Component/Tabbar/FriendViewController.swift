@@ -84,6 +84,7 @@ class FriendViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {    //뷰가 뜰 때 실행되는 함수
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)      //이거hiddend을  true로 해서 움직일 때 위에 색 바뀌는거 없애줌
+        fetchMembers()
     }
     
     override func viewWillDisappear(_ animated: Bool) { // 뷰가 사라질 때 실행되는 함수
@@ -294,35 +295,43 @@ class FriendViewController: UIViewController{
     
     // 데이터 불러오기 함수 (친구 목록 갱신)
     func fetchMembers() {
-            print("데이터 불러오기 시작")
+        print("데이터 불러오기 시작")
         if let url = URL(string: "https://mumuk.store/with-pref/friend?name=\(self.name)") {
-                let session = URLSession(configuration: .default)
-                let task = session.dataTask(with: url) { data, response, error in
-                    if error != nil {
-                        print("🚨🚨🚨", error!)
-                        return
-                    }
-                    if let JSONdata = data {
-                        let dataString = String(data: JSONdata, encoding: .utf8)
-                        print(dataString!)
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url) { data, response, error in
+                if let error = error {
+                    print("🚨🚨🚨", error)
+                    return
+                }
+                if let JSONdata = data {
+                    let dataString = String(data: JSONdata, encoding: .utf8)
+                    print(dataString!)
+                    
+                    let decoder = JSONDecoder()
+                    do {
+                        let decodeData = try decoder.decode([String: FriendModel].self, from: JSONdata)
                         
-                        let decoder = JSONDecoder()
-                        do {
-                            //데이터가 배열 안의 배열로 오고있음
-                            let decodeData = try decoder.decode([String: FriendModel].self, from: JSONdata)
-                            let friendsArray = Array(decodeData.values)
-                            self.friend = friendsArray
-                            DispatchQueue.main.async {
-                                self.friendTableView.reloadData()
-                            }
-                        } catch let error as NSError {
-                            print("🚨🚨🚨", error)
+                        // Dictionary 값들을 배열로 변환
+                        var friendsArray = Array(decodeData.values)
+                        
+                        // 이름을 기준으로 정렬 (한글, 영어 알파벳 순)
+                        friendsArray.sort { (friend1, friend2) -> Bool in
+                            return friend1.name.localizedStandardCompare(friend2.name) == .orderedAscending
                         }
+                        
+                        self.friend = friendsArray
+                        
+                        DispatchQueue.main.async {
+                            self.friendTableView.reloadData()
+                        }
+                    } catch let error as NSError {
+                        print("🚨🚨🚨", error)
                     }
                 }
-                task.resume()
             }
+            task.resume()
         }
+    }
     
 }
 
