@@ -1,21 +1,21 @@
 {
-    "images": [
-        {
-            "idiom": "universal",
-            "scale": "1x"
-        },
-        {
-            "idiom": "universal",
-            "scale": "2x"
-        },
-        {
-            "filename": "스크린샷_2024-07-02_오후_5.37.09-removebg-preview 1.png",
-            "idiom": "universal",
-            "scale": "3x"
-        }
-    ],
-    "info": {
-        "author": "xcode",
-        "version": 1
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "스크린샷_2024-07-02_오후_5.37.09-removebg-preview 1.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
 }
