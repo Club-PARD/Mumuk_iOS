@@ -79,7 +79,14 @@
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/fa5b8987-4e03-4883-ad8c-8d42ae05b44d" width="300" height="650"/>
 
 
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/06f0d90b-94ba-467d-b3c7-2a391d30530a" width="300" height="650"/>
 
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/14983e59-afc4-4a29-a37f-4f7d4107013d" width="300" height="650"/>
+
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/fd77d092-d8eb-48b6-bd0d-996518f5ea09" width="300" height="650"/>
 
 
 
@@ -90,6 +97,12 @@
 
 
 ## * 데일리 푸드 스크럼 - 사용자의 오늘의 음식 선호도 조사하는 페이지 
+
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/237c3a39-454f-4ce7-970d-c8950ffad9c7" width="300" height="650"/>
+
+
 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/95e7319e-aa1e-48d1-bb06-f4b4ff5421d4" width="300" height="650"/>
 
