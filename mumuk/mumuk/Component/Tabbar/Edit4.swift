@@ -2,7 +2,7 @@
 //  Edit4.swift
 //  mumuk
 //
-//  Created by 유재혁 on 7/9/24.
+//  Created by 김민준 on 7/3/24.
 //
 
 import UIKit
@@ -13,52 +13,20 @@ class Edit4 : UIViewController {
     var uid : String?
     var name : String?
     var preferModel : OpenPreferModel?
-        
     
-    
-    let lineImage1 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage2 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage3 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage4 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
+    let lineImage : UIImageView = {
+         let lineImage = UIImageView()
+         lineImage.image = UIImage(named: "openline4")
+         lineImage.translatesAutoresizingMaskIntoConstraints = false
+         lineImage.contentMode = .scaleAspectFit
+         lineImage.clipsToBounds = true
+         return lineImage
+     }()
+     
     
     let nextButton : UIButton = {
         var config = UIButton.Configuration.filled()
         config.background.backgroundColor = #colorLiteral(red: 1, green: 0.5921568627, blue: 0.1019607843, alpha: 1)
-        
-        
-        // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -72,8 +40,8 @@ class Edit4 : UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 24
         button.layer.masksToBounds = true
-        
-        
+//        button.addTarget(self, action: #selector(firstButtonTapped), for: .touchUpInside)
+
         return button
         
     }()
@@ -267,8 +235,10 @@ class Edit4 : UIViewController {
         
     }()
     
-    
-    
+//    @objc private func firstButtonTapped() {
+//        let mainViewController = Openprofile()
+//          navigationController?.pushViewController(mainViewController, animated: true)
+//    }
     
         
     override func viewDidLoad() {
@@ -277,6 +247,7 @@ class Edit4 : UIViewController {
         uid = UserDefaultsManager.shared.getUserId() ?? ""
         print(" open uid4 : \(uid)")
         print("open model4 : \(preferModel)")
+        print("open name : \(name)")
         
         nextButton.addTarget(self, action: #selector(moveToNext), for: .touchUpInside)
         setupBackButton()
@@ -301,10 +272,7 @@ class Edit4 : UIViewController {
     
     
     func setUI(){
-        view.addSubview(lineImage1)
-        view.addSubview(lineImage2)
-        view.addSubview(lineImage3)
-        view.addSubview(lineImage4)
+        view.addSubview(lineImage)
         view.addSubview(nextButton)
         view.addSubview(titleLabel1)
         view.addSubview(titleLabel2)
@@ -320,33 +288,23 @@ class Edit4 : UIViewController {
     
         
         NSLayoutConstraint.activate([
-            lineImage1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 36),
-            lineImage1.widthAnchor.constraint(equalToConstant: 69),
+            lineImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 57.4),
+                        lineImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33),
+                        lineImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                        
+                        
+                        // 변경
+                           titleLabel1.topAnchor.constraint(equalTo: lineImage.bottomAnchor , constant: 38),
+                        titleLabel1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
             
-            lineImage2.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage2.leadingAnchor.constraint(equalTo: lineImage1.trailingAnchor , constant: 16),
-            lineImage2.widthAnchor.constraint(equalToConstant: 69),
-            
-            lineImage3.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage3.leadingAnchor.constraint(equalTo: lineImage2.trailingAnchor , constant: 16),
-            lineImage3.widthAnchor.constraint(equalToConstant: 69),
-
-            lineImage4.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage4.leadingAnchor.constraint(equalTo: lineImage3.trailingAnchor , constant: 16),
-            lineImage4.widthAnchor.constraint(equalToConstant: 69),
-        
-            titleLabel1.topAnchor.constraint(equalTo: lineImage1.bottomAnchor , constant: 38),
-            titleLabel1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
-            
-            titleLabel2.topAnchor.constraint(equalTo: lineImage1.bottomAnchor , constant: 38),
+            titleLabel2.topAnchor.constraint(equalTo: lineImage.bottomAnchor , constant: 38),
             titleLabel2.leadingAnchor.constraint(equalTo: titleLabel1.trailingAnchor , constant: 0),
             
             titleLabel3.topAnchor.constraint(equalTo: titleLabel1.bottomAnchor , constant: 4),
             titleLabel3.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
         
             titleLabel5.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
-            titleLabel5.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 58.4),
+                        titleLabel5.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -13.7),
             nextButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32.4),
@@ -525,11 +483,13 @@ class Edit4 : UIViewController {
     
     @objc func moveToNext(){
         if foodButton1.isSelected || foodButton2.isSelected || foodButton3.isSelected || foodButton4.isSelected {
-           
+            let preferVC = DailyFoorofileViewController()
+            preferVC.uid = self.uid ?? ""
+            preferVC.name = self.name ?? ""
+            
+                
             
             
-//            let dataVC = MainViewController()
-            let preferVC = TabbarViewController()
             
             
 //            preferVC.name = name   // name 전달
@@ -544,12 +504,12 @@ class Edit4 : UIViewController {
 //            makePostRequest(model: preferModel , userId: uid)
             
             if let model = preferModel, let userId = uid {
-                       print(model)
-                       makePostRequest(model: model, userId: userId)
-                   } else {
-                       print("🚨 Error: preferModel or uid is nil")
-                       return
-                   }
+                print(model)
+                makePostRequest(model: model, userId: userId)
+            } else {
+                print("🚨 Error: preferModel or uid is nil")
+                return
+            }
             
             
             // 현재 window에 전환 애니메이션 적용

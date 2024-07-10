@@ -418,7 +418,7 @@ lazy var yesterdayeat: UILabel = {
             backlabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 25 ),
             backlabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor , constant: 51),
             backlabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor , constant: -23),
-            backlabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -24),
+            backlabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -10),
             
             boundary.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             boundary.topAnchor.constraint(equalTo: backlabel.topAnchor, constant: 25),
