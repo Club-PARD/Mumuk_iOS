@@ -410,9 +410,10 @@ lazy var yesterdayeat: UILabel = {
             subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 45),
             
             background.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
-            background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
-            background.heightAnchor.constraint(equalToConstant: 135),
-            background.widthAnchor.constraint(equalToConstant: 275),
+                       background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+                       background.heightAnchor.constraint(equalToConstant: 135),
+                       background.widthAnchor.constraint(equalToConstant: 275),
+                       background.bottomAnchor.constraint(equalTo: backlabel.bottomAnchor, constant: -20),
         
             
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -444,9 +445,9 @@ lazy var yesterdayeat: UILabel = {
             status.widthAnchor.constraint(equalToConstant: 140),
             
             userImage.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
-            userImage.widthAnchor.constraint(equalToConstant: 190),
-            userImage.heightAnchor.constraint(equalToConstant: 190),
-            userImage.centerYAnchor.constraint(equalTo: boundary.centerYAnchor),
+                      userImage.topAnchor.constraint(equalTo: boundary.topAnchor , constant: 66),
+                      userImage.leadingAnchor.constraint(equalTo: boundary.leadingAnchor , constant: 66),
+                      userImage.centerYAnchor.constraint(equalTo: boundary.centerYAnchor),
             
             nickname.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 13.5),
             nickname.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),

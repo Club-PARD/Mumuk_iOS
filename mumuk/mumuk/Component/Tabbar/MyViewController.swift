@@ -460,22 +460,29 @@ class MyViewController: UIViewController {
     }()
     
     let service: UIButton = {
-        var configuration = UIButton.Configuration.plain()
+          var configuration = UIButton.Configuration.plain()
 
-        var text = AttributedString("서비스 이용약관")
-        text.font = UIFont(name: "Pretendard-Medium", size: 14)
-        text.foregroundColor = UIColor.black
-        configuration.attributedTitle = text
-        configuration.image = UIImage(named: "sheet")
-        configuration.imagePadding = 19
-        configuration.imagePlacement = .leading
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+          var text = AttributedString("서비스 이용약관")
+          text.font = UIFont(name: "Pretendard-Medium", size: 14)
+          text.foregroundColor = UIColor.black
+          configuration.attributedTitle = text
+          configuration.image = UIImage(named: "sheet")
+          configuration.imagePadding = 19
+          configuration.imagePlacement = .leading
+          configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
-        let button = UIButton(configuration: configuration)
-        button.translatesAutoresizingMaskIntoConstraints = false
+          let button = UIButton(configuration: configuration)
+          button.translatesAutoresizingMaskIntoConstraints = false
+          button.addTarget(self, action: #selector(serviceuse), for: .touchUpInside)
 
-        return button
-    }()
+          return button
+      }()
+    
+    @objc private func serviceuse() {
+        let serviceVC = ServiceViewController()
+        serviceVC.modalPresentationStyle = .fullScreen // 전체 화면으로 표시
+        self.present(serviceVC, animated: true, completion: nil)
+    }
     
     let logout: UIButton = {
         var configuration = UIButton.Configuration.plain()
@@ -578,7 +585,7 @@ class MyViewController: UIViewController {
     
     
     @objc private func customercontect() {
-        showAlert(message: "010-5685-0125로 문의 하던가 말던가~")
+        showAlert(message: "고객님의 문의에 신속히 응답하겠습니다.")
     }
     
     func showAlert(message: String) {
@@ -854,22 +861,22 @@ extension MyViewController: UICollectionViewDelegate, UICollectionViewDataSource
     }
 
     func performLogout() {
-        // UserDefaults에서 로그인 상태 및 사용자 정보 삭제
-        UserDefaultsManager.shared.setLoggedIn(false)
-        UserDefaultsManager.shared.setUserId(nil)
+        UserDefaultsManager.shared.clearAllUserData()
         
         // 카카오 로그아웃
         UserApi.shared.logout {(error) in
             if let error = error {
                 print(error)
-            }
-            else {
+            } else {
                 print("카카오 logout() success.")
             }
         }
         
         // 로그인 화면으로 이동
-        self.navigateToLoginScreen()
+        let loginVC = KakaoLoginViewController()
+        let navController = UINavigationController(rootViewController: loginVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
     }
 
     func navigateToLoginScreen() {

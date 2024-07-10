@@ -24,15 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        print("앱 시작 시 로그인 상태: \(UserDefaultsManager.shared.isLoggedIn())")
-        print("저장된 UID: \(UserDefaultsManager.shared.getUserId() ?? "없음")")
-        
         if UserDefaultsManager.shared.isLoggedIn() {
-            print("로그인 상태입니다. MainViewController로 이동합니다.")
             let mainVC = TabbarViewController()
             window?.rootViewController = mainVC
         } else {
-            print("로그인 상태가 아닙니다. KakaoLoginViewController를 표시합니다.")
             let loginVC = KakaoLoginViewController()
             window?.rootViewController = loginVC
         }

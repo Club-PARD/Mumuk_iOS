@@ -12,56 +12,18 @@ class OpenPreferViewController2 : UIViewController {
     var name : String?
     var preferModel : OpenPreferModel?
     
-
-     
-    
-    
-    
-    
-    
-    let lineImage1 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage2 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage3 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "grayLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage4 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "grayLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
+    let lineImage : UIImageView = {
+         let lineImage = UIImageView()
+         lineImage.image = UIImage(named: "openline2")
+         lineImage.translatesAutoresizingMaskIntoConstraints = false
+         lineImage.contentMode = .scaleAspectFit
+         lineImage.clipsToBounds = true
+         return lineImage
+     }()
     
     let nextButton : UIButton = {
         var config = UIButton.Configuration.filled()
         config.background.backgroundColor = #colorLiteral(red: 1, green: 0.5921568627, blue: 0.1019607843, alpha: 1)
-        
-        
-        // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -358,10 +320,7 @@ class OpenPreferViewController2 : UIViewController {
     
     
     func setUI(){
-        view.addSubview(lineImage1)
-        view.addSubview(lineImage2)
-        view.addSubview(lineImage3)
-        view.addSubview(lineImage4)
+        view.addSubview(lineImage)
         view.addSubview(nextButton)
         
         view.addSubview(titleLabel1)
@@ -376,26 +335,16 @@ class OpenPreferViewController2 : UIViewController {
         
         
         NSLayoutConstraint.activate([
-            lineImage1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 36),
-            lineImage1.widthAnchor.constraint(equalToConstant: 69),
+            lineImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 57.4),
+                        lineImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33),
+                        lineImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                        
+                        
+                        // 변경
+                           titleLabel1.topAnchor.constraint(equalTo: lineImage.bottomAnchor , constant: 38),
+                        titleLabel1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
             
-            lineImage2.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage2.leadingAnchor.constraint(equalTo: lineImage1.trailingAnchor , constant: 16),
-            lineImage2.widthAnchor.constraint(equalToConstant: 69),
-            
-            lineImage3.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage3.leadingAnchor.constraint(equalTo: lineImage2.trailingAnchor , constant: 16),
-            lineImage3.widthAnchor.constraint(equalToConstant: 69),
-
-            lineImage4.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage4.leadingAnchor.constraint(equalTo: lineImage3.trailingAnchor , constant: 16),
-            lineImage4.widthAnchor.constraint(equalToConstant: 69),
-        
-            titleLabel1.topAnchor.constraint(equalTo: lineImage1.bottomAnchor , constant: 38),
-            titleLabel1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
-            
-            titleLabel2.topAnchor.constraint(equalTo: lineImage1.bottomAnchor , constant: 38),
+            titleLabel2.topAnchor.constraint(equalTo: lineImage.bottomAnchor , constant: 38),
             titleLabel2.leadingAnchor.constraint(equalTo: titleLabel1.trailingAnchor , constant: 0),
             
             titleLabel3.topAnchor.constraint(equalTo: titleLabel1.bottomAnchor , constant: 2.8),
@@ -405,7 +354,7 @@ class OpenPreferViewController2 : UIViewController {
             titleLabel4.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
             
             titleLabel5.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
-            titleLabel5.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 58.4),
+                        titleLabel5.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -13.7),
             nextButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32.4),

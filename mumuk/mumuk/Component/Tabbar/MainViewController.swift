@@ -162,7 +162,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        uid = KakaoLoginViewController.globalUid
+        uid = UserDefaultsManager.shared.getUserId() ?? ""
 
         setupUI()
         setupButtonActions()
@@ -330,7 +330,7 @@ class MainViewController: UIViewController {
 
     @objc private func createButtonTapped() {
         let friendGroupingVC = FriendGroupingViewController()
-        uid = KakaoLoginViewController.globalUid
+        uid = UserDefaultsManager.shared.getUserId() ?? ""
 //        print(uid)
         friendGroupingVC.uid = self.uid  // uid 전달
         friendGroupingVC.name = self.name  // name 전달
@@ -340,7 +340,7 @@ class MainViewController: UIViewController {
 
     @objc private func moveToPreferViewController(){
         let preferVC = PreferViewController1()
-        uid = KakaoLoginViewController.globalUid
+        uid = UserDefaultsManager.shared.getUserId() ?? ""
         preferVC.uid = uid
 //        if let uid = uid{
 //

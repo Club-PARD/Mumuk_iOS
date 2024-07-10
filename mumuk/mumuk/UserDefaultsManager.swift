@@ -1,10 +1,4 @@
-//
-//  UserDefaultsManager.swift
-//  mumuk
-//
-//  Created by 김현중 on 7/10/24.
-//
-
+import Foundation
 import UIKit
 
 class UserDefaultsManager {
@@ -14,27 +8,33 @@ class UserDefaultsManager {
     private let isLoggedInKey = "isLoggedIn"
     private let userIdKey = "userId"
     
+    private var deviceIdentifier: String {
+        return UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+    }
+    
     func setLoggedIn(_ isLoggedIn: Bool) {
-        userDefaults.set(isLoggedIn, forKey: isLoggedInKey)
+        userDefaults.set(isLoggedIn, forKey: isLoggedInKey + deviceIdentifier)
     }
     
     func isLoggedIn() -> Bool {
-        return userDefaults.bool(forKey: isLoggedInKey)
-    }
-    
-    func setUserId(_ userId: String) {
-        userDefaults.set(userId, forKey: userIdKey)
-    }
-    
-    func getUserId() -> String? {
-        return userDefaults.string(forKey: userIdKey)
+        return userDefaults.bool(forKey: isLoggedInKey + deviceIdentifier)
     }
     
     func setUserId(_ userId: String?) {
-          if let userId = userId {
-              userDefaults.set(userId, forKey: userIdKey)
-          } else {
-              userDefaults.removeObject(forKey: userIdKey)
-          }
-      }
+        if let userId = userId {
+            userDefaults.set(userId, forKey: userIdKey + deviceIdentifier)
+        } else {
+            userDefaults.removeObject(forKey: userIdKey + deviceIdentifier)
+        }
+    }
+    
+    func getUserId() -> String? {
+        return userDefaults.string(forKey: userIdKey + deviceIdentifier)
+    }
+    
+    func clearAllUserData() {
+        userDefaults.removeObject(forKey: isLoggedInKey + deviceIdentifier)
+        userDefaults.removeObject(forKey: userIdKey + deviceIdentifier)
+        userDefaults.synchronize()
+    }
 }

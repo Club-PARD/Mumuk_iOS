@@ -9,7 +9,6 @@ class KakaoLoginViewController: UIViewController {
     var nickname : String?
     var uid : String?
     var exists : Bool?
-    static var globalUid : String = ""
     
     let superTitle1 : UILabel = {
         let label = UILabel()
@@ -247,7 +246,6 @@ class KakaoLoginViewController: UIViewController {
     func moveToMainViewController() {
         let nextVC = TabbarViewController()
         if let uid = uid {
-            KakaoLoginViewController.globalUid = uid
             UserDefaultsManager.shared.setUserId(uid)
             UserDefaultsManager.shared.setLoggedIn(true)
             print("로그인 상태 저장: \(UserDefaultsManager.shared.isLoggedIn())")
@@ -263,9 +261,9 @@ class KakaoLoginViewController: UIViewController {
         let nextVC = LoginController()
         nextVC.uid = self.uid
         if let uid = uid {
-            KakaoLoginViewController.globalUid = uid
-
+            UserDefaultsManager.shared.setUserId(uid)
         }
+
                 
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)

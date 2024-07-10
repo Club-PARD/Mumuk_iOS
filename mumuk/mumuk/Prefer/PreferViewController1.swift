@@ -557,19 +557,21 @@ extension PreferViewController1: UITableViewDataSource, UITableViewDelegate {
         cell.layer.mask = maskLayer
     }
     
-      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          tableView.deselectRow(at: indexPath, animated: true)
-          let selectedFood = filteredFood[indexPath.row]
-          print("Selected Food: \(selectedFood)")
-          
-          
-          searchText = selectedFood
-          searchBar.text = selectedFood
-          
-          filterFood(searchText: selectedFood)
-         
-          searchTableView.reloadData()
-          updateNextButtonState()
-          
-      }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+             tableView.deselectRow(at: indexPath, animated: true)
+             let selectedFood = filteredFood[indexPath.row]
+             print("Selected Food: \(selectedFood)")
+             
+             
+             searchText = selectedFood
+             searchBar.text = selectedFood
+             
+             filterFood(searchText: selectedFood)
+            
+             filteredFood.removeAll()
+             searchTableView.reloadData()
+             updateNextButtonState()
+             
+             view.endEditing(true)
+         }
 }

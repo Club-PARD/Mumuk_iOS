@@ -13,8 +13,6 @@ class Edit4 : UIViewController {
     var uid : String?
     var name : String?
     var preferModel : OpenPreferModel?
- 
-    static var globalUid : String = ""
         
     
     
@@ -276,9 +274,9 @@ class Edit4 : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        uid = UserDefaultsManager.shared.getUserId() ?? ""
         print(" open uid4 : \(uid)")
         print("open model4 : \(preferModel)")
-        
         
         nextButton.addTarget(self, action: #selector(moveToNext), for: .touchUpInside)
         setupBackButton()

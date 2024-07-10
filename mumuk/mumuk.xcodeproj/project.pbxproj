@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		223192E02C3E84D400BE699A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223192DF2C3E84D400BE699A /* UserDefaultsManager.swift */; };
+		223192E22C3EAD6800BE699A /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223192E12C3EAD6700BE699A /* ServiceViewController.swift */; };
 		2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */; };
 		2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */; };
 		2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */; };
@@ -113,6 +114,7 @@
 
 /* Begin PBXFileReference section */
 		223192DF2C3E84D400BE699A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		223192E12C3EAD6700BE699A /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingMainViewController.swift; sourceTree = "<group>"; };
 		2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPIService.swift; sourceTree = "<group>"; };
 		2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconFoodViewController1.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				815FE7C62C304E120090BDBE /* TabbarViewController.swift */,
 				815FE7CF2C304FA70090BDBE /* MainViewController.swift */,
 				2268901F2C3D2C0300A3E3EE /* ModalImageEdite.swift */,
+				223192E12C3EAD6700BE699A /* ServiceViewController.swift */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -770,6 +773,7 @@
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
 				226890202C3D2C0300A3E3EE /* ModalImageEdite.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
+				223192E22C3EAD6800BE699A /* ServiceViewController.swift in Sources */,
 				2268900A2C3D2A4F00A3E3EE /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				22688FE42C3D292900A3E3EE /* PreferViewController6.swift in Sources */,
 				2243B67B2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift in Sources */,
