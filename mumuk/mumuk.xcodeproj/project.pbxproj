@@ -77,34 +77,12 @@
 		22BB260B2C22E31E00F7585E /* mumukUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260A2C22E31E00F7585E /* mumukUITests.swift */; };
 		22BB260D2C22E31E00F7585E /* mumukUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */; };
 		22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9D992C3C5B6600CBC79F /* LoadingViewController.swift */; };
-		22CC9DB02C3CA30800CBC79F /* DailyFoorofileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9D9D2C3CA30800CBC79F /* DailyFoorofileViewController.swift */; };
-		22CC9DB32C3CA30800CBC79F /* OpenPreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA02C3CA30800CBC79F /* OpenPreferViewController1.swift */; };
-		22CC9DB42C3CA30800CBC79F /* OpenPreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA12C3CA30800CBC79F /* OpenPreferViewController2.swift */; };
-		22CC9DB52C3CA30800CBC79F /* OpenPreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA22C3CA30800CBC79F /* OpenPreferViewController3.swift */; };
-		22CC9DB62C3CA30800CBC79F /* OpenPreferViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA32C3CA30800CBC79F /* OpenPreferViewController4.swift */; };
-		22CC9DB72C3CA30800CBC79F /* PreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA42C3CA30800CBC79F /* PreferViewController1.swift */; };
-		22CC9DB82C3CA30800CBC79F /* PreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA52C3CA30800CBC79F /* PreferViewController2.swift */; };
-		22CC9DB92C3CA30800CBC79F /* PreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA62C3CA30800CBC79F /* PreferViewController3.swift */; };
-		22CC9DBA2C3CA30800CBC79F /* PreferViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA72C3CA30800CBC79F /* PreferViewController4.swift */; };
-		22CC9DBB2C3CA30800CBC79F /* PreferViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA82C3CA30800CBC79F /* PreferViewController5.swift */; };
-		22CC9DBC2C3CA30800CBC79F /* PreferViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DA92C3CA30800CBC79F /* PreferViewController6.swift */; };
-		22CC9DBD2C3CA30800CBC79F /* PreferViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DAA2C3CA30800CBC79F /* PreferViewController7.swift */; };
-		22CC9DBF2C3CA30800CBC79F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DAC2C3CA30800CBC79F /* SearchTableViewCell.swift */; };
 		22CC9DC02C3CA30800CBC79F /* Openprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DAE2C3CA30800CBC79F /* Openprofile.swift */; };
-		22CC9DC22C3CA33100CBC79F /* underbordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DC12C3CA33000CBC79F /* underbordCell.swift */; };
-		22CC9DC72C3CA34100CBC79F /* underTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DC32C3CA34000CBC79F /* underTagCell.swift */; };
-		22CC9DC82C3CA34100CBC79F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DC42C3CA34100CBC79F /* LeftAlignedCollectionViewFlowLayout.swift */; };
-		22CC9DC92C3CA34100CBC79F /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DC52C3CA34100CBC79F /* TagCell.swift */; };
-		22CC9DCA2C3CA34100CBC79F /* dailytasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DC62C3CA34100CBC79F /* dailytasteCell.swift */; };
-		22CC9DCC2C3CA35500CBC79F /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DCB2C3CA35500CBC79F /* FriendComponent.swift */; };
-		22CC9DD42C3CA37200CBC79F /* ModalImageEdite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DCE2C3CA37200CBC79F /* ModalImageEdite.swift */; };
 		22CC9DD52C3CA37200CBC79F /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DCF2C3CA37200CBC79F /* MyViewController.swift */; };
-		22CC9DD62C3CA37200CBC79F /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DD02C3CA37200CBC79F /* EditController.swift */; };
-		22CC9DD72C3CA37200CBC79F /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DD12C3CA37200CBC79F /* DetailViewController.swift */; };
 		22CC9DD82C3CA37200CBC79F /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9DD22C3CA37200CBC79F /* FriendViewController.swift */; };
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
-		5D51AB1522177FCF39D072B2 /* Pods_mumuk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70975423035765DEDC1C843 /* Pods_mumuk.framework */; };
+		4E03A6306342914DE51D89C0 /* Pods_mumuk_mumukUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DBF032E46D4DF3F0337C82 /* Pods_mumuk_mumukUITests.framework */; };
 		81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E252C29A3DF00EEC5FB /* LoginController.swift */; };
 		81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */; };
 		81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */; };
@@ -114,7 +92,8 @@
 		815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7CF2C304FA70090BDBE /* MainViewController.swift */; };
 		81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375F92C2AF3D7006D986F /* CustomCell.swift */; };
 		81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */; };
-		A9C7564CFE718E591BE66FB4 /* Pods_mumukTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE359FEA437CF0B00D8BBCD /* Pods_mumukTests.framework */; };
+		83F053707887306779E85536 /* Pods_mumuk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C77073081520A0112F651060 /* Pods_mumuk.framework */; };
+		E3DD5B6C59DBCC05DD23F217 /* Pods_mumukTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F9D6DECD0777340C11E2821 /* Pods_mumukTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +114,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F9D6DECD0777340C11E2821 /* Pods_mumukTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumukTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingMainViewController.swift; sourceTree = "<group>"; };
 		2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPIService.swift; sourceTree = "<group>"; };
 		2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconFoodViewController1.swift; sourceTree = "<group>"; };
@@ -209,51 +189,28 @@
 		22BB260A2C22E31E00F7585E /* mumukUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mumukUITests.swift; sourceTree = "<group>"; };
 		22BB260C2C22E31E00F7585E /* mumukUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mumukUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		22CC9D992C3C5B6600CBC79F /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
-		22CC9D9D2C3CA30800CBC79F /* DailyFoorofileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyFoorofileViewController.swift; sourceTree = "<group>"; };
-		22CC9DA02C3CA30800CBC79F /* OpenPreferViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferViewController1.swift; sourceTree = "<group>"; };
-		22CC9DA12C3CA30800CBC79F /* OpenPreferViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferViewController2.swift; sourceTree = "<group>"; };
-		22CC9DA22C3CA30800CBC79F /* OpenPreferViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferViewController3.swift; sourceTree = "<group>"; };
-		22CC9DA32C3CA30800CBC79F /* OpenPreferViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferViewController4.swift; sourceTree = "<group>"; };
-		22CC9DA42C3CA30800CBC79F /* PreferViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController1.swift; sourceTree = "<group>"; };
-		22CC9DA52C3CA30800CBC79F /* PreferViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController2.swift; sourceTree = "<group>"; };
-		22CC9DA62C3CA30800CBC79F /* PreferViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController3.swift; sourceTree = "<group>"; };
-		22CC9DA72C3CA30800CBC79F /* PreferViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController4.swift; sourceTree = "<group>"; };
-		22CC9DA82C3CA30800CBC79F /* PreferViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController5.swift; sourceTree = "<group>"; };
-		22CC9DA92C3CA30800CBC79F /* PreferViewController6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController6.swift; sourceTree = "<group>"; };
-		22CC9DAA2C3CA30800CBC79F /* PreferViewController7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController7.swift; sourceTree = "<group>"; };
-		22CC9DAC2C3CA30800CBC79F /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		22CC9DAE2C3CA30800CBC79F /* Openprofile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Openprofile.swift; sourceTree = "<group>"; };
-		22CC9DC12C3CA33000CBC79F /* underbordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = underbordCell.swift; sourceTree = "<group>"; };
-		22CC9DC32C3CA34000CBC79F /* underTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = underTagCell.swift; sourceTree = "<group>"; };
-		22CC9DC42C3CA34100CBC79F /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		22CC9DC52C3CA34100CBC79F /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
-		22CC9DC62C3CA34100CBC79F /* dailytasteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dailytasteCell.swift; sourceTree = "<group>"; };
-		22CC9DCB2C3CA35500CBC79F /* FriendComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendComponent.swift; sourceTree = "<group>"; };
-		22CC9DCE2C3CA37200CBC79F /* ModalImageEdite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalImageEdite.swift; sourceTree = "<group>"; };
 		22CC9DCF2C3CA37200CBC79F /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
-		22CC9DD02C3CA37200CBC79F /* EditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
-		22CC9DD12C3CA37200CBC79F /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		22CC9DD22C3CA37200CBC79F /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		485008072C2C44A800C9A196 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 		485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
-		50FDD1DDC2ABAD669E931C81 /* Pods-mumukTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.release.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.release.xcconfig"; sourceTree = "<group>"; };
-		5DE359FEA437CF0B00D8BBCD /* Pods_mumukTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumukTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		64C6EC10D1C288A45F1E085B /* Pods_mumuk_mumukUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk_mumukUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C974934DC4BED3AC4589C5B /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.release.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
-		7FEAC0085F2F4E18E06C14EE /* Pods-mumuk-mumukUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.debug.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5F810D87800A568D8597428E /* Pods-mumuk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.debug.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.debug.xcconfig"; sourceTree = "<group>"; };
 		81042E252C29A3DF00EEC5FB /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageField.swift; sourceTree = "<group>"; };
 		81042E312C29E23600EEC5FB /* ModalImageSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelect.swift; sourceTree = "<group>"; };
 		811168B82C2E9A7500A09CD3 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		8132F6F12EC8C30C59FD3704 /* Pods-mumuk-mumukUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.debug.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		815FE7C62C304E120090BDBE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		815FE7CF2C304FA70090BDBE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		81F375F92C2AF3D7006D986F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelectDelegate.swift; sourceTree = "<group>"; };
-		C098FDE5D720A737E3DF0740 /* Pods-mumuk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.debug.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.debug.xcconfig"; sourceTree = "<group>"; };
-		C70975423035765DEDC1C843 /* Pods_mumuk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB1B0F43E590001C261DFF37 /* Pods-mumukTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.debug.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EBDA696F713D0966A2A714B4 /* Pods-mumuk-mumukUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.release.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8BEB8854C03CF3068E293521 /* Pods-mumukTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.debug.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E8F5EA53D85991B0E4D4A55 /* Pods-mumuk-mumukUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.release.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A9FD79805BB846554B19F639 /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.release.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
+		B4DBF032E46D4DF3F0337C82 /* Pods_mumuk_mumukUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk_mumukUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD8E1B50C53A8C69C589D5A7 /* Pods-mumukTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.release.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.release.xcconfig"; sourceTree = "<group>"; };
+		C77073081520A0112F651060 /* Pods_mumuk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,7 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D51AB1522177FCF39D072B2 /* Pods_mumuk.framework in Frameworks */,
+				83F053707887306779E85536 /* Pods_mumuk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C7564CFE718E591BE66FB4 /* Pods_mumukTests.framework in Frameworks */,
+				E3DD5B6C59DBCC05DD23F217 /* Pods_mumukTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19357B74E23EA968BA7533A4 /* Pods_mumuk_mumukUITests.framework in Frameworks */,
+				4E03A6306342914DE51D89C0 /* Pods_mumuk_mumukUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,16 +244,6 @@
 		220CC3902C3CAC0A009D4576 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				220CC3862C3CAC0A009D4576 /* DetailModel.swift */,
-				220CC3872C3CAC0A009D4576 /* ExampleModelData.swift */,
-				220CC3882C3CAC0A009D4576 /* FoodListModel.swift */,
-				220CC3892C3CAC0A009D4576 /* FriendModel.swift */,
-				220CC38A2C3CAC0A009D4576 /* Model.swift */,
-				220CC38B2C3CAC0A009D4576 /* NameModel.swift */,
-				220CC38C2C3CAC0A009D4576 /* OpenPreferModel.swift */,
-				220CC38D2C3CAC0A009D4576 /* Prefer.swift */,
-				220CC38E2C3CAC0A009D4576 /* PreferModel.swift */,
-				220CC38F2C3CAC0A009D4576 /* UserPreference.swift */,
 			);
 			name = Model;
 			path = mumuk/Model;
@@ -397,7 +344,7 @@
 				22BB26092C22E31E00F7585E /* mumukUITests */,
 				22BB25E72C22E31B00F7585E /* Products */,
 				38A09A38CF24C88189E07B52 /* Pods */,
-				ED9A9BB0D0F94DEF0E640F32 /* Frameworks */,
+				F409328A3A61DAEA0D6FF64D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -453,43 +400,15 @@
 			path = mumukUITests;
 			sourceTree = "<group>";
 		};
-		22CC9DAD2C3CA30800CBC79F /* Prefer */ = {
-			isa = PBXGroup;
-			children = (
-				22CC9D9D2C3CA30800CBC79F /* DailyFoorofileViewController.swift */,
-				22CC9DA42C3CA30800CBC79F /* PreferViewController1.swift */,
-				22CC9DA52C3CA30800CBC79F /* PreferViewController2.swift */,
-				22CC9DA62C3CA30800CBC79F /* PreferViewController3.swift */,
-				22CC9DA72C3CA30800CBC79F /* PreferViewController4.swift */,
-				22CC9DA82C3CA30800CBC79F /* PreferViewController5.swift */,
-				22CC9DA92C3CA30800CBC79F /* PreferViewController6.swift */,
-				22CC9DAA2C3CA30800CBC79F /* PreferViewController7.swift */,
-				22CC9DAC2C3CA30800CBC79F /* SearchTableViewCell.swift */,
-			);
-			path = Prefer;
-			sourceTree = "<group>";
-		};
-		22CC9DAF2C3CA30800CBC79F /* OpenPrefer */ = {
-			isa = PBXGroup;
-			children = (
-				22CC9DA02C3CA30800CBC79F /* OpenPreferViewController1.swift */,
-				22CC9DA12C3CA30800CBC79F /* OpenPreferViewController2.swift */,
-				22CC9DA22C3CA30800CBC79F /* OpenPreferViewController3.swift */,
-				22CC9DA32C3CA30800CBC79F /* OpenPreferViewController4.swift */,
-				22CC9DAE2C3CA30800CBC79F /* Openprofile.swift */,
-			);
-			path = OpenPrefer;
-			sourceTree = "<group>";
-		};
 		38A09A38CF24C88189E07B52 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C098FDE5D720A737E3DF0740 /* Pods-mumuk.debug.xcconfig */,
-				6C974934DC4BED3AC4589C5B /* Pods-mumuk.release.xcconfig */,
-				7FEAC0085F2F4E18E06C14EE /* Pods-mumuk-mumukUITests.debug.xcconfig */,
-				EBDA696F713D0966A2A714B4 /* Pods-mumuk-mumukUITests.release.xcconfig */,
-				DB1B0F43E590001C261DFF37 /* Pods-mumukTests.debug.xcconfig */,
-				50FDD1DDC2ABAD669E931C81 /* Pods-mumukTests.release.xcconfig */,
+				5F810D87800A568D8597428E /* Pods-mumuk.debug.xcconfig */,
+				A9FD79805BB846554B19F639 /* Pods-mumuk.release.xcconfig */,
+				8132F6F12EC8C30C59FD3704 /* Pods-mumuk-mumukUITests.debug.xcconfig */,
+				9E8F5EA53D85991B0E4D4A55 /* Pods-mumuk-mumukUITests.release.xcconfig */,
+				8BEB8854C03CF3068E293521 /* Pods-mumukTests.debug.xcconfig */,
+				BD8E1B50C53A8C69C589D5A7 /* Pods-mumukTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -500,16 +419,6 @@
 				485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */,
 			);
 			path = Kakao;
-			sourceTree = "<group>";
-		};
-		650F0B59193A5B3A6379C872 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				EEF935B5073A409ECC3986C0 /* Pods_mumuk.framework */,
-				BBCE28BF8D037B1B2A2D8672 /* Pods_mumuk_mumukUITests.framework */,
-				75FD7EC4E59ADDF1619C5816 /* Pods_mumukTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		81042E2C2C29B65000EEC5FB /* Login */ = {
@@ -567,12 +476,12 @@
 			path = Tabbar;
 			sourceTree = "<group>";
 		};
-		ED9A9BB0D0F94DEF0E640F32 /* Frameworks */ = {
+		F409328A3A61DAEA0D6FF64D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C70975423035765DEDC1C843 /* Pods_mumuk.framework */,
-				64C6EC10D1C288A45F1E085B /* Pods_mumuk_mumukUITests.framework */,
-				5DE359FEA437CF0B00D8BBCD /* Pods_mumukTests.framework */,
+				C77073081520A0112F651060 /* Pods_mumuk.framework */,
+				B4DBF032E46D4DF3F0337C82 /* Pods_mumuk_mumukUITests.framework */,
+				0F9D6DECD0777340C11E2821 /* Pods_mumukTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -584,11 +493,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22BB26102C22E31E00F7585E /* Build configuration list for PBXNativeTarget "mumuk" */;
 			buildPhases = (
-				A64E3BF0D4D3F52D2E531DE9 /* [CP] Check Pods Manifest.lock */,
+				F5ED17E2154496B388B9CACD /* [CP] Check Pods Manifest.lock */,
 				22BB25E22C22E31A00F7585E /* Sources */,
 				22BB25E32C22E31A00F7585E /* Frameworks */,
 				22BB25E42C22E31A00F7585E /* Resources */,
-				1731DAAB7AF3AA4F14CA14BE /* [CP] Embed Pods Frameworks */,
+				E2EC2D2FC11C2D7AD632C8F7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -603,7 +512,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22BB26132C22E31E00F7585E /* Build configuration list for PBXNativeTarget "mumukTests" */;
 			buildPhases = (
-				BF529D669EB1E8604CC61175 /* [CP] Check Pods Manifest.lock */,
+				DACD26235693C1C21406D215 /* [CP] Check Pods Manifest.lock */,
 				22BB25F82C22E31E00F7585E /* Sources */,
 				22BB25F92C22E31E00F7585E /* Frameworks */,
 				22BB25FA2C22E31E00F7585E /* Resources */,
@@ -622,11 +531,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22BB26162C22E31E00F7585E /* Build configuration list for PBXNativeTarget "mumukUITests" */;
 			buildPhases = (
-				C98DD585C0D765771DE324B7 /* [CP] Check Pods Manifest.lock */,
+				63BCF1504B2D92C215885AA4 /* [CP] Check Pods Manifest.lock */,
 				22BB26022C22E31E00F7585E /* Sources */,
 				22BB26032C22E31E00F7585E /* Frameworks */,
 				22BB26042C22E31E00F7585E /* Resources */,
-				A6009502F55A642F66B55399 /* [CP] Embed Pods Frameworks */,
+				D93DC81C2C2AA8A92F4C23AD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -718,24 +627,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1731DAAB7AF3AA4F14CA14BE /* [CP] Embed Pods Frameworks */ = {
+		63BCF1504B2D92C215885AA4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mumuk-mumukUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A6009502F55A642F66B55399 /* [CP] Embed Pods Frameworks */ = {
+		D93DC81C2C2AA8A92F4C23AD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -752,29 +666,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A64E3BF0D4D3F52D2E531DE9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mumuk-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BF529D669EB1E8604CC61175 /* [CP] Check Pods Manifest.lock */ = {
+		DACD26235693C1C21406D215 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -796,7 +688,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C98DD585C0D765771DE324B7 /* [CP] Check Pods Manifest.lock */ = {
+		E2EC2D2FC11C2D7AD632C8F7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5ED17E2154496B388B9CACD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -811,7 +720,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mumuk-mumukUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-mumuk-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -866,7 +775,6 @@
 				226890102C3D2A9300A3E3EE /* DetailViewController.swift in Sources */,
 				22688FE12C3D292900A3E3EE /* PreferViewController3.swift in Sources */,
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
-				220CC3982C3CAC0A009D4576 /* OpenPreferModel.swift in Sources */,
 				22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
 				226890202C3D2C0300A3E3EE /* ModalImageEdite.swift in Sources */,
@@ -895,7 +803,6 @@
 				229841702C3D7E0B00F2BA80 /* Model.swift in Sources */,
 				2243B6732C39C7E800F6EFBF /* RecommendationDetailViewController1.swift in Sources */,
 				224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */,
-				220CC3942C3CAC0A009D4576 /* FoodListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1072,7 +979,7 @@
 		};
 		22BB26112C22E31E00F7585E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C098FDE5D720A737E3DF0740 /* Pods-mumuk.debug.xcconfig */;
+			baseConfigurationReference = 5F810D87800A568D8597428E /* Pods-mumuk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1109,7 +1016,7 @@
 		};
 		22BB26122C22E31E00F7585E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C974934DC4BED3AC4589C5B /* Pods-mumuk.release.xcconfig */;
+			baseConfigurationReference = A9FD79805BB846554B19F639 /* Pods-mumuk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1146,7 +1053,7 @@
 		};
 		22BB26142C22E31E00F7585E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DB1B0F43E590001C261DFF37 /* Pods-mumukTests.debug.xcconfig */;
+			baseConfigurationReference = 8BEB8854C03CF3068E293521 /* Pods-mumukTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1166,7 +1073,7 @@
 		};
 		22BB26152C22E31E00F7585E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50FDD1DDC2ABAD669E931C81 /* Pods-mumukTests.release.xcconfig */;
+			baseConfigurationReference = BD8E1B50C53A8C69C589D5A7 /* Pods-mumukTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1186,7 +1093,7 @@
 		};
 		22BB26172C22E31E00F7585E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FEAC0085F2F4E18E06C14EE /* Pods-mumuk-mumukUITests.debug.xcconfig */;
+			baseConfigurationReference = 8132F6F12EC8C30C59FD3704 /* Pods-mumuk-mumukUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1204,7 +1111,7 @@
 		};
 		22BB26182C22E31E00F7585E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBDA696F713D0966A2A714B4 /* Pods-mumuk-mumukUITests.release.xcconfig */;
+			baseConfigurationReference = 9E8F5EA53D85991B0E4D4A55 /* Pods-mumuk-mumukUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
