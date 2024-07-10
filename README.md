@@ -135,7 +135,7 @@
 
 
 
-* 친구 목록 - 사용자의 친구 목록과 친구들의 음식 선호도를 확인 할 수 있는 페이지 
+## * 친구 목록 - 사용자의 친구 목록과 친구들의 음식 선호도를 확인 할 수 있는 페이지 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/29551a1c-a532-46ae-b04d-511f20608845" width="300" height="650"/>
               
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/dad2ceb2-01e2-4e18-82a1-e0e57bf30710" width="300" height="650"/>
