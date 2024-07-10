@@ -245,14 +245,15 @@ class KakaoLoginViewController: UIViewController {
     //MARK: - 화면 이동 메소드
     //    메인 화면으로 이동
     func moveToMainViewController() {
-        
         let nextVC = TabbarViewController()
         if let uid = uid {
-         KakaoLoginViewController.globalUid = uid
+            KakaoLoginViewController.globalUid = uid
+            UserDefaultsManager.shared.setUserId(uid)
+            UserDefaultsManager.shared.setLoggedIn(true)
+            print("로그인 상태 저장: \(UserDefaultsManager.shared.isLoggedIn())")
+            print("저장된 UID: \(UserDefaultsManager.shared.getUserId() ?? "없음")")
         }
         
-//        nextVC.uid = KakaoLoginViewController.globalUid
-    
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }

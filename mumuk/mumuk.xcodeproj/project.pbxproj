@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		223192E02C3E84D400BE699A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223192DF2C3E84D400BE699A /* UserDefaultsManager.swift */; };
 		2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */; };
 		2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */; };
 		2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */; };
@@ -111,6 +112,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		223192DF2C3E84D400BE699A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingMainViewController.swift; sourceTree = "<group>"; };
 		2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPIService.swift; sourceTree = "<group>"; };
 		2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconFoodViewController1.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				22BB25F42C22E31E00F7585E /* LaunchScreen.storyboard */,
 				22BB25F72C22E31E00F7585E /* Info.plist */,
 				224E2C222C31427F00E69F97 /* UIFont.swift */,
+				223192DF2C3E84D400BE699A /* UserDefaultsManager.swift */,
 			);
 			path = mumuk;
 			sourceTree = "<group>";
@@ -729,6 +732,7 @@
 				4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */,
 				2268901E2C3D2AA400A3E3EE /* Edit4.swift in Sources */,
 				2243B6772C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift in Sources */,
+				223192E02C3E84D400BE699A /* UserDefaultsManager.swift in Sources */,
 				226890252C3D4F5F00A3E3EE /* ModalImageUpdate.swift in Sources */,
 				22688FDB2C3D292900A3E3EE /* OpenPreferViewController1.swift in Sources */,
 				22688FF72C3D295400A3E3EE /* FoodListModel.swift in Sources */,

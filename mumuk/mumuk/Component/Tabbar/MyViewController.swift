@@ -2,6 +2,7 @@
 
 
 import UIKit
+import KakaoSDKUser
 
 class MyViewController: UIViewController {
     var uid : String = ""
@@ -490,6 +491,7 @@ class MyViewController: UIViewController {
 
         let button = UIButton(configuration: configuration)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
 
         return button
     }()
@@ -837,6 +839,44 @@ extension MyViewController: UICollectionViewDelegate, UICollectionViewDataSource
             let size = (tag as NSString).size(withAttributes: attributes)
             return CGSize(width: size.width + 18, height: 29)
         }
+    }
+    
+    @objc func logoutButtonTapped() {
+        // 로그아웃 확인 알림창 표시
+        let alert = UIAlertController(title: "로그아웃", message: "정말 로그아웃 하시겠습니까?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "로그아웃", style: .destructive, handler: { _ in
+            self.performLogout()
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
+
+    func performLogout() {
+        // UserDefaults에서 로그인 상태 및 사용자 정보 삭제
+        UserDefaultsManager.shared.setLoggedIn(false)
+        UserDefaultsManager.shared.setUserId(nil)
+        
+        // 카카오 로그아웃
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("카카오 logout() success.")
+            }
+        }
+        
+        // 로그인 화면으로 이동
+        self.navigateToLoginScreen()
+    }
+
+    func navigateToLoginScreen() {
+        let loginVC = KakaoLoginViewController()
+        let navController = UINavigationController(rootViewController: loginVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
     }
 }
 
