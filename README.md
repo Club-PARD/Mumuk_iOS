@@ -39,10 +39,67 @@
 # 🥄 페이지별 소개
 
 * 메인 페이지
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/0fbed8d7-46b4-4964-92b7-29f4682eae41" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/352951ce-0f7e-43c4-b2ec-5d47e344607b" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/25b3706c-18bb-46f4-b058-8183cf43b7e4" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/a2a142e8-01b6-4312-94df-5e6044c99386" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/88af62b0-8dab-45f2-9f90-a5df641a1d1f" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/010e9bdd-8cf3-4d4d-94e5-d319ceecaca3" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/9d405cce-b701-4d89-9056-ec5e197260ed" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/fc0fb749-89ed-4c86-82dc-f561b915f223" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/c78e4017-9ba5-4350-95df-9a63fa759834" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/95206ec6-bafd-4906-bb73-8bf6368e1889" width="300" height="650"/>
+
+
+## * 데일리 푸드 스크럼 - 사용자의 오늘의 음식 선호도 조사하는 페이지 
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/95e7319e-aa1e-48d1-bb06-f4b4ff5421d4" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/e1ff9bf8-09d6-441c-9de2-c86cbbc59cc1" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/9685b33f-9eb5-4d2f-bd8a-c292483e0ccc" width="300" height="650"/>
 
 
 
--------------------
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/60027660-72da-48d1-9a90-590f3aaece96" width="300" height="650"/>
+
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/ab84089a-01ad-4b57-bfbf-904d708adbd9" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/8b07cad0-3671-4cff-b2a7-efc340850ce9" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/37f5eeac-fee7-449d-8517-a77a213f69e6" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/745438d1-4f08-4f33-ad0d-c287d0261ef4" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/0d3dfd82-0ffc-4aa8-af77-162a87544838" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/bfb16e0c-0660-46dc-b42f-f43b5af737bf" width="300" height="650"/>
+
+
+
+
+
 * 친구 목록 - 사용자의 친구 목록과 친구들의 음식 선호도를 확인 할 수 있는 페이지 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/103707692/29551a1c-a532-46ae-b04d-511f20608845" width="300" height="650"/>
               
@@ -90,6 +147,7 @@
 >    추천된 메뉴가 그룹원들의 선호가 얼마나 반영되어서 선정됐는지 표시
 
 
+----------
 
 
 
