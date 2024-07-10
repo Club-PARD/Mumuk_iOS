@@ -365,8 +365,8 @@ lazy var yesterdayeat: UILabel = {
             tagUnderCollectionView.heightAnchor.constraint(equalToConstant: 29),
             
             backlabel.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
-            backlabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 35),
-            backlabel.heightAnchor.constraint(equalToConstant: 135),
+            backlabel.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+            backlabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -15),
             backlabel.widthAnchor.constraint(equalToConstant: 275),
             
             yesterday.topAnchor.constraint(equalTo: backlabel.topAnchor, constant: 20.22),

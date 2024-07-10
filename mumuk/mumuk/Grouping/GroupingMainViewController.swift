@@ -121,9 +121,9 @@ class GroupingMainViewController: UIViewController {
         view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 10),
-            backButton.heightAnchor.constraint(equalToConstant: 22),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 37),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
             backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
         ])
     }

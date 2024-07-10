@@ -529,10 +529,10 @@ class Edit4 : UIViewController {
         view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 10),
-            backButton.heightAnchor.constraint(equalToConstant: 22),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 31.79),
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 68)
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 37),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50)
         ])
     }
     

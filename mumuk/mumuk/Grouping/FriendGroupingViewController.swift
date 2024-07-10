@@ -74,9 +74,9 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 10),
-            backButton.heightAnchor.constraint(equalToConstant: 22),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 31.79),
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 37),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
             backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
         ])
     }
