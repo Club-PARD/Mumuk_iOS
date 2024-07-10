@@ -301,7 +301,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                         print("User with name '\(name)' is new")
                     
                         // 새 사용자에 대한 처리
-                        let newMember = NameModel(uid: self?.uid ?? "", name: name, image: image)
+                        let newMember = NameModel(uid: self?.uid ?? "", name: name, imageId: image)
                         self?.makePostRequest(newMember)
                         self!.name = newMember.name
                         
@@ -340,11 +340,6 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                let encoder = JSONEncoder()
                let jsonData = try encoder.encode(memo)
                request.httpBody = jsonData
-               
-               // 디버깅을 위해 JSON 데이터 출력
-               if let jsonString = String(data: jsonData, encoding: .utf8) {
-                   print("Request JSON: \(jsonString)")
-               }
                
                let task = URLSession.shared.dataTask(with: request) { data, response, error in
                    if let error = error {
