@@ -67,6 +67,28 @@
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/95206ec6-bafd-4906-bb73-8bf6368e1889" width="300" height="650"/>
 
 
+
+## * 온보딩 페이지 - 사용자의 이름,프로필 이미지, 고유 선호도 조사하는 페이지
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/d7f9a5e0-8ea5-4f65-a75d-52cdfde55298" width="300" height="650"/>
+
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/068eaf11-3d55-4835-8956-e105039030b9" width="300" height="650"/>
+
+<img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/fa5b8987-4e03-4883-ad8c-8d42ae05b44d" width="300" height="650"/>
+
+
+
+
+
+
+
+
+
+
+
+
 ## * 데일리 푸드 스크럼 - 사용자의 오늘의 음식 선호도 조사하는 페이지 
 
 <img src="https://github.com/Club-PARD/Mumuk_iOS/assets/162880508/95e7319e-aa1e-48d1-bb06-f4b4ff5421d4" width="300" height="650"/>
