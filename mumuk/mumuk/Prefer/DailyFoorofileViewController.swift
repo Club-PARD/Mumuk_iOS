@@ -16,10 +16,12 @@ class DailyFoorofileViewController : UIViewController {
     var daily: [String] = [] // 오늘 내 입맛은?
     var yesterdayFood: String = ""  // 어제 먹은 음식은
     var spicyType: Bool = false
+    var uid : String = ""
     
     
     func firstProfile() {
         print("상세 데이터 불러오기 시작")
+        print("djsfsdlkfdslfsjldlffj\(name)")
         if let url = URL(string: "https://mumuk.store/with-pref/daily/\(name)") {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
@@ -196,7 +198,6 @@ class DailyFoorofileViewController : UIViewController {
         var config = UIButton.Configuration.filled()
         config.background.backgroundColor = #colorLiteral(red: 1, green: 0.5921568627, blue: 0.1019607843, alpha: 1)
         
-        
         // 내부 여백 설정
         config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
         
@@ -207,16 +208,12 @@ class DailyFoorofileViewController : UIViewController {
             outgoing.foregroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             return outgoing
         }
-    
         var button = UIButton(configuration: config)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 28
         button.layer.masksToBounds = true
-        button.isEnabled = false
-        button.addTarget(self, action: #selector(dailyButtonTapped), for: .touchUpInside)
-
-        return button
         
+        return button
     }()
     
     let boundary: UILabel = {
@@ -306,20 +303,7 @@ lazy var yesterdayeat: UILabel = {
         return label
     }()
     
-    @objc private func dailyButtonTapped() {
-        let preferVC = TabbarViewController()
-        
-        let transition = CATransition()
-        transition.duration = 0.4
-        transition.type = .push
-        transition.subtype = .fromRight
-        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-        
-        
-        view.window?.layer.add(transition, forKey: kCATransition)
-        preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
-        present(preferVC, animated: false, completion: nil)
-    }
+    
     
     
     //MARK: - func
@@ -334,7 +318,10 @@ lazy var yesterdayeat: UILabel = {
         dailytasteCollectionView.dataSource = self
         dailytasteCollectionView.delegate = self
         dailytasteCollectionView.register(dailytasteCell.self, forCellWithReuseIdentifier: "dailytasteCell")
+        nextButton.addTarget(self, action: #selector(toMain), for: .touchUpInside)
 
+        
+        
         firstProfile()
         setUI()
     }
@@ -344,7 +331,39 @@ lazy var yesterdayeat: UILabel = {
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)
 //    }
+//    @objc  func dailyButtonTapped() {
+//        let preferVC = TabbarViewController()
+//
+//        let transition = CATransition()
+//        transition.duration = 0.4
+//        transition.type = .push
+//        transition.subtype = .fromRight
+//        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+//
+//
+//        view.window?.layer.add(transition, forKey: kCATransition)
+//        preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+//        present(preferVC, animated: false, completion: nil)
+//    }
+//
+    @objc private func toMain() {
+        let mainVC = TabbarViewController()
+        mainVC.modalPresentationStyle = .fullScreen
+        
+
+        if let navigationController = self.navigationController {
+            navigationController.setViewControllers([mainVC], animated: true)
+        } else {
+
+            let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+            sceneDelegate?.window?.rootViewController = mainVC
+            sceneDelegate?.window?.makeKeyAndVisible()
+        }
+    }
     
+    
+    
+   
     
     func setUI(){
         view.addSubview(mainLabel)
@@ -372,9 +391,9 @@ lazy var yesterdayeat: UILabel = {
             subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
             
             background.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
-            background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
-            background.heightAnchor.constraint(equalToConstant: 135),
-            background.widthAnchor.constraint(equalToConstant: 275),
+                        background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+                        background.widthAnchor.constraint(equalToConstant: 275),
+                        background.bottomAnchor.constraint(equalTo: backlabel.bottomAnchor , constant: -35),
         
             
             nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -432,12 +451,15 @@ lazy var yesterdayeat: UILabel = {
             dailytaste.heightAnchor.constraint(equalToConstant: 17),
             
             dailytasteCollectionView.leadingAnchor.constraint(equalTo: dailytaste.trailingAnchor, constant: 30),
-            dailytasteCollectionView.topAnchor.constraint(equalTo: dailytaste.topAnchor, constant: -8),
-            dailytasteCollectionView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -18),
-            dailytasteCollectionView.heightAnchor.constraint(equalToConstant: 70),
+                      dailytasteCollectionView.topAnchor.constraint(equalTo: dailytaste.topAnchor, constant: -8),
+                      dailytasteCollectionView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -18),
+                      dailytasteCollectionView.bottomAnchor.constraint(equalTo: background.bottomAnchor , constant: -16.2),
 
         ])
     }
+    
+    
+    
     
     
 }

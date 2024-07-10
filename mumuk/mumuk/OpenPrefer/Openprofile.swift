@@ -23,31 +23,62 @@ class Openprofile : UIViewController {
     
     func firstProfile() {
         print("상세 데이터 불러오기 시작")
-        if let url = URL(string: "https://mumuk.store/with-pref/daily/\(name)") {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
-                if let error = error {
-                    print("🚨🚨🚨", error)
-                    return
+        print("Name: \(name)")
+        
+        guard let url = URL(string: "https://mumuk.store/with-pref/\(name)") else {
+            print("🚨🚨🚨 Invalid URL")
+            return
+        }
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: url) { data, response, error in
+            if let error = error {
+                print("🚨🚨🚨 Network error:", error)
+                return
+            }
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("🚨🚨🚨 Invalid response")
+                return
+            }
+            
+            print("HTTP Status Code: \(httpResponse.statusCode)")
+            
+            guard let JSONdata = data else {
+                print("🚨🚨🚨 No data received")
+                return
+            }
+            
+            let dataString = String(data: JSONdata, encoding: .utf8)
+            print("Received data: \(dataString ?? "Unable to convert data to string")")
+            
+            let decoder = JSONDecoder()
+            do {
+                let decodeData = try decoder.decode(UserPreference.self, from: JSONdata)
+                DispatchQueue.main.async {
+                    self.configureViewFromData(decodeData)
+                    self.updateUI()
                 }
-                if let JSONdata = data {
-                    let dataString = String(data: JSONdata, encoding: .utf8)
-                    print(dataString ?? "No data")
-                    
-                    let decoder = JSONDecoder()
-                    do {
-                        let decodeData = try decoder.decode(UserPreference.self, from: JSONdata)
-                        DispatchQueue.main.async {
-                            self.configureViewFromData(decodeData)
-                            self.updateUI()
-                        }
-                    } catch {
-                        print("🚨🚨🚨", error)
+            } catch {
+                print("🚨🚨🚨 Decoding error:", error)
+                if let decodingError = error as? DecodingError {
+                    switch decodingError {
+                    case .dataCorrupted(let context):
+                        print("Data corrupted: \(context.debugDescription)")
+                        print("Coding path: \(context.codingPath)")
+                    case .keyNotFound(let key, let context):
+                        print("Key not found: \(key.stringValue) in path \(context.codingPath)")
+                    case .typeMismatch(let type, let context):
+                        print("Type mismatch: expected \(type) in path \(context.codingPath)")
+                    case .valueNotFound(let type, let context):
+                        print("Value not found: expected \(type) in path \(context.codingPath)")
+                    @unknown default:
+                        print("Unknown decoding error")
                     }
                 }
             }
-            task.resume()
         }
+        task.resume()
     }
 
     func configureViewFromData(_ data: UserPreference) {
@@ -328,6 +359,8 @@ lazy var yesterdayeat: UILabel = {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        self.name = LoginController.globalName
+        
         tagUnderCollectionView.dataSource = self
         tagUnderCollectionView.delegate = self
         tagUnderCollectionView.register(underbordCell.self, forCellWithReuseIdentifier: "underbordCell")
@@ -337,6 +370,8 @@ lazy var yesterdayeat: UILabel = {
         dailytasteCollectionView.register(dailytasteCell.self, forCellWithReuseIdentifier: "dailytasteCell")
 
         mainLabel.text = name + "님의"
+        
+        
 
         firstProfile()
         setUI()

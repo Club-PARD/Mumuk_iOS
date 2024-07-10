@@ -1,13 +1,14 @@
 //
-//  OpenPreferViewController1.swift
+//  Edit2.swift
 //  mumuk
 //
-//  Created by 김민준 on 7/3/24.
+//  Created by 유재혁 on 7/9/24.
+//
 //
 
 import UIKit
 
-class OpenPreferViewController2 : UIViewController {
+class Edit2 : UIViewController {
     var uid : String?
     var name : String?
     var preferModel : OpenPreferModel?
@@ -61,7 +62,7 @@ class OpenPreferViewController2 : UIViewController {
         
         
         // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -212,10 +213,6 @@ class OpenPreferViewController2 : UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(" open uid1 : \(uid)")
-        print("dkddkdkddkd: \(name)")
-        
         view.backgroundColor = .white
         nextButton.addTarget(self, action: #selector(moveToNext), for: .touchUpInside)
         setupBackButton()
@@ -337,7 +334,7 @@ class OpenPreferViewController2 : UIViewController {
 
         
         if  foodButton1.isSelected || foodButton2.isSelected {
-            let preferVC = OpenPreferViewController3()
+            let preferVC = Edit3()
             
             preferVC.uid = self.uid  // uid 전달
             preferVC.name = self.name  // name 전달

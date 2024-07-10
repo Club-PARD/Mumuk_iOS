@@ -1,13 +1,13 @@
 //
-//  OpenPreferViewController1.swift
+//  Edit4.swift
 //  mumuk
 //
-//  Created by 김민준 on 7/3/24.
+//  Created by 유재혁 on 7/9/24.
 //
 
 import UIKit
 
-class OpenPreferViewController4 : UIViewController {
+class Edit4 : UIViewController {
     
     var checkToNext : Int = 0
     var uid : String?
@@ -60,7 +60,7 @@ class OpenPreferViewController4 : UIViewController {
         
         
         // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -74,8 +74,8 @@ class OpenPreferViewController4 : UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 24
         button.layer.masksToBounds = true
-//        button.addTarget(self, action: #selector(firstButtonTapped), for: .touchUpInside)
-
+        
+        
         return button
         
     }()
@@ -269,10 +269,8 @@ class OpenPreferViewController4 : UIViewController {
         
     }()
     
-//    @objc private func firstButtonTapped() {
-//        let mainViewController = Openprofile()
-//          navigationController?.pushViewController(mainViewController, animated: true)
-//    }
+    
+    
     
         
     override func viewDidLoad() {
@@ -280,7 +278,7 @@ class OpenPreferViewController4 : UIViewController {
         view.backgroundColor = .white
         print(" open uid4 : \(uid)")
         print("open model4 : \(preferModel)")
-        print("open name : \(name)")
+        
         
         nextButton.addTarget(self, action: #selector(moveToNext), for: .touchUpInside)
         setupBackButton()
@@ -529,21 +527,11 @@ class OpenPreferViewController4 : UIViewController {
     
     @objc func moveToNext(){
         if foodButton1.isSelected || foodButton2.isSelected || foodButton3.isSelected || foodButton4.isSelected {
-//
-//            if let uid = uid {
-////             OpenPreferViewController4.globalUid = uid
-//
-//            }
-            
-            let preferVC = Openprofile()
-            preferVC.uid = self.uid!
-//            preferVC.uid = OpenPreferViewController4.globalUid  // uid 전달
-            
-            preferVC.name = self.name! // name 전달
-            
-                
+           
             
             
+//            let dataVC = MainViewController()
+            let preferVC = TabbarViewController()
             
             
 //            preferVC.name = name   // name 전달

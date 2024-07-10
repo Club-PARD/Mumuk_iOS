@@ -25,8 +25,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = TabbarViewController()
-
+        
+        window?.rootViewController = KakaoLoginViewController()
+//        window?.rootViewController = LoginController()
         
         window?.makeKeyAndVisible()
     }

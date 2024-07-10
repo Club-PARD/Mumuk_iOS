@@ -1,13 +1,15 @@
 //
-//  OpenPreferViewController1.swift
+//  Edit3.swift
 //  mumuk
 //
-//  Created by 김민준 on 7/3/24.
+//  Created by 유재혁 on 7/9/24.
 //
+
+
 
 import UIKit
 
-class OpenPreferViewController3 : UIViewController {
+class Edit3 : UIViewController {
     var uid : String?
     var name : String?
     var preferModel : OpenPreferModel?
@@ -57,7 +59,7 @@ class OpenPreferViewController3 : UIViewController {
         
         
         // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -584,13 +586,6 @@ class OpenPreferViewController3 : UIViewController {
         
     }
     
-    
-    
-    
-    
-    
-    
-    
     @objc func buttonClicked3(_ sender: UIButton) {
         sender.isSelected.toggle()
         koreaFoodButton.isSelected = false
@@ -761,7 +756,8 @@ class OpenPreferViewController3 : UIViewController {
     
     @objc func moveToNext(){
         if koreaFoodButton.isSelected || americaFoodButton.isSelected || chinaFoodButton.isSelected || japanFoodButton.isSelected || tieFoodButton.isSelected || etcFoodButton.isSelected {
-            let preferVC = OpenPreferViewController4()
+            let preferVC = Edit4()
+            
             preferVC.uid = self.uid  // uid 전달
             preferVC.name = self.name  // name 전달
             preferVC.preferModel = self.preferModel

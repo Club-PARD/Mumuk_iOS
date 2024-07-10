@@ -56,7 +56,7 @@ class KakaoLoginViewController: UIViewController {
         config.image = UIImage(named: "kakaoLogo")
         config.imagePadding = 12
         // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 67, bottom: 15, trailing: 67)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 0)
         
         config.title = "카카오톡으로 시작하기"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -197,7 +197,11 @@ class KakaoLoginViewController: UIViewController {
             return
         }
         
+<<<<<<< HEAD
         guard let url = URL(string: "https:/mumuk.store/user/checkExists?uid=\(uid)") else {
+=======
+        guard let url = URL(string: "https://mumuk.store/user/checkExists?uid=\(uid)") else {
+>>>>>>> hj_branch
             print("🚨Error: Invalid URL")
             return
         }
@@ -247,10 +251,19 @@ class KakaoLoginViewController: UIViewController {
     func moveToMainViewController() {
         
         let nextVC = TabbarViewController()
+<<<<<<< HEAD
 //        if let uid = uid {
 //         KakaoLoginViewController.globalUid = uid
 //        }
 //    
+=======
+        if let uid = uid {
+         KakaoLoginViewController.globalUid = uid
+        }
+        
+//        nextVC.uid = KakaoLoginViewController.globalUid
+    
+>>>>>>> hj_branch
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }
@@ -258,7 +271,16 @@ class KakaoLoginViewController: UIViewController {
     
     func moveToLoginController() {
         let nextVC = LoginController()
+<<<<<<< HEAD
         nextVC.uid = uid
+=======
+        nextVC.uid = self.uid
+        if let uid = uid {
+            KakaoLoginViewController.globalUid = uid
+
+        }
+                
+>>>>>>> hj_branch
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }

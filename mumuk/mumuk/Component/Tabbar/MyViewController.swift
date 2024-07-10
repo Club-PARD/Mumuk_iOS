@@ -12,10 +12,54 @@ class MyViewController: UIViewController {
     var daily: [String] = [] // 오늘 내 입맛은?
     var yesterdayFood: String = ""  // 어제 먹은 음식은
     var spicyType: Bool = false     //언더라인 태그에 삽입
+    var koreanFood : Int = 0
+    var japaneseFood : Int = 0
+    var chineseFood : Int = 0
+    var westernFood : Int = 0
+    var southeastAsianFood : Int = 0
+    var elseFood : Int = 0
+//
+//    func Profiletag() {
+//        print("상세 데이터 불러오기 시작")
+//        print("✅uid \(uid)")
+//        if let url = URL(string: "https://mumuk.store/with-pref/\(name)") {
+//            let session = URLSession(configuration: .default)
+//            let task = session.dataTask(with: url) { data, response, error in
+//                if let error = error {
+//                    print("🚨🚨🚨", error)
+//                    return
+//                }
+//                if let JSONdata = data {
+//                    let dataString = String(data: JSONdata, encoding: .utf8)
+//                    print(dataString ?? "No data")
+//
+//                    let decoder = JSONDecoder()
+//                    do {
+//                        let decodeData = try decoder.decode(OpenPreferModel.self, from: JSONdata)
+//                        DispatchQueue.main.async {
+//                            self.koreanFood = decodeData.koreanFood
+//                            self.japaneseFood = decodeData.japaneseFood
+//                            self.chineseFood = decodeData.chineseFood
+//                            self.westernFood = decodeData.westernFood
+//                            self.southeastAsianFood = decodeData.southeastAsianFood
+//                            self.elseFood = decodeData.elseFood
+//                        }
+//                    } catch {
+//                        print("🚨🚨🚨", error)
+//                    }
+//                }
+//            }
+//            task.resume()
+//        }
+//    }
+//
+//
     
     func deepProfile() {
+        print(uid)
         print("상세 데이터 불러오기 시작")
         print("✅uid \(uid)")
+        print(name)
         if let url = URL(string: "https://mumuk.store/with-pref/daily/\(name)") {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { data, response, error in
@@ -468,7 +512,68 @@ class MyViewController: UIViewController {
     
     @objc private func editButtonnPressed() {
         print("수정수정 눌림")
+        
+//        let preferVC = edit1()
+        let preferVC = Edit1()
+//        preferVC.model = self.OpenPreferModel
+        // OpenPreferModel 생성
+        var exceptionalFoods: [String] = []
+        
+        // foodEmojis에 따른 exceptionalFoods 설정
+        if self.tags.contains("#내장류 NO") { exceptionalFoods.append("1") }
+        if self.tags.contains("#가지 NO") { exceptionalFoods.append("2") }
+        if self.tags.contains("#갑각류 NO") { exceptionalFoods.append("3") }
+        if self.tags.contains("#해산물 NO") { exceptionalFoods.append("4") }
+        if self.tags.contains("#오이 NO") { exceptionalFoods.append("5") }
+        if self.tags.contains("#유제품 NO") { exceptionalFoods.append("6") }
+        if self.tags.contains("#향신료 NO") { exceptionalFoods.append("7") }
+        if self.tags.contains("#조개 NO") { exceptionalFoods.append("8") }
+        if self.tags.contains("#견과류 NO") { exceptionalFoods.append("9") }
+        if self.tags.contains("#콩(대두) NO") { exceptionalFoods.append("10") }
+        if self.tags.contains("#계란 NO") { exceptionalFoods.append("11") }
+        if self.tags.contains("#날 것 NO") { exceptionalFoods.append("12") }
+        if self.tags.contains("#밀가루(글루텐) NO") { exceptionalFoods.append("13") }
+        if self.tags.contains("#다 잘 먹어요") { exceptionalFoods.append("14") }
+        
+        // foodTypeId 설정
+        var foodTypeId: Int
+        switch self.label {
+        case "💪🏻 다이어트": foodTypeId = 1
+        case "🐷🚫 할랄": foodTypeId = 2
+        case "🥦 비건": foodTypeId = 3
+        default: foodTypeId = 4
+        }
+        
+        let openPreferModel = OpenPreferModel(
+            exceptionalFoods: exceptionalFoods,
+            spicyType: self.spicyType,
+            koreanFood: self.koreanFood,
+            westernFood: self.westernFood,
+            chineseFood: self.chineseFood,
+            japaneseFood: self.japaneseFood,
+            southeastAsianFood: self.southeastAsianFood,
+            elseFood: self.elseFood,
+            foodTypeId: foodTypeId
+        )
+        
+        // OpenPreferModel을 OpenPreferViewController1에 전달
+        preferVC.openPreferModel = openPreferModel
+        
+        preferVC.uid = self.uid
+        preferVC.name = self.name
+        
+        let transition = CATransition()
+        transition.duration = 0.4
+        transition.type = .push
+        transition.subtype = .fromRight
+        transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        
+        // 현재 window에 전환 애니메이션 적용
+        view.window?.layer.add(transition, forKey: kCATransition)
+        preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
+        present(preferVC, animated: false, completion: nil)
     }
+    
     
     @objc private func customercontect() {
         showAlert(message: "010-5685-0125로 문의 하던가 말던가~")

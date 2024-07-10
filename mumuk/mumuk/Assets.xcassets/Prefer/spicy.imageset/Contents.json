@@ -9,7 +9,11 @@
       "scale" : "2x"
     },
     {
+<<<<<<< HEAD
       "filename" : "스크린샷_2024-07-03_오후_4.13.07-removebg-preview 1.png",
+=======
+      "filename" : "스크린샷_2024-07-03_오후_4.13.07-removebg-preview 1.png",
+>>>>>>> hj_branch
       "idiom" : "universal",
       "scale" : "3x"
     }

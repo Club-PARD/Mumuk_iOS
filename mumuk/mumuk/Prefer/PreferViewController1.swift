@@ -163,7 +163,7 @@ class PreferViewController1 : UIViewController , UISearchBarDelegate{
         
         
         // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -374,6 +374,16 @@ class PreferViewController1 : UIViewController , UISearchBarDelegate{
     }
     
     
+    
+    
+    
+    
+    // 빈화면 터치시 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    
     func updateNextButtonState() {
         if !searchText.isEmpty {
                 nextButton.isEnabled = true
@@ -542,7 +552,7 @@ class PreferViewController1 : UIViewController , UISearchBarDelegate{
     
 
     
-} 
+}
 
 
 
@@ -635,7 +645,7 @@ extension PreferViewController1: UITableViewDataSource, UITableViewDelegate {
     
     // cell 간격 조정
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let verticalPadding: CGFloat = 8
+        let verticalPadding: CGFloat = 15
         let maskLayer = CALayer()
         maskLayer.backgroundColor = UIColor.black.cgColor
         maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)

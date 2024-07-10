@@ -1,13 +1,14 @@
 //
-//  OpenPreferViewController1.swift
+//  Edit1.swift
 //  mumuk
 //
-//  Created by 김민준 on 7/3/24.
+//  Created by 유재혁 on 7/9/24.
 //
+
 
 import UIKit
 
-class OpenPreferViewController1 : UIViewController {
+class Edit1 : UIViewController {
     var uid : String?
     var name : String?
     var okayAll : Int = 0
@@ -40,6 +41,7 @@ class OpenPreferViewController1 : UIViewController {
         lineImage.clipsToBounds = true
         return lineImage
     }()
+
     
     let lineImage2 : UIImageView = {
         let lineImage = UIImageView()
@@ -74,7 +76,7 @@ class OpenPreferViewController1 : UIViewController {
         
         
         // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -535,8 +537,7 @@ class OpenPreferViewController1 : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        print(" open uid1 : \(uid)")
-        print("dkddkdkddkd: \(name)")
+//        print(" open uid1 : \(uid)")
 //        print("open model1 : \(model)")
         print("======")
         print(openPreferModel.exceptionalFoods)
@@ -1192,11 +1193,12 @@ class OpenPreferViewController1 : UIViewController {
     @objc func moveToNext(){
         if  hateButton1.isSelected || hateButton2.isSelected || hateButton3.isSelected || hateButton4.isSelected || hateButton5.isSelected || hateButton6.isSelected || hateButton7.isSelected || hateButton8.isSelected || hateButton9.isSelected || hateButton10.isSelected || hateButton11.isSelected || hateButton12.isSelected || hateButton13.isSelected || hateButton14.isSelected {
             
-            let preferVC = OpenPreferViewController2()
-            
+            let preferVC = Edit2()
+            print(name)
+            print(name)
             valueCount()
             preferVC.uid = self.uid
-            preferVC.name = self.name  
+            preferVC.name = self.name
             
             preferVC.preferModel = self.model
             

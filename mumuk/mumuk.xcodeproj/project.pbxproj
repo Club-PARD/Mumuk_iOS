@@ -7,18 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19357B74E23EA968BA7533A4 /* Pods_mumuk_mumukUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C6EC10D1C288A45F1E085B /* Pods_mumuk_mumukUITests.framework */; };
-		220CC3922C3CAC0A009D4576 /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC3862C3CAC0A009D4576 /* DetailModel.swift */; };
-		220CC3932C3CAC0A009D4576 /* ExampleModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC3872C3CAC0A009D4576 /* ExampleModelData.swift */; };
-		220CC3942C3CAC0A009D4576 /* FoodListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC3882C3CAC0A009D4576 /* FoodListModel.swift */; };
-		220CC3952C3CAC0A009D4576 /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC3892C3CAC0A009D4576 /* FriendModel.swift */; };
-		220CC3962C3CAC0A009D4576 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC38A2C3CAC0A009D4576 /* Model.swift */; };
-		220CC3972C3CAC0A009D4576 /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC38B2C3CAC0A009D4576 /* NameModel.swift */; };
-		220CC3982C3CAC0A009D4576 /* OpenPreferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC38C2C3CAC0A009D4576 /* OpenPreferModel.swift */; };
-		220CC3992C3CAC0A009D4576 /* Prefer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC38D2C3CAC0A009D4576 /* Prefer.swift */; };
-		220CC39A2C3CAC0A009D4576 /* PreferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC38E2C3CAC0A009D4576 /* PreferModel.swift */; };
-		220CC39B2C3CAC0A009D4576 /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC38F2C3CAC0A009D4576 /* UserPreference.swift */; };
-		220CC39D2C3CACC2009D4576 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220CC39C2C3CACC2009D4576 /* TabbarViewController.swift */; };
 		2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */; };
 		2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */; };
 		2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */; };
@@ -38,6 +26,47 @@
 		224E2C352C31437A00E69F97 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C2C2C31437A00E69F97 /* Pretendard-SemiBold.otf */; };
 		224E2C362C31437A00E69F97 /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 224E2C2D2C31437A00E69F97 /* Pretendard-ExtraBold.otf */; };
 		224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224E2C382C32C56E00E69F97 /* FriendGroupingViewController.swift */; };
+		22688FD82C3D292900A3E3EE /* DailyFoorofileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FC72C3D292900A3E3EE /* DailyFoorofileViewController.swift */; };
+		22688FDB2C3D292900A3E3EE /* OpenPreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FCA2C3D292900A3E3EE /* OpenPreferViewController1.swift */; };
+		22688FDC2C3D292900A3E3EE /* OpenPreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FCB2C3D292900A3E3EE /* OpenPreferViewController2.swift */; };
+		22688FDD2C3D292900A3E3EE /* OpenPreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FCC2C3D292900A3E3EE /* OpenPreferViewController3.swift */; };
+		22688FDE2C3D292900A3E3EE /* OpenPreferViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FCD2C3D292900A3E3EE /* OpenPreferViewController4.swift */; };
+		22688FDF2C3D292900A3E3EE /* PreferViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FCE2C3D292900A3E3EE /* PreferViewController1.swift */; };
+		22688FE02C3D292900A3E3EE /* PreferViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FCF2C3D292900A3E3EE /* PreferViewController2.swift */; };
+		22688FE12C3D292900A3E3EE /* PreferViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FD02C3D292900A3E3EE /* PreferViewController3.swift */; };
+		22688FE22C3D292900A3E3EE /* PreferViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FD12C3D292900A3E3EE /* PreferViewController4.swift */; };
+		22688FE32C3D292900A3E3EE /* PreferViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FD22C3D292900A3E3EE /* PreferViewController5.swift */; };
+		22688FE42C3D292900A3E3EE /* PreferViewController6.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FD32C3D292900A3E3EE /* PreferViewController6.swift */; };
+		22688FE52C3D292900A3E3EE /* PreferViewController7.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FD42C3D292900A3E3EE /* PreferViewController7.swift */; };
+		22688FE62C3D292900A3E3EE /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FD52C3D292900A3E3EE /* SearchBarView.swift */; };
+		22688FE72C3D292900A3E3EE /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FD62C3D292900A3E3EE /* SearchTableViewCell.swift */; };
+		22688FF52C3D295400A3E3EE /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FE92C3D295300A3E3EE /* DetailModel.swift */; };
+		22688FF62C3D295400A3E3EE /* ExampleModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FEA2C3D295300A3E3EE /* ExampleModelData.swift */; };
+		22688FF72C3D295400A3E3EE /* FoodListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FEB2C3D295300A3E3EE /* FoodListModel.swift */; };
+		22688FF82C3D295400A3E3EE /* FriendModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FEC2C3D295300A3E3EE /* FriendModel.swift */; };
+		22688FFA2C3D295400A3E3EE /* NameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FEE2C3D295300A3E3EE /* NameModel.swift */; };
+		22688FFB2C3D295400A3E3EE /* OpenPreferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FEF2C3D295300A3E3EE /* OpenPreferModel.swift */; };
+		22688FFC2C3D295400A3E3EE /* Prefer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FF02C3D295300A3E3EE /* Prefer.swift */; };
+		22688FFD2C3D295400A3E3EE /* PreferModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FF12C3D295300A3E3EE /* PreferModel.swift */; };
+		22688FFE2C3D295400A3E3EE /* UserPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22688FF22C3D295300A3E3EE /* UserPreference.swift */; };
+		226890072C3D2A4F00A3E3EE /* dailytasteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890012C3D2A4F00A3E3EE /* dailytasteCell.swift */; };
+		226890082C3D2A4F00A3E3EE /* underbordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890022C3D2A4F00A3E3EE /* underbordCell.swift */; };
+		226890092C3D2A4F00A3E3EE /* underTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890032C3D2A4F00A3E3EE /* underTagCell.swift */; };
+		2268900A2C3D2A4F00A3E3EE /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890042C3D2A4F00A3E3EE /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		2268900B2C3D2A4F00A3E3EE /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890052C3D2A4F00A3E3EE /* TagCell.swift */; };
+		2268900C2C3D2A4F00A3E3EE /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890062C3D2A4F00A3E3EE /* FriendComponent.swift */; };
+		226890102C3D2A9300A3E3EE /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2268900F2C3D2A9300A3E3EE /* DetailViewController.swift */; };
+		226890122C3D2A9900A3E3EE /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890112C3D2A9900A3E3EE /* EditController.swift */; };
+		226890142C3D2A9E00A3E3EE /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890132C3D2A9E00A3E3EE /* FriendViewController.swift */; };
+		2268901A2C3D2AA400A3E3EE /* Edit3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890152C3D2AA300A3E3EE /* Edit3.swift */; };
+		2268901B2C3D2AA400A3E3EE /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890162C3D2AA400A3E3EE /* MyViewController.swift */; };
+		2268901C2C3D2AA400A3E3EE /* Edit2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890172C3D2AA400A3E3EE /* Edit2.swift */; };
+		2268901D2C3D2AA400A3E3EE /* Edit1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890182C3D2AA400A3E3EE /* Edit1.swift */; };
+		2268901E2C3D2AA400A3E3EE /* Edit4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890192C3D2AA400A3E3EE /* Edit4.swift */; };
+		226890202C3D2C0300A3E3EE /* ModalImageEdite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2268901F2C3D2C0300A3E3EE /* ModalImageEdite.swift */; };
+		226890232C3D4D5200A3E3EE /* Openprofile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890212C3D4D5200A3E3EE /* Openprofile.swift */; };
+		226890252C3D4F5F00A3E3EE /* ModalImageUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226890242C3D4F5F00A3E3EE /* ModalImageUpdate.swift */; };
+		229841702C3D7E0B00F2BA80 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2298416F2C3D7E0B00F2BA80 /* Model.swift */; };
 		22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB25E92C22E31B00F7585E /* AppDelegate.swift */; };
 		22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB25EB2C22E31B00F7585E /* SceneDelegate.swift */; };
 		22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BB25ED2C22E31B00F7585E /* ViewController.swift */; };
@@ -81,6 +110,7 @@
 		81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */; };
 		81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E312C29E23600EEC5FB /* ModalImageSelect.swift */; };
 		811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811168B82C2E9A7500A09CD3 /* NotificationController.swift */; };
+		815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7C62C304E120090BDBE /* TabbarViewController.swift */; };
 		815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7CF2C304FA70090BDBE /* MainViewController.swift */; };
 		81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375F92C2AF3D7006D986F /* CustomCell.swift */; };
 		81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */; };
@@ -105,18 +135,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		220CC3862C3CAC0A009D4576 /* DetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
-		220CC3872C3CAC0A009D4576 /* ExampleModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModelData.swift; sourceTree = "<group>"; };
-		220CC3882C3CAC0A009D4576 /* FoodListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListModel.swift; sourceTree = "<group>"; };
-		220CC3892C3CAC0A009D4576 /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
-		220CC38A2C3CAC0A009D4576 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		220CC38B2C3CAC0A009D4576 /* NameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameModel.swift; sourceTree = "<group>"; };
-		220CC38C2C3CAC0A009D4576 /* OpenPreferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferModel.swift; sourceTree = "<group>"; };
-		220CC38D2C3CAC0A009D4576 /* Prefer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefer.swift; sourceTree = "<group>"; };
-		220CC38E2C3CAC0A009D4576 /* PreferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferModel.swift; sourceTree = "<group>"; };
-		220CC38F2C3CAC0A009D4576 /* UserPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
-		220CC39C2C3CACC2009D4576 /* TabbarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
-		2243B65D2C33F54400F6EFBF /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "../../../../../../Downloads/아카이브/TagCell.swift"; sourceTree = "<group>"; };
 		2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingMainViewController.swift; sourceTree = "<group>"; };
 		2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPIService.swift; sourceTree = "<group>"; };
 		2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconFoodViewController1.swift; sourceTree = "<group>"; };
@@ -136,6 +154,47 @@
 		224E2C2C2C31437A00E69F97 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		224E2C2D2C31437A00E69F97 /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
 		224E2C382C32C56E00E69F97 /* FriendGroupingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendGroupingViewController.swift; sourceTree = "<group>"; };
+		22688FC72C3D292900A3E3EE /* DailyFoorofileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyFoorofileViewController.swift; sourceTree = "<group>"; };
+		22688FCA2C3D292900A3E3EE /* OpenPreferViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferViewController1.swift; sourceTree = "<group>"; };
+		22688FCB2C3D292900A3E3EE /* OpenPreferViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferViewController2.swift; sourceTree = "<group>"; };
+		22688FCC2C3D292900A3E3EE /* OpenPreferViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferViewController3.swift; sourceTree = "<group>"; };
+		22688FCD2C3D292900A3E3EE /* OpenPreferViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferViewController4.swift; sourceTree = "<group>"; };
+		22688FCE2C3D292900A3E3EE /* PreferViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController1.swift; sourceTree = "<group>"; };
+		22688FCF2C3D292900A3E3EE /* PreferViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController2.swift; sourceTree = "<group>"; };
+		22688FD02C3D292900A3E3EE /* PreferViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController3.swift; sourceTree = "<group>"; };
+		22688FD12C3D292900A3E3EE /* PreferViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController4.swift; sourceTree = "<group>"; };
+		22688FD22C3D292900A3E3EE /* PreferViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController5.swift; sourceTree = "<group>"; };
+		22688FD32C3D292900A3E3EE /* PreferViewController6.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController6.swift; sourceTree = "<group>"; };
+		22688FD42C3D292900A3E3EE /* PreferViewController7.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferViewController7.swift; sourceTree = "<group>"; };
+		22688FD52C3D292900A3E3EE /* SearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		22688FD62C3D292900A3E3EE /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		22688FE92C3D295300A3E3EE /* DetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		22688FEA2C3D295300A3E3EE /* ExampleModelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleModelData.swift; sourceTree = "<group>"; };
+		22688FEB2C3D295300A3E3EE /* FoodListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListModel.swift; sourceTree = "<group>"; };
+		22688FEC2C3D295300A3E3EE /* FriendModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendModel.swift; sourceTree = "<group>"; };
+		22688FEE2C3D295300A3E3EE /* NameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameModel.swift; sourceTree = "<group>"; };
+		22688FEF2C3D295300A3E3EE /* OpenPreferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenPreferModel.swift; sourceTree = "<group>"; };
+		22688FF02C3D295300A3E3EE /* Prefer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Prefer.swift; sourceTree = "<group>"; };
+		22688FF12C3D295300A3E3EE /* PreferModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferModel.swift; sourceTree = "<group>"; };
+		22688FF22C3D295300A3E3EE /* UserPreference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPreference.swift; sourceTree = "<group>"; };
+		226890012C3D2A4F00A3E3EE /* dailytasteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dailytasteCell.swift; sourceTree = "<group>"; };
+		226890022C3D2A4F00A3E3EE /* underbordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = underbordCell.swift; sourceTree = "<group>"; };
+		226890032C3D2A4F00A3E3EE /* underTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = underTagCell.swift; sourceTree = "<group>"; };
+		226890042C3D2A4F00A3E3EE /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		226890052C3D2A4F00A3E3EE /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = ../../../../../../Downloads/mumuk/mumuk/Component/TagCell.swift; sourceTree = "<group>"; };
+		226890062C3D2A4F00A3E3EE /* FriendComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendComponent.swift; path = ../../../../../../Downloads/mumuk/mumuk/Component/FriendComponent.swift; sourceTree = "<group>"; };
+		2268900F2C3D2A9300A3E3EE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		226890112C3D2A9900A3E3EE /* EditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
+		226890132C3D2A9E00A3E3EE /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		226890152C3D2AA300A3E3EE /* Edit3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit3.swift; sourceTree = "<group>"; };
+		226890162C3D2AA400A3E3EE /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		226890172C3D2AA400A3E3EE /* Edit2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit2.swift; sourceTree = "<group>"; };
+		226890182C3D2AA400A3E3EE /* Edit1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit1.swift; sourceTree = "<group>"; };
+		226890192C3D2AA400A3E3EE /* Edit4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Edit4.swift; sourceTree = "<group>"; };
+		2268901F2C3D2C0300A3E3EE /* ModalImageEdite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageEdite.swift; sourceTree = "<group>"; };
+		226890212C3D4D5200A3E3EE /* Openprofile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Openprofile.swift; sourceTree = "<group>"; };
+		226890242C3D4F5F00A3E3EE /* ModalImageUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageUpdate.swift; sourceTree = "<group>"; };
+		2298416F2C3D7E0B00F2BA80 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		22BB25E62C22E31B00F7585E /* mumuk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mumuk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22BB25E92C22E31B00F7585E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22BB25EB2C22E31B00F7585E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +246,7 @@
 		81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageField.swift; sourceTree = "<group>"; };
 		81042E312C29E23600EEC5FB /* ModalImageSelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelect.swift; sourceTree = "<group>"; };
 		811168B82C2E9A7500A09CD3 /* NotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		815FE7C62C304E120090BDBE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		815FE7CF2C304FA70090BDBE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		81F375F92C2AF3D7006D986F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelectDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +342,52 @@
 			path = Grouping;
 			sourceTree = "<group>";
 		};
+		22688FD72C3D292900A3E3EE /* Prefer */ = {
+			isa = PBXGroup;
+			children = (
+				22688FC72C3D292900A3E3EE /* DailyFoorofileViewController.swift */,
+				22688FCE2C3D292900A3E3EE /* PreferViewController1.swift */,
+				22688FCF2C3D292900A3E3EE /* PreferViewController2.swift */,
+				22688FD02C3D292900A3E3EE /* PreferViewController3.swift */,
+				22688FD12C3D292900A3E3EE /* PreferViewController4.swift */,
+				22688FD22C3D292900A3E3EE /* PreferViewController5.swift */,
+				22688FD32C3D292900A3E3EE /* PreferViewController6.swift */,
+				22688FD42C3D292900A3E3EE /* PreferViewController7.swift */,
+				22688FD52C3D292900A3E3EE /* SearchBarView.swift */,
+				22688FD62C3D292900A3E3EE /* SearchTableViewCell.swift */,
+			);
+			path = Prefer;
+			sourceTree = "<group>";
+		};
+		22688FF32C3D295300A3E3EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22688FE92C3D295300A3E3EE /* DetailModel.swift */,
+				22688FEA2C3D295300A3E3EE /* ExampleModelData.swift */,
+				22688FEB2C3D295300A3E3EE /* FoodListModel.swift */,
+				22688FEC2C3D295300A3E3EE /* FriendModel.swift */,
+				22688FEE2C3D295300A3E3EE /* NameModel.swift */,
+				22688FEF2C3D295300A3E3EE /* OpenPreferModel.swift */,
+				22688FF02C3D295300A3E3EE /* Prefer.swift */,
+				22688FF12C3D295300A3E3EE /* PreferModel.swift */,
+				22688FF22C3D295300A3E3EE /* UserPreference.swift */,
+				2298416F2C3D7E0B00F2BA80 /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		226890222C3D4D5200A3E3EE /* OpenPrefer */ = {
+			isa = PBXGroup;
+			children = (
+				22688FCA2C3D292900A3E3EE /* OpenPreferViewController1.swift */,
+				22688FCB2C3D292900A3E3EE /* OpenPreferViewController2.swift */,
+				22688FCC2C3D292900A3E3EE /* OpenPreferViewController3.swift */,
+				22688FCD2C3D292900A3E3EE /* OpenPreferViewController4.swift */,
+				226890212C3D4D5200A3E3EE /* Openprofile.swift */,
+			);
+			path = OpenPrefer;
+			sourceTree = "<group>";
+		};
 		22BB25DD2C22E31A00F7585E = {
 			isa = PBXGroup;
 			children = (
@@ -308,9 +414,9 @@
 		22BB25E82C22E31B00F7585E /* mumuk */ = {
 			isa = PBXGroup;
 			children = (
-				22CC9DC42C3CA34100CBC79F /* LeftAlignedCollectionViewFlowLayout.swift */,
-				22CC9DAF2C3CA30800CBC79F /* OpenPrefer */,
-				22CC9DAD2C3CA30800CBC79F /* Prefer */,
+				226890222C3D4D5200A3E3EE /* OpenPrefer */,
+				22688FF32C3D295300A3E3EE /* Model */,
+				22688FD72C3D292900A3E3EE /* Prefer */,
 				2243B66F2C39830100F6EFBF /* Menu */,
 				224E2C372C32C55900E69F97 /* Grouping */,
 				224E2C242C31436D00E69F97 /* Fonts */,
@@ -396,6 +502,16 @@
 			path = Kakao;
 			sourceTree = "<group>";
 		};
+		650F0B59193A5B3A6379C872 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEF935B5073A409ECC3986C0 /* Pods_mumuk.framework */,
+				BBCE28BF8D037B1B2A2D8672 /* Pods_mumuk_mumukUITests.framework */,
+				75FD7EC4E59ADDF1619C5816 /* Pods_mumukTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		81042E2C2C29B65000EEC5FB /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +522,7 @@
 				81042E312C29E23600EEC5FB /* ModalImageSelect.swift */,
 				81F375F92C2AF3D7006D986F /* CustomCell.swift */,
 				81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */,
+				226890242C3D4F5F00A3E3EE /* ModalImageUpdate.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -421,12 +538,12 @@
 		815FE7C52C304D1A0090BDBE /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				22CC9DC62C3CA34100CBC79F /* dailytasteCell.swift */,
-				22CC9DCB2C3CA35500CBC79F /* FriendComponent.swift */,
-				22CC9DC52C3CA34100CBC79F /* TagCell.swift */,
-				22CC9DC32C3CA34000CBC79F /* underTagCell.swift */,
-				22CC9DC12C3CA33000CBC79F /* underbordCell.swift */,
-				2243B65D2C33F54400F6EFBF /* TagCell.swift */,
+				226890012C3D2A4F00A3E3EE /* dailytasteCell.swift */,
+				226890062C3D2A4F00A3E3EE /* FriendComponent.swift */,
+				226890042C3D2A4F00A3E3EE /* LeftAlignedCollectionViewFlowLayout.swift */,
+				226890052C3D2A4F00A3E3EE /* TagCell.swift */,
+				226890022C3D2A4F00A3E3EE /* underbordCell.swift */,
+				226890032C3D2A4F00A3E3EE /* underTagCell.swift */,
 				815FE7C82C304EB20090BDBE /* Tabbar */,
 			);
 			path = Component;
@@ -435,13 +552,17 @@
 		815FE7C82C304EB20090BDBE /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				220CC39C2C3CACC2009D4576 /* TabbarViewController.swift */,
-				22CC9DD12C3CA37200CBC79F /* DetailViewController.swift */,
-				22CC9DD02C3CA37200CBC79F /* EditController.swift */,
-				22CC9DD22C3CA37200CBC79F /* FriendViewController.swift */,
-				22CC9DCE2C3CA37200CBC79F /* ModalImageEdite.swift */,
-				22CC9DCF2C3CA37200CBC79F /* MyViewController.swift */,
+				226890182C3D2AA400A3E3EE /* Edit1.swift */,
+				226890172C3D2AA400A3E3EE /* Edit2.swift */,
+				226890152C3D2AA300A3E3EE /* Edit3.swift */,
+				226890192C3D2AA400A3E3EE /* Edit4.swift */,
+				226890162C3D2AA400A3E3EE /* MyViewController.swift */,
+				226890132C3D2A9E00A3E3EE /* FriendViewController.swift */,
+				226890112C3D2A9900A3E3EE /* EditController.swift */,
+				2268900F2C3D2A9300A3E3EE /* DetailViewController.swift */,
+				815FE7C62C304E120090BDBE /* TabbarViewController.swift */,
 				815FE7CF2C304FA70090BDBE /* MainViewController.swift */,
+				2268901F2C3D2C0300A3E3EE /* ModalImageEdite.swift */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -704,63 +825,74 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				220CC39A2C3CAC0A009D4576 /* PreferModel.swift in Sources */,
+				22688FF52C3D295400A3E3EE /* DetailModel.swift in Sources */,
+				22688FFE2C3D295400A3E3EE /* UserPreference.swift in Sources */,
+				22688FFB2C3D295400A3E3EE /* OpenPreferModel.swift in Sources */,
+				226890092C3D2A4F00A3E3EE /* underTagCell.swift in Sources */,
+				22688FDD2C3D292900A3E3EE /* OpenPreferViewController3.swift in Sources */,
 				4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */,
-				22CC9DB52C3CA30800CBC79F /* OpenPreferViewController3.swift in Sources */,
+				2268901E2C3D2AA400A3E3EE /* Edit4.swift in Sources */,
 				2243B6772C3A7EF800F6EFBF /* RecommendationDetailViewController2.swift in Sources */,
+				226890252C3D4F5F00A3E3EE /* ModalImageUpdate.swift in Sources */,
+				22688FDB2C3D292900A3E3EE /* OpenPreferViewController1.swift in Sources */,
+				22688FF72C3D295400A3E3EE /* FoodListModel.swift in Sources */,
+				2268901D2C3D2AA400A3E3EE /* Edit1.swift in Sources */,
 				2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */,
-				22CC9DC72C3CA34100CBC79F /* underTagCell.swift in Sources */,
-				22CC9DB32C3CA30800CBC79F /* OpenPreferViewController1.swift in Sources */,
+				22688FF62C3D295400A3E3EE /* ExampleModelData.swift in Sources */,
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
-				220CC39D2C3CACC2009D4576 /* TabbarViewController.swift in Sources */,
 				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,
-				220CC3932C3CAC0A009D4576 /* ExampleModelData.swift in Sources */,
-				22CC9DB72C3CA30800CBC79F /* PreferViewController1.swift in Sources */,
+				22688FDF2C3D292900A3E3EE /* PreferViewController1.swift in Sources */,
+				226890142C3D2A9E00A3E3EE /* FriendViewController.swift in Sources */,
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
 				22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */,
-				220CC39B2C3CAC0A009D4576 /* UserPreference.swift in Sources */,
-				22CC9DBB2C3CA30800CBC79F /* PreferViewController5.swift in Sources */,
+				22688FE32C3D292900A3E3EE /* PreferViewController5.swift in Sources */,
 				81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */,
-				22CC9DBD2C3CA30800CBC79F /* PreferViewController7.swift in Sources */,
-				22CC9DB42C3CA30800CBC79F /* OpenPreferViewController2.swift in Sources */,
-				22CC9DBF2C3CA30800CBC79F /* SearchTableViewCell.swift in Sources */,
-				22CC9DC92C3CA34100CBC79F /* TagCell.swift in Sources */,
+				22688FE52C3D292900A3E3EE /* PreferViewController7.swift in Sources */,
+				226890082C3D2A4F00A3E3EE /* underbordCell.swift in Sources */,
+				22688FE62C3D292900A3E3EE /* SearchBarView.swift in Sources */,
+				22688FDC2C3D292900A3E3EE /* OpenPreferViewController2.swift in Sources */,
+				22688FE72C3D292900A3E3EE /* SearchTableViewCell.swift in Sources */,
+				226890122C3D2A9900A3E3EE /* EditController.swift in Sources */,
+				22688FFC2C3D295400A3E3EE /* Prefer.swift in Sources */,
 				815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */,
 				224E2C232C31427F00E69F97 /* UIFont.swift in Sources */,
-				22CC9DD62C3CA37200CBC79F /* EditController.swift in Sources */,
-				22CC9DC82C3CA34100CBC79F /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
-				22CC9DB62C3CA30800CBC79F /* OpenPreferViewController4.swift in Sources */,
-				22CC9DB92C3CA30800CBC79F /* PreferViewController3.swift in Sources */,
+				2268901C2C3D2AA400A3E3EE /* Edit2.swift in Sources */,
+				2268900C2C3D2A4F00A3E3EE /* FriendComponent.swift in Sources */,
+				2268901B2C3D2AA400A3E3EE /* MyViewController.swift in Sources */,
+				815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */,
+				22688FDE2C3D292900A3E3EE /* OpenPreferViewController4.swift in Sources */,
+				2268900B2C3D2A4F00A3E3EE /* TagCell.swift in Sources */,
+				22688FFA2C3D295400A3E3EE /* NameModel.swift in Sources */,
+				226890102C3D2A9300A3E3EE /* DetailViewController.swift in Sources */,
+				22688FE12C3D292900A3E3EE /* PreferViewController3.swift in Sources */,
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
 				220CC3982C3CAC0A009D4576 /* OpenPreferModel.swift in Sources */,
 				22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
+				226890202C3D2C0300A3E3EE /* ModalImageEdite.swift in Sources */,
 				811168BA2C2E9A7500A09CD3 /* NotificationController.swift in Sources */,
-				220CC3992C3CAC0A009D4576 /* Prefer.swift in Sources */,
-				220CC3972C3CAC0A009D4576 /* NameModel.swift in Sources */,
-				22CC9DCC2C3CA35500CBC79F /* FriendComponent.swift in Sources */,
-				22CC9DBC2C3CA30800CBC79F /* PreferViewController6.swift in Sources */,
-				220CC3962C3CAC0A009D4576 /* Model.swift in Sources */,
+				2268900A2C3D2A4F00A3E3EE /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				22688FE42C3D292900A3E3EE /* PreferViewController6.swift in Sources */,
 				2243B67B2C3A7F1300F6EFBF /* RecommendationDetailViewController3.swift in Sources */,
 				2243B67D2C3B960A00F6EFBF /* SummaryViewController.swift in Sources */,
-				22CC9DB82C3CA30800CBC79F /* PreferViewController2.swift in Sources */,
-				22CC9DD42C3CA37200CBC79F /* ModalImageEdite.swift in Sources */,
-				22CC9DC22C3CA33100CBC79F /* underbordCell.swift in Sources */,
-				22CC9DD72C3CA37200CBC79F /* DetailViewController.swift in Sources */,
+				22688FE02C3D292900A3E3EE /* PreferViewController2.swift in Sources */,
 				81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */,
 				22CC9DD82C3CA37200CBC79F /* FriendViewController.swift in Sources */,
 				2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */,
 				22CC9DD52C3CA37200CBC79F /* MyViewController.swift in Sources */,
 				22CC9DC02C3CA30800CBC79F /* Openprofile.swift in Sources */,
 				22BB25EA2C22E31B00F7585E /* AppDelegate.swift in Sources */,
+				22688FF82C3D295400A3E3EE /* FriendModel.swift in Sources */,
 				2243B6752C3A7EE000F6EFBF /* ReconFoodViewController2.swift in Sources */,
-				22CC9DB02C3CA30800CBC79F /* DailyFoorofileViewController.swift in Sources */,
+				22688FFD2C3D295400A3E3EE /* PreferModel.swift in Sources */,
+				22688FD82C3D292900A3E3EE /* DailyFoorofileViewController.swift in Sources */,
+				226890232C3D4D5200A3E3EE /* Openprofile.swift in Sources */,
 				2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */,
-				22CC9DCA2C3CA34100CBC79F /* dailytasteCell.swift in Sources */,
+				226890072C3D2A4F00A3E3EE /* dailytasteCell.swift in Sources */,
+				2268901A2C3D2AA400A3E3EE /* Edit3.swift in Sources */,
 				22BB25EC2C22E31B00F7585E /* SceneDelegate.swift in Sources */,
-				22CC9DBA2C3CA30800CBC79F /* PreferViewController4.swift in Sources */,
-				220CC3952C3CAC0A009D4576 /* FriendModel.swift in Sources */,
-				220CC3922C3CAC0A009D4576 /* DetailModel.swift in Sources */,
+				22688FE22C3D292900A3E3EE /* PreferViewController4.swift in Sources */,
+				229841702C3D7E0B00F2BA80 /* Model.swift in Sources */,
 				2243B6732C39C7E800F6EFBF /* RecommendationDetailViewController1.swift in Sources */,
 				224E2C392C32C56F00E69F97 /* FriendGroupingViewController.swift in Sources */,
 				220CC3942C3CAC0A009D4576 /* FoodListModel.swift in Sources */,
@@ -965,9 +1097,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vamos.mumuk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -998,9 +1134,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vamos.mumuk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

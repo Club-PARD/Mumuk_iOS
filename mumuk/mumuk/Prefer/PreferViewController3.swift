@@ -132,7 +132,7 @@ class PreferViewController3 : UIViewController{
         
         
         // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
+        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -728,7 +728,6 @@ class PreferViewController3 : UIViewController{
             nextButton.leadingAnchor.constraint(equalTo: line.trailingAnchor, constant: 10.6),
             nextButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32),
             nextButton.heightAnchor.constraint(equalToConstant: 48),
-            nextButton.widthAnchor.constraint(equalToConstant: 269.8),
             
             skipButton.topAnchor.constraint(equalTo: titleLabel4.bottomAnchor , constant: 26),
             skipButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 33.2),

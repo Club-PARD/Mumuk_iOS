@@ -141,8 +141,10 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
                       let mainVC = self.mainViewController {
                 // MainViewController에서 MyViewController로 데이터 전달
                 myVC.name = mainVC.name!
+                
                 myVC.uid = mainVC.uid
                 myVC.deepProfile()
+//                myVC.Profiletag()
             }
         }
     }
