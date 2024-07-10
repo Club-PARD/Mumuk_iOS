@@ -14,11 +14,9 @@ struct Model{
     var image : String
 }
 
-#if DEBUG
-
 extension Model{
     
-    static var ModelData = [
+    public static var ModelData = [
         Model(number: 0, image: "default"),
         Model(number: 1, image: "tory_1"),
         Model(number: 2, image: "tory_2"),
@@ -28,4 +26,3 @@ extension Model{
         Model(number: 6, image: "mu3"),
     ]
 }
-#endif
