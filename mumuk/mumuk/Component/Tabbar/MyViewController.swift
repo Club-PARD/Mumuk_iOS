@@ -409,7 +409,6 @@ class MyViewController: UIViewController {
     var line : UIView = {
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
-        line.frame = CGRect(x: 0, y: 0, width: 271, height: 0)
         
         var stroke = UIView()
         stroke.bounds = line.bounds.insetBy(dx: -1, dy: -1)
@@ -777,7 +776,7 @@ class MyViewController: UIViewController {
             yesterdayeat.centerYAnchor.constraint(equalTo: yesterday.centerYAnchor),
             yesterdayeat.trailingAnchor.constraint(equalTo: thirdView.trailingAnchor, constant: -27),
             
-            line.topAnchor.constraint(equalTo: thirdView.topAnchor, constant: 93),
+            line.trailingAnchor.constraint(equalTo: thirdView.trailingAnchor, constant: -28),
             line.leadingAnchor.constraint(equalTo: thirdView.leadingAnchor, constant: 28),
             
             todaykeyword.topAnchor.constraint(equalTo: line.topAnchor, constant: 32),

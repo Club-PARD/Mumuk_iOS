@@ -403,11 +403,11 @@ lazy var yesterdayeat: UILabel = {
         view.addSubview(dailytasteCollectionView)
 
         NSLayoutConstraint.activate([
-                mainLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 72.3),
-                mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+                mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
                 
-                subLabel.leadingAnchor.constraint(equalTo: mainLabel.trailingAnchor , constant: 4),
-                subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 35),
+                subLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 45),
                 
                 background.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
                 background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),

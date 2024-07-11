@@ -206,7 +206,7 @@ class SummaryViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: cardLabel.bottomAnchor, constant: 10),
+            scrollView.topAnchor.constraint(equalTo: cardLabel.bottomAnchor, constant: 23),
             scrollView.leadingAnchor.constraint(equalTo: cardImageView.leadingAnchor, constant: 30),
             scrollView.trailingAnchor.constraint(equalTo: cardImageView.trailingAnchor, constant: -30),
             scrollView.bottomAnchor.constraint(equalTo: cardImageView.bottomAnchor, constant: -20),
