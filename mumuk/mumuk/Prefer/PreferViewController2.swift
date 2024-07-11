@@ -738,7 +738,7 @@ class PreferViewController2 : UIViewController{
     
     
     @objc func skipToNext(){
-        if checkToNext == 0 {
+        if !(koreaFoodButton.isSelected || americaFoodButton.isSelected || chinaFoodButton.isSelected || japanFoodButton.isSelected || etcFoodButton.isSelected || tieFoodButton.isSelected) {
             if var model = dailyScrumModel{
                 model.todayKoreanFood = 1
                 model.todayWesternFood = 1
@@ -770,7 +770,7 @@ class PreferViewController2 : UIViewController{
     
     
     @objc func moveToNext(){
-        if checkToNext == 1 {
+        if koreaFoodButton.isSelected || americaFoodButton.isSelected || chinaFoodButton.isSelected || japanFoodButton.isSelected || etcFoodButton.isSelected || tieFoodButton.isSelected{
             let preferVC = PreferViewController3()
             preferVC.uid = self.uid  // uid 전달
             preferVC.name = self.name  // name 전달

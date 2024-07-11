@@ -538,7 +538,7 @@ class PreferViewController3 : UIViewController{
     
     
     @objc func skipToNext(){
-        if checkToNext  == 0{
+        if !(foodButton1.isSelected || foodButton2.isSelected || foodButton3.isSelected || foodButton4.isSelected){
             let preferVC = PreferViewController4()
             
             if var model = dailyScrumModel{
@@ -571,7 +571,7 @@ class PreferViewController3 : UIViewController{
     }
     
     @objc func moveToNext(){
-        if checkToNext == 1{
+        if foodButton1.isSelected || foodButton2.isSelected || foodButton3.isSelected || foodButton4.isSelected{
             let preferVC = PreferViewController4()
                     preferVC.uid = self.uid  // uid 전달
                     preferVC.name = self.name  // name 전달

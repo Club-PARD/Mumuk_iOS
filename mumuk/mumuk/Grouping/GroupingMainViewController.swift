@@ -262,36 +262,10 @@ class GroupingMainViewController: UIViewController {
         shadowedView.addSubview(myLabel)
         myLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        // 오늘의 입맛 찾기 레이블 추가
-        let findTasteLabel = UILabel()
-        findTasteLabel.textColor = UIColor(red: 0.725, green: 0.725, blue: 0.725, alpha: 1)
-        findTasteLabel.font = UIFont(name: "Pretendard-Medium", size: 11)
-        
-        let paragraphStyle2 = NSMutableParagraphStyle()
-        paragraphStyle2.lineHeightMultiple = 1.52
-        
-        findTasteLabel.textAlignment = .center
-        let attributedString = NSMutableAttributedString(string: "오늘의 입맛 찾기 >")
-        attributedString.addAttributes([
-            .underlineStyle: NSUnderlineStyle.single.rawValue,
-            .paragraphStyle: paragraphStyle
-        ], range: NSRange(location: 0, length: attributedString.length))
-        findTasteLabel.attributedText = attributedString
-        
-        shadowedView.addSubview(findTasteLabel)
-        findTasteLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         
         // leaderUser가 있을 때 updateUserView 호출
         if let leaderUser = groupData?.users.values.first(where: { $0.name == self.name }) {
             updateUserView(user: leaderUser, isLeader: true)
-            
-            // daily 상태에 따라 findTasteLabel 표시 여부 결정
-            if leaderUser.daily {
-                findTasteLabel.isHidden = true
-            } else {
-                findTasteLabel.isHidden = false
-            }
         }
         
         // GroupingTextBalloon 이미지와 텍스트 레이블
@@ -340,17 +314,10 @@ class GroupingMainViewController: UIViewController {
             questionScrollView.topAnchor.constraint(equalTo: yesterdayFoodLabel.bottomAnchor, constant: 7.5),
             questionScrollView.trailingAnchor.constraint(equalTo: shadowedView.trailingAnchor, constant: -20),
             questionScrollView.heightAnchor.constraint(equalToConstant: 24),
-            
-            findTasteLabel.widthAnchor.constraint(equalToConstant: 82),
-            findTasteLabel.heightAnchor.constraint(equalToConstant: 11.36),
-            findTasteLabel.trailingAnchor.constraint(equalTo: shadowedView.trailingAnchor, constant: -37.5),
-            findTasteLabel.centerYAnchor.constraint(equalTo: myLabel.centerYAnchor)
         ])
         
         // 버튼 기능 추가
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(findTasteTapped))
-        findTasteLabel.isUserInteractionEnabled = true
-        findTasteLabel.addGestureRecognizer(tapGesture)
         
         if let leaderUser = groupData?.users.values.first(where: { $0.name == self.name }) {
             updateUserView(user: leaderUser, isLeader: true)

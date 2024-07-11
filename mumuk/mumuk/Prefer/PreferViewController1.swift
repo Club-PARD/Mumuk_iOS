@@ -190,18 +190,14 @@ class PreferViewController1 : UIViewController , UISearchBarDelegate{
     
     
     
+    // 김 - > 김치, 튀김
     func filterFood(searchText: String) {
-        
-        
         if searchText.isEmpty {
             filteredFood = []
-        }else {
+        } else {
             filteredFood = food.filter { foodItem in
-                if foodItem.hasPrefix(searchText) {
-                    return true
-                }
                 let hangulComponents = getHangulComponents(of: foodItem)
-                return hangulComponents.hasPrefix(searchText)
+                return foodItem.contains(searchText) || hangulComponents.contains(searchText)
             }
         }
     }
