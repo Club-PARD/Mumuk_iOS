@@ -358,42 +358,21 @@ class PreferViewController7 : UIViewController{
     
     @objc func moveToNext(){
         if foodButton1.isSelected || foodButton2.isSelected {
-            let preferVC = DailyFoorofileViewController()
-            
-            preferVC.uid = self.uid!  // uid 전달
-            preferVC.name = self.name!  // name 전달
-            let transition = CATransition()
-            transition.duration = 0.4
-            transition.type = .push
-            transition.subtype = .fromRight
-            transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            
-            // 현재 window에 전환 애니메이션 적용
-            view.window?.layer.add(transition, forKey: kCATransition)
-            preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
-            
-            
-        
-            
-            
+            let loadingVC = DailyLoading()
+            loadingVC.uid = self.uid
+            loadingVC.name = self.name
+            loadingVC.modalPresentationStyle = .fullScreen
             
             if let model = dailyScrumModel, let userId = uid {
-                       makePostRequest(model: model, userId: userId)
-                   } else {
-                       print("🍎model : \(dailyScrumModel)")
-                       print("🍎uid : \(uid) ")
-                       print("🚨 Error: preferModel or uid is nil")
-                       return
-                   }
+                makePostRequest(model: model, userId: userId)
+            } else {
+                print("🍎model : \(dailyScrumModel)")
+                print("🍎uid : \(uid) ")
+                print("🚨 Error: preferModel or uid is nil")
+                return
+            }
             
-            
-            
-            
-            
-            
-            
-            
-            present(preferVC, animated: false, completion: nil)
+            present(loadingVC, animated: false, completion: nil)
         }
     }
     

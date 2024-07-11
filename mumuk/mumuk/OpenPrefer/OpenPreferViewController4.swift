@@ -481,41 +481,16 @@ class OpenPreferViewController4 : UIViewController {
     
     
     
-    @objc func moveToNext(){
+    @objc func moveToNext() {
         if foodButton1.isSelected || foodButton2.isSelected || foodButton3.isSelected || foodButton4.isSelected {
-            let preferVC = Openprofile()
-            preferVC.uid = self.uid ?? ""
-            preferVC.name = self.name ?? ""
+            let loadingVC = OpenPrefLoading()
+            loadingVC.modalPresentationStyle = .fullScreen
+            present(loadingVC, animated: true, completion: nil)
             
-                
-            
-            
-            
-            
-//            preferVC.name = name   // name 전달
-            let transition = CATransition()
-            transition.duration = 0.4
-            transition.type = .push
-            transition.subtype = .fromRight
-            transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-//
-//
-//            print(preferModel)
-//            makePostRequest(model: preferModel , userId: uid)
-            
+            // preferModel과 uid 전달 (필요한 경우)
             if let model = preferModel, let userId = uid {
-                print(model)
                 makePostRequest(model: model, userId: userId)
-            } else {
-                print("🚨 Error: preferModel or uid is nil")
-                return
             }
-            
-            
-            // 현재 window에 전환 애니메이션 적용
-            view.window?.layer.add(transition, forKey: kCATransition)
-            preferVC.modalPresentationStyle = .fullScreen  // 전체 화면으로 설정
-            present(preferVC, animated: false, completion: nil)
         }
     }
     

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		223192E02C3E84D400BE699A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223192DF2C3E84D400BE699A /* UserDefaultsManager.swift */; };
 		223192E22C3EAD6800BE699A /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223192E12C3EAD6700BE699A /* ServiceViewController.swift */; };
+		223192E42C40830600BE699A /* OpenPrefLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223192E32C40830500BE699A /* OpenPrefLoading.swift */; };
+		223192E62C40867B00BE699A /* DailyLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223192E52C40867B00BE699A /* DailyLoading.swift */; };
 		2243B66C2C3672D200F6EFBF /* GroupingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */; };
 		2243B66E2C38215F00F6EFBF /* GroupAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */; };
 		2243B6712C39832A00F6EFBF /* ReconFoodViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */; };
@@ -115,6 +117,8 @@
 /* Begin PBXFileReference section */
 		223192DF2C3E84D400BE699A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		223192E12C3EAD6700BE699A /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		223192E32C40830500BE699A /* OpenPrefLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPrefLoading.swift; sourceTree = "<group>"; };
+		223192E52C40867B00BE699A /* DailyLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyLoading.swift; sourceTree = "<group>"; };
 		2243B66B2C3672D200F6EFBF /* GroupingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupingMainViewController.swift; sourceTree = "<group>"; };
 		2243B66D2C38215F00F6EFBF /* GroupAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAPIService.swift; sourceTree = "<group>"; };
 		2243B6702C39832900F6EFBF /* ReconFoodViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconFoodViewController1.swift; sourceTree = "<group>"; };
@@ -292,6 +296,7 @@
 				22688FD42C3D292900A3E3EE /* PreferViewController7.swift */,
 				22688FD52C3D292900A3E3EE /* SearchBarView.swift */,
 				22688FD62C3D292900A3E3EE /* SearchTableViewCell.swift */,
+				223192E52C40867B00BE699A /* DailyLoading.swift */,
 			);
 			path = Prefer;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				22688FCC2C3D292900A3E3EE /* OpenPreferViewController3.swift */,
 				22688FCD2C3D292900A3E3EE /* OpenPreferViewController4.swift */,
 				226890212C3D4D5200A3E3EE /* Openprofile.swift */,
+				223192E32C40830500BE699A /* OpenPrefLoading.swift */,
 			);
 			path = OpenPrefer;
 			sourceTree = "<group>";
@@ -749,6 +755,7 @@
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
 				22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */,
 				22688FE32C3D292900A3E3EE /* PreferViewController5.swift in Sources */,
+				223192E42C40830600BE699A /* OpenPrefLoading.swift in Sources */,
 				81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */,
 				22688FE52C3D292900A3E3EE /* PreferViewController7.swift in Sources */,
 				226890082C3D2A4F00A3E3EE /* underbordCell.swift in Sources */,
@@ -762,6 +769,7 @@
 				2268901C2C3D2AA400A3E3EE /* Edit2.swift in Sources */,
 				2268900C2C3D2A4F00A3E3EE /* FriendComponent.swift in Sources */,
 				2268901B2C3D2AA400A3E3EE /* MyViewController.swift in Sources */,
+				223192E62C40867B00BE699A /* DailyLoading.swift in Sources */,
 				815FE7C72C304E120090BDBE /* TabbarViewController.swift in Sources */,
 				22688FDE2C3D292900A3E3EE /* OpenPreferViewController4.swift in Sources */,
 				2268900B2C3D2A4F00A3E3EE /* TagCell.swift in Sources */,
