@@ -111,7 +111,7 @@
     - 각 음식에 대해 음식 카테고리별로 사용자 그룹의 선호도를 추가로 계산하여 보여줍니다.
     - 여러 그룹(예: 고기, 해산물, 채소 등) 내에서의 선호도를 계산하여 상세히 보여줍니다.
   
-     ## [🖥️Mumuk Backend](https://github.com/Club-PARD/mumuk_BE/blob/master/README_Mumuk_Back.md)
+     ## [🖥️Mumuk Backend](https://github.com/Club-PARD/mumuk_BE)
 -----
 
 
