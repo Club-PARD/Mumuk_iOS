@@ -161,6 +161,7 @@ class GroupingMainViewController: UIViewController {
         circleView.layer.borderWidth = 2
         circleView.layer.borderColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
         circleView.layer.cornerRadius = 35
+        circleView.clipsToBounds = true
         shadowedView.addSubview(circleView)
         circleView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -181,22 +182,23 @@ class GroupingMainViewController: UIViewController {
         readyView.addSubview(readyLabel)
         readyLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        // 현재 사용자(리더)의 imageiD
-        let leaderImageId = groupData?.users.values.first(where: { $0.name == self.name })?.imageId ?? 0
+        // 현재 사용자(리더)의 imageId
+         let leaderImageId = groupData?.users.values.first(where: { $0.name == self.name })?.imageId ?? 0
 
-        // 이모지 레이블 대신 이미지 뷰 사용
-        let imageView = UIImageView(image: getImage(for: leaderImageId))
-        imageView.contentMode = UIView.ContentMode.scaleAspectFit
-        circleView.addSubview(imageView)
+         // 이미지 뷰 사용
+         let imageView = UIImageView(image: getImage(for: leaderImageId))
+         imageView.contentMode = .scaleAspectFill  // 이 줄을 변경
+         imageView.clipsToBounds = true  // 이 줄을 추가
+         circleView.addSubview(imageView)
 
-        // 이미지 뷰에 대한 제약 조건 설정
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
-            imageView.widthAnchor.constraint(equalTo: circleView.widthAnchor, multiplier: 0.7),
-            imageView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 0.7)
-        ])
+         // 이미지 뷰에 대한 제약 조건 설정
+         imageView.translatesAutoresizingMaskIntoConstraints = false
+         NSLayoutConstraint.activate([
+             imageView.topAnchor.constraint(equalTo: circleView.topAnchor),
+             imageView.leadingAnchor.constraint(equalTo: circleView.leadingAnchor),
+             imageView.trailingAnchor.constraint(equalTo: circleView.trailingAnchor),
+             imageView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor)
+         ])
         
         // 어제 먹은 음식 레이블 추가
         let yesterdayFoodLabel = UILabel()
@@ -491,6 +493,23 @@ class GroupingMainViewController: UIViewController {
         attributedString.append(NSAttributedString(string: foodText, attributes: [.foregroundColor: UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)]))
         yesterdayFoodLabel.attributedText = attributedString
         
+        // 이미지 업데이트
+        if let imageView = circleView.subviews.first as? UIImageView {
+            imageView.image = getImage(for: user.imageId)
+        } else {
+            let imageView = UIImageView(image: getImage(for: user.imageId))
+            imageView.contentMode = .scaleAspectFill
+            imageView.clipsToBounds = true
+            circleView.addSubview(imageView)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: circleView.topAnchor),
+                imageView.leadingAnchor.constraint(equalTo: circleView.leadingAnchor),
+                imageView.trailingAnchor.constraint(equalTo: circleView.trailingAnchor),
+                imageView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor)
+            ])
+        }
+        
         // 태그 업데이트 로직
         updateTags(for: user, in: tagScrollView)
     }
@@ -570,20 +589,22 @@ class GroupingMainViewController: UIViewController {
         circleView.layer.cornerRadius = 35
         circleView.layer.borderWidth = 2
         circleView.layer.borderColor = UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
+        circleView.clipsToBounds = true
         friendView.addSubview(circleView)
         
-        // 이모지 레이블 대신 이미지 뷰 사용
+        // 이미지 뷰 추가
         let imageView = UIImageView(image: getImage(for: user.imageId))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         circleView.addSubview(imageView)
-
+        
         // 이미지 뷰에 대한 제약 조건 설정
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
-            imageView.widthAnchor.constraint(equalTo: circleView.widthAnchor, multiplier: 0.7),
-            imageView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 0.7)
+            imageView.topAnchor.constraint(equalTo: circleView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: circleView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: circleView.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor)
         ])
         
         // Ready 텍스트가 있는 뷰 추가

@@ -301,9 +301,24 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
             checkBox.heightAnchor.constraint(equalToConstant: 21)
         ])
         
+        // 탭 제스처 인식기 추가
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(friendViewTapped(_:)))
+        containerView.addGestureRecognizer(tapGesture)
+        containerView.isUserInteractionEnabled = true
+
+        // checkBox를 containerView의 태그로 설정
+        containerView.tag = checkBox.hash
+
         return containerView
     }
-
+    
+    @objc func friendViewTapped(_ gesture: UITapGestureRecognizer) {
+        guard let containerView = gesture.view,
+              let checkBox = containerView.subviews.first(where: { $0 is UIButton }) as? UIButton else {
+            return
+        }
+        checkBoxTapped(checkBox)
+    }
 
     func getImageName(for imageId: Int) -> String {
         return Model.ModelData.first { $0.number == imageId }?.image ?? "default"
