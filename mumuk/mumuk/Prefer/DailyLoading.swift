@@ -97,8 +97,12 @@ class DailyLoading: UIViewController {
         // 3초 후 DailyFoorofileViewController로 전환
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             let dailyFoorofileVC = DailyFoorofileViewController()
-            dailyFoorofileVC.uid = self.uid!
-            dailyFoorofileVC.name = self.name!
+            if let uid = self.uid {
+                dailyFoorofileVC.uid = uid
+            }
+            if let name = self.name {
+                dailyFoorofileVC.name = name
+            }
             dailyFoorofileVC.modalPresentationStyle = .fullScreen
             self.present(dailyFoorofileVC, animated: true, completion: nil)
         }

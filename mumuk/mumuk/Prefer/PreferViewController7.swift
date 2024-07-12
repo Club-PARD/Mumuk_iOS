@@ -319,7 +319,7 @@ class PreferViewController7 : UIViewController{
     
     @objc func skipToNext(){
         if foodButton1.isSelected == false && foodButton2.isSelected == false {
-            let preferVC = DailyFoorofileViewController()
+            let loadingVC = DailyLoading()
             
             if var model = dailyScrumModel {
                 model.todaySoup = 1
@@ -336,9 +336,10 @@ class PreferViewController7 : UIViewController{
                 return
             }
             
-            // 여기에 필요한 데이터를 전달합니다.
-            preferVC.uid = self.uid!
-            preferVC.name = self.name!
+            // DailyLoading에 필요한 데이터 전달
+            loadingVC.uid = self.uid
+            loadingVC.name = self.name
+            loadingVC.modalPresentationStyle = .fullScreen
             
             let transition = CATransition()
             transition.duration = 0.4
@@ -347,8 +348,7 @@ class PreferViewController7 : UIViewController{
             transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
             
             view.window?.layer.add(transition, forKey: kCATransition)
-            preferVC.modalPresentationStyle = .fullScreen
-            present(preferVC, animated: false, completion: nil)
+            present(loadingVC, animated: false, completion: nil)
         }
     }
     
