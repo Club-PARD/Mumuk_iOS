@@ -121,7 +121,7 @@ class MyViewController: UIViewController {
             }
         }
         
-        self.yesterdayFood = data.notToday ?? "???"
+        self.yesterdayFood = data.notToday ?? "입력되지 않았어요"
         self.daily.removeAll()
         
         if data.daily {
@@ -145,8 +145,8 @@ class MyViewController: UIViewController {
                 }
             }
         } else {
-            self.yesterdayFood = "???"
-            self.daily = ["???"]
+            self.yesterdayFood = "입력되지 않았어요"
+            self.daily = ["입력되지 않았어요"]
         }
     }
     
@@ -406,19 +406,12 @@ class MyViewController: UIViewController {
             return label
         }()
     
-    var line : UIView = {
-        let line = UIView()
-        line.translatesAutoresizingMaskIntoConstraints = false
-        line.frame = CGRect(x: 0, y: 0, width: 271, height: 0)
-        
-        var stroke = UIView()
-        stroke.bounds = line.bounds.insetBy(dx: -1, dy: -1)
-        stroke.center = line.center
-        stroke.layer.borderWidth = 2
-        stroke.layer.borderColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1).cgColor
-        line.addSubview(stroke)
-        return line
-    }()
+    var line: UIView = {
+           let line = UIView()
+           line.translatesAutoresizingMaskIntoConstraints = false
+           line.backgroundColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1)
+           return line
+       }()
 
     let todaykeyword: UILabel = {
         let label = UILabel()
@@ -780,6 +773,7 @@ class MyViewController: UIViewController {
             line.topAnchor.constraint(equalTo: thirdView.topAnchor, constant: 93),
             line.leadingAnchor.constraint(equalTo: thirdView.leadingAnchor, constant: 28),
             line.trailingAnchor.constraint(equalTo: thirdView.trailingAnchor, constant: -28),
+            line.heightAnchor.constraint(equalToConstant: 1),
             
             todaykeyword.topAnchor.constraint(equalTo: line.topAnchor, constant: 32),
             todaykeyword.leadingAnchor.constraint(equalTo: thirdView.leadingAnchor, constant: 28),

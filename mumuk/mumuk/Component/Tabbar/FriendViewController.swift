@@ -25,6 +25,14 @@ class FriendViewController: UIViewController{
         return label
     }()
     
+    let emptyStateImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "tung"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.alpha = 0
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
     // 버튼 생성
     let addfriend: UIButton = {
         let button = UIButton()
@@ -118,6 +126,38 @@ class FriendViewController: UIViewController{
         if let tabBarHeight = tabBarController?.tabBar.frame.height {
             friendTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: tabBarHeight/2, right: 0)
         }
+        view.addSubview(emptyStateImageView)
+        
+        NSLayoutConstraint.activate([
+            emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            emptyStateImageView.widthAnchor.constraint(equalToConstant: 296.71), // 적절한 크기로 조정
+            emptyStateImageView.heightAnchor.constraint(equalToConstant: 84.66)
+        ])
+        
+        updateEmptyState()
+    }
+    
+    func updateEmptyState() {
+        let isEmpty = friend.isEmpty && !isSearching
+        
+        UIView.animate(withDuration: 0.3) {
+            self.emptyStateImageView.alpha = isEmpty ? 1 : 0
+            self.friendTableView.alpha = isEmpty ? 0 : 1
+        }
+        
+        if isEmpty {
+            animateEmptyStateImage()
+        } else {
+            self.emptyStateImageView.layer.removeAllAnimations()
+            self.emptyStateImageView.transform = .identity
+        }
+    }
+
+    func animateEmptyStateImage() {
+        UIView.animate(withDuration: 2.0, delay: 0, options: [.autoreverse, .repeat], animations: {
+            self.emptyStateImageView.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }, completion: nil)
     }
     
     @objc func handleTap() {
@@ -298,7 +338,9 @@ class FriendViewController: UIViewController{
         print("데이터 불러오기 시작")
         if let url = URL(string: "https://mumuk.store/with-pref/friend?name=\(self.name)") {
             let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: url) { data, response, error in
+            let task = session.dataTask(with: url) { [weak self] data, response, error in
+                guard let self = self else { return }
+                
                 if let error = error {
                     print("🚨🚨🚨", error)
                     return
@@ -323,6 +365,7 @@ class FriendViewController: UIViewController{
                         
                         DispatchQueue.main.async {
                             self.friendTableView.reloadData()
+                            self.updateEmptyState()
                         }
                     } catch let error as NSError {
                         print("🚨🚨🚨", error)
@@ -470,6 +513,11 @@ extension FriendViewController: UITableViewDataSource, UITableViewDelegate {
         
         // 테이블 뷰 업데이트
         friendTableView.deleteSections(IndexSet(integer: indexPath.section), with: .fade)
+        
+        // 빈 상태 업데이트
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+            self?.updateEmptyState()
+        }
     }
     
     //친구삭제
