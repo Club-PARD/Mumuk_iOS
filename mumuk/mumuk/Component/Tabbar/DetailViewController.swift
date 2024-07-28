@@ -116,7 +116,7 @@ class DetailViewController: UIViewController {
             }
         }
         
-        self.yesterdayFood = data.notToday ?? "???"
+        self.yesterdayFood = data.notToday ?? "입력되지 않았어요"
         self.daily.removeAll()
         
         if data.daily {
@@ -140,8 +140,8 @@ class DetailViewController: UIViewController {
                 }
             }
         } else {
-            self.yesterdayFood = "???"
-            self.daily = ["???"]
+            self.yesterdayFood = "입력되지 않았어요"
+            self.daily = ["입력되지 않았어요"]
         }
     }
     

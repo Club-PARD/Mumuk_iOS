@@ -32,7 +32,7 @@ class GroupingMainViewController: UIViewController {
         fetchGroupData()
         
         // 1초마다 API를 호출하는 타이머 설정
-        updateTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+        updateTimer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { [weak self] _ in
             self?.fetchGroupData()
         }
     }

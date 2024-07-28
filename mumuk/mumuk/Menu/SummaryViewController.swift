@@ -285,19 +285,20 @@ class SummaryViewController: UIViewController {
         circleView.layer.cornerRadius = 35
         circleView.layer.borderWidth = 2
         circleView.layer.borderColor = user.daily ? UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1).cgColor : UIColor(red: 0.875, green: 0.875, blue: 0.875, alpha: 1).cgColor
+        circleView.clipsToBounds = true
         friendView.addSubview(circleView)
         
         let imageView = UIImageView(image: getImage(for: user.imageId))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         circleView.addSubview(imageView)
 
         // 이미지 뷰에 대한 제약 조건 설정
         imageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
-            imageView.widthAnchor.constraint(equalTo: circleView.widthAnchor, multiplier: 0.7),
-            imageView.heightAnchor.constraint(equalTo: circleView.heightAnchor, multiplier: 0.7)
+            imageView.topAnchor.constraint(equalTo: circleView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: circleView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: circleView.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: circleView.bottomAnchor)
         ])
         
         // 이름 레이블

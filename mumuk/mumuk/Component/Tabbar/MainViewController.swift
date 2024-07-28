@@ -169,7 +169,7 @@ class MainViewController: UIViewController {
         
         print("name 맞는지 확인 : \(name)")
 
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { [weak self] _ in
             self?.fetchUserData()
         }
     }
