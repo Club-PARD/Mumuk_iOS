@@ -74,9 +74,9 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
         view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 10),
-            backButton.heightAnchor.constraint(equalToConstant: 22),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 31.79),
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 37),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
             backButton.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor)
         ])
     }
@@ -301,9 +301,24 @@ class FriendGroupingViewController: UIViewController, UISearchBarDelegate {
             checkBox.heightAnchor.constraint(equalToConstant: 21)
         ])
         
+        // 탭 제스처 인식기 추가
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(friendViewTapped(_:)))
+        containerView.addGestureRecognizer(tapGesture)
+        containerView.isUserInteractionEnabled = true
+
+        // checkBox를 containerView의 태그로 설정
+        containerView.tag = checkBox.hash
+
         return containerView
     }
-
+    
+    @objc func friendViewTapped(_ gesture: UITapGestureRecognizer) {
+        guard let containerView = gesture.view,
+              let checkBox = containerView.subviews.first(where: { $0 is UIButton }) as? UIButton else {
+            return
+        }
+        checkBoxTapped(checkBox)
+    }
 
     func getImageName(for imageId: Int) -> String {
         return Model.ModelData.first { $0.number == imageId }?.image ?? "default"

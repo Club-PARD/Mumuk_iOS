@@ -9,27 +9,14 @@ class KakaoLoginViewController: UIViewController {
     var nickname : String?
     var uid : String?
     var exists : Bool?
-    static var globalUid : String = ""
     
     let superTitle1 : UILabel = {
         let label = UILabel()
-        label.text = "고르다 지친 당신을 위한"
+        label.text = "얘들아, 우리 오늘 머 먹을래?"
         label.font = UIFont(name: "Pretendard-Medium", size: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    
-    let superTitle2 : UILabel = {
-        let label = UILabel()
-        label.text = "메뉴 추천 플랫폼"
-        label.font = UIFont(name: "Pretendard-Bold", size: 22)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    
-
     
     let titleImage : UIImageView = {
         let titleImage = UIImageView()
@@ -94,7 +81,6 @@ class KakaoLoginViewController: UIViewController {
         
         
         view.addSubview(superTitle1)
-        view.addSubview(superTitle2)
         view.addSubview(titleImage)
         view.addSubview(mainImage)
         view.addSubview(kakaoLoginButton)
@@ -105,27 +91,25 @@ class KakaoLoginViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             
-            superTitle1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            superTitle1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 62),
+            superTitle1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            superTitle1.topAnchor.constraint(equalTo: view.topAnchor, constant: 116),
             
-            
-            superTitle2.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            superTitle2.topAnchor.constraint(equalTo: superTitle1.bottomAnchor),
-            
-            titleImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            titleImage.topAnchor.constraint(equalTo: superTitle2.bottomAnchor, constant: 10),
+            titleImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            titleImage.topAnchor.constraint(equalTo: superTitle1.bottomAnchor, constant: 10),
             titleImage.heightAnchor.constraint(equalToConstant: 40),
             titleImage.widthAnchor.constraint(equalToConstant: 183),
             
             
             
-            mainImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 75),
-            mainImage.topAnchor.constraint(equalTo: titleImage.bottomAnchor, constant: 109),
+            mainImage.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainImage.heightAnchor.constraint(equalToConstant: 348.81),
+            mainImage.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -215.73),
             
             kakaoLoginButton.heightAnchor.constraint(equalToConstant: 54),
-            kakaoLoginButton.topAnchor.constraint(equalTo: mainImage.bottomAnchor, constant: 84),
-            kakaoLoginButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
-            kakaoLoginButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32),
+            kakaoLoginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -121),
+            kakaoLoginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
+            kakaoLoginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
             
         ])
     }
@@ -245,14 +229,14 @@ class KakaoLoginViewController: UIViewController {
     //MARK: - 화면 이동 메소드
     //    메인 화면으로 이동
     func moveToMainViewController() {
-        
         let nextVC = TabbarViewController()
         if let uid = uid {
-         KakaoLoginViewController.globalUid = uid
+            UserDefaultsManager.shared.setUserId(uid)
+            UserDefaultsManager.shared.setLoggedIn(true)
+            print("로그인 상태 저장: \(UserDefaultsManager.shared.isLoggedIn())")
+            print("저장된 UID: \(UserDefaultsManager.shared.getUserId() ?? "없음")")
         }
         
-//        nextVC.uid = KakaoLoginViewController.globalUid
-    
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)
     }
@@ -262,9 +246,9 @@ class KakaoLoginViewController: UIViewController {
         let nextVC = LoginController()
         nextVC.uid = self.uid
         if let uid = uid {
-            KakaoLoginViewController.globalUid = uid
-
+            UserDefaultsManager.shared.setUserId(uid)
         }
+
                 
         nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true, completion: nil)

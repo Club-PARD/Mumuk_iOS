@@ -116,7 +116,7 @@ class DetailViewController: UIViewController {
             }
         }
         
-        self.yesterdayFood = data.notToday ?? "???"
+        self.yesterdayFood = data.notToday ?? "입력되지 않았어요"
         self.daily.removeAll()
         
         if data.daily {
@@ -140,8 +140,8 @@ class DetailViewController: UIViewController {
                 }
             }
         } else {
-            self.yesterdayFood = "???"
-            self.daily = ["???"]
+            self.yesterdayFood = "입력되지 않았어요"
+            self.daily = ["입력되지 않았어요"]
         }
     }
     
@@ -365,8 +365,8 @@ lazy var yesterdayeat: UILabel = {
             tagUnderCollectionView.heightAnchor.constraint(equalToConstant: 29),
             
             backlabel.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
-            backlabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 35),
-            backlabel.heightAnchor.constraint(equalToConstant: 135),
+            backlabel.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+            backlabel.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -15),
             backlabel.widthAnchor.constraint(equalToConstant: 275),
             
             yesterday.topAnchor.constraint(equalTo: backlabel.topAnchor, constant: 20.22),

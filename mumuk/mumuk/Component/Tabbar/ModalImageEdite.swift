@@ -83,6 +83,10 @@ class ModalImageEdite: UIViewController {
             selectedImageView.image = image
         }
         
+        if let flowLayout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.scrollDirection = .vertical
+        }
+        
         view.addSubview(LoginTitle)
         view.addSubview(selectedImageView)
         view.addSubview(collectionview)
@@ -166,7 +170,7 @@ class ModalImageEdite: UIViewController {
 
 extension ModalImageEdite: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Model.ModelData.count - 1
+        return min(6, Model.ModelData.count - 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -225,13 +229,15 @@ extension ModalImageEdite: UICollectionViewDelegate, UICollectionViewDataSource 
 
 extension ModalImageEdite: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth: CGFloat = 62
-        let itemHeight: CGFloat = 62
-        return CGSize(width: itemWidth, height: itemHeight)
+        return CGSize(width: 62, height: 62)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
+        let totalCellWidth = 62 * 3
+        let totalSpacingWidth = 7 * 2
+        let leftInset = (collectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

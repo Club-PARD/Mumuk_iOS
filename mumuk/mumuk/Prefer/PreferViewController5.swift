@@ -14,73 +14,9 @@ class PreferViewController5 : UIViewController{
     var clickedCheck : [Int] = [0,0]
     var dailyScrumModel : PreferModel?
     
-    let lineImage1 : UIImageView = {
+    let lineImage : UIImageView = {
         let lineImage = UIImageView()
-        
-    
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFit
-        return lineImage
-    }()
-    
-    let lineImage2 : UIImageView = {
-        let lineImage = UIImageView()
-        
-    
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFit
-        return lineImage
-    }()
-    
-    let lineImage3 : UIImageView = {
-        let lineImage = UIImageView()
-        
-    
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFit
-        return lineImage
-    }()
-    
-    let lineImage4 : UIImageView = {
-        let lineImage = UIImageView()
-        
-    
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFit
-        return lineImage
-    }()
-    
-    
-    let lineImage5 : UIImageView = {
-        let lineImage = UIImageView()
-        
-    
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFit
-        return lineImage
-    }()
-    
-    
-    let lineImage6 : UIImageView = {
-        let lineImage = UIImageView()
-        
-    
-        lineImage.image = UIImage(named: "grayLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFit
-        return lineImage
-    }()
-    
-    let lineImage7 : UIImageView = {
-        let lineImage = UIImageView()
-        
-    
-        lineImage.image = UIImage(named: "grayLine")
+        lineImage.image = UIImage(named: "line5")  //
         lineImage.translatesAutoresizingMaskIntoConstraints = false
         lineImage.contentMode = .scaleAspectFit
         return lineImage
@@ -129,10 +65,6 @@ class PreferViewController5 : UIViewController{
     let nextButton : UIButton = {
         var config = UIButton.Configuration.filled()
         config.background.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
-        
-        
-        // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 0, bottom: 7, trailing: 0)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -520,13 +452,7 @@ class PreferViewController5 : UIViewController{
         }
     }
     func setUI(){
-        view.addSubview(lineImage1)
-        view.addSubview(lineImage2)
-        view.addSubview(lineImage3)
-        view.addSubview(lineImage4)
-        view.addSubview(lineImage5)
-        view.addSubview(lineImage6)
-        view.addSubview(lineImage7)
+        view.addSubview(lineImage)
         
         view.addSubview(titleLabel1)
         view.addSubview(titleLabel2)
@@ -542,48 +468,23 @@ class PreferViewController5 : UIViewController{
         view.addSubview(foodButton3)
         
         NSLayoutConstraint.activate([
-            lineImage1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 33),
-            lineImage1.widthAnchor.constraint(equalToConstant: 35),
-            
-            lineImage2.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage2.leadingAnchor.constraint(equalTo: lineImage1.trailingAnchor , constant: 14),
-            lineImage2.widthAnchor.constraint(equalToConstant: 35),
-            
-            lineImage3.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage3.leadingAnchor.constraint(equalTo: lineImage2.trailingAnchor , constant: 14),
-            lineImage3.widthAnchor.constraint(equalToConstant: 35),
-            
-            lineImage4.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage4.leadingAnchor.constraint(equalTo: lineImage3.trailingAnchor , constant: 14),
-            lineImage4.widthAnchor.constraint(equalToConstant: 35),
-            
-            lineImage5.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage5.leadingAnchor.constraint(equalTo: lineImage4.trailingAnchor , constant: 14),
-            lineImage5.widthAnchor.constraint(equalToConstant: 35),
-            
-            lineImage6.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage6.leadingAnchor.constraint(equalTo: lineImage5.trailingAnchor , constant: 14),
-            lineImage6.widthAnchor.constraint(equalToConstant: 35),
-            
-            lineImage7.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage7.leadingAnchor.constraint(equalTo: lineImage6.trailingAnchor , constant: 14),
-            lineImage7.widthAnchor.constraint(equalToConstant: 35),
-            
-            
-
-            titleLabel1.topAnchor.constraint(equalTo: lineImage1.topAnchor , constant: 38),
-            titleLabel1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
-            
-            titleLabel2.topAnchor.constraint(equalTo: lineImage1.topAnchor , constant: 38),
-            titleLabel2.leadingAnchor.constraint(equalTo: titleLabel1.trailingAnchor , constant: 0),
+            lineImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 57.4),
+                        lineImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
+                        lineImage.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32),
+                        
+                        
+                        // 변경
+                         titleLabel1.topAnchor.constraint(equalTo: lineImage.topAnchor , constant: 38),
+                        titleLabel1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
+                   
+                        titleLabel2.topAnchor.constraint(equalTo: lineImage.topAnchor , constant: 38),
+                        titleLabel2.leadingAnchor.constraint(equalTo: titleLabel1.trailingAnchor , constant: 0),
             
             titleLabel3.topAnchor.constraint(equalTo: titleLabel1.bottomAnchor , constant: 3),
             titleLabel3.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32),
             
             titleLabel4.topAnchor.constraint(equalTo: titleLabel3.bottomAnchor , constant: 499),
-            titleLabel4.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33.4),
-            titleLabel4.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32.6),
+                        titleLabel4.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             nextButton.topAnchor.constraint(equalTo: titleLabel4.bottomAnchor, constant: 19),
             nextButton.leadingAnchor.constraint(equalTo: line.trailingAnchor, constant: 10.6),
@@ -632,10 +533,10 @@ class PreferViewController5 : UIViewController{
         view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 10),
-            backButton.heightAnchor.constraint(equalToConstant: 22),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 31.79),
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 68)
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 37),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50)
         ])
     }
     

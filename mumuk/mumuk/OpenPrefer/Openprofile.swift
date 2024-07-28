@@ -114,7 +114,7 @@ class Openprofile : UIViewController {
             }
         }
         
-        self.yesterdayFood = data.notToday ?? "???"
+        self.yesterdayFood = data.notToday ?? "입력되지 않았어요"
         self.daily.removeAll()
         
         if data.daily {
@@ -138,8 +138,8 @@ class Openprofile : UIViewController {
                 }
             }
         } else {
-            self.yesterdayFood = "???"
-            self.daily = ["???"]
+            self.yesterdayFood = "입력되지 않았어요"
+            self.daily = ["입력되지 않았어요"]
         }
     }
     
@@ -403,79 +403,78 @@ lazy var yesterdayeat: UILabel = {
         view.addSubview(dailytasteCollectionView)
 
         NSLayoutConstraint.activate([
-            mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                mainLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+                
+                subLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 45),
+                
+                background.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
+                background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+                background.bottomAnchor.constraint(equalTo: backlabel.bottomAnchor, constant: -15),
+                background.widthAnchor.constraint(equalToConstant: 275),
             
-            subLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            subLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 45),
+              
+                
+                nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor , constant: -10),
+                nextButton.widthAnchor.constraint(equalToConstant: 129),
+                nextButton.heightAnchor.constraint(equalToConstant: 56),
+                
+                titleImage1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 28.4),
+                titleImage1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 18.7),
+                
+                titleImage2.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:  -25.7),
+                titleImage2.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2),
+                
+                backlabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 25 ),
+                backlabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor , constant: 51),
+                backlabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor , constant: -23),
+                backlabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -25),
+                
+                boundary.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                boundary.topAnchor.constraint(equalTo: backlabel.topAnchor, constant: 25),
+                boundary.heightAnchor.constraint(equalToConstant: 275),
+                boundary.widthAnchor.constraint(equalToConstant: 275),
+                
+                status.topAnchor.constraint(equalTo: boundary.topAnchor),
+                status.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+                status.heightAnchor.constraint(equalToConstant: 31),
+                status.widthAnchor.constraint(equalToConstant: 140),
+                
+                userImage.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+                userImage.widthAnchor.constraint(equalToConstant: 190),
+                userImage.heightAnchor.constraint(equalToConstant: 190),
+                userImage.centerYAnchor.constraint(equalTo: boundary.centerYAnchor),
+                
+                nickname.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 13.5),
+                nickname.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
+                nickname.heightAnchor.constraint(equalToConstant: 21),
+                
+                tagUnderCollectionView.leadingAnchor.constraint(equalTo: boundary.leadingAnchor),
+                tagUnderCollectionView.trailingAnchor.constraint(equalTo: boundary.trailingAnchor),
+                tagUnderCollectionView.topAnchor.constraint(equalTo: nickname.bottomAnchor, constant: 13),
+                tagUnderCollectionView.heightAnchor.constraint(equalToConstant: 29),
+                
+                yesterday.topAnchor.constraint(equalTo: background.topAnchor, constant: 20.22),
+                yesterday.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 21.5),
             
-            background.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 92.5),
-            background.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
-            background.heightAnchor.constraint(equalToConstant: 135),
-            background.widthAnchor.constraint(equalToConstant: 275),
-        
-            
-            nextButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor , constant: -31),
-            nextButton.widthAnchor.constraint(equalToConstant: 129),
-            nextButton.heightAnchor.constraint(equalToConstant: 56),
-            
-            titleImage1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 28.4),
-            titleImage1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 18.7),
-            
-            titleImage2.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant:  -25.7),
-            titleImage2.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2),
-            
-            
-        
-            backlabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 25 ),
-            backlabel.topAnchor.constraint(equalTo: mainLabel.bottomAnchor , constant: 51),
-            backlabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor , constant: -23),
-            backlabel.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -24),
-            
-            boundary.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            boundary.topAnchor.constraint(equalTo: backlabel.topAnchor, constant: 25),
-            boundary.heightAnchor.constraint(equalToConstant: 275),
-            boundary.widthAnchor.constraint(equalToConstant: 275),
-            
-            status.topAnchor.constraint(equalTo: boundary.topAnchor),
-            status.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
-            status.heightAnchor.constraint(equalToConstant: 31),
-            status.widthAnchor.constraint(equalToConstant: 140),
-            
-            userImage.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
-            userImage.widthAnchor.constraint(equalToConstant: 190),
-            userImage.heightAnchor.constraint(equalToConstant: 190),
-            userImage.centerYAnchor.constraint(equalTo: boundary.centerYAnchor),
-            
-            nickname.topAnchor.constraint(equalTo: boundary.bottomAnchor, constant: 13.5),
-            nickname.centerXAnchor.constraint(equalTo: boundary.centerXAnchor),
-            nickname.heightAnchor.constraint(equalToConstant: 21),
-            
-            tagUnderCollectionView.leadingAnchor.constraint(equalTo: boundary.leadingAnchor),
-            tagUnderCollectionView.trailingAnchor.constraint(equalTo: boundary.trailingAnchor),
-            tagUnderCollectionView.topAnchor.constraint(equalTo: nickname.bottomAnchor, constant: 13),
-            tagUnderCollectionView.heightAnchor.constraint(equalToConstant: 29),
-            
-            yesterday.topAnchor.constraint(equalTo: background.topAnchor, constant: 20.22),
-            yesterday.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 21.5),
-        
-            yesterdayeat.leadingAnchor.constraint(equalTo: yesterday.trailingAnchor, constant: 18),
-            yesterdayeat.centerYAnchor.constraint(equalTo: yesterday.centerYAnchor),
-            yesterdayeat.heightAnchor.constraint(equalToConstant: 29),
-            
-            dailytaste.topAnchor.constraint(equalTo: background.topAnchor, constant: 55.77),
-            dailytaste.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 21.5),
-            dailytaste.widthAnchor.constraint(equalToConstant: 80),
-            dailytaste.heightAnchor.constraint(equalToConstant: 17),
-            
-            dailytasteCollectionView.leadingAnchor.constraint(equalTo: dailytaste.trailingAnchor, constant: 30),
-            dailytasteCollectionView.topAnchor.constraint(equalTo: dailytaste.topAnchor, constant: -8),
-            dailytasteCollectionView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -18),
-            dailytasteCollectionView.heightAnchor.constraint(equalToConstant: 70),
+                yesterdayeat.leadingAnchor.constraint(equalTo: yesterday.trailingAnchor, constant: 18),
+                yesterdayeat.centerYAnchor.constraint(equalTo: yesterday.centerYAnchor),
+                yesterdayeat.heightAnchor.constraint(equalToConstant: 29),
+                
+                dailytaste.topAnchor.constraint(equalTo: background.topAnchor, constant: 55.77),
+                dailytaste.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 21.5),
+                dailytaste.widthAnchor.constraint(equalToConstant: 80),
+                dailytaste.heightAnchor.constraint(equalToConstant: 17),
+                
+                dailytasteCollectionView.leadingAnchor.constraint(equalTo: dailytaste.trailingAnchor, constant: 30),
+                dailytasteCollectionView.topAnchor.constraint(equalTo: dailytaste.topAnchor, constant: -8),
+                dailytasteCollectionView.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -18),
+                dailytasteCollectionView.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -10),
 
-        ])
-    }
+            ])
+        }
     
     
 }

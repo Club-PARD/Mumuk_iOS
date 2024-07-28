@@ -2,10 +2,8 @@
 //  Edit3.swift
 //  mumuk
 //
-//  Created by 유재혁 on 7/9/24.
+//  Created by 김민준 on 7/3/24.
 //
-
-
 
 import UIKit
 
@@ -17,49 +15,18 @@ class Edit3 : UIViewController {
     
     
     var checkToNext : Int = 0
-    let lineImage1 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage2 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage3 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "yellowLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
-    
-    let lineImage4 : UIImageView = {
-        let lineImage = UIImageView()
-        lineImage.image = UIImage(named: "grayLine")
-        lineImage.translatesAutoresizingMaskIntoConstraints = false
-        lineImage.contentMode = .scaleAspectFill
-        lineImage.clipsToBounds = true
-        return lineImage
-    }()
+    let lineImage : UIImageView = {
+         let lineImage = UIImageView()
+         lineImage.image = UIImage(named: "openline3")
+         lineImage.translatesAutoresizingMaskIntoConstraints = false
+         lineImage.contentMode = .scaleAspectFit
+         lineImage.clipsToBounds = true
+         return lineImage
+     }()
     
     let nextButton : UIButton = {
         var config = UIButton.Configuration.filled()
         config.background.backgroundColor = #colorLiteral(red: 1, green: 0.5921568627, blue: 0.1019607843, alpha: 1)
-        
-        
-        // 내부 여백 설정
-        config.contentInsets = NSDirectionalEdgeInsets(top: 7, leading: 148, bottom: 7, trailing: 149)
         
         config.title = "다음"
         config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
@@ -409,10 +376,7 @@ class Edit3 : UIViewController {
     
     
     func setUI(){
-        view.addSubview(lineImage1)
-        view.addSubview(lineImage2)
-        view.addSubview(lineImage3)
-        view.addSubview(lineImage4)
+        view.addSubview(lineImage)
         
         view.addSubview(nextButton)
         
@@ -432,26 +396,16 @@ class Edit3 : UIViewController {
         
         
         NSLayoutConstraint.activate([
-            lineImage1.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 36),
-            lineImage1.widthAnchor.constraint(equalToConstant: 69),
+            lineImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 57.4),
+                        lineImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 33),
+                        lineImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                        
+                        
+                        // 변경
+                           titleLabel1.topAnchor.constraint(equalTo: lineImage.bottomAnchor , constant: 38),
+                        titleLabel1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
             
-            lineImage2.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage2.leadingAnchor.constraint(equalTo: lineImage1.trailingAnchor , constant: 16),
-            lineImage2.widthAnchor.constraint(equalToConstant: 69),
-            
-            lineImage3.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage3.leadingAnchor.constraint(equalTo: lineImage2.trailingAnchor , constant: 16),
-            lineImage3.widthAnchor.constraint(equalToConstant: 69),
-            
-            lineImage4.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor , constant: 57.4),
-            lineImage4.leadingAnchor.constraint(equalTo: lineImage3.trailingAnchor , constant: 16),
-            lineImage4.widthAnchor.constraint(equalToConstant: 69),
-            
-            titleLabel1.topAnchor.constraint(equalTo: lineImage1.bottomAnchor , constant: 38),
-            titleLabel1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 32),
-            
-            titleLabel2.topAnchor.constraint(equalTo: lineImage1.bottomAnchor , constant: 38),
+            titleLabel2.topAnchor.constraint(equalTo: lineImage.bottomAnchor , constant: 38),
             titleLabel2.leadingAnchor.constraint(equalTo: titleLabel1.trailingAnchor , constant: 0),
             
             titleLabel3.topAnchor.constraint(equalTo: titleLabel1.bottomAnchor , constant: 3),
@@ -460,7 +414,7 @@ class Edit3 : UIViewController {
             
             
             titleLabel5.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -20),
-            titleLabel5.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor , constant: 58.4),
+                        titleLabel5.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             nextButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -13.7),
             nextButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32.4),
@@ -513,10 +467,10 @@ class Edit3 : UIViewController {
         view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            backButton.widthAnchor.constraint(equalToConstant: 10),
-            backButton.heightAnchor.constraint(equalToConstant: 22),
-            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 31.79),
-            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 68)
+            backButton.widthAnchor.constraint(equalToConstant: 30),
+            backButton.heightAnchor.constraint(equalToConstant: 37),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 23),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50)
         ])
     }
     
@@ -585,6 +539,13 @@ class Edit3 : UIViewController {
 
         
     }
+    
+    
+    
+    
+    
+    
+    
     
     @objc func buttonClicked3(_ sender: UIButton) {
         sender.isSelected.toggle()
@@ -757,7 +718,6 @@ class Edit3 : UIViewController {
     @objc func moveToNext(){
         if koreaFoodButton.isSelected || americaFoodButton.isSelected || chinaFoodButton.isSelected || japanFoodButton.isSelected || tieFoodButton.isSelected || etcFoodButton.isSelected {
             let preferVC = Edit4()
-            
             preferVC.uid = self.uid  // uid 전달
             preferVC.name = self.name  // name 전달
             preferVC.preferModel = self.preferModel

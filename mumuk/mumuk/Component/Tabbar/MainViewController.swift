@@ -13,13 +13,20 @@ class MainViewController: UIViewController {
         return imageView
     }()
     
+    let mukkuImageView: UIImageView = {
+        let mukkuImageView = UIImageView()
+        mukkuImageView.image = UIImage(named: "mukku")
+        mukkuImageView.contentMode = .scaleAspectFit
+        return mukkuImageView
+    }()
+    
     let firstLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         label.font = UIFont(name: "Pretendard-Regular", size: 20)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.26
-        label.attributedText = NSMutableAttributedString(string: "오늘은 누구와 함께", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        label.attributedText = NSMutableAttributedString(string: "오늘은 또 어떤 메뉴로", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         return label
     }()
     
@@ -29,7 +36,7 @@ class MainViewController: UIViewController {
         label.font = UIFont(name: "Pretendard-Regular", size: 20)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.26
-        label.attributedText = NSMutableAttributedString(string: "행복한 식사를 해볼까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        label.attributedText = NSMutableAttributedString(string: "행복한 식사를 할 수 있을까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         return label
     }()
     
@@ -61,7 +68,7 @@ class MainViewController: UIViewController {
         let label = UILabel()
         label.textColor = UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1)
         label.font = UIFont(name: "Pretendard-Bold", size: 13)
-        label.text = "오늘의 음식 취향은?"
+        label.text = "입맛 취향을 입력해서 푸로필을 만들어보세요!"
         return label
     }()
 
@@ -69,21 +76,13 @@ class MainViewController: UIViewController {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont(name: "Pretendard-Bold", size: 22)
-        label.text = "데일리"
-        return label
-    }()
-
-    let foodScrumLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .black
-        label.font = UIFont(name: "Pretendard-Bold", size: 22)
-        label.text = "푸드 스크럼"
+        label.text = "오늘 머먹"
         return label
     }()
 
     let preferenceButton: UIButton = {
         let button = UIButton()
-        button.setTitle("선호도 입력하러 가기 >", for: .normal)
+        button.setTitle("입맛 입력하러 가기 >", for: .normal)
         button.setTitleColor(UIColor(red: 1, green: 0.592, blue: 0.102, alpha: 1), for: .normal)
         button.titleLabel?.font = UIFont(name: "Pretendard-Regular", size: 13)
         button.layer.cornerRadius = 17
@@ -103,7 +102,7 @@ class MainViewController: UIViewController {
         let label = UILabel()
         label.textColor = .white
         label.font = UIFont(name: "Pretendard-SemiBold", size: 10)
-        label.text = "푸드 스크럼 하셨나요? 😋"
+        label.text = "입맛을 입력해야 추천 메뉴에 선호가 반영돼요!"
         label.textAlignment = .center
         return label
     }()
@@ -128,7 +127,7 @@ class MainViewController: UIViewController {
         label.font = UIFont(name: "Pretendard-Bold", size: 13)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.29
-        label.attributedText = NSMutableAttributedString(string: "맛있는 모임을 만들어 볼까요?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        label.attributedText = NSMutableAttributedString(string: "그룹을 만들고 메뉴를 추천 받아보세요!", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         return label
     }()
 
@@ -138,7 +137,7 @@ class MainViewController: UIViewController {
         label.font = UIFont(name: "Pretendard-Bold", size: 22)
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.14
-        label.attributedText = NSMutableAttributedString(string: "함께 먹기", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        label.attributedText = NSMutableAttributedString(string: "함께 머먹", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
         return label
     }()
     
@@ -162,7 +161,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        uid = KakaoLoginViewController.globalUid
+        uid = UserDefaultsManager.shared.getUserId() ?? ""
 
         setupUI()
         setupButtonActions()
@@ -170,7 +169,7 @@ class MainViewController: UIViewController {
         
         print("name 맞는지 확인 : \(name)")
 
-        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true) { [weak self] _ in
             self?.fetchUserData()
         }
     }
@@ -195,7 +194,6 @@ class MainViewController: UIViewController {
         shadowView.addSubview(whiteView)
         whiteView.addSubview(foodPreferenceLabel)
         whiteView.addSubview(dailyLabel)
-        whiteView.addSubview(foodScrumLabel)
         whiteView.addSubview(preferenceButton)
         whiteView.addSubview(textBalloonImageView)
         textBalloonImageView.addSubview(foodScrumCompleteLabel)
@@ -205,6 +203,7 @@ class MainViewController: UIViewController {
         view.addSubview(eatTogetherLabel)
         secondShadowView.addSubview(groupBeforeButton)
         secondShadowView.addSubview(createButton)
+        secondShadowView.addSubview(mukkuImageView)
         setupConstraints()
         setupShadow()
     }
@@ -214,11 +213,11 @@ class MainViewController: UIViewController {
         firstLabel.translatesAutoresizingMaskIntoConstraints = false
         secondLabel.translatesAutoresizingMaskIntoConstraints = false
         emojiImageView.translatesAutoresizingMaskIntoConstraints = false
+        mukkuImageView.translatesAutoresizingMaskIntoConstraints = false
         shadowView.translatesAutoresizingMaskIntoConstraints = false
         whiteView.translatesAutoresizingMaskIntoConstraints = false
         foodPreferenceLabel.translatesAutoresizingMaskIntoConstraints = false
         dailyLabel.translatesAutoresizingMaskIntoConstraints = false
-        foodScrumLabel.translatesAutoresizingMaskIntoConstraints = false
         preferenceButton.translatesAutoresizingMaskIntoConstraints = false
         textBalloonImageView.translatesAutoresizingMaskIntoConstraints = false
         foodScrumCompleteLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -236,26 +235,26 @@ class MainViewController: UIViewController {
             imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 66),
             
             firstLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            firstLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 25),
-            firstLabel.widthAnchor.constraint(equalToConstant: 149),
+            firstLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
+            firstLabel.widthAnchor.constraint(equalToConstant: 210),
             firstLabel.heightAnchor.constraint(equalToConstant: 24),
             
             secondLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
-            secondLabel.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 11),
-            secondLabel.widthAnchor.constraint(equalToConstant: 195),
-            secondLabel.heightAnchor.constraint(equalToConstant: 25),
+            secondLabel.topAnchor.constraint(equalTo: firstLabel.bottomAnchor, constant: 8.04),
+            secondLabel.widthAnchor.constraint(equalToConstant: 243),
+            secondLabel.heightAnchor.constraint(equalToConstant: 28),
             
-            emojiImageView.widthAnchor.constraint(equalToConstant: 81),
-            emojiImageView.heightAnchor.constraint(equalToConstant: 80),
+            emojiImageView.widthAnchor.constraint(equalToConstant: 68),
+            emojiImageView.heightAnchor.constraint(equalToConstant: 54),
             emojiImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            emojiImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 91),
+            emojiImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 106),
 
             // shadowView(whiteView를 포함하는)의 제약 조건 (위치만 secondShadowView의 원래 위치로)
             shadowView.widthAnchor.constraint(equalToConstant: 329),
             shadowView.heightAnchor.constraint(equalToConstant: 169), // 원래 높이 유지
             shadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             shadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
-            shadowView.topAnchor.constraint(equalTo: secondShadowView.bottomAnchor, constant: 21),
+            shadowView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -167),
 
             whiteView.topAnchor.constraint(equalTo: shadowView.topAnchor),
             whiteView.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor),
@@ -268,18 +267,15 @@ class MainViewController: UIViewController {
             dailyLabel.topAnchor.constraint(equalTo: foodPreferenceLabel.bottomAnchor, constant: 1),
             dailyLabel.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: 20),
 
-            foodScrumLabel.topAnchor.constraint(equalTo: dailyLabel.bottomAnchor, constant: 1),
-            foodScrumLabel.leadingAnchor.constraint(equalTo: whiteView.leadingAnchor, constant: 20),
-
-            preferenceButton.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -22),
-            preferenceButton.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -20),
+            preferenceButton.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -21),
+            preferenceButton.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -24),
             preferenceButton.widthAnchor.constraint(equalToConstant: 140),
             preferenceButton.heightAnchor.constraint(equalToConstant: 34),
 
-            textBalloonImageView.bottomAnchor.constraint(equalTo: preferenceButton.topAnchor, constant: -2),
-            textBalloonImageView.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -14.65),
-            textBalloonImageView.widthAnchor.constraint(equalToConstant: 124),
-            textBalloonImageView.heightAnchor.constraint(equalToConstant: 32),
+            textBalloonImageView.bottomAnchor.constraint(equalTo: preferenceButton.topAnchor, constant: -2.82),
+            textBalloonImageView.trailingAnchor.constraint(equalTo: whiteView.trailingAnchor, constant: -21),
+            textBalloonImageView.widthAnchor.constraint(equalToConstant: 196.78),
+            textBalloonImageView.heightAnchor.constraint(equalToConstant: 35.96),
 
             foodScrumCompleteLabel.centerXAnchor.constraint(equalTo: textBalloonImageView.centerXAnchor),
             foodScrumCompleteLabel.centerYAnchor.constraint(equalTo: textBalloonImageView.centerYAnchor, constant: -3),
@@ -287,23 +283,23 @@ class MainViewController: UIViewController {
             foodScrumCompleteLabel.heightAnchor.constraint(equalToConstant: 20),
             
             // secondShadowView의 제약 조건 (위치만 whiteView의 원래 위치로)
-            secondShadowView.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 30),
+            secondShadowView.bottomAnchor.constraint(equalTo: shadowView.topAnchor, constant: -21),
             secondShadowView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
             secondShadowView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32),
             secondShadowView.widthAnchor.constraint(equalToConstant: 329),
-            secondShadowView.heightAnchor.constraint(equalToConstant: 270), // 원래 높이 유지
+            secondShadowView.heightAnchor.constraint(equalToConstant: 270),
 
             secondShapeView.topAnchor.constraint(equalTo: secondShadowView.topAnchor),
             secondShapeView.leadingAnchor.constraint(equalTo: secondShadowView.leadingAnchor),
             secondShapeView.trailingAnchor.constraint(equalTo: secondShadowView.trailingAnchor),
             secondShapeView.bottomAnchor.constraint(equalTo: secondShadowView.bottomAnchor),
 
-            tastyMeetingLabel.widthAnchor.constraint(equalToConstant: 155),
+            tastyMeetingLabel.widthAnchor.constraint(equalToConstant: 217),
             tastyMeetingLabel.heightAnchor.constraint(equalToConstant: 20),
             tastyMeetingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
-            tastyMeetingLabel.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 50),
+            tastyMeetingLabel.topAnchor.constraint(equalTo: secondShadowView.topAnchor, constant: 20),
 
-            eatTogetherLabel.widthAnchor.constraint(equalToConstant: 83.38),
+            eatTogetherLabel.widthAnchor.constraint(equalToConstant: 105),
             eatTogetherLabel.heightAnchor.constraint(equalToConstant: 30),
             eatTogetherLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 53),
             eatTogetherLabel.topAnchor.constraint(equalTo: tastyMeetingLabel.bottomAnchor, constant: 1),
@@ -312,6 +308,12 @@ class MainViewController: UIViewController {
             groupBeforeButton.heightAnchor.constraint(equalToConstant: 118),
             groupBeforeButton.trailingAnchor.constraint(equalTo: secondShadowView.trailingAnchor),
             groupBeforeButton.bottomAnchor.constraint(equalTo: secondShadowView.bottomAnchor),
+            
+            mukkuImageView.heightAnchor.constraint(equalToConstant: 153.39),
+            mukkuImageView.widthAnchor.constraint(equalToConstant: 161.82),
+            mukkuImageView.leadingAnchor.constraint(equalTo: secondShadowView.leadingAnchor),
+            mukkuImageView.trailingAnchor.constraint(equalTo: secondShadowView.centerXAnchor),
+            mukkuImageView.bottomAnchor.constraint(equalTo: secondShadowView.bottomAnchor, constant: -23.7),
             
             createButton.widthAnchor.constraint(equalToConstant: 45),
             createButton.heightAnchor.constraint(equalToConstant: 45),
@@ -330,7 +332,7 @@ class MainViewController: UIViewController {
 
     @objc private func createButtonTapped() {
         let friendGroupingVC = FriendGroupingViewController()
-        uid = KakaoLoginViewController.globalUid
+        uid = UserDefaultsManager.shared.getUserId() ?? ""
 //        print(uid)
         friendGroupingVC.uid = self.uid  // uid 전달
         friendGroupingVC.name = self.name  // name 전달
@@ -340,7 +342,7 @@ class MainViewController: UIViewController {
 
     @objc private func moveToPreferViewController(){
         let preferVC = PreferViewController1()
-        uid = KakaoLoginViewController.globalUid
+        uid = UserDefaultsManager.shared.getUserId() ?? ""
         preferVC.uid = uid
 //        if let uid = uid{
 //

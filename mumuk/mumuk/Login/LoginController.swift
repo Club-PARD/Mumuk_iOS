@@ -300,7 +300,7 @@ class LoginController: UIViewController, ModalImageSelectDelegate {
                         print("User with name '\(name)' is new")
                     
                         // 새 사용자에 대한 처리
-                        let newMember = NameModel(uid: self?.uid ?? "", name: name, image: image)
+                        let newMember = NameModel(uid: self?.uid ?? "", name: name, imageId: image)
                         self?.makePostRequest(newMember)
                         self!.name = newMember.name
                         

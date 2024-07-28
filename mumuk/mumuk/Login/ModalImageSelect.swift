@@ -9,10 +9,9 @@ import UIKit
 
 class ModalImageSelect: UIViewController {
     let cellidentifier = "cell"
-    var selectedImage: UIImage?// 이미 설정된 이미지 불러오기위한 변수
+    var selectedImage: UIImage?
     weak var delegate: ModalImageSelectDelegate?
 
-    // 선택된 이미지의 인덱스와 모델 데이터 저장
     var selectedIndex: Int?
     var modelData: [Model] = Model.ModelData
     
@@ -25,19 +24,16 @@ class ModalImageSelect: UIViewController {
         return label
     }()
     
-    //화면 중앙에 뜨는 큰 이미지
     let selectedImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 60 // 적절한 반지름 값 설정
-//        imageView.layer.borderWidth = 1
+        imageView.layer.cornerRadius = 60
         imageView.layer.borderColor = UIColor.black.cgColor
         return imageView
     }()
     
-    //collectionview생성
     let collectionview: UICollectionView = {
         let flowlayout = UICollectionViewFlowLayout()
         let collectionview = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
@@ -45,7 +41,6 @@ class ModalImageSelect: UIViewController {
         return collectionview
     }()
     
-    //저장하기
     let selectButton: UIButton = {
         let button = UIButton()
         button.setTitle("저장", for: .normal)
@@ -56,7 +51,6 @@ class ModalImageSelect: UIViewController {
         return button
      }()
     
-    // 지우기 버튼
     let deleteButton: UIButton = {
         let button = UIButton()
         button.setTitle("지우기", for: .normal)
@@ -67,9 +61,6 @@ class ModalImageSelect: UIViewController {
         return button
     }()
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -78,17 +69,19 @@ class ModalImageSelect: UIViewController {
         collectionview.delegate = self
         collectionview.register(CustomCell.self, forCellWithReuseIdentifier: cellidentifier)
         
+        // CollectionView 레이아웃 설정
+        if let layout = collectionview.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .vertical
+        }
+        
         view.addSubview(LoginTitle)
         view.addSubview(selectedImageView)
         view.addSubview(collectionview)
         view.addSubview(selectButton)
         view.addSubview(deleteButton)
 
-
-        
         setUI()
         
-        //이미 고른 이미지 모달 창 열 때 불러오기
         if let image = selectedImage {
             selectedImageView.image = image
         }
@@ -101,7 +94,6 @@ class ModalImageSelect: UIViewController {
         selectButton.translatesAutoresizingMaskIntoConstraints = false
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
 
-        
         NSLayoutConstraint.activate([
             LoginTitle.topAnchor.constraint(equalTo: view.topAnchor, constant: 32),
             LoginTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32),
@@ -139,16 +131,10 @@ class ModalImageSelect: UIViewController {
     }
     
     @objc func deleteButtonTapped() {
-//            delegate?.didSelectImage(withNumber: 0)
-//            dismiss(animated: true, completion: nil)
-        
-        // 기본 이미지로 업데이트
-        let defaultImage = UIImage(named: "default") // 여기에 기본 이미지 이름을 넣으세요
+        let defaultImage = UIImage(named: "default")
         updateSelectedImage(with: defaultImage, at: 0)
-        
-        }
+    }
 
-    //프로필 누룰 때 마다 실행
     func updateSelectedImage(with image: UIImage?, at index: Int) {
         selectedImageView.image = image
         selectedIndex = index
@@ -157,7 +143,7 @@ class ModalImageSelect: UIViewController {
 
 extension ModalImageSelect: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Model.ModelData.count - 1
+        return min(6, Model.ModelData.count - 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -170,14 +156,15 @@ extension ModalImageSelect: UICollectionViewDelegate, UICollectionViewDataSource
         let target = Model.ModelData[indexPath.item + 1]
         let image = UIImage(named: "\(target.image).jpeg")
         cell.imageView.image = image
-        cell.imageView.tag = indexPath.item+1 // 태그를 사용하여 셀의 인덱스 저장
+        cell.imageView.tag = indexPath.item+1
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let target = Model.ModelData[indexPath.item + 1]
         let image = UIImage(named: "\(target.image).jpeg")
-        updateSelectedImage(with: image, at: indexPath.item+1)    //선택한 이미지 큰 곳에 전송
+        updateSelectedImage(with: image, at: indexPath.item + 1)
+        selectedIndex = indexPath.item + 1
     }
 }
 
@@ -189,7 +176,11 @@ extension ModalImageSelect: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 1, bottom: 0, right: 1)
+        let totalCellWidth = 62 * 3
+        let totalSpacingWidth = 7 * 2
+        let leftInset = (collectionView.bounds.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

@@ -112,9 +112,9 @@ class TabbarViewController: UITabBarController, UITabBarControllerDelegate {
         tabBarItems[1].image = UIImage(systemName: "circle.fill")?.withRenderingMode(.alwaysTemplate)
         tabBarItems[2].image = UIImage(systemName: "person.text.rectangle", withConfiguration: personConfig)?.withRenderingMode(.alwaysTemplate)
         
-        tabBarItems[0].title = "친구 목록"
-        tabBarItems[1].title = "메뉴 추천"
-        tabBarItems[2].title = "MY"
+        tabBarItems[0].title = "친구"
+        tabBarItems[1].title = "HOME"
+        tabBarItems[2].title = "내 푸로필"
         
         tabBarItems.forEach { item in
             item.setTitleTextAttributes([.font: UIFont.pretendard(.bold, size: 13)], for: .normal)

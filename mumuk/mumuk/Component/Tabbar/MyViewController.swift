@@ -2,6 +2,7 @@
 
 
 import UIKit
+import KakaoSDKUser
 
 class MyViewController: UIViewController {
     var uid : String = ""
@@ -120,7 +121,7 @@ class MyViewController: UIViewController {
             }
         }
         
-        self.yesterdayFood = data.notToday ?? "???"
+        self.yesterdayFood = data.notToday ?? "입력되지 않았어요"
         self.daily.removeAll()
         
         if data.daily {
@@ -144,8 +145,8 @@ class MyViewController: UIViewController {
                 }
             }
         } else {
-            self.yesterdayFood = "???"
-            self.daily = ["???"]
+            self.yesterdayFood = "입력되지 않았어요"
+            self.daily = ["입력되지 않았어요"]
         }
     }
     
@@ -239,10 +240,10 @@ class MyViewController: UIViewController {
     }()
     
     private let tagUnderCollectionView: UICollectionView = {
-        let flowlayout = LeftAlignedCollectionViewFlowLayout()
-        flowlayout.scrollDirection = .horizontal
-        flowlayout.minimumInteritemSpacing = 5
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowlayout)
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 5
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.backgroundColor = .clear
@@ -405,19 +406,12 @@ class MyViewController: UIViewController {
             return label
         }()
     
-    var line : UIView = {
-        let line = UIView()
-        line.translatesAutoresizingMaskIntoConstraints = false
-        line.frame = CGRect(x: 0, y: 0, width: 271, height: 0)
-        
-        var stroke = UIView()
-        stroke.bounds = line.bounds.insetBy(dx: -1, dy: -1)
-        stroke.center = line.center
-        stroke.layer.borderWidth = 2
-        stroke.layer.borderColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1).cgColor
-        line.addSubview(stroke)
-        return line
-    }()
+    var line: UIView = {
+           let line = UIView()
+           line.translatesAutoresizingMaskIntoConstraints = false
+           line.backgroundColor = UIColor(red: 0.929, green: 0.929, blue: 0.929, alpha: 1)
+           return line
+       }()
 
     let todaykeyword: UILabel = {
         let label = UILabel()
@@ -459,22 +453,29 @@ class MyViewController: UIViewController {
     }()
     
     let service: UIButton = {
-        var configuration = UIButton.Configuration.plain()
+          var configuration = UIButton.Configuration.plain()
 
-        var text = AttributedString("서비스 이용약관")
-        text.font = UIFont(name: "Pretendard-Medium", size: 14)
-        text.foregroundColor = UIColor.black
-        configuration.attributedTitle = text
-        configuration.image = UIImage(named: "sheet")
-        configuration.imagePadding = 19
-        configuration.imagePlacement = .leading
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+          var text = AttributedString("서비스 이용약관")
+          text.font = UIFont(name: "Pretendard-Medium", size: 14)
+          text.foregroundColor = UIColor.black
+          configuration.attributedTitle = text
+          configuration.image = UIImage(named: "sheet")
+          configuration.imagePadding = 19
+          configuration.imagePlacement = .leading
+          configuration.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 
-        let button = UIButton(configuration: configuration)
-        button.translatesAutoresizingMaskIntoConstraints = false
+          let button = UIButton(configuration: configuration)
+          button.translatesAutoresizingMaskIntoConstraints = false
+          button.addTarget(self, action: #selector(serviceuse), for: .touchUpInside)
 
-        return button
-    }()
+          return button
+      }()
+    
+    @objc private func serviceuse() {
+        let serviceVC = ServiceViewController()
+        serviceVC.modalPresentationStyle = .fullScreen // 전체 화면으로 표시
+        self.present(serviceVC, animated: true, completion: nil)
+    }
     
     let logout: UIButton = {
         var configuration = UIButton.Configuration.plain()
@@ -490,6 +491,7 @@ class MyViewController: UIViewController {
 
         let button = UIButton(configuration: configuration)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
 
         return button
     }()
@@ -576,7 +578,7 @@ class MyViewController: UIViewController {
     
     
     @objc private func customercontect() {
-        showAlert(message: "010-5685-0125로 문의 하던가 말던가~")
+        showAlert(message: "고객님의 문의에 신속히 응답하겠습니다.")
     }
     
     func showAlert(message: String) {
@@ -770,6 +772,8 @@ class MyViewController: UIViewController {
             
             line.topAnchor.constraint(equalTo: thirdView.topAnchor, constant: 93),
             line.leadingAnchor.constraint(equalTo: thirdView.leadingAnchor, constant: 28),
+            line.trailingAnchor.constraint(equalTo: thirdView.trailingAnchor, constant: -28),
+            line.heightAnchor.constraint(equalToConstant: 1),
             
             todaykeyword.topAnchor.constraint(equalTo: line.topAnchor, constant: 32),
             todaykeyword.leadingAnchor.constraint(equalTo: thirdView.leadingAnchor, constant: 28),
@@ -837,6 +841,44 @@ extension MyViewController: UICollectionViewDelegate, UICollectionViewDataSource
             let size = (tag as NSString).size(withAttributes: attributes)
             return CGSize(width: size.width + 18, height: 29)
         }
+    }
+    
+    @objc func logoutButtonTapped() {
+        // 로그아웃 확인 알림창 표시
+        let alert = UIAlertController(title: "로그아웃", message: "정말 로그아웃 하시겠습니까?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "로그아웃", style: .destructive, handler: { _ in
+            self.performLogout()
+        }))
+        
+        present(alert, animated: true, completion: nil)
+    }
+
+    func performLogout() {
+        UserDefaultsManager.shared.clearAllUserData()
+        
+        // 카카오 로그아웃
+        UserApi.shared.logout {(error) in
+            if let error = error {
+                print(error)
+            } else {
+                print("카카오 logout() success.")
+            }
+        }
+        
+        // 로그인 화면으로 이동
+        let loginVC = KakaoLoginViewController()
+        let navController = UINavigationController(rootViewController: loginVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
+    }
+
+    func navigateToLoginScreen() {
+        let loginVC = KakaoLoginViewController()
+        let navController = UINavigationController(rootViewController: loginVC)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
     }
 }
 

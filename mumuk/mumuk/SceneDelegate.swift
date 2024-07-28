@@ -22,12 +22,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        
         window = UIWindow(windowScene: windowScene)
         
-        window?.rootViewController = KakaoLoginViewController()
-//        window?.rootViewController = LoginController()
+        if UserDefaultsManager.shared.isLoggedIn() {
+            let mainVC = TabbarViewController()
+            window?.rootViewController = mainVC
+        } else {
+            let loginVC = KakaoLoginViewController()
+            window?.rootViewController = loginVC
+        }
         
         window?.makeKeyAndVisible()
     }
