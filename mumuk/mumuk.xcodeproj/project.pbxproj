@@ -82,7 +82,6 @@
 		22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CC9D992C3C5B6600CBC79F /* LoadingViewController.swift */; };
 		485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008072C2C44A800C9A196 /* MapModalViewController.swift */; };
 		4850082A2C2E7E6600C9A196 /* KakaoLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */; };
-		4E03A6306342914DE51D89C0 /* Pods_mumuk_mumukUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DBF032E46D4DF3F0337C82 /* Pods_mumuk_mumukUITests.framework */; };
 		81042E262C29A3DF00EEC5FB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E252C29A3DF00EEC5FB /* LoginController.swift */; };
 		81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */; };
 		81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */; };
@@ -92,8 +91,12 @@
 		815FE7D02C304FA70090BDBE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815FE7CF2C304FA70090BDBE /* MainViewController.swift */; };
 		81F375FA2C2AF3D7006D986F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375F92C2AF3D7006D986F /* CustomCell.swift */; };
 		81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */; };
-		83F053707887306779E85536 /* Pods_mumuk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C77073081520A0112F651060 /* Pods_mumuk.framework */; };
-		E3DD5B6C59DBCC05DD23F217 /* Pods_mumukTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F9D6DECD0777340C11E2821 /* Pods_mumukTests.framework */; };
+		829E2A03922BAD7F2EFBB81C /* Pods_mumuk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B433C5B781DEDD9BB4C4BC4 /* Pods_mumuk.framework */; };
+		B34B4BB32C8DCEB7005CB1F4 /* FriendComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B4BB22C8DCEB7005CB1F4 /* FriendComponent.swift */; };
+		B34B4BB52C8DCEBC005CB1F4 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34B4BB42C8DCEBC005CB1F4 /* TagCell.swift */; };
+		D023BD0BB7824499A693124F /* Pods_mumuk_mumukUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA2766F136DAC96C7772511 /* Pods_mumuk_mumukUITests.framework */; };
+		DD20F9AEF1C56FBA7AC35E95 /* Pods_mumukTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7983118C08EFB1BF04D8E27 /* Pods_mumukTests.framework */; };
+		E3DD5B6C59DBCC05DD23F217 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +117,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B433C5B781DEDD9BB4C4BC4 /* Pods_mumuk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C58AF9A73827828B303B794 /* Pods-mumukTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.debug.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.debug.xcconfig"; sourceTree = "<group>"; };
 		223192DF2C3E84D400BE699A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		223192E12C3EAD6700BE699A /* ServiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		223192E32C40830500BE699A /* OpenPrefLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenPrefLoading.swift; sourceTree = "<group>"; };
@@ -165,8 +170,6 @@
 		226890022C3D2A4F00A3E3EE /* underbordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = underbordCell.swift; sourceTree = "<group>"; };
 		226890032C3D2A4F00A3E3EE /* underTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = underTagCell.swift; sourceTree = "<group>"; };
 		226890042C3D2A4F00A3E3EE /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		226890052C3D2A4F00A3E3EE /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = ../../../../../../Downloads/mumuk/mumuk/Component/TagCell.swift; sourceTree = "<group>"; };
-		226890062C3D2A4F00A3E3EE /* FriendComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendComponent.swift; path = ../../../../../../Downloads/mumuk/mumuk/Component/FriendComponent.swift; sourceTree = "<group>"; };
 		2268900F2C3D2A9300A3E3EE /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		226890112C3D2A9900A3E3EE /* EditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
 		226890132C3D2A9E00A3E3EE /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
@@ -196,9 +199,12 @@
 		22CC9DAE2C3CA30800CBC79F /* Openprofile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Openprofile.swift; sourceTree = "<group>"; };
 		22CC9DCF2C3CA37200CBC79F /* MyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		22CC9DD22C3CA37200CBC79F /* FriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		2AF6DA3CDA9E77469C0F783A /* Pods-mumuk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.debug.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.debug.xcconfig"; sourceTree = "<group>"; };
+		3588F0CC3DE9CFDB57ECFBF2 /* Pods-mumuk-mumukUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.release.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3B0289CBE033FF92C34E4CB5 /* Pods-mumuk-mumukUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.debug.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		485008072C2C44A800C9A196 /* MapModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapModalViewController.swift; sourceTree = "<group>"; };
 		485008292C2E7E6600C9A196 /* KakaoLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginViewController.swift; sourceTree = "<group>"; };
-		5F810D87800A568D8597428E /* Pods-mumuk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.debug.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.debug.xcconfig"; sourceTree = "<group>"; };
+		57529C40943E9044DFE99D31 /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.release.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
 		81042E252C29A3DF00EEC5FB /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		81042E2D2C29B67D00EEC5FB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		81042E2F2C29D72D00EEC5FB /* CustomImageField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageField.swift; sourceTree = "<group>"; };
@@ -208,12 +214,11 @@
 		815FE7CF2C304FA70090BDBE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		81F375F92C2AF3D7006D986F /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		81F375FD2C2B382B006D986F /* ModalImageSelectDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalImageSelectDelegate.swift; sourceTree = "<group>"; };
-		8BEB8854C03CF3068E293521 /* Pods-mumukTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.debug.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9E8F5EA53D85991B0E4D4A55 /* Pods-mumuk-mumukUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk-mumukUITests.release.xcconfig"; path = "Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests.release.xcconfig"; sourceTree = "<group>"; };
-		A9FD79805BB846554B19F639 /* Pods-mumuk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumuk.release.xcconfig"; path = "Target Support Files/Pods-mumuk/Pods-mumuk.release.xcconfig"; sourceTree = "<group>"; };
-		B4DBF032E46D4DF3F0337C82 /* Pods_mumuk_mumukUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk_mumukUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD8E1B50C53A8C69C589D5A7 /* Pods-mumukTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.release.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.release.xcconfig"; sourceTree = "<group>"; };
-		C77073081520A0112F651060 /* Pods_mumuk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96349C8F330A44822AF01229 /* Pods-mumukTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mumukTests.release.xcconfig"; path = "Target Support Files/Pods-mumukTests/Pods-mumukTests.release.xcconfig"; sourceTree = "<group>"; };
+		B34B4BB22C8DCEB7005CB1F4 /* FriendComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendComponent.swift; sourceTree = "<group>"; };
+		B34B4BB42C8DCEBC005CB1F4 /* TagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		BCA2766F136DAC96C7772511 /* Pods_mumuk_mumukUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumuk_mumukUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7983118C08EFB1BF04D8E27 /* Pods_mumukTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mumukTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,7 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83F053707887306779E85536 /* Pods_mumuk.framework in Frameworks */,
+				829E2A03922BAD7F2EFBB81C /* Pods_mumuk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +234,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3DD5B6C59DBCC05DD23F217 /* Pods_mumukTests.framework in Frameworks */,
+				E3DD5B6C59DBCC05DD23F217 /* (null) in Frameworks */,
+				DD20F9AEF1C56FBA7AC35E95 /* Pods_mumukTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,13 +243,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E03A6306342914DE51D89C0 /* Pods_mumuk_mumukUITests.framework in Frameworks */,
+				D023BD0BB7824499A693124F /* Pods_mumuk_mumukUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03E543C82090854D8EE24C24 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B433C5B781DEDD9BB4C4BC4 /* Pods_mumuk.framework */,
+				BCA2766F136DAC96C7772511 /* Pods_mumuk_mumukUITests.framework */,
+				C7983118C08EFB1BF04D8E27 /* Pods_mumukTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		220CC3902C3CAC0A009D4576 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,8 +375,8 @@
 				22BB26092C22E31E00F7585E /* mumukUITests */,
 				22BB25E72C22E31B00F7585E /* Products */,
 				38A09A38CF24C88189E07B52 /* Pods */,
-				F409328A3A61DAEA0D6FF64D /* Frameworks */,
 				223192DD2C3E46EC00BE699A /* Recovered References */,
+				03E543C82090854D8EE24C24 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -420,12 +436,12 @@
 		38A09A38CF24C88189E07B52 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5F810D87800A568D8597428E /* Pods-mumuk.debug.xcconfig */,
-				A9FD79805BB846554B19F639 /* Pods-mumuk.release.xcconfig */,
-				8132F6F12EC8C30C59FD3704 /* Pods-mumuk-mumukUITests.debug.xcconfig */,
-				9E8F5EA53D85991B0E4D4A55 /* Pods-mumuk-mumukUITests.release.xcconfig */,
-				8BEB8854C03CF3068E293521 /* Pods-mumukTests.debug.xcconfig */,
-				BD8E1B50C53A8C69C589D5A7 /* Pods-mumukTests.release.xcconfig */,
+				2AF6DA3CDA9E77469C0F783A /* Pods-mumuk.debug.xcconfig */,
+				57529C40943E9044DFE99D31 /* Pods-mumuk.release.xcconfig */,
+				3B0289CBE033FF92C34E4CB5 /* Pods-mumuk-mumukUITests.debug.xcconfig */,
+				3588F0CC3DE9CFDB57ECFBF2 /* Pods-mumuk-mumukUITests.release.xcconfig */,
+				1C58AF9A73827828B303B794 /* Pods-mumukTests.debug.xcconfig */,
+				96349C8F330A44822AF01229 /* Pods-mumukTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -464,10 +480,10 @@
 		815FE7C52C304D1A0090BDBE /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B34B4BB42C8DCEBC005CB1F4 /* TagCell.swift */,
+				B34B4BB22C8DCEB7005CB1F4 /* FriendComponent.swift */,
 				226890012C3D2A4F00A3E3EE /* dailytasteCell.swift */,
-				226890062C3D2A4F00A3E3EE /* FriendComponent.swift */,
 				226890042C3D2A4F00A3E3EE /* LeftAlignedCollectionViewFlowLayout.swift */,
-				226890052C3D2A4F00A3E3EE /* TagCell.swift */,
 				226890022C3D2A4F00A3E3EE /* underbordCell.swift */,
 				226890032C3D2A4F00A3E3EE /* underTagCell.swift */,
 				815FE7C82C304EB20090BDBE /* Tabbar */,
@@ -494,16 +510,6 @@
 			path = Tabbar;
 			sourceTree = "<group>";
 		};
-		F409328A3A61DAEA0D6FF64D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C77073081520A0112F651060 /* Pods_mumuk.framework */,
-				B4DBF032E46D4DF3F0337C82 /* Pods_mumuk_mumukUITests.framework */,
-				0F9D6DECD0777340C11E2821 /* Pods_mumukTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -511,11 +517,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22BB26102C22E31E00F7585E /* Build configuration list for PBXNativeTarget "mumuk" */;
 			buildPhases = (
-				F5ED17E2154496B388B9CACD /* [CP] Check Pods Manifest.lock */,
+				197853AED63AD82E6B3FE229 /* [CP] Check Pods Manifest.lock */,
 				22BB25E22C22E31A00F7585E /* Sources */,
 				22BB25E32C22E31A00F7585E /* Frameworks */,
 				22BB25E42C22E31A00F7585E /* Resources */,
-				E2EC2D2FC11C2D7AD632C8F7 /* [CP] Embed Pods Frameworks */,
+				31F665E0FF94884490B8BDA3 /* [CP] Embed Pods Frameworks */,
+				0C8F43A5D9ADE8AD33BF50BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -530,7 +537,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22BB26132C22E31E00F7585E /* Build configuration list for PBXNativeTarget "mumukTests" */;
 			buildPhases = (
-				DACD26235693C1C21406D215 /* [CP] Check Pods Manifest.lock */,
+				E24DDE0538FF713E3D6D4BC8 /* [CP] Check Pods Manifest.lock */,
 				22BB25F82C22E31E00F7585E /* Sources */,
 				22BB25F92C22E31E00F7585E /* Frameworks */,
 				22BB25FA2C22E31E00F7585E /* Resources */,
@@ -549,11 +556,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 22BB26162C22E31E00F7585E /* Build configuration list for PBXNativeTarget "mumukUITests" */;
 			buildPhases = (
-				63BCF1504B2D92C215885AA4 /* [CP] Check Pods Manifest.lock */,
+				1F92103C77F57D19805A648E /* [CP] Check Pods Manifest.lock */,
 				22BB26022C22E31E00F7585E /* Sources */,
 				22BB26032C22E31E00F7585E /* Frameworks */,
 				22BB26042C22E31E00F7585E /* Resources */,
-				D93DC81C2C2AA8A92F4C23AD /* [CP] Embed Pods Frameworks */,
+				6E91968C431724A941B4145F /* [CP] Embed Pods Frameworks */,
+				90ED300F134591B2626269A2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -597,8 +605,6 @@
 				Base,
 			);
 			mainGroup = 22BB25DD2C22E31A00F7585E;
-			packageReferences = (
-			);
 			productRefGroup = 22BB25E72C22E31B00F7585E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -648,7 +654,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		63BCF1504B2D92C215885AA4 /* [CP] Check Pods Manifest.lock */ = {
+		0C8F43A5D9ADE8AD33BF50BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		197853AED63AD82E6B3FE229 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mumuk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F92103C77F57D19805A648E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -670,46 +715,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D93DC81C2C2AA8A92F4C23AD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DACD26235693C1C21406D215 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mumukTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E2EC2D2FC11C2D7AD632C8F7 /* [CP] Embed Pods Frameworks */ = {
+		31F665E0FF94884490B8BDA3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -726,7 +732,41 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mumuk/Pods-mumuk-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F5ED17E2154496B388B9CACD /* [CP] Check Pods Manifest.lock */ = {
+		6E91968C431724A941B4145F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90ED300F134591B2626269A2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-mumuk-mumukUITests/Pods-mumuk-mumukUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E24DDE0538FF713E3D6D4BC8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -741,7 +781,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-mumuk-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-mumukTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -773,6 +813,7 @@
 				81042E302C29D72D00EEC5FB /* CustomImageField.swift in Sources */,
 				485008082C2C44A800C9A196 /* MapModalViewController.swift in Sources */,
 				22688FDF2C3D292900A3E3EE /* PreferViewController1.swift in Sources */,
+				B34B4BB32C8DCEB7005CB1F4 /* FriendComponent.swift in Sources */,
 				226890142C3D2A9E00A3E3EE /* FriendViewController.swift in Sources */,
 				81042E322C29E23600EEC5FB /* ModalImageSelect.swift in Sources */,
 				22BB25EE2C22E31B00F7585E /* ViewController.swift in Sources */,
@@ -796,6 +837,7 @@
 				22688FFA2C3D295400A3E3EE /* NameModel.swift in Sources */,
 				226890102C3D2A9300A3E3EE /* DetailViewController.swift in Sources */,
 				22688FE12C3D292900A3E3EE /* PreferViewController3.swift in Sources */,
+				B34B4BB52C8DCEBC005CB1F4 /* TagCell.swift in Sources */,
 				81F375FE2C2B382B006D986F /* ModalImageSelectDelegate.swift in Sources */,
 				22CC9D9A2C3C5B6600CBC79F /* LoadingViewController.swift in Sources */,
 				81042E2E2C29B67D00EEC5FB /* CustomTextField.swift in Sources */,
@@ -1000,7 +1042,7 @@
 		};
 		22BB26112C22E31E00F7585E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F810D87800A568D8597428E /* Pods-mumuk.debug.xcconfig */;
+			baseConfigurationReference = 2AF6DA3CDA9E77469C0F783A /* Pods-mumuk.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1038,7 +1080,7 @@
 		};
 		22BB26122C22E31E00F7585E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9FD79805BB846554B19F639 /* Pods-mumuk.release.xcconfig */;
+			baseConfigurationReference = 57529C40943E9044DFE99D31 /* Pods-mumuk.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1076,7 +1118,7 @@
 		};
 		22BB26142C22E31E00F7585E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8BEB8854C03CF3068E293521 /* Pods-mumukTests.debug.xcconfig */;
+			baseConfigurationReference = 1C58AF9A73827828B303B794 /* Pods-mumukTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1096,7 +1138,7 @@
 		};
 		22BB26152C22E31E00F7585E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD8E1B50C53A8C69C589D5A7 /* Pods-mumukTests.release.xcconfig */;
+			baseConfigurationReference = 96349C8F330A44822AF01229 /* Pods-mumukTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1116,7 +1158,7 @@
 		};
 		22BB26172C22E31E00F7585E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8132F6F12EC8C30C59FD3704 /* Pods-mumuk-mumukUITests.debug.xcconfig */;
+			baseConfigurationReference = 3B0289CBE033FF92C34E4CB5 /* Pods-mumuk-mumukUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1134,7 +1176,7 @@
 		};
 		22BB26182C22E31E00F7585E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E8F5EA53D85991B0E4D4A55 /* Pods-mumuk-mumukUITests.release.xcconfig */;
+			baseConfigurationReference = 3588F0CC3DE9CFDB57ECFBF2 /* Pods-mumuk-mumukUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
